@@ -25,17 +25,15 @@ Functionalities
 Dependencies
 ------------
 
-* `Anaconda <http:///>`_
+* `Anaconda <http://continuum.io/downloads#py34>`_
 * `pyquickhelper <https://pypi.python.org/pypi/pyquickhelper>`_
 
 
 Contributions
 -------------
 
-Started in 2013/08.
+Started in 2015/02.
 
-* First contributor: `Xavier Dupré <http://www.xavierdupre.fr/>`_.
-* Others contributors: ENSAE's students.
 
 Versions
 --------

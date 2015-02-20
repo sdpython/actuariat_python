@@ -10,15 +10,13 @@ Python pour un Actuaire
     * `Windows Setup <http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python>`_
 
 
-Description        
+Description
 -----------
 
+.. toctree::
 
-    
-Functionalities
----------------
+    seances
 
-...
 
 Dependencies
 ------------

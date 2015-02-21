@@ -1,8 +1,8 @@
-
+ï»¿
 
 .. _l-seances:
 
-Séances
+SÃ©ances
 =======
 
 
@@ -11,41 +11,42 @@ Séances
 #. Mai
 #. Juin : 
     * DataFrame, Numpy, Machine Learning
-    * Quelques execices autour d'une table de mortalité
+    * Quelques execices autour d'une table de mortalitÃ©
         * manipulation
         * visualisation
-    * Calculs de probabilité de mortalité à partir de numpy
+    * Calculs de probabilitÃ© de mortalitÃ© Ã  partir de numpy
 #. Septembre : 
     * Machine Learning en Python avec scikit-learn
-    * Chaînes de traitement
+    * ChaÃ®nes de traitement
         * data transformers
-        * modèles (classifiers, ....)
-        * évaluation (ROC, :math:`R^2`, ...)
-    * Types de modèles
+        * modÃ¨les (classifiers, ....)
+        * Ã©valuation (ROC, :math:`R^2`, ...)
+    * Types de modÃ¨les
         * regressors
         * clustering
         * dimensionality reduction (PCA)
-        * système de recommandation
-        * traitement du langage (NLTK), représentation des mots (word2vec)
-    * Sélection de modèles
+        * systÃ¨me de recommandation
+        * traitement du langage (NLTK), reprÃ©sentation des mots (word2vec)
+    * SÃ©lection de modÃ¨les
         * cross validation
     * Un exemple
-    * Programmer ou workflow de données (Orange)
+    * Programmer ou workflow de donnÃ©es (Orange)
 #. Octobre
-    * Visualisation poussées, matplotlib, ggplot, bohek, mpld3
+    * Visualisation poussÃ©es, matplotlib, ggplot, bohek, mpld3
+    * Graph avec `igraph <http://igraph.org/>`_
     * Autres environnements
         * Spyder
         * PyCharm
     * Customiser son environnement (commandes magiques)
     * R dans un notebook (IPython 3 ==> Jupyter)
     * R et Python dans un notebook
-    * Présentation du problème de la séance suivante afin que les stagiaires puissent réfléchir en amont.
+    * PrÃ©sentation du problÃ¨me de la sÃ©ance suivante afin que les stagiaires puissent rÃ©flÃ©chir en amont.
 #. Novembre
-    * Implémenter la simulation d'un régime de retraite complémentaire à partir de sa population.
-      On suppose connu son fichier client, on prend quelques hypothèses de rendements, taux d'entrées, ...
-      C'est une simulation micro économique : on fait évoluer la population année après année.
-    * Définition des règles qui régissent l'évolution du système
-    * Choix des structures de données
-    * Implémentation des règles
+    * ImplÃ©menter la simulation d'un rÃ©gime de retraite complÃ©mentaire Ã  partir de sa population.
+      On suppose connu son fichier client, on prend quelques hypothÃ¨ses de rendements, taux d'entrÃ©es, ...
+      C'est une simulation micro Ã©conomique : on fait Ã©voluer la population annÃ©e aprÃ¨s annÃ©e.
+    * DÃ©finition des rÃ¨gles qui rÃ©gissent l'Ã©volution du systÃ¨me
+    * Choix des structures de donnÃ©es
+    * ImplÃ©mentation des rÃ¨gles
     * Simulation
-    * Graphes qui retracent l'évolution de variables exhaustive (réserves, ...)
+    * Graphes qui retracent l'Ã©volution de variables exhaustive (rÃ©serves, ...)

@@ -5,8 +5,10 @@
 
 """
 
-import os, io
+import os
+import io
 import urllib.request
+
 
 def entier_grande_taille():
     """

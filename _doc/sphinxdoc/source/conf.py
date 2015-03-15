@@ -35,7 +35,7 @@ from pyquickhelper.helpgen.default_conf import set_sphinx_variables
 set_sphinx_variables(__file__,
                      "actuariat_python",
                      "Xavier Dupré, Vincent Bernardi",
-                     2014,
+                     2015,
                      "basicstrap",
                      None,
                      locals(),

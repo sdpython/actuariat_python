@@ -55,7 +55,7 @@ def get_additional_paths():
     return addpath
 
 
-def clean_function_1a(code):
+def clean_function_notebook(code):
     """
     function which clean cells when unittesting notebooks 1A
 

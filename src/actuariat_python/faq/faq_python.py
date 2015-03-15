@@ -10,8 +10,10 @@ import io
 import urllib.request
 
 
-def entier_grande_taille():
+def instruction_pass():
     """
+    
+    Cette fonction ne fait rien.
 
     @FAQ(Quel est l'entier le plus grand ?)
     La version 3 du langage Python a supprimé la constante ``sys.maxint``

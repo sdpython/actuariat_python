@@ -38,7 +38,7 @@ except ImportError:
     import pyquickhelper
 
 from pyquickhelper import fLOG, get_temp_folder
-from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_1a
+from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
 
 
 class TestNotebookExample (unittest.TestCase):
@@ -54,7 +54,7 @@ class TestNotebookExample (unittest.TestCase):
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,
-                                clean_function=clean_function_1a)
+                                clean_function=clean_function_notebook)
         assert len(res) > 0
         fails = [(os.path.split(k)[-1], v)
                  for k, v in sorted(res.items()) if not v[0]]

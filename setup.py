@@ -188,7 +188,7 @@ else:
                                                                                                                                                                                               subversion),
         author='Vincent Bernardi, Xavier Dupré',
         author_email='',
-        url="http://www.xavierdupre.fr/app/pyensae/helpsphinx/index.html",
+        url="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html",
         download_url="https://github.com/sdpython/actuariat_python/",
         description=DESCRIPTION,
         long_description=long_description,
@@ -198,7 +198,7 @@ else:
         package_dir=package_dir,
         package_data=package_data,
         #data_files              = data_files,
-        install_requires=["pyquickhelper"],
+        install_requires=[],
         ext_modules=EXT_MODULES,
         #include_package_data    = True,
     )

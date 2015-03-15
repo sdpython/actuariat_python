@@ -16,17 +16,11 @@ README / Changes
 Description        
 -----------
 
+Support de cours dans le cadre de la formation
+`Actuaire Data Scientist <http://www.institutdesactuaires.com/gene/main.php?base=294>`_
+de l'`Institut des Actuaires <http://www.institutdesactuaires.com/>`_.
 
     
-Functionalities
----------------
-
-
-Dependencies
-------------
-
-* `Anaconda <http://continuum.io/downloads#py34>`_
-* `pyquickhelper <https://pypi.python.org/pypi/pyquickhelper>`_
 
 
 Contributions

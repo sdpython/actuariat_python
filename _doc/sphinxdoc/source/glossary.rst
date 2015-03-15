@@ -4,6 +4,6 @@ Glossary
 .. glossary::
     
     Python
-        See `Azure <http://www.python.org/>`_.
+        See `Python <http://www.python.org/>`_.
 
         

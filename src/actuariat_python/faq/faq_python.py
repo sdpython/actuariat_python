@@ -12,7 +12,7 @@ import urllib.request
 
 def instruction_pass():
     """
-    
+
     Cette fonction ne fait rien.
 
     @FAQ(Quel est l'entier le plus grand ?)

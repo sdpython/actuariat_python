@@ -9,11 +9,7 @@
 `wheel <http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python>`_
 
 
-Support de cours dans le cadre de la formation
-`Actuaire Data Scientist <http://www.institutdesactuaires.com/gene/main.php?base=294>`_
-de l'`Institut des Actuaires <http://www.institutdesactuaires.com/>`_.
-
-    
+Quelques digressions actuarielles.
 
 
 Contenu

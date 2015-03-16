@@ -16,11 +16,7 @@ README / Changes
 Description        
 -----------
 
-Support de cours dans le cadre de la formation
-`Actuaire Data Scientist <http://www.institutdesactuaires.com/gene/main.php?base=294>`_
-de l'`Institut des Actuaires <http://www.institutdesactuaires.com/>`_.
-
-    
+Digressions actuarielles.
 
 
 Contributions

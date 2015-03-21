@@ -5,6 +5,13 @@
 README / Changes
 ================
 
+
+.. image:: https://badge.fury.io/py/actuariat_python.svg
+    :target: http://badge.fury.io/py/actuariat_python
+      
+.. image:: http://img.shields.io/pypi/dm/actuariat_python.png
+    :alt: PYPI Package
+    :target: https://pypi.python.org/pypi/actuariat_python  
    
 **Links:**
     * `pypi/actuariat_python <https://pypi.python.org/pypi/actuariat_python/>`_

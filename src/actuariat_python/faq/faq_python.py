@@ -5,10 +5,6 @@
 
 """
 
-import os
-import io
-import urllib.request
-
 
 def instruction_pass():
     """

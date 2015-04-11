@@ -34,3 +34,5 @@ set_sphinx_variables(__file__,
                      None,
                      locals(),
                      add_extensions=None)
+
+language = "fr"

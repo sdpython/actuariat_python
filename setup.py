@@ -192,11 +192,8 @@ else:
 
     setup(
         name=project_var_name,
-        version='%s.%s' % (sversion,
-                           subversion) if "register" in sys.argv or "sdist" in sys.argv or "bdist_wheel" in sys.argv or "bdist_msi" in sys.argv or "install" in sys.argv else 'py%s-%s.%s' % (versionPython,
-                                                                                                                                                                                              sversion,
-                                                                                                                                                                                              subversion),
-        author='Vincent Bernardi, Xavier Dupré',
+        version='%s.%s' % (sversion, subversion),
+        author='Xavier Dupré',
         author_email='',
         url="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html",
         download_url="https://github.com/sdpython/actuariat_python/",

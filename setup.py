@@ -42,6 +42,7 @@ import os
 from distutils.core import setup
 from setuptools import find_packages
 
+
 def import_pyquickhelper():
     try:
         import pyquickhelper
@@ -71,9 +72,9 @@ def write_version():
     if version is not None:
         with open(os.path.join(fold, "version.txt"), "w") as f:
             f.write(str(version) + "\n")
-            
+
 if not os.path.exists("version.txt"):
-    write_version()            
+    write_version()
 
 if os.path.exists("version.txt"):
     with open("version.txt", "r") as f:

@@ -184,6 +184,6 @@ if not r:
         packages=packages,
         package_dir=package_dir,
         package_data=package_data,
-        install_requires=["ipython", "pandas", "numpy", "matplotlib", 
-                "scikit-learn"],
+        install_requires=["ipython", "pandas", "numpy", "matplotlib",
+                          "scikit-learn"],
     )

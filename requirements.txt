@@ -72,6 +72,6 @@ pymmails
 scipy
 cvxopt
 h5py
-bayespy
 scikit-learn
 pymc
+bayespy

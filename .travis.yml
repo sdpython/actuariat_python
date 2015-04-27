@@ -13,7 +13,7 @@ install:
 
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION cvxopt
   - pip install -r requirements.txt
-  - source activate test-environment
+  #- source activate test-environment
   - python setup.py install
 script:
   - python setup.py unittests

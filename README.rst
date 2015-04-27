@@ -25,7 +25,7 @@ README / Changes
 Description        
 -----------
 
-Digressions actuarielles.
+Digressions actuarielles. Suite à venir.
 
 
 Contributions

@@ -1,4 +1,4 @@
-﻿Python pour un Actuaire
+﻿Python pour un actuaire
 =======================
 
    

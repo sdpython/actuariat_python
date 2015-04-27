@@ -69,4 +69,3 @@ feedparser
 pyensae
 pymyinstall
 pymmails
-bayespy

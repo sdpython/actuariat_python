@@ -18,7 +18,7 @@ README / Changes
     * `GitHub/actuariat_python <https://github.com/sdpython/actuariat_python/>`_
     * `documentation <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html>`_
     * `Windows Setup <http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python>`_
-    * `Travis/pyquickhelper <https://travis-ci.org/sdpython/actuariat_python>`_
+    * `Travis <https://travis-ci.org/sdpython/actuariat_python>`_
     * `Blog <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/blog/main_0000.html#ap-main-0>`_
 
 

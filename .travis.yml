@@ -30,7 +30,6 @@ install:
   - conda install numpy
   - conda install openpyxl
   - conda install pandas
-  - conda install pkgtools
   - conda install pycparser
   - conda install pyparsing
   - conda install pytz

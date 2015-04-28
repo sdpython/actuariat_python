@@ -17,7 +17,6 @@ install:
   - conda install Jinja2
   - conda install Markdown
   - conda install MarkupSafe
-  - conda install PyContracts
   - conda install PyYAML
   - conda install Pygments
   - conda install Sphinx

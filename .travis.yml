@@ -35,7 +35,6 @@ install:
   - conda install pytz
   - conda install pyzmq
   - conda install requests
-  - conda install requests-oauthlib
   - conda install simplejson
   - conda install six
   - conda install virtualenv

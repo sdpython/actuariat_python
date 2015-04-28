@@ -23,8 +23,6 @@ install:
   - conda install Werkzeug
   - conda install XlsxWriter
   - conda install coverage
-  - conda install dateutils
-  - conda install docutils
   - conda install ipython
   - conda install jsonschema
   - conda install lxml
@@ -36,8 +34,6 @@ install:
   - conda install pkgtools
   - conda install pycparser
   - conda install pyparsing
-  - conda install pyreadline
-  - conda install python-dateutil
   - conda install pytz
   - conda install pyzmq
   - conda install requests
@@ -45,10 +41,6 @@ install:
   - conda install simplejson
   - conda install six
   - conda install virtualenv
-  - conda install wheel
-  - conda install xlrd
-  - conda install flake8
-  - conda install pyflakes
   - conda install mccabe
   - conda install pep8
   - conda install feedparser

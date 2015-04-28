@@ -22,7 +22,6 @@ install:
   - conda install Sphinx
   - conda install Werkzeug
   - conda install XlsxWriter
-  - conda install brewer2mpl
   - conda install coverage
   - conda install dateutils
   - conda install docutils

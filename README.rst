@@ -5,6 +5,9 @@
 README / Changes
 ================
 
+.. image:: https://travis-ci.org/sdpython/actuariat_python.svg?branch=master
+    :target: https://travis-ci.org/sdpython/actuariat_python
+    :alt: Build status
 
 .. image:: https://badge.fury.io/py/actuariat_python.svg
     :target: http://badge.fury.io/py/actuariat_python

@@ -10,9 +10,15 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda info -a
-  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION cvxopt scipy h5py scikit-learn scipy
-  - pip install -r requirements.txt
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION actuariat_test
+  #- conda install -r requirements.txt
+  - conda install numpy
+  - conda install scipy
+  - conda install scikit-learn
+  - conda install matplotlib
+  - conda install ipython  
+  - conda install numpy
   #- source activate test-environment
-  #- python setup.py install
+  - python setup.py install -r requirements_ext.txt
 script:
   - python setup.py unittests

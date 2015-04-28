@@ -35,7 +35,6 @@ install:
   - conda install pytz
   - conda install pyzmq
   - conda install requests
-  - conda install simplejson
   - conda install six
   - conda install virtualenv
   - conda install mccabe

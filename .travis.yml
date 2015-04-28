@@ -14,7 +14,6 @@ install:
   #- conda install -r requirements.txt
   - conda install Cython
   - conda install Flask
-  - conda install Flask-SQLAlchemy
   - conda install Jinja2
   - conda install Markdown
   - conda install MarkupSafe
@@ -24,16 +23,12 @@ install:
   - conda install Sphinx
   - conda install Werkzeug
   - conda install XlsxWriter
-  - conda install ansi2html
-  - conda install ansiconv
   - conda install argparse
   - conda install autopep8
   - conda install brewer2mpl
-  - conda install cloud-sptheme
   - conda install coverage
   - conda install dateutils
   - conda install docutils
-  - conda install hachibee-sphinx-theme
   - conda install ipython
   - conda install jsonschema
   - conda install lxml
@@ -47,41 +42,22 @@ install:
   - conda install pyparsing
   - conda install pyreadline
   - conda install python-dateutil
-  - conda install python-jenkins
   - conda install pytz
   - conda install pyzmq
   - conda install requests
   - conda install requests-oauthlib
   - conda install simplejson
   - conda install six
-  - conda install solar-theme
-  - conda install sphinx-bootstrap-theme
-  - conda install sphinx-readable-theme
-  - conda install sphinx-rtd-theme
-  - conda install sphinxcontrib-fancybox
-  - conda install sphinxcontrib-images
-  - conda install sphinxcontrib.youtube
-  - conda install sphinxjp.themes.basicstrap
-  - conda install sphinxjp.themes.revealjs
-  - conda install sphinxjp.themes.sphinxjp
   - conda install virtualenv
   - conda install wheel
-  - conda install wild-sphinx-theme
   - conda install xlrd
-  - conda install xmltodict
-  - conda install pyquickhelper
-  - conda install antlr4-python3-runtime
-  - conda install azure
-  - conda install dbfread
-  - conda install goslate
-  - conda install python-linkedin
   - conda install flake8
   - conda install pyflakes
   - conda install mccabe
   - conda install pep8
   - conda install feedparser
-  - conda install setuptools
   #- source activate test-environment
+  - pip install -r requirements.txt
   - pip install -r requirements_ext.txt
   - python setup.py install
 script:

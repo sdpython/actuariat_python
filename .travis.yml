@@ -27,7 +27,6 @@ install:
   - conda install jsonschema
   - conda install lxml
   - conda install matplotlib
-  - conda install mechanize
   - conda install numpy
   - conda install openpyxl
   - conda install pandas

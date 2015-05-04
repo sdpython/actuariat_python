@@ -171,8 +171,8 @@ else:
     r = False
 
 if len(sys.argv) == 1 and "--help" in sys.argv:
-    pyquickhelper.process_standard_options_for_setup_help()
-
+    pyquickhelper.process_standard_options_for_setup_help()  
+    
 if not r:
     setup(
         name=project_var_name,

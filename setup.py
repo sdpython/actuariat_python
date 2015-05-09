@@ -202,5 +202,6 @@ if not r:
         package_dir=package_dir,
         package_data=package_data,
         install_requires=["ipython", "pandas", "numpy", "matplotlib",
-                          "scikit-learn", "pyensae", "pyrsslocal"],
+                          "scikit-learn", "pyensae", "pyrsslocal",
+                          "pyquickhelper", "cvxopt"],
     )

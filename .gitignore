@@ -240,6 +240,10 @@ _doc/sphinxdoc/source/blog/*.rst
 _doc/sphinxdoc/source/blog/rss.xml
 _doc/sphinxdoc/source/phdoc_templates/*.html
 _doc/sphinxdoc/source/blog/feed-icon*.png
+_doc/sphinxdoc/source/phdoc_static/reveal.js/*
 _doc/notebooks/.ipynb_checkpoints/*
 auto_*.bat
-auto_setup_dep.py
+auto_*.py
+auto_*.sh
+auto_*.xml
+auto_*.db3

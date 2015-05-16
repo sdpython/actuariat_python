@@ -1,4 +1,5 @@
-﻿Python pour un actuaire
+
+Python pour un actuaire
 =======================
 
    
@@ -22,7 +23,7 @@ en construction
 
 .. toctree::
 
-    seances
+    seances_2015
 
 
 .. _l-getting-started-main:
@@ -37,6 +38,12 @@ La page
 `Getting started (ENSAE) <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/index.html#getting-started>`_
 décrit les instructions pour installer Python et tous les modules
 nécessaires pour exécuter les notebooks.
+
+Il est possible d'explorer les données et d'utiliser des modèles de types machine learning
+sans programmer avec des outils comme `Orange <http://orange.biolab.si/>`_. Ces outils sont assez
+agréables à utiliser lorsque les données se présentent sous des formats classiques, 
+que les données ne nécessitent pas de prétaitement trop complexes. 
+Dès qu'on sort de ces cas, c'est-à-dire souvent, il faut revenir à la programmation.
     
     
 

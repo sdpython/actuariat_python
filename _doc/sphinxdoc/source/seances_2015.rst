@@ -1,20 +1,20 @@
 ﻿
 
-.. _l-seances:
+.. _l-seances-2015:
 
-Séances
-=======
+Séances 2015
+============
 
+notebooks
++++++++++
 
-#. Mars
-#. Avril
-#. Mai
-#. Juin : 
-    * DataFrame, Numpy, Machine Learning
-    * Quelques execices autour d'une table de mortalité
-        * manipulation
-        * visualisation
-    * Calculs de probabilité de mortalité à partir de numpy
+.. toctree::
+
+    notebooks/seance4_projection_population_enonce
+
+plan prévisionnel
++++++++++++++++++
+
 #. Septembre : 
     * Machine Learning en Python avec scikit-learn
     * Chaînes de traitement

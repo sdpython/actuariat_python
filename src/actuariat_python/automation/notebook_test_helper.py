@@ -140,15 +140,15 @@ def execute_notebooks(folder, notebooks, filter,
             fLOG("******", i, os.path.split(note)[-1])
             outfile = os.path.join(folder, "out_" + os.path.split(note)[-1])
             try:
-                out = run_notebook(note, working_dir=folder, outfilename=outfile,
-                                   additional_path=addpath,
-                                   valid=valid_cell,
-                                   clean_function=clean_function,
-                                   fLOG=deepfLOG
-                                   )
+                stat, out = run_notebook(note, working_dir=folder, outfilename=outfile,
+                                         additional_path=addpath,
+                                         valid=valid_cell,
+                                         clean_function=clean_function,
+                                         fLOG=deepfLOG
+                                         )
                 if not os.path.exists(outfile):
                     raise FileNotFoundError(outfile)
-                results[note] = (True, out)
+                results[note] = (True, stat, out)
             except Exception as e:
-                results[note] = (False, e)
+                results[note] = (False, stat, e)
     return results

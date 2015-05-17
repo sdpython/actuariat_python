@@ -9,6 +9,7 @@ notebooks
 +++++++++
 
 .. toctree::
+    :titlesonly:
 
     notebooks/seance4_projection_population_enonce
 

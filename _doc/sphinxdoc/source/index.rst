@@ -22,6 +22,7 @@ Contenu
 en construction
 
 .. toctree::
+    :titlesonly:
 
     seances_2015
 

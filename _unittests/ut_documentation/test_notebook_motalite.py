@@ -41,15 +41,15 @@ from pyquickhelper import fLOG, get_temp_folder
 from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
 
 
-class TestNotebookExample (unittest.TestCase):
+class TestNotebookMortalite(unittest.TestCase):
 
-    def test_notebook_example(self):
+    def test_notebook_mortalite(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        temp = get_temp_folder(__file__, "temp_exemples")
-        keepnote = ls_notebooks("exemples")
+        temp = get_temp_folder(__file__, "temp_mortalite")
+        keepnote = ls_notebooks("mortalite")
         assert len(keepnote) > 0
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,

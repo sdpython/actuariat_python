@@ -57,11 +57,11 @@ class TestNotebookMortalite(unittest.TestCase):
                                 clean_function=clean_function_notebook)
         assert len(res) > 0
         fails = [(os.path.split(k)[-1], v[0], v[1])
-                 for k, v in sorted(res.items()) if not v[1][0]]
+                 for k, v in sorted(res.items()) if not v[0]]
         for f in fails:
             fLOG(f)
         if len(fails) > 0:
-            raise fails[0][1][1]
+            raise fails[0][1][-1]
         for k, v in sorted(res.items()):
             fLOG("final", os.path.split(k)[-1], v[0], v[1])
 

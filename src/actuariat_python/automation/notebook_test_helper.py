@@ -116,7 +116,7 @@ def execute_notebooks(folder, notebooks, filter,
     @param      clean_function  cleaning function to apply to the code before running it
     @param      fLOG            logging function
     @param      deepfLOG        logging function used to run the notebook
-    @return                     dictionary { notebook_file: (isSuccess, outout) }
+    @return                     dictionary tuple (statistics, { notebook_file: (isSuccess, outout) })
 
     The signature of function ``filter`` is::
 
@@ -141,14 +141,14 @@ def execute_notebooks(folder, notebooks, filter,
             outfile = os.path.join(folder, "out_" + os.path.split(note)[-1])
             try:
                 stat, out = run_notebook(note, working_dir=folder, outfilename=outfile,
-                                         additional_path=addpath,
-                                         valid=valid_cell,
-                                         clean_function=clean_function,
-                                         fLOG=deepfLOG
-                                         )
+                                   additional_path=addpath,
+                                   valid=valid_cell,
+                                   clean_function=clean_function,
+                                   fLOG=deepfLOG
+                                   )
                 if not os.path.exists(outfile):
                     raise FileNotFoundError(outfile)
                 results[note] = (True, stat, out)
             except Exception as e:
-                results[note] = (False, stat, e)
+                results[note] = (False, None, e)
     return results

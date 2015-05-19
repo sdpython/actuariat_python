@@ -15,6 +15,14 @@ README / Changes
 .. image:: http://img.shields.io/pypi/dm/actuariat_python.png
     :alt: PYPI Package
     :target: https://pypi.python.org/pypi/actuariat_python  
+    
+.. image:: http://img.shields.io/github/issues/sdpython/actuariat_python.png
+    :alt: GitHub Issues
+    :target: https://github.com/sdpython/actuariat_python/issues
+    
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :alt: MIT License
+    :target: http://opensource.org/licenses/MIT    
    
 **Links:**
     * `pypi/actuariat_python <https://pypi.python.org/pypi/actuariat_python/>`_

@@ -24,7 +24,7 @@ def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls", shee
     cp = df[df[col] == 2014]
     if len(cp) == 0:
         raise DataFormatException(
-            "unable to find 2014 in table at url: " + url)
+            "unable to find 2014 (year) in table at url: " + url)
     if len(cp) != 1:
         raise DataFormatException(
             "too many values 2014 in table at url: " + url)
@@ -35,6 +35,57 @@ def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls", shee
                                      r["naissance"].replace(" ou avant", ""), axis=1)
     table["age"] = table.apply(lambda r: r["age"] if isinstance(r["age"], int) else
                                r["age"].replace(" ou plus", ""), axis=1)
+    for c in table.columns:
+        table[c] = table[c].astype(int)
+    return table
+
+
+def table_mortalite_france_00_02(homme="http://www.institutdesactuaires.com/docs/2015130807_TH0002.xlsx",
+                                 femme="http://www.institutdesactuaires.com/docs/2015130807_TF0002.xlsx"):
+    """
+    Download mortality table  for France assuming they
+    are available in Excel format
+
+    @param      homme       table for men
+    @param      femme       table for women
+    @return                 DataFrame
+
+    The final DataFrame merges both sheets.
+    """
+    dfh = pandas.read_excel(homme)
+    dff = pandas.read_excel(femme)
+    df = dfh.merge(dff, on="Age")
+    df.columns = ["Age", "Homme", "Femme"]
+    return df
+
+
+def fecondite_france(url="http://www.insee.fr/fr/ffc/figure/bilandemo2.xls"):
+    """
+    download fecondity table for France (Excel format)
+
+    @param      url     source (url or file)
+    @return             DataFrame
+    """
+    df = pandas.read_excel(url)
+    col = df.columns[0]
+    cp = df[df[col] == 15]
+    if len(cp) == 0:
+        raise DataFormatException(
+            "unable to find 15 (age) in table at url: " + url)
+    if len(cp) != 1:
+        raise DataFormatException(
+            "too many values 15 in table at url: " + url)
+    cpe = df[df[col] == 50]
+    if len(cpe) == 0:
+        raise DataFormatException(
+            "unable to find 50 (age) in table at url: " + url)
+    if len(cpe) != 1:
+        raise DataFormatException(
+            "too many values 50 in table at url: " + url)
+    ind = cp.index[0]
+    ind2 = cpe.index[0]
+    table = df.ix[ind:ind2, :3].copy()
+    table.columns = ["age", "2004", "2014"]
     for c in table.columns:
         table[c] = table[c].astype(int)
     return table

@@ -38,22 +38,21 @@ except ImportError:
     import pyquickhelper
 
 from pyquickhelper import fLOG, get_temp_folder
-from src.actuariat_python.data import table_mortalite_france_00_02
+from src.actuariat_python.data import fecondite_france
 
 
-class TestPopulationMortalite(unittest.TestCase):
+class TestPopulationFecondite(unittest.TestCase):
 
-    def test_mortalite_france(self):
+    def test_population_fecondite(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-
-        df = table_mortalite_france_00_02()
+        df = fecondite_france()
         fLOG(df.shape)
-        fLOG(df.columns)
-        assert len(df) > 50
+        assert len(df) > 35
         assert df.shape[1] == 3
+        fLOG(df.columns)
 
 
 if __name__ == "__main__":

@@ -38,22 +38,22 @@ except ImportError:
     import pyquickhelper
 
 from pyquickhelper import fLOG, get_temp_folder
-from src.actuariat_python.data import table_mortalite_france_00_02
+from src.actuariat_python.data import population_france_2015
 
 
-class TestPopulationMortalite(unittest.TestCase):
+class TestPopulationPopulation(unittest.TestCase):
 
-    def test_mortalite_france(self):
+    def test_population_france2015(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+        df = population_france_2015()
+        assert df.shape == (101, 5)
 
-        df = table_mortalite_france_00_02()
-        fLOG(df.shape)
-        fLOG(df.columns)
-        assert len(df) > 50
-        assert df.shape[1] == 3
+        # outfile = os.path.join(temp, "out_france.csv")
+        #temp = get_temp_folder(__file__, "temp_population_france2015")
+        #df.to_csv(outfile, sep="\t", index=False, encoding="utf8")
 
 
 if __name__ == "__main__":

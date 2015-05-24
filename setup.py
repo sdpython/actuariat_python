@@ -65,6 +65,10 @@ def is_local():
        "test_local_pypi" in sys.argv or \
        "upload_docs" in sys.argv or \
        "write_version" in sys.argv:
+        try:
+            import_pyquickhelper()
+        except ImportError:
+            return False
         return True
     else:
         return False
@@ -146,6 +150,7 @@ else:
     r = False
 
 if len(sys.argv) == 1 and "--help" in sys.argv:
+    pyquickhelper = import_pyquickhelper()
     pyquickhelper.process_standard_options_for_setup_help()
 
 if not r:

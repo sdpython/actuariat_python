@@ -13,7 +13,7 @@ __author__ = "Vincent Bernardi, Xavier Dupré"
 __github__ = "https://github.com/sdpython/actuariat_python"
 __url__ = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html"
 __downloadUrl__ = "http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python"
-__license__ = "BSD License"
+__license__ = "MIT License"
 
 
 def check(log=False):

@@ -36,7 +36,7 @@ README / Changes
 Description        
 -----------
 
-Digressions actuarielles. Suite à venir.
+Python et actuariat.
 
 
 Contributions

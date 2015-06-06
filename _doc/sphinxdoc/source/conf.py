@@ -31,3 +31,4 @@ set_sphinx_variables(__file__,
 language = "fr"
 
 blog_root = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/"
+blog_background = False

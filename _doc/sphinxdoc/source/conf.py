@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import sys
 import os
 import datetime
@@ -43,7 +44,7 @@ if html_theme == "bootstrap":
             ("XD", "http://www.xavierdupre.fr", True),
             ("ENSAE",
              "http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/index.html", True),
-            ("module", "modindex"),
+            ("module", "py-modindex"),
             ("index", "genindex"),
         ],
         'navbar_sidebarrel': False,

@@ -1,0 +1,62 @@
+#-*- coding: utf-8 -*-
+"""
+@brief      test log(time=1s)
+"""
+
+import sys
+import os
+import unittest
+import re
+
+try:
+    import src
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import src
+
+try:
+    import pyquickhelper
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pyquickhelper",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pyquickhelper
+
+from pyquickhelper import fLOG, get_temp_folder
+from src.actuariat_python.data import population_france_2015
+from src.actuariat_python.plots import plot_population_pyramid
+
+from matplotlib import pyplot as plt
+
+
+class TestPopulationPlots(unittest.TestCase):
+
+    def test_population_france2015_plots(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+        df = population_france_2015()
+        print(df.columns)
+        ax = plot_population_pyramid(df["hommes"], df["femmes"])
+        assert ax is not None
+        # avoid matplotlib to crash later
+        plt.close('all')
+
+if __name__ == "__main__":
+    unittest.main()

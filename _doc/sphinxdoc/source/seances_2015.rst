@@ -11,8 +11,13 @@ notebooks
 
 .. toctree::
     :maxdepth: 1
+    :hidden:
 
     notebooks/seance4_projection_population_enonce
+    notebooks/seance4_projection_population_correction
+    
+#. :ref:`Simulation d'une population <seance4projectionpopulationenoncerst>` (:ref:`correction <seance4projectionpopulationcorrectionrst>`)
+
     
 Jeux de données
 +++++++++++++++

@@ -56,7 +56,7 @@ def table_mortalite_france_00_02(homme="http://www.institutdesactuaires.com/docs
     dff = pandas.read_excel(femme)
     df = dfh.merge(dff, on="Age")
     df.columns = ["Age", "Homme", "Femme"]
-    return df
+    return df.dropna().reset_index(drop=True)
 
 
 def fecondite_france(url="http://www.insee.fr/fr/ffc/figure/bilandemo2.xls"):

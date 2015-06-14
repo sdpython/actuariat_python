@@ -41,7 +41,6 @@ from pyquickhelper import fLOG, get_temp_folder
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from src.actuariat_python.data import population_france_2015
 from src.actuariat_python.plots import plot_population_pyramid
-from matplotlib import pyplot as plt
 
 
 class TestPopulationPlots(unittest.TestCase):
@@ -53,6 +52,7 @@ class TestPopulationPlots(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
             
         fix_tkinter_issues_virtualenv()
+        from matplotlib import pyplot as plt
             
         df = population_france_2015()
         ax = plot_population_pyramid(df["hommes"], df["femmes"])

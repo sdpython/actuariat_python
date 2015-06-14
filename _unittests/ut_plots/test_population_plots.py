@@ -38,9 +38,9 @@ except ImportError:
     import pyquickhelper
 
 from pyquickhelper import fLOG, get_temp_folder
+from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from src.actuariat_python.data import population_france_2015
 from src.actuariat_python.plots import plot_population_pyramid
-
 from matplotlib import pyplot as plt
 
 
@@ -51,8 +51,10 @@ class TestPopulationPlots(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+            
+        fix_tkinter_issues_virtualenv()
+            
         df = population_france_2015()
-        print(df.columns)
         ax = plot_population_pyramid(df["hommes"], df["femmes"])
         assert ax is not None
         # avoid matplotlib to crash later

@@ -4,7 +4,7 @@
     :title: Différence entre numpy et pandas
     :keywords: sql, matrice
     :date: 2015-06-06
-    :categories: calcul matriciel, modules
+    :categories: calcul matriciel, modules, numpy, pandas
     
     Pourquoi deux modules alors qu'ils semblent tous deux
     manipuler des matrices ? Dans le cas de 

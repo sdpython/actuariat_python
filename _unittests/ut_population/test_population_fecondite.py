@@ -53,6 +53,8 @@ class TestPopulationFecondite(unittest.TestCase):
         assert len(df) > 35
         assert df.shape[1] == 3
         fLOG(df.columns)
+        fLOG(df.dtypes)
+        fLOG(df.head())
 
 
 if __name__ == "__main__":

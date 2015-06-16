@@ -50,10 +50,10 @@ class TestPopulationPlots(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-            
+
         fix_tkinter_issues_virtualenv()
         from matplotlib import pyplot as plt
-            
+
         df = population_france_2015()
         ax = plot_population_pyramid(df["hommes"], df["femmes"])
         assert ax is not None

@@ -48,6 +48,7 @@ class TestNotebookExample (unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+        fix_tkinter_issues_virtualenv()
         temp = get_temp_folder(__file__, "temp_exemples")
         keepnote = ls_notebooks("exemples")
         assert len(keepnote) > 0

@@ -38,6 +38,7 @@ except ImportError:
     import pyquickhelper
 
 from pyquickhelper import fLOG, get_temp_folder
+from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 
 

@@ -32,11 +32,11 @@ Contenu
 Liens, articles
 ---------------
 
-* :ref:`ENSAE 1A : Initiation à la programmation et l’algorithmie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_1a.html>`_
-* :ref:`ENSAE 2A : Données, Machine Learning et Programmation <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_
-* :ref:`ENSAE 3A : Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_
+* `ENSAE 1A : Initiation à la programmation et l'algorithmie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_1a.html>`_
+* `ENSAE 2A : Données, Machine Learning et Programmation <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_
+* `ENSAE 3A : Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_
+* `Python pour un datascientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/data2a.html>`_
 * :ref:`Data workflow <blog-data-workflow>`
-
 
 
 Getting started

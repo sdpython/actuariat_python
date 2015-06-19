@@ -3,7 +3,7 @@
 .. blogpost::
     :title: Différence entre matrix et array (numpy)
     :keywords: matrix, array
-    :date: 2015-06-06
+    :date: 2015-06-14
     :categories: calcul matriciel, numpy
     
     Le module `numpy <http://www.numpy.org/>`_ propose

@@ -37,6 +37,7 @@ Liens, articles
 * `ENSAE 3A : Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_
 * `Python pour un datascientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/data2a.html>`_
 * :ref:`Data workflow <blog-data-workflow>`
+* :ref:`Work on the features or the model <http://www.xavierdupre.fr/blog/2015-03-07_nojs.html>`_
 
 
 Getting started

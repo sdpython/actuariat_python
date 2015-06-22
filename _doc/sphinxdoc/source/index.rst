@@ -103,7 +103,7 @@ Table des matières
     all_example
     README
     glossary
-    FAQ
+    azFAQ
     license
     filechanges
     

@@ -118,7 +118,8 @@ def last_function(innosetup, folders, verbose=False, fLOG=print):
     with open(innosetup, "r", encoding="utf8") as f:
         content = f.read()
 
-    content = content.replace("PythonENSAE", "PythonActuariat")
+    content = content.replace("PythonENSAE", "PythonActuariat") \
+                     .replace('Parameters:"ENSAE";', 'Parameters:"Actuariat";')
 
     with open(innosetup, "w", encoding="utf8") as f:
         f.write(content)

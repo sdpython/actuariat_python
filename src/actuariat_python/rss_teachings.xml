@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>teachings subscriptions</title>
+    </head>
+    <body>
+        <outline text="XD blog" title="XD blog" type="rss"
+            xmlUrl="http://www.xavierdupre.fr/blog/xdbrss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/blog/xd_blog.html" />
+        <outline text="ensae_teaching_cs" 
+            title="ensae_teaching_cs" 
+            type="rss"
+            xmlUrl="http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/blog/main_0000.html" />
+        <outline text="actuariat_python" 
+            title="actuariat_python" 
+            type="rss"
+            xmlUrl="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx3/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx3/blog/main_0000.html" />
+        <outline text="pyquickhelper" 
+            title="pyquickhelper" 
+            type="rss"
+            xmlUrl="http://www.xavierdupre.fr/app/pyquickhelper/helpsphinx/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/pyquickhelper/helpsphinx/blog/main_0000.html" />
+        <outline text="pyensae" 
+            title="pyensae" 
+            type="rss"
+            xmlUrl="http://www.xavierdupre.fr/app/pyensae/helpsphinx/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/pyensae/helpsphinx/blog/main_0000.html" />
+        <outline text="pymyinstall" 
+            title="pymyinstall" 
+            type="rss"
+            xmlUrl="http://www.xavierdupre.fr/app/pymyinstall/helpsphinx/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/pymyinstall/helpsphinx/blog/main_0000.html" />
+        <outline text="Freakonometrics" title="Freakonometrics"
+            type="rss"
+            xmlUrl="http://freakonometrics.hypotheses.org/feed" 
+            htmlUrl="http://freakonometrics.hypotheses.org"/>
+        <outline text="DataRobot" title="DataRobot"
+            type="rss"
+            xmlUrl="http://www.datarobot.com/blog/feed/" 
+            htmlUrl="http://www.datarobot.com/blog/"/>
+        <outline text="Kaggle Blog" title="Kaggle Blog"
+            type="rss"
+            xmlUrl="http://blog.kaggle.com/feed/" 
+            htmlUrl="http://blog.kaggle.com/"/>
+    </body>
+</opml>

@@ -9,11 +9,13 @@ if sys.version_info[0] < 3:
     raise ImportError("pyensae only works with Python 3")
 
 __version__ = "0.1"
-__author__ = "Vincent Bernardi, Xavier Dupré"
+__author__ = "Xavier Dupré"
 __github__ = "https://github.com/sdpython/actuariat_python"
 __url__ = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html"
 __downloadUrl__ = "http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python"
 __license__ = "MIT License"
+__blog__ = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "rss_teachings.xml"))
 
 
 def _setup_hook():

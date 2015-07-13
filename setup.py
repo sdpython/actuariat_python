@@ -149,7 +149,7 @@ if is_local():
     r = pyquickhelper.process_standard_options_for_setup(
         sys.argv, __file__, project_var_name,
         unittest_modules=["pyquickhelper"],
-        requirements=["pyquickhelper", "pyensae", "pyrsslocal"])
+        requirements=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall"])
 else:
     r = False
 
@@ -172,7 +172,8 @@ if not r:
         packages=packages,
         package_dir=package_dir,
         package_data=package_data,
-        install_requires=["ipython", "pandas", "numpy", "matplotlib",
-                          "scikit-learn", "pyensae", "pyrsslocal",
-                          "pyquickhelper", "cvxopt"],
+        install_requires=[
+            "pyquickhelper", "pyensae", "pymyinstall", 
+            "scikit-learn", "pyrsslocal", "pandas", "numpy",
+            "matplotlib", "ipython", "cvxopt"],
     )

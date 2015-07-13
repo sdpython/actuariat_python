@@ -249,3 +249,4 @@ auto_*.py
 auto_*.sh
 auto_*.xml
 auto_*.db3
+.RData

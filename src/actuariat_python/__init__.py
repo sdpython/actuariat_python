@@ -5,8 +5,7 @@
 """
 
 import sys
-if sys.version_info[0] < 3:
-    raise ImportError("pyensae only works with Python 3")
+import os
 
 __version__ = "0.1"
 __author__ = "Xavier Dupré"

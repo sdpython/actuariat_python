@@ -68,7 +68,13 @@ install.packages("randomForest")
 # Spark
 # 
 
-install.packages(c('rjava',
-                   'testthat', 
-                    
-install_github("amplab-extras/SparkR-pkg", subdir="pkg")
+install.packages(c('rJava',
+                   'testthat'))
+  
+# does not compile                   
+# see https://groups.google.com/forum/#!topic/sparkr-dev/Yss1ViIfBYo
+# library(devtools)
+# library(rJava)
+# install_github("amplab-extras/SparkR-pkg", subdir="pkg")
+
+

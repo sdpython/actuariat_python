@@ -32,7 +32,9 @@ CLASSIFIERS = [
 
 packages = find_packages('src', exclude='src')
 package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
-package_data = {}
+package_data = {
+    project_var_name : ["*.xml"], 
+    project_var_name + ".automation": ["*.r", "*.ico"] }
 
 ############
 # functions

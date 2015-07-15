@@ -39,7 +39,7 @@ def last_function(innosetup, folders, verbose=False, fLOG=print):
     # folders
     fLOG("folders:", folders)
     fLOG("innosetup:", innosetup)
-    
+
     # checkings
     rodeo = os.path.join(folders["config"], "rodeo.bat")
     if not os.path.exists(rodeo):

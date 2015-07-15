@@ -33,8 +33,8 @@ CLASSIFIERS = [
 packages = find_packages('src', exclude='src')
 package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
 package_data = {
-    project_var_name : ["*.xml"], 
-    project_var_name + ".automation": ["*.r", "*.ico"] }
+    project_var_name: ["*.xml"],
+    project_var_name + ".automation": ["*.r", "*.ico"]}
 
 ############
 # functions
@@ -175,7 +175,7 @@ if not r:
         package_dir=package_dir,
         package_data=package_data,
         install_requires=[
-            "pyquickhelper", "pyensae", "pymyinstall", 
+            "pyquickhelper", "pyensae", "pymyinstall",
             "scikit-learn", "pyrsslocal", "pandas", "numpy",
             "matplotlib", "ipython", "cvxopt"],
     )

@@ -1,6 +1,6 @@
 
-table of contents
-=================
+voyage dans la documentation
+============================
 
 .. toctree::
     :maxdepth: 2

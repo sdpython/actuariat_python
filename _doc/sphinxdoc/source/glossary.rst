@@ -1,3 +1,8 @@
+
+
+.. index:: glossary, glossaire
+
+
 Glossary
 ========
 

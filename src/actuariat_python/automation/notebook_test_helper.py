@@ -5,7 +5,7 @@
 """
 import os
 from pyquickhelper import noLOG
-from pyquickhelper.ipythonhelper.notebook_helper import run_notebook
+from pyquickhelper.ipythonhelper.notebook_helper import run_notebook, install_python_kernel_for_unittest
 
 
 def ls_notebooks(subfolder):
@@ -133,6 +133,7 @@ def execute_notebooks(folder, notebooks, filter,
             return False
         return True
 
+    kernel_name = install_python_kernel_for_unittest("actuariat_python")
     addpath = get_additional_paths()
     results = {}
     for i, note in enumerate(notebooks):
@@ -144,7 +145,8 @@ def execute_notebooks(folder, notebooks, filter,
                                          additional_path=addpath,
                                          valid=valid_cell,
                                          clean_function=clean_function,
-                                         fLOG=deepfLOG
+                                         fLOG=deepfLOG,
+                                         kernel_name=kernel_name
                                          )
                 if not os.path.exists(outfile):
                     raise FileNotFoundError(outfile)

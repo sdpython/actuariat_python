@@ -54,7 +54,8 @@ class TestNotebookPopulation(unittest.TestCase):
 
         if "travis" in sys.executable:
             # matplotlib is still failing
-            warnings.warn("travis, unable to test TestNotebookPopulation.test_notebook_population")
+            warnings.warn(
+                "travis, unable to test TestNotebookPopulation.test_notebook_population")
             return
 
         temp = get_temp_folder(__file__, "temp_population")

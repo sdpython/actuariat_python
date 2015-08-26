@@ -77,6 +77,7 @@ build/
 *.pidb
 *.log
 *.scc
+*.pyproj
 
 # Visual C++ cache files
 ipch/
@@ -235,6 +236,9 @@ _doc/notebooks/*.pig
 _doc/notebooks/Conf*.txt
 _doc/notebooks/*.db3
 _doc/notebooks/exemples/exemple*.txt
+_doc/notebooks/population/*.db3
+_doc/notebooks/population/*.txt
+_doc/notebooks/population/*.gz
 README
 build_help.bat
 _doc/sphinxdoc/source/blog/*.rst

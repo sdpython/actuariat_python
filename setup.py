@@ -151,7 +151,10 @@ if is_local():
     r = pyquickhelper.process_standard_options_for_setup(
         sys.argv, __file__, project_var_name,
         unittest_modules=["pyquickhelper"],
-        requirements=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall"])
+        requirements=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall"],
+        additional_notebook_path=["pyquickhelper",
+                                  "pyensae", "pyrsslocal", "pymyinstall"],
+        additional_local_path=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall"])
 else:
     r = False
 

@@ -15,8 +15,10 @@ notebooks
 
     notebooks/seance4_projection_population_enonce
     notebooks/seance4_projection_population_correction
+    notebooks/seance5_donnees_muldimensionnelle_enonce
     
 #. :ref:`Simulation d'une population <seance4projectionpopulationenoncerst>` (:ref:`correction <seance4projectionpopulationcorrectionrst>`)
+#. :ref:`Cube de données <seance5donneesmuldimensionnelleenoncerst>` (:ref:`correction <seance5donneesmuldimensionnellecorrectionrst>`)
 
     
 Jeux de données

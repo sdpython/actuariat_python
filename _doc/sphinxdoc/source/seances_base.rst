@@ -38,6 +38,13 @@ obtenir ces jeux de données.
     notebooks/population_recuperation_donnees
     
 
+Bibliographie
++++++++++++++
+
+**articles, blogs**
+
+
+* `Xray + Dask: Out-of-Core, Labeled Arrays in Python <http://continuum.io/blog/xray-dask>`_
 
 
 plan prévisionnel

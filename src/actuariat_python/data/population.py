@@ -138,15 +138,15 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
 
     Columns *age* and *age_num* look alike. *age_num* is numeric and is equal
     to *age* except when *age_num* is 85. Everybody above that age fall into the same category.
-    The table contains many indicators::
+    The table contains many indicators:
 
-        DEATHRATE
-        LIFEXP
-        PROBDEATH
-        PROBSURV
-        PYLIVED
-        SURVIVORS
-        TOTPYLIVED
+    * PROBSURV: Probabilité de survie entre deux âges exacts (px)
+    * LIFEXP: Esperance de vie à l'âge exact (ex)
+    * SURVIVORS: Nombre des survivants à l'âge exact (lx)
+    * PYLIVED: Nombre d'années personnes vécues entre deux âges exacts (Lx)
+    * DEATHRATE: Taux de mortalité à l'âge x (Mx)
+    * PROBDEATH: Probabilité de décès entre deux âges exacts (qx)
+    * TOTPYLIVED: Nombre total d'années personne vécues après l'âge exact (Tx)
     """
     if os.path.exists(final_name) and os.stat(final_name).st_size > 1e7:
         return final_name

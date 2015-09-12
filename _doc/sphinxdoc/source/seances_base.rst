@@ -1,6 +1,6 @@
 
 
-.. _l-seances-2015:
+.. _l-seances-base:
 
 Séances 2015
 ============
@@ -15,10 +15,11 @@ notebooks
 
     notebooks/seance4_projection_population_enonce
     notebooks/seance4_projection_population_correction
-    notebooks/seance5_donnees_muldimensionnelle_enonce
+    notebooks/seance5_sql_multidimensionnelle_enonce
+    notebooks/seance5_sql_multidimensionnelle_correction
     
 #. :ref:`Simulation d'une population <seance4projectionpopulationenoncerst>` (:ref:`correction <seance4projectionpopulationcorrectionrst>`)
-#. :ref:`Cube de données <seance5donneesmuldimensionnelleenoncerst>` (:ref:`correction <seance5donneesmuldimensionnellecorrectionrst>`)
+#. :ref:`SQL et grosses base de données <seance5sqlmultidimensionnelleenoncerst>` (:ref:`correction <seance5sqlmultidimensionnellecorrectionrst>`)
 
     
 Jeux de données
@@ -42,32 +43,8 @@ obtenir ces jeux de données.
 plan prévisionnel
 +++++++++++++++++
 
-#. Septembre : 
-    * Machine Learning en Python avec scikit-learn
-    * Chaînes de traitement
-        * data transformers
-        * modèles (classifiers, ....)
-        * évaluation (ROC, :math:`R^2`, ...)
-    * Types de modèles
-        * regressors
-        * clustering
-        * dimensionality reduction (PCA)
-        * système de recommandation
-        * traitement du langage (NLTK), représentation des mots (word2vec)
-    * Sélection de modèles
-        * cross validation
-    * Un exemple
-    * Programmer ou workflow de données (Orange)
 #. Octobre
-    * Visualisation poussées, matplotlib, ggplot, bohek, mpld3
-    * Graph avec `igraph <http://igraph.org/>`_
-    * Autres environnements
-        * Spyder
-        * PyCharm
-    * Customiser son environnement (commandes magiques)
-    * R dans un notebook (IPython 3 ==> Jupyter)
-    * R et Python dans un notebook
-    * Présentation du problème de la séance suivante afin que les stagiaires puissent réfléchir en amont.
+    * visualisation
 #. Novembre
     * Implémenter la simulation d'un régime de retraite complémentaire à partir de sa population.
       On suppose connu son fichier client, on prend quelques hypothèses de rendements, taux d'entrées, ...

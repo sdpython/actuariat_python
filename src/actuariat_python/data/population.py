@@ -110,7 +110,7 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
                               stop_at=None,
                               fLOG=noLOG):
     """
-    This functions retrieve mortality table from EuroStat through
+    This function retrieves mortality table from `EuroStat <http://ec.europa.eu/eurostat/fr>`_ through
     `table de mortalité <http://www.data-publica.com/opendata/7098--population-et-conditions-sociales-table-de-mortalite-de-1960-a-2010>`_.
 
     @param      url         data source

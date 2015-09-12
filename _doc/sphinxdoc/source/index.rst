@@ -22,7 +22,7 @@ Contenu
 .. toctree::
     :maxdepth: 1
 
-    seances_2015
+    seances_base
 
 
 .. _l-getting-started-main:
@@ -47,48 +47,10 @@ Getting started
 La page 
 `Getting started (ENSAE) <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/index.html#getting-started>`_
 décrit les instructions pour installer Python et tous les modules
-nécessaires pour exécuter les notebooks. Sous Windows, l'option recommandée est 
-`WinPython <https://winpython.github.io/>`_. Open source, cette distribution peut être personnalisée
-avec des modules propres à une entreprise.
-
+nécessaires pour exécuter les notebooks.
 Une fois l'installation terminée, il est préférable de faire quelques tests
 pour vérifier que tout s'est bien passé. On peut par exemple
 exemple exécuter le notebook :ref:`populationrecuperationdonneesrst`.
-
-**Recommandations**
-
-* Linux/Mac OS : distribution `Anaconda <http://continuum.io/downloads#py34>`_ (python 3.4, 64 bit)
-* Windows : distribution `WinPython <https://winpython.github.io/>`_
-
-**Installer un module**
-
-Il faut ouvrir une fenêtre ligne de commande (Windows) ou une fenêtre terminal (Linux, OS/X) et se placer dans le répertoire de la distribution.
-
-* Anaconda: 
-
-    * module standard : ``conda install <module>``
-    * module rare : ``pip install <module>``
-    
-* WinPython
-
-    * module standard : télécharger le module sur le site `Unofficial Windows Binaries for Python Extension Packages <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_ 
-      et l'installer avec la commande ``pip install <local_module.whl>``
-    * module rare : ``pip install <module>`` (à condition que celui-ci n'inclut pas de code C/C++) qui requiert un compilateur C/C++
-    
-**Problème de dépendance**
-
-Pour installer rapidement un module sans tenir compte de ses dépendances ::
-
-    pip install <module> --no-deps
-    
-**Mettre à jour un module**
-
-::
-
-    pip install <module> --upgrade --no-deps
-    
-L'extension *--no-deps* n'est pas obligatoire mais cela évite la mise à jour des dépendances.
-
 
     
 
@@ -108,15 +70,15 @@ Table des matières
     filechanges
     
 
-Index
------
++----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
+| :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |
++----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
+| :ref:`modindex`      |  :ref:`l-example`   | :ref:`search`       | :ref:`l-license`   | :ref:`l-changes`       | :ref:`l-README`                                |
++----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
+| :ref:`genindex`      |  :ref:`l-FAQ`       | :ref:`l-notebooks`  |                    | :ref:`l-statcode`      | `Unit Test Coverage <coverage/index.html>`_    |
++----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 
-* :ref:`l-notebooks`
-* :ref:`modindex` (résumé :ref:`l-modules`)
-* :ref:`l-classes`
-* :ref:`l-functions`
-* `Unit Test Coverage <coverage/index.html>`_
-* :ref:`search`
+
 
 .. image:: https://travis-ci.org/sdpython/actuariat_python.svg?branch=master
     :target: https://travis-ci.org/sdpython/actuariat_python

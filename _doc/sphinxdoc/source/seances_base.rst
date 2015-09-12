@@ -17,9 +17,12 @@ notebooks
     notebooks/seance4_projection_population_correction
     notebooks/seance5_sql_multidimensionnelle_enonce
     notebooks/seance5_sql_multidimensionnelle_correction
+    notebooks/seance5_cube_multidimensionnel_enonce
+    notebooks/seance5_cube_multidimensionnel_correction
     
 #. :ref:`Simulation d'une population <seance4projectionpopulationenoncerst>` (:ref:`correction <seance4projectionpopulationcorrectionrst>`)
 #. :ref:`SQL et grosses base de données <seance5sqlmultidimensionnelleenoncerst>` (:ref:`correction <seance5sqlmultidimensionnellecorrectionrst>`)
+#. :ref:`Cube multidimensionnel <seance5cubemultidimensionnelenoncerst>` (:ref:`correction <seance5cubemultidimensionnelcorrectionrst>`)
 
     
 Jeux de données

@@ -61,9 +61,9 @@ from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 
 
-class TestNotebookPopulation(unittest.TestCase):
+class TestLONGNotebookPopulation(unittest.TestCase):
 
-    def test_notebook_population(self):
+    def test_long_notebook_population(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -77,7 +77,7 @@ class TestNotebookPopulation(unittest.TestCase):
             return
 
         temp = get_temp_folder(__file__, "temp_population")
-        keepnote = [ _ for _ in ls_notebooks("population") if "seance5_approche_fonctionnelle_enonce" not in _]
+        keepnote = [ _ for _ in ls_notebooks("population") if "seance5_approche_fonctionnelle_enonce" in _]
         assert len(keepnote) > 0
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,

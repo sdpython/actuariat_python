@@ -19,10 +19,13 @@ notebooks
     notebooks/seance5_sql_multidimensionnelle_correction
     notebooks/seance5_cube_multidimensionnel_enonce
     notebooks/seance5_cube_multidimensionnel_correction
+    notebooks/seance5_approche_fonctionnelle_enonce
+    notebooks/seance5_cube_multidimensionnel_correction
     
 #. :ref:`Simulation d'une population <seance4projectionpopulationenoncerst>` (:ref:`correction <seance4projectionpopulationcorrectionrst>`)
 #. :ref:`SQL et grosses base de données <seance5sqlmultidimensionnelleenoncerst>` (:ref:`correction <seance5sqlmultidimensionnellecorrectionrst>`)
 #. :ref:`Cube multidimensionnel <seance5cubemultidimensionnelenoncerst>` (:ref:`correction <seance5cubemultidimensionnelcorrectionrst>`)
+#. :ref:`Approche fonctionnelle <seance5approchefonctionnelleenoncerst>` (:ref:`correction <seance5approchefonctionnellecorrectionrst>`)
 
     
 Jeux de données

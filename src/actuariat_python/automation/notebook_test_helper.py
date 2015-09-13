@@ -7,7 +7,7 @@ import os
 import sys
 from pyquickhelper import noLOG
 from pyquickhelper.ipythonhelper.notebook_helper import run_notebook, install_python_kernel_for_unittest
-
+import pyensae
 
 def ls_notebooks(subfolder):
     """
@@ -49,6 +49,7 @@ def get_additional_paths():
     """
     import pyquickhelper
     addpath = [os.path.dirname(pyquickhelper.__file__),
+               os.path.dirname(pyensae.__file__),
                os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."),
                ]
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]
@@ -131,6 +132,8 @@ def execute_notebooks(folder, notebooks, filter,
         if "df.plot(...)" in cell:
             return False
         if 'df["difference"] = ...' in cell:
+            return False
+        if 'print(next(it))' in cell:
             return False
         return True
 

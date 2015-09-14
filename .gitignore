@@ -240,6 +240,7 @@ _doc/notebooks/population/*.db3
 _doc/notebooks/population/*.txt
 _doc/notebooks/population/*.gz
 _doc/notebooks/population/*.nc
+_doc/notebooks/population/*.zip
 README
 build_help.bat
 _doc/sphinxdoc/source/blog/*.rst

@@ -22,7 +22,7 @@ def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls", shee
 
     The sheet index is 0 for the all France, 1 for metropolitean France.
     The last row aggregates multiple ages ``1914 ou avant``, they will remain
-    aggregated but the label will be changed to 1914. ``100 ou plus``is replaced by 100.
+    aggregated but the label will be changed to 1914. ``100 ou plus`` is replaced by 100.
 
     By default, the data is coming from `INSEE, Population française 2015 <http://www.insee.fr/fr/themes/tableau.asp?ref_id=ccc>`_.
     """

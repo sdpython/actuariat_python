@@ -1,13 +1,12 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=10s)
+@brief      test log(time=20s)
 """
 
 import sys
 import os
 import unittest
 import re
-import warnings
 
 try:
     import src
@@ -56,34 +55,23 @@ except ImportError:
 
 
 from pyquickhelper import fLOG, get_temp_folder
-from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
-from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+from src.actuariat_python.data import elections_presidentielles
 
 
-class TestNotebookPopulation(unittest.TestCase):
+class TestElectiosn(unittest.TestCase):
 
-    def test_notebook_population(self):
+    def test_elections_2012(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        fix_tkinter_issues_virtualenv()
 
-        if "travis" in sys.executable:
-            # matplotlib is still failing
-            warnings.warn(
-                "travis, unable to test TestNotebookPopulation.test_notebook_population")
-            return
+        temp = get_temp_folder(__file__, "temp_elections")
+        dfs = elections_presidentielles()
+        fLOG(type(dfs))
+        fLOG(list(dfs.keys()))
+        assert len(dfs) > 0
 
-        temp = get_temp_folder(__file__, "temp_population")
-        keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" not in _]
-        assert len(keepnote) > 0
-        res = execute_notebooks(temp, keepnote,
-                                lambda i, n: "deviner" not in n,
-                                fLOG=fLOG,
-                                clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
 
 if __name__ == "__main__":
     unittest.main()

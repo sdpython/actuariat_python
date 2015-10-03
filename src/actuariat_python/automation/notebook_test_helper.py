@@ -9,6 +9,7 @@ from pyquickhelper import noLOG
 from pyquickhelper.ipythonhelper.notebook_helper import run_notebook, install_python_kernel_for_unittest
 import pyensae
 
+
 def ls_notebooks(subfolder):
     """
     list the notebooks in a particular subfolder

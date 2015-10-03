@@ -257,3 +257,4 @@ auto_*.sh
 auto_*.xml
 auto_*.db3
 .RData
+_doc/notebooks/population/*.xlsx

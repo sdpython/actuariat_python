@@ -258,3 +258,5 @@ auto_*.xml
 auto_*.db3
 .RData
 _doc/notebooks/population/*.xlsx
+_doc/notebooks/population/FRA*
+_doc/notebooks/population/villes*

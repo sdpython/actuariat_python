@@ -168,7 +168,7 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
             elif s.startswith("Y_GE"):
                 s = "YGE" + s[4:]
             else:
-                raise FormatError(s)
+                raise SyntaxError(s)
         else:
             i = int(s.strip("Y"))
             return "Y%02d" % i
@@ -180,7 +180,7 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
             elif s.startswith("Y_GE"):
                 s = float(s.replace("Y_GE", ""))
             else:
-                raise FormatError(s)
+                raise SyntaxError(s)
         else:
             i = int(s.strip("Y"))
             return float(i)

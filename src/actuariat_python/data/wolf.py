@@ -46,6 +46,8 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
     dtd = download_data("debvisdic-strict.dtd", url=url2,
                         fLOG=fLOG, whereTo=temp_folder)
     local = download_data(name, url=url, fLOG=fLOG, whereTo=temp_folder)
+    if isinstance(local, str):
+        local = [local]
     return local + [dtd]
 
 

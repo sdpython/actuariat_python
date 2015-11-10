@@ -91,7 +91,7 @@ from src.actuariat_python.data import wolf_xml, enumerate_wolf_xml_row, enumerat
 
 class TestWolf(unittest.TestCase):
 
-    def _test_wolf(self):
+    def test_wolf(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -104,7 +104,7 @@ class TestWolf(unittest.TestCase):
             assert os.path.exists(o)
         assert os.stat(outfile[1]).st_size < 2000
 
-    def _test_enumerate_wolf_xml_row(self):
+    def test_enumerate_wolf_xml_row(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -116,7 +116,7 @@ class TestWolf(unittest.TestCase):
         for row in rows:
             fLOG(type(row))
 
-    def _test_enumerate_wolf_synonyms(self):
+    def test_enumerate_wolf_synonyms(self):
         fLOG(
             __file__,
             self._testMethodName,

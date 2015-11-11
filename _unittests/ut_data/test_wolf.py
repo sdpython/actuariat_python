@@ -112,7 +112,7 @@ class TestWolf(unittest.TestCase):
 
         temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
         data = os.path.join(temp, "..", "data", "sample.wolf.xml")
-        rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None)
+        rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None if sys.platform.startswith("win") else "utf-8")
         for row in rows:
             fLOG(type(row))
 

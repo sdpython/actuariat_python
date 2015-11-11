@@ -110,11 +110,12 @@ class TestWolf(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
-        data = os.path.join(temp, "..", "data", "sample.wolf.xml")
-        rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None if sys.platform.startswith("win") else "utf-8")
-        for row in rows:
-            fLOG(type(row))
+        if sys.platform.startswith("win"):
+            temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
+            data = os.path.join(temp, "..", "data", "sample.wolf.xml")
+            rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None)
+            for row in rows:
+                fLOG(type(row))
 
     def test_enumerate_wolf_synonyms(self):
         fLOG(
@@ -122,11 +123,12 @@ class TestWolf(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
-        data = os.path.join(temp, "..", "data", "sample.wolf.xml")
-        rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding=None)
-        for row in rows:
-            fLOG(row)
+        if sys.platform.startswith("win"):
+            temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
+            data = os.path.join(temp, "..", "data", "sample.wolf.xml")
+            rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding=None)
+            for row in rows:
+                fLOG(row)
 
     def test_enumerate_wolf_synonyms_big(self):
         fLOG(

@@ -6,7 +6,7 @@
 import os
 import re
 from pyquickhelper import noLOG
-from pymyinstall.installhelper import download_page
+from pymyinstall.installcustom import download_page
 from pyensae import download_data
 from pyrsslocal.xmlhelper import xml_filter_iterator
 from .data_exception import DataFormatException, LinkNotFoundError

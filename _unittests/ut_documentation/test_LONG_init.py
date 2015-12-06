@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=1000s)
+@brief      test log(time=1s)
 """
 
 import sys
@@ -60,30 +60,17 @@ from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 
 
-class TestLONGNotebookPopulation(unittest.TestCase):
+class TestLONGinit(unittest.TestCase):
 
-    def test_long_notebook_population(self):
+    def test_long_init(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+            
+        fLOG("do nothing")
         fix_tkinter_issues_virtualenv()
 
-        if "travis" in sys.executable:
-            # matplotlib is still failing
-            warnings.warn(
-                "travis, unable to test TestNotebookPopulation.test_notebook_population")
-            return
-
-        temp = get_temp_folder(__file__, "temp_population")
-        keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" in _]
-        assert len(keepnote) > 0
-        res = execute_notebooks(temp, keepnote,
-                                lambda i, n: "deviner" not in n,
-                                fLOG=fLOG,
-                                clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,5 @@
+scipy
+scikit-learn
+statsmodels
+seaborn
+dask

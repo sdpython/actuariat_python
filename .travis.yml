@@ -2,8 +2,16 @@ language: python
 python:
     - "3.4"
     - "3.5"
+addons:
+  apt:
+    packages:
+    - libblas-dev
+    - liblapack-dev
+    - gfortran 
 install: 
     - pip install -r requirements.txt
+    - pip freeze
+    - pip install -r requirements_scikit.txt
     - pip install -r requirements_ext.txt
 script:
     - python setup.py unittests

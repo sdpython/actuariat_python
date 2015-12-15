@@ -3,13 +3,12 @@
 @file
 @brief Various function to download data about population
 """
-import os
 import re
 from pyquickhelper import noLOG
 from pymyinstall.installcustom import download_page
 from pyensae import download_data
 from pyrsslocal.xmlhelper import xml_filter_iterator
-from .data_exception import DataFormatException, LinkNotFoundError
+from .data_exception import LinkNotFoundError
 
 
 def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLOG=noLOG):
@@ -36,9 +35,6 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
             page)
 
     url = alls[0]
-    full = url.split("/")[-1]
-    outfile = os.path.join(temp_folder, full)
-    fLOG("download ", url)
     spl = url.split("/")
     url = "/".join(spl[:-1]) + "/"
     url2 = "/".join(spl[:-2]) + "/31718/"

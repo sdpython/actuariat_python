@@ -49,8 +49,12 @@ def get_additional_paths():
     @return             list of paths
     """
     import pyquickhelper
+    import pymyinstall
+    import pyrsslocal
     addpath = [os.path.dirname(pyquickhelper.__file__),
                os.path.dirname(pyensae.__file__),
+               os.path.dirname(pyrsslocal.__file__),
+               os.path.dirname(pymyinstall.__file__),
                os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."),
                ]
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]

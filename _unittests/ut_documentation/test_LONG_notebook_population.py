@@ -37,7 +37,7 @@ except ImportError:
     if path not in sys.path:
         sys.path.append(path)
     import pyquickhelper
-    
+
 try:
     import pymyinstall
 except ImportError:
@@ -53,7 +53,7 @@ except ImportError:
     if path not in sys.path:
         sys.path.append(path)
     import pymyinstall
-    
+
 try:
     import pyensae
 except ImportError:
@@ -85,7 +85,7 @@ except ImportError:
     if path not in sys.path:
         sys.path.append(path)
     import pyrsslocal
-    
+
 
 from pyquickhelper import fLOG, get_temp_folder
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv

@@ -67,7 +67,7 @@ class TestLONGinit(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-            
+
         fLOG("do nothing")
         fix_tkinter_issues_virtualenv()
 

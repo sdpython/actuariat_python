@@ -84,6 +84,10 @@ Table des matières
     :target: https://travis-ci.org/sdpython/actuariat_python
     :alt: Build status
     
+.. image:: https://ci.appveyor.com/api/projects/status/plhkoh1rkw70avwq?svg=true
+    :target: https://ci.appveyor.com/project/sdpython/actuariat_python
+    :alt: Build Status Windows        
+    
 .. image:: https://badge.fury.io/py/actuariat_python.svg
     :target: http://badge.fury.io/py/actuariat_python
       

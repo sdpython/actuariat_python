@@ -24,6 +24,9 @@ README / Changes
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT    
    
+.. image:: https://codecov.io/github/sdpython/actuariat_python/coverage.svg?branch=master
+    :target: https://codecov.io/github/sdpython/actuariat_python?branch=master
+   
 **Links:**
     * `pypi/actuariat_python <https://pypi.python.org/pypi/actuariat_python/>`_
     * `GitHub/actuariat_python <https://github.com/sdpython/actuariat_python/>`_

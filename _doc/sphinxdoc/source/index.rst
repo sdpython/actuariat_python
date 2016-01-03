@@ -98,3 +98,6 @@ Table des matières
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT
+
+.. image:: https://codecov.io/github/sdpython/actuariat_python/coverage.svg?branch=master
+    :target: https://codecov.io/github/sdpython/actuariat_python?branch=master

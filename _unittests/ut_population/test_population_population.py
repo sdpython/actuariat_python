@@ -37,6 +37,54 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper
 
+try:
+    import pyensae
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pyensae",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pyensae
+
+try:
+    import pymyinstall
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pymyinstall",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pymyinstall
+
+try:
+    import pyrsslocal
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pyrsslocal",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pyrsslocal
+
 from pyquickhelper import fLOG, get_temp_folder
 from src.actuariat_python.data import population_france_2015
 

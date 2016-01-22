@@ -12,12 +12,14 @@ import pyensae
 from .data_exception import DataFormatException
 
 
-def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls", sheetname=0):
+def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls",
+                           sheetname=0, year=2015):
     """
     download the data for the French population from INSEE website
 
     @param      url             url
     @param      sheetname       sheet index
+    @param      year            last year to find
     @return                     DataFrame
 
     The sheet index is 0 for the all France, 1 for metropolitean France.
@@ -28,20 +30,24 @@ def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls", shee
     """
     df = pandas.read_excel(url, sheetname=sheetname)
     col = df.columns[0]
-    cp = df[df[col] == 2014]
+    cp = df[df[col] == year]
     if len(cp) == 0:
         raise DataFormatException(
-            "unable to find 2014 (year) in table at url: " + url)
+            "unable to find {0} (year) in table at url: {1}".format(year, url))
     if len(cp) != 1:
         raise DataFormatException(
-            "too many values 2014 in table at url: " + url)
+            "too many values {0} in table at url: {1}".format(year, url))
     ind = cp.index[0]
     table = df.ix[ind:, :5].copy()
     table.columns = ["naissance", "age", "hommes", "femmes", "ensemble"]
+    table = table[(table.naissance != 'Champ : France y c. Mayotte.') &
+                  table.naissance.apply(lambda s: "Source" not in str(s))].copy()
     table["naissance"] = table.apply(lambda r: r["naissance"] if isinstance(r["naissance"], int) else
                                      r["naissance"].replace(" ou avant", ""), axis=1)
     table["age"] = table.apply(lambda r: r["age"] if isinstance(r["age"], int) else
-                               r["age"].replace(" ou plus", ""), axis=1)
+                               r["age"].replace(" ou plus", "") if isinstance(
+                                   r["age"], str) else r["age"],
+                               axis=1)
     for c in table.columns:
         table[c] = table[c].astype(int)
     return table

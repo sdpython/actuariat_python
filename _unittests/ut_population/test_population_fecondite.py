@@ -37,6 +37,54 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper
 
+try:
+    import pyensae
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pyensae",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pyensae
+
+try:
+    import pyrsslocal
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pyrsslocal",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pyrsslocal
+
+try:
+    import pymyinstall
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pymyinstall",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pymyinstall
+
 from pyquickhelper import fLOG, get_temp_folder
 from src.actuariat_python.data import fecondite_france
 
@@ -55,6 +103,7 @@ class TestPopulationFecondite(unittest.TestCase):
         fLOG(df.columns)
         fLOG(df.dtypes)
         fLOG(df.head())
+        fLOG(df.tail())
 
 
 if __name__ == "__main__":

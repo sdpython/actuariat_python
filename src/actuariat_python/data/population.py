@@ -86,10 +86,18 @@ def fecondite_france(url="http://www.insee.fr/fr/ffc/figure/bilandemo2.xls"):
     """
     df = pandas.read_excel(url)
     col = df.columns[0]
+    df[col] = df.apply(lambda r: r[col] if isinstance(r[col], int) else
+                       r[col].replace(" ou plus", "").replace(" ans", "") if isinstance(
+        r[col], str) else r[col],
+        axis=1)
+    df = df[df[col].apply(lambda x: "0" <= x[0] <= "9" if isinstance(
+        x, str) else (isinstance(x, int) or isinstance(x, float)))].copy()
+    df[col] = df[col].astype(float)
     cp = df[df[col] == 15]
     if len(cp) == 0:
+        ages = [str(_) for _ in set(df[col])]
         raise DataFormatException(
-            "unable to find 15 (age) in table at url: " + url)
+            "unable to find 15 (age) in table at url: {0}\n{1}".format(url, "\n".join(ages)))
     if len(cp) != 1:
         raise DataFormatException(
             "too many values 15 in table at url: " + url)
@@ -103,7 +111,7 @@ def fecondite_france(url="http://www.insee.fr/fr/ffc/figure/bilandemo2.xls"):
     ind = cp.index[0]
     ind2 = cpe.index[0]
     table = df.ix[ind:ind2, :3].copy()
-    table.columns = ["age", "2004", "2014"]
+    table.columns = ["age", "2005", "2015"]
     for c in table.columns:
         table[c] = table[c].astype(float)
     return table

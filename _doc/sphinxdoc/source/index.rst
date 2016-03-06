@@ -13,8 +13,6 @@ Python et actuariat
 :ref:`blog <ap-main-0>`
 
 
-en développement
-
 
 Contenu
 -------
@@ -23,6 +21,7 @@ Contenu
     :maxdepth: 1
 
     seances_base
+    examens
 
 
 .. _l-getting-started-main:

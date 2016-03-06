@@ -62,18 +62,7 @@ Bibliographie
 * `Xray + Dask: Out-of-Core, Labeled Arrays in Python <http://continuum.io/blog/xray-dask>`_
 * `A thorough guide to SQLite database operations in Python <http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html>`_
 
+Examens
++++++++
 
-plan prévisionnel
-+++++++++++++++++
-
-#. Octobre
-    * visualisation
-#. Novembre
-    * Implémenter la simulation d'un régime de retraite complémentaire à partir de sa population.
-      On suppose connu son fichier client, on prend quelques hypothèses de rendements, taux d'entrées, ...
-      C'est une simulation micro économique : on fait évoluer la population année après année.
-    * Définition des règles qui régissent l'évolution du système
-    * Choix des structures de données
-    * Implémentation des règles
-    * Simulation
-    * Graphes qui retracent l'évolution de variables exhaustive (réserves, ...)
+:ref:`l-examens`

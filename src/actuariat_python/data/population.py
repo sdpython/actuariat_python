@@ -203,7 +203,7 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
         if s.strip() == ":":
             return numpy.nan
         else:
-            return float(s.strip(" eb"))
+            return float(s.strip(" ebp"))
 
     fLOG("step 0, reading")
     dff = pandas.read_csv(temp, sep="\t", encoding="utf8")

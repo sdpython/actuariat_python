@@ -84,7 +84,7 @@ Table des matières
     :alt: Build status
     
 .. image:: https://ci.appveyor.com/api/projects/status/plhkoh1rkw70avwq?svg=true
-    :target: https://ci.appveyor.com/project/sdpython/actuariat_python
+    :target: https://ci.appveyor.com/project/sdpython/actuariat-python
     :alt: Build Status Windows        
     
 .. image:: https://badge.fury.io/py/actuariat_python.svg

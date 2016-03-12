@@ -59,7 +59,8 @@ Bibliographie
 **articles, blogs**
 
 
-* `Xray + Dask: Out-of-Core, Labeled Arrays in Python <http://continuum.io/blog/xray-dask>`_
+* `Xray + Dask: Out-of-Core, Labeled Arrays in Python <http://continuum.io/blog/xray-dask>`_ 
+  (now `array <http://xarray.pydata.org/en/stable/>`_)
 * `A thorough guide to SQLite database operations in Python <http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html>`_
 
 Examens

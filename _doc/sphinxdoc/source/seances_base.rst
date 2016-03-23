@@ -2,8 +2,8 @@
 
 .. _l-seances-base:
 
-Séances 2015
-============
+Séances
+=======
 
 
 notebooks
@@ -13,6 +13,7 @@ notebooks
     :maxdepth: 1
     :hidden:
 
+    notebooks/pandas_start
     notebooks/seance4_projection_population_enonce
     notebooks/seance4_projection_population_correction
     notebooks/seance5_sql_multidimensionnelle_enonce
@@ -27,7 +28,13 @@ notebooks
     notebooks/seance6_graphes_ml_correction
     notebooks/reconstruction_synonymes_enonce
     notebooks/reconstruction_synonymes_correction
-    
+
+**Découvertes**
+
+#. :ref:`Découverte de pandas <pandasstartrst>`
+
+**Notebooks avancés**
+
 #. :ref:`Simulation d'une population <seance4projectionpopulationenoncerst>` (:ref:`correction <seance4projectionpopulationcorrectionrst>`)
 #. :ref:`SQL et grosses base de données <seance5sqlmultidimensionnelleenoncerst>` (:ref:`correction <seance5sqlmultidimensionnellecorrectionrst>`)
 #. :ref:`Cube multidimensionnel <seance5cubemultidimensionnelenoncerst>` (:ref:`correction <seance5cubemultidimensionnelcorrectionrst>`)
@@ -36,22 +43,6 @@ notebooks
 #. :ref:`Graphes ML <seance6graphesmlenoncerst>` (:ref:`correction <seance6graphesmlcorrectionrst>`)
 #. :ref:`Synonymes statistiques <reconstructionsynonymesenoncerst>` (:ref:`correction <reconstructionsynonymescorrectionrst>`)
 
-    
-Jeux de données
-+++++++++++++++
-
-Certaines données nécessitent d'être prétraitées avant de pouvoir être utilisées et cela
-nécessite parfois plusieurs lignes de codes. Certaines fonctions ont été ajoutées à ce module
-afin de pouvoir facilement récupérer ces données, plus ou moins longues selon
-les données. C'est une partie incontournable et rébarbative. Pour aller plus vite, on part
-d'un code existant qu'on modifie au besoin. 
-Les notebooks suivants illustrent comment utiliser ce module pour
-obtenir ces jeux de données.
-
-.. toctree::
-    
-    notebooks/population_recuperation_donnees
-    
 
 Bibliographie
 +++++++++++++
@@ -62,8 +53,5 @@ Bibliographie
 * `Xray + Dask: Out-of-Core, Labeled Arrays in Python <http://continuum.io/blog/xray-dask>`_ 
   (now `array <http://xarray.pydata.org/en/stable/>`_)
 * `A thorough guide to SQLite database operations in Python <http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html>`_
+* `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
 
-Examens
-+++++++
-
-:ref:`l-examens`

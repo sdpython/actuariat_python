@@ -21,6 +21,7 @@ Contenu
     :maxdepth: 1
 
     seances_base
+    datasets
     examens
 
 
@@ -31,9 +32,9 @@ Contenu
 Liens, articles
 ---------------
 
-* `ENSAE 1A : Initiation à la programmation et l'algorithmie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_1a.html>`_
-* `ENSAE 2A : Données, Machine Learning et Programmation <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_
-* `ENSAE 3A : Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_
+* `Initiation à la programmation et l'algorithmie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_1a.html>`_ (ENSAE)
+* `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
+* `Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_ (ENSAE)
 * `Python pour un datascientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/data2a.html>`_
 * :ref:`Data workflow <blog-data-workflow>`
 * `Work on the features or the model <http://www.xavierdupre.fr/blog/2015-03-07_nojs.html>`_

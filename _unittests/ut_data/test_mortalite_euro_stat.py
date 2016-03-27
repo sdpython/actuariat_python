@@ -6,7 +6,7 @@
 import sys
 import os
 import unittest
-import re
+
 
 try:
     import src
@@ -22,7 +22,7 @@ except ImportError:
     import src
 
 try:
-    import pyquickhelper
+    import pyquickhelper as skip_
 except ImportError:
     path = os.path.normpath(
         os.path.abspath(
@@ -35,60 +35,10 @@ except ImportError:
                 "src")))
     if path not in sys.path:
         sys.path.append(path)
-    import pyquickhelper
+    import pyquickhelper as skip_
 
-try:
-    import pyensae
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyensae",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyensae
-
-
-try:
-    import pymyinstall
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pymyinstall",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pymyinstall
-
-
-try:
-    import pyrsslocal
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyrsslocal",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyrsslocal
-
-
-from pyquickhelper import fLOG, get_temp_folder
+from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import get_temp_folder
 from src.actuariat_python.data import table_mortalite_euro_stat
 
 

@@ -6,7 +6,6 @@
 import sys
 import os
 import unittest
-import re
 import warnings
 
 try:
@@ -23,7 +22,7 @@ except ImportError:
     import src
 
 try:
-    import pyquickhelper
+    import pyquickhelper as skip_
 except ImportError:
     path = os.path.normpath(
         os.path.abspath(
@@ -36,58 +35,10 @@ except ImportError:
                 "src")))
     if path not in sys.path:
         sys.path.append(path)
-    import pyquickhelper
+    import pyquickhelper as skip_
 
-try:
-    import pymyinstall
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pymyinstall",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pymyinstall
-
-try:
-    import pyensae
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyensae",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyensae
-
-try:
-    import pyrsslocal
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyrsslocal",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyrsslocal
-
-
-from pyquickhelper import fLOG, get_temp_folder
+from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import get_temp_folder
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 

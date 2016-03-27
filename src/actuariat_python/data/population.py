@@ -7,7 +7,7 @@ import numpy
 import pandas
 import gzip
 import os
-from pyquickhelper import noLOG
+from pyquickhelper.loghelper import noLOG
 import pyensae
 from .data_exception import DataFormatException
 

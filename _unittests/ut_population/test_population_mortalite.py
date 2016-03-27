@@ -6,7 +6,7 @@
 import sys
 import os
 import unittest
-import re
+
 
 try:
     import src
@@ -22,7 +22,7 @@ except ImportError:
     import src
 
 try:
-    import pyquickhelper
+    import pyquickhelper as skip_
 except ImportError:
     path = os.path.normpath(
         os.path.abspath(
@@ -35,9 +35,9 @@ except ImportError:
                 "src")))
     if path not in sys.path:
         sys.path.append(path)
-    import pyquickhelper
+    import pyquickhelper as skip_
 
-from pyquickhelper import fLOG, get_temp_folder
+from pyquickhelper.loghelper import fLOG
 from src.actuariat_python.data import table_mortalite_france_00_02
 
 

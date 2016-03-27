@@ -4,7 +4,7 @@
 @brief Various function to download data about population
 """
 import re
-from pyquickhelper import noLOG
+from pyquickhelper.loghelper import noLOG
 from pymyinstall.installcustom import download_page
 from pyensae import download_data
 from pyrsslocal.xmlhelper import xml_filter_iterator

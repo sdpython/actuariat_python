@@ -3,16 +3,13 @@
 @brief run all unit tests
 """
 
-import unittest
 import os
 import sys
-import io
 
 
 def main():
     try:
-        import pyquickhelper
-        import pyensae
+        import pyquickhelper as skip_
     except ImportError:
         sys.path.append(
             os.path.normpath(
@@ -23,19 +20,10 @@ def main():
                         "..",
                         "pyquickhelper",
                         "src"))))
-        import pyquickhelper
-        sys.path.append(
-            os.path.normpath(
-                os.path.abspath(
-                    os.path.join(
-                        os.path.split(__file__)[0],
-                        "..",
-                        "..",
-                        "pyensae",
-                        "src"))))
-        import pyquickhelper
+        import pyquickhelper as skip_
 
-    from pyquickhelper import fLOG, run_cmd, main_wrapper_tests
+    from pyquickhelper.loghelper import fLOG
+    from pyquickhelper.pycode import main_wrapper_tests
     fLOG(OutputPrint=True)
     main_wrapper_tests(__file__)
 

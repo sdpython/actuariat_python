@@ -53,5 +53,5 @@ Started in 2015/02.
 Versions
 --------
 
-* **0.1 - 2016/??/??**
-    * **new:** first version
+* **0.3 - 2016/??/??**
+    * **add:** simple notebook about pandas

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=60s)
+@brief      test log(time=20s)
 """
 
 import sys
@@ -37,23 +37,29 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper as skip_
 
+
 from pyquickhelper.loghelper import fLOG
-from src.actuariat_python.data import population_france_2015
+from pyquickhelper.pycode import add_missing_development_version
 
 
-class TestPopulationPopulation(unittest.TestCase):
+class TestElections(unittest.TestCase):
 
-    def test_population_france2015(self):
+    def setUp(self):
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
+        from src.actuariat_python.data import elections_presidentielles as skip__
+
+    def test_elections_2012(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        df = population_france_2015()
-        assert df.shape == (101, 5)
 
-        # outfile = os.path.join(temp, "out_france.csv")
-        #temp = get_temp_folder(__file__, "temp_population_france2015")
-        #df.to_csv(outfile, sep="\t", index=False, encoding="utf8")
+        from src.actuariat_python.data import elections_presidentielles
+        dfs = elections_presidentielles()
+        fLOG(type(dfs))
+        fLOG(list(dfs.keys()))
+        assert len(dfs) > 0
 
 
 if __name__ == "__main__":

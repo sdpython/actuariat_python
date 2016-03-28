@@ -34,7 +34,9 @@ packages = find_packages('src', exclude='src')
 package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
 package_data = {
     project_var_name: ["*.xml"],
-    project_var_name + ".automation": ["*.r", "*.ico"]}
+    project_var_name + ".automation": ["*.r", "*.ico"],
+    project_var_name + ".data.data_elections": ["*.xls"],
+}
 
 ############
 # functions

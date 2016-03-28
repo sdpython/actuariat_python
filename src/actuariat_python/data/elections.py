@@ -32,15 +32,16 @@ def elections_presidentielles_local_files(load=False):
     else:
         df1 = pandas.read_excel(res[0], sheetname=1)
         df2 = pandas.read_excel(res[1], sheetname=1)
-        return dict(t1=df1, t2=df2)
+        return dict(circ1=df1, circ2=df2)
 
 
-def elections_presidentielles(url=None, local=False):
+def elections_presidentielles(url=None, local=False, agg=None):
     """
     download the data for the French elections from data.gouv.fr
 
     @param      url             url (None for default value)
     @param      local           prefer local data instead of remote
+    @param      agg             kind of aggregation desired (see below)
     @return                     dictionaries of DataFrame (one entry for each round)
 
     The default url comes from
@@ -50,21 +51,43 @@ def elections_presidentielles(url=None, local=False):
 
     If url is None, we pull some data from folder
     :ref:`data/election <l-data-elections>`.
+
+    Parameter *agg*:
+
+    * *circ* or *None* for no aggregation
+    * *dep* to aggregate per department
     """
-    if local:
-        return elections_presidentielles_local_files(load=True)
-    else:
-        if url is None:
-            url = "http://static.data.gouv.fr/ff/e9c9483d39e00030815089aca1e2939f9cb99a84b0136e43056790e47bb4f0.xls"
-            url0 = None
+    if agg is None:
+        if local:
+            return elections_presidentielles_local_files(load=True)
         else:
-            url0 = url
-        try:
-            df = pandas.read_excel(url, sheetname=None)
-            return df
-        except (HTTPError, URLError, TimeoutError) as e:
-            if url0 is None:
-                return elections_presidentielles_local_files(load=True)
+            if url is None:
+                url = "http://static.data.gouv.fr/ff/e9c9483d39e00030815089aca1e2939f9cb99a84b0136e43056790e47bb4f0.xls"
+                url0 = None
             else:
-                raise DataNotAvailableError(
-                    "unable to get data from " + url) from e
+                url0 = url
+            try:
+                df = pandas.read_excel(url, sheetname=None)
+                return df
+            except (HTTPError, URLError, TimeoutError) as e:
+                if url0 is None:
+                    return elections_presidentielles_local_files(load=True)
+                else:
+                    raise DataNotAvailableError(
+                        "unable to get data from " + url) from e
+    else:
+        res = elections_presidentielles(url=url, local=local, agg=None)
+        if agg == "circ":
+            return res
+        elif agg == "dep":
+            keys = list(res.keys())
+            for k in keys:
+                col = res[k].columns
+                key = col[:2]
+                df = res[k].groupby(list(key))
+                df = df.sum()
+                df = df.reset_index(drop=False)
+                res["dep" + k[-1:]] = df
+            return res
+        else:
+            raise ValueError("unkown value for agg: '{0}'".format(agg))

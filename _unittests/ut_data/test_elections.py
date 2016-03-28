@@ -80,6 +80,18 @@ class TestElections(unittest.TestCase):
         fLOG(list(dfs.keys()))
         assert len(dfs) > 0
 
+    def test_elections_2012_departements(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        from src.actuariat_python.data import elections_presidentielles
+        dfs = elections_presidentielles(local=True, agg="dep")
+        fLOG(type(dfs))
+        fLOG(list(dfs.keys()))
+        self.assertEqual(dfs["dep1"].shape, (107, 17))
+        self.assertEqual(dfs["dep2"].shape, (107, 9))
 
 if __name__ == "__main__":
     unittest.main()

@@ -54,4 +54,6 @@ Bibliographie
   (now `array <http://xarray.pydata.org/en/stable/>`_)
 * `A thorough guide to SQLite database operations in Python <http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html>`_
 * `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
+* :ref:`Data workflow <blog-data-workflow>`
+* `Work on the features or the model <http://www.xavierdupre.fr/blog/2015-03-07_nojs.html>`_
 

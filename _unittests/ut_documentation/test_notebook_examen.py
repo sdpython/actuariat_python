@@ -47,7 +47,7 @@ class TestNotebookExamen(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal"], __file__)
+            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
 
     def test_notebook_examen(self):
         fLOG(

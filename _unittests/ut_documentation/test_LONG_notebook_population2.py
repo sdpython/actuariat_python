@@ -43,7 +43,7 @@ from pyquickhelper.pycode import get_temp_folder, add_missing_development_versio
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 
 
-class TestNotebookPopulation(unittest.TestCase):
+class TestLONGNotebookPopulation2(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
@@ -65,8 +65,7 @@ class TestNotebookPopulation(unittest.TestCase):
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
         temp = get_temp_folder(__file__, "temp_population")
         keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" not in _ and
-            "seance6_graphes_ml_enonce" not in _]
+            "population") if "seance6_graphes_ml_enonce" in _]
         assert len(keepnote) > 0
         for k in keepnote:
             fLOG(k)

@@ -5,6 +5,7 @@
 """
 import os
 import sys
+import time
 from pyquickhelper.loghelper import noLOG
 from pyquickhelper.ipythonhelper.notebook_helper import install_python_kernel_for_unittest
 from pyquickhelper.ipythonhelper import run_notebook
@@ -147,7 +148,9 @@ def execute_notebooks(folder, notebooks, filter,
         "actuariat_python")
     addpath = get_additional_paths()
     results = {}
+    times = {}
     for i, note in enumerate(notebooks):
+        clock = time.clock()
         if filter(i, note):
             fLOG("******", i, os.path.split(note)[-1])
             outfile = os.path.join(folder, "out_" + os.path.split(note)[-1])
@@ -164,6 +167,11 @@ def execute_notebooks(folder, notebooks, filter,
                 results[note] = (True, stat, out)
             except Exception as e:
                 results[note] = (False, None, e)
+        delay = time.clock() - clock
+        times[note] = delay
+    fLOG("---------------")
+    for k, v in sorted(times.items()):
+        fLOG(v, "---", k)
     return results
 
 

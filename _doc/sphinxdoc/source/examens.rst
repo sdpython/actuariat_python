@@ -13,4 +13,4 @@ Enoncés
 Correction
 ++++++++++
 
-* :ref:`solution <solution2016rst>`
+* :ref:`solution 2015-2016 <solution2016rst>`

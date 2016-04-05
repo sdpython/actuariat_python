@@ -3,7 +3,7 @@
 .. blogpost::
     :title: Balade d'avril
     :keywords: séance
-    :date: 2016-04-04
+    :date: 2016-04-05
     :categories: cours
     
     #. Python, Distributions, Module OS
@@ -21,6 +21,7 @@
     
         * Le cours :ref:`l-seances-base`
         * `Python pour un data scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_
+        * :ref:`solution2016rst`
         
     #. Pause récréative
     

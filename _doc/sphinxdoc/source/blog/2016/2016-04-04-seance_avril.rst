@@ -1,16 +1,14 @@
 
 
 .. blogpost::
-    :title: Pistes pour la sÈance d'avril
-    :keywords: sÈance
+    :title: Sujet pour une balade d'avril
+    :keywords: s√©ance
     :date: 2016-04-04
     :categories: cours
     
-    Sujet pour une balade
-    
     #. Python, Distributions, Module OS
 
-        * diffÈrences entre python 2.7, 3.x
+        * diff√©rences entre python 2.7, 3.x
         * distribution : WinPython, Anaconda
         * le cas des modules avec du C++
         * Linux, Windows ?
@@ -21,9 +19,15 @@
         * Le cours :ref:`l-seances-base`
         * `Python pour un data scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_
         
-    #. Algorithme rÈcrÈative
+    #. Pause r√©cr√©ative
     
-        * `L'Ènigme de Harry Potter <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/specials/hermionne.html>`_
+        * `Laser Maze <http://www.marblesthebrainstore.com/laser-maze.htm>`_
+        
+    #. Algorithme r√©cr√©ative
+    
+        * `L'√©nigme de Harry Potter <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/specials/hermionne.html>`_
         * `autres jeux <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/specials/index_expose.html#l-expose-explication>`_
         * `Scratch <http://lesenfantscodaient.fr/programmation/index_programmation.html>`_
     
+    .. image:: http://ecx.images-amazon.com/images/I/81RPCdhb+TL._SL1500_.jpg
+        :width: 150

@@ -37,29 +37,17 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper as skip_
 
-try:
-    import pyensae as skip__
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyensae",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyensae as skip__
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
+from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
-from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 
 
 class TestNotebookPopulation(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
 
     def test_notebook_population(self):
         fLOG(
@@ -74,10 +62,13 @@ class TestNotebookPopulation(unittest.TestCase):
                 "travis, unable to test TestNotebookPopulation.test_notebook_population")
             return
 
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
         temp = get_temp_folder(__file__, "temp_population")
         keepnote = [_ for _ in ls_notebooks(
             "population") if "seance5_approche_fonctionnelle_enonce" not in _]
         assert len(keepnote) > 0
+        for k in keepnote:
+            fLOG(k)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

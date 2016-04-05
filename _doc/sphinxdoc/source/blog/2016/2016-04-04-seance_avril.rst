@@ -8,8 +8,11 @@
     
     #. Python, Distributions, Module OS
 
-        * différences entre Python 2.7, Python 3.x
-        * distribution : WinPython, Anaconda
+        * différences entre `Python 2.7, Python 3.x <http://apprendre-python.com/page-syntaxe-differente-python2-python3-python-differences>`_,
+          `Dois-je apprendre Python 2 ou Python 3 ? <http://sametmax.com/dois-je-apprendre-python-2-ou-python-3/>`_
+        * distribution : `WinPython <https://winpython.github.io/>`_, 
+          `Anaconda <https://www.continuum.io/downloads>`_, 
+          `ENSAE setup <http://www.xavierdupre.fr/enseignement/>`_
         * le cas des modules avec du C++
         * Linux, Windows ?
         * Les modules importants pour faire du machine learning

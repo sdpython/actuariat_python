@@ -19,6 +19,7 @@ install:
   - "%PYTHON%\\python -m pip install --upgrade pip"
   - "%PYTHON%\\Scripts\\pip install pymyinstall"
   - "%PYTHON%\\Scripts\\pymy_install3 --set=ensae_teaching_cs"
+  - "%PYTHON%\\Scripts\\pymy_install3 yaml"
   - "%PYTHON%\\Scripts\\pip install xlrd"
   - "%PYTHON%\\Scripts\\pip install pyquickhelper"
   - "%PYTHON%\\Scripts\\pip install cryptography"

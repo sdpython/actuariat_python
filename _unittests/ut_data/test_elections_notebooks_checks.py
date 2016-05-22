@@ -78,7 +78,6 @@ class TestElectionsNotebookCheck(unittest.TestCase):
         deps = dict_df["dep1"].merge(dict_df["dep2"], on="Code du département",
                                      suffixes=("T1", "T2"))
         fLOG(len(deps))
-        deps.to_excel("tt.xlsx")
         assert len(deps) > 10
         assert len(deps) < 110
         deps["rHollandeT1"] = deps['François HOLLANDE (PS)T1'] / (deps["VotantsT1"] - deps["Blancs et nulsT1"])

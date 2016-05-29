@@ -38,12 +38,15 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
+from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
-from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 
 
 class TestLONGNotebookPopulation(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
 
     def test_long_notebook_population(self):
         fLOG(
@@ -51,6 +54,7 @@ class TestLONGNotebookPopulation(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
 
         if "travis" in sys.executable:
             # matplotlib is still failing

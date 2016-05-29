@@ -28,6 +28,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pymyinstall"
   - "%PYTHON%\\Scripts\\pip install pyensae"
   - "%PYTHON%\\Scripts\\pip install pyrsslocal"
+  - "%PYTHON%\\Scripts\\pip install pylzma"
 
 build: off
 

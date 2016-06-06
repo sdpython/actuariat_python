@@ -10,7 +10,8 @@ Python et actuariat
 `wheel <http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python>`_,
 `travis <https://travis-ci.org/sdpython/actuariat_python>`_,
 :ref:`l-README`,
-:ref:`blog <ap-main-0>`
+:ref:`blog <ap-main-0>`,
+:ref:`l-issues-todolist`
 
 
 

@@ -2,8 +2,8 @@
 
 .. _l-README:
 
-README / Changes
-================
+README
+======
 
 .. image:: https://travis-ci.org/sdpython/actuariat_python.svg?branch=master
     :target: https://travis-ci.org/sdpython/actuariat_python

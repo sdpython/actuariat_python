@@ -1,12 +1,13 @@
 
 
-.. _blog-data-workflow:
+
 
 .. blogpost::
     :title: Data Wrokflow
     :keywords: orange
     :date: 2015-05-25
     :categories: workflow, data
+    :lid: blog-data-workflow
     
     Ce terme désigne une façon plutôt de décrire le traitement de données.
     `Weka <http://www.cs.waikato.ac.nz/ml/weka/>`_ fut un des premiers outils à ouvrir cette voie,

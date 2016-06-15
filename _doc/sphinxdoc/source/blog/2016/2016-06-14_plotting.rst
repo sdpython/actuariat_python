@@ -1,0 +1,44 @@
+
+
+.. blogpost::
+    :title: Références, séance du 14 juin 2016
+    :keywords: cours
+    :date: 2016-06-14
+    :categories: cours
+    :lid: blog-2016-06-14-plotting
+    
+    **Trucs et astuces sur Internet**
+    
+    * Chercher sur un moteur de recherche ``<module> cheatsheet`` pour
+      retrouver les usages les plus fréquents avec un module
+      
+    **Autres trucs et astuces**
+    
+    * Contre les suppressions involontairs :
+      `Git <https://git-scm.com/>`_, 
+      `Tortoise Git <https://tortoisegit.org/>`_
+    * Installation de `xgboost <https://xgboost.readthedocs.io/en/latest/>`_ pour Windows :
+      ``pip install pymyinstall`` et ``pymy_install xgboost``,
+      see also 
+      `Build xgboost 0.4a30 for Python 3.4 and 3.5 <http://www.xavierdupre.fr/app/pymyinstall/helpsphinx//blog/2016/2016-04-04_build_xgboost_04a30.html>`_
+    
+    **Installation sous Windows**, essayer dans l'ordre :
+    
+    #. ``conda install <module>``
+    #. Regarder sur la page `Unofficial Windows Binaries for Python Extension Packages <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_
+       si elle contient le module souhaité. Si oui, il y a de grandes chances que
+       le module nécessite un compilateur C. Essayer ``pip install <wheel>``.
+    #. Enfin, essayer ``pip install <module>``.
+    
+    Si cela ne marche pas, installer 
+    `Visual Studio 2015 Community <https://www.visualstudio.com/fr-fr/products/visual-studio-community-vs.aspx>`_.
+    
+    **Notebooks**
+    
+    * `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_, premier notebook
+    
+    **Visualisation**
+    
+    * `PyData 06/14/2016 in Paris <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/2016/pydata2016.html>`_
+    
+    

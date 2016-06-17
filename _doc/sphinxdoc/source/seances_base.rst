@@ -2,11 +2,11 @@
 
 .. _l-seances-base:
 
-Séances
-=======
+TD - Data Actuaire
+==================
 
 
-notebooks
+Notebooks
 +++++++++
 
 .. toctree::
@@ -43,7 +43,7 @@ notebooks
 #. :ref:`Graphes ML <seance6graphesmlenoncerst>` (:ref:`correction <seance6graphesmlcorrectionrst>`)
 #. :ref:`Synonymes statistiques <reconstructionsynonymesenoncerst>` (:ref:`correction <reconstructionsynonymescorrectionrst>`)
 
-Digressions
+Compléments
 +++++++++++
 
 * :ref:`blog-2016-06-14-plotting`

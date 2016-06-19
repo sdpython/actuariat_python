@@ -83,3 +83,4 @@ pyquickhelper
 pymyinstall
 colormap
 easydev
+pycodestyle

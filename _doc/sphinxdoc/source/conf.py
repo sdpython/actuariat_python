@@ -54,9 +54,12 @@ if html_theme == "bootstrap":
         'bootswatch_theme': "lumen",
         # united = weird colors, sandstone=green, simplex=red, paper=trop bleu
         # lumen: OK
-        # to try, yeti, flatly, paper
+        # to try, yeti, flatly, paper, lumen
         'bootstrap_version': "3",
     }
 
 blog_root = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/"
 blog_background = False
+html_context = {
+    'css_files': ['_static/my-styles.css'],
+}

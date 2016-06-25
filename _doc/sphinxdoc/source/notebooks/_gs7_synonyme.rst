@@ -6,5 +6,5 @@ Synonymes statistiques
 .. toctree::
     :maxdepth: 2
 
-    reconstructionsynonymesenoncerst
-    reconstructionsynonymescorrectionrst
+    reconstruction_synonymes_enonce
+    reconstruction_synonymes_correction

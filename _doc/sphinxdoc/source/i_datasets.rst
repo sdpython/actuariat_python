@@ -2,20 +2,19 @@
 
 .. _l-datasets:
 
+===============
 Jeux de données
 ===============
 
-.. contents:
-    :depth: 2
 
-Données brutes
-++++++++++++++
+Données non pretraitées
+=======================
 
 Certains jeux de données ont été incluses dans le module. La première raison est 
 que les sites qui les fournissent fonctionnent par intermittence bien que ces données soient publiques.
 
 Elections
-^^^^^^^^^
++++++++++
 
 Ce jeux regroupes l'ensembles des élections depuis le site 
 `Elections présidentielles 1965-2012 <https://www.data.gouv.fr/fr/datasets/elections-presidentielles-1965-2012-1/>`_.
@@ -24,8 +23,8 @@ retourne le résultat des élections présidentielles de 2012 par circonscriptio
     
 
 
-Notebooks pour préparer les données
-+++++++++++++++++++++++++++++++++++
+Données prétraitées depuis un notebook
+======================================
 
 Certaines données nécessitent d'être prétraitées avant de pouvoir être utilisées et cela
 nécessite parfois plusieurs lignes de codes. Certaines fonctions ont été ajoutées à ce module
@@ -36,8 +35,9 @@ Les notebooks suivants illustrent comment utiliser ce module pour
 obtenir ces jeux de données.
 
 .. toctree::
+    :maxdepth: 1
     
-    notebooks/population_recuperation_donnees
+    Données sur la population françaises <notebooks/population_recuperation_donnees>
     
 
 

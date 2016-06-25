@@ -5,7 +5,7 @@ README
 
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     README
     blog/main_0000    

@@ -1,6 +1,6 @@
 
-Python et actuariat
-===================
+Python pour un Actuaire
+=======================
 
    
    
@@ -38,7 +38,7 @@ Liens, articles
 * `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
 * `Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_ (ENSAE)
 * `Machine Learning, Statistiques et Programmation <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/index.html#jupytalk>`_
-* `Notebooks Présentations <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/index.html>`_
+* `Présentations en notebooks <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/index.html>`_
 
 
 Getting started

@@ -21,7 +21,7 @@ sys.path.insert(
 
 from pyquickhelper.helpgen.default_conf import set_sphinx_variables
 
-set_sphinx_variables(__file__, "actuariat_python", "Xavier Dupré, Vincent Bernardi",
+set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré, Vincent Bernardi",
                      2016, "bootstrap", None,
                      locals(), add_extensions=None, book=True,
                      extlinks=dict(issue=('https://github.com/sdpython/actuariat_python/issues/%s', 'issue')))

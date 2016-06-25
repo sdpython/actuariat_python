@@ -16,25 +16,49 @@ Découvertes
     
     notebooks/pandasstartrst
 
+Simulation de population
+========================
+
 .. toctree::
     :maxdepth: 2
     
-    _gs4_simulation_population
-    _gs5_sql_big_data
-    _gs5_cube
-    _gs5_approche_fonctionnelle
-    _gs6_graphe
-    _gs6_graphe_ml
-    _gs7_synonyme
+    notebooks/_gs4_simulation_population
+    
+Gros volumes de données
+=======================
+    
+.. toctree::
+    :maxdepth: 2
+    
+    notebooks/_gs5_sql_big_data
+    notebooks/_gs5_cube
+    notebooks/_gs5_approche_fonctionnelle
+    
+Graphes
+=======
+
+.. toctree::
+    :maxdepth: 2
+    
+    notebooks/_gs6_graphe
+    notebooks/_gs6_graphe_ml
+    
+Etre inventif et fabriquer ce qu'on n'a pas
+===========================================
+    
+.. toctree::
+    :maxdepth: 2
+
+    notebooks/_gs7_synonyme
 
 Compléments
-+++++++++++
+===========
 
 * :ref:`blog-2016-06-14-plotting`
 
 
 Bibliographie
-+++++++++++++
+=============
 
 **articles, blogs**
 

@@ -56,6 +56,7 @@ Table des matières
 ------------------
 
 .. toctree::
+    :caption: Index
     :maxdepth: 1
 
     blog/main_0000

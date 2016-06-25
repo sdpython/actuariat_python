@@ -227,6 +227,7 @@ version.txt
 */sphinxdoc/source/actuariat_python/*
 */sphinxdoc/source/all*.rst
 */sphinxdoc/source/notebooks/*
+!*/sphinxdoc/source/notebooks/_gs*
 */sphinxdoc/source/coverage/*
 
 _doc/notebooks/SQLite*.*

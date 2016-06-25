@@ -19,11 +19,12 @@ Contenu
 -------
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
-    seances_base
-    datasets
-    examens
+    i_seances_base
+    i_datasets
+    i_examens
+    i_index
 
 
 .. _l-getting-started-main:
@@ -36,6 +37,8 @@ Liens, articles
 * `Initiation à la programmation et l'algorithmie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_1a.html>`_ (ENSAE)
 * `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
 * `Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_ (ENSAE)
+* `Machine Learning, Statistiques et Programmation <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/index.html#jupytalk>`_
+* `Notebooks Présentations <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/index.html>`_
 
 
 Getting started
@@ -52,22 +55,7 @@ exemple exécuter le notebook :ref:`populationrecuperationdonneesrst`.
 
     
 
-Table des matières
-------------------
 
-.. toctree::
-    :caption: Index
-    :maxdepth: 1
-
-    blog/main_0000
-    all_notebooks
-    all_example
-    README
-    glossary
-    azFAQ
-    license
-    filechanges
-    
 
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+
 | :ref:`l-modules`     |  :ref:`l-functions` | :ref:`l-classes`    | :ref:`l-methods`   | :ref:`l-staticmethods` | :ref:`l-properties`                            |

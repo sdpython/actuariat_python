@@ -14,7 +14,8 @@ Découvertes
 .. toctree::
     :maxdepth: 2
     
-    notebooks/pandasstartrst
+    notebooks/pandas_start
+    notebooks/table_avec_guillemets
 
 Simulation de population
 ========================

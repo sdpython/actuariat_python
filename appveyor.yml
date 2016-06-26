@@ -28,7 +28,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pycodestyle"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
   - "set PATH=%PATH%;C:\\projects\\actuariat_python\\build\\update_modules\\Graphviz\\bin"
-  - "dir C:\\projects\\actuariat_python\\build\\update_modules\\Graphviz\\bin"
+  - "dir C:\\projects\\actuariat_python"
 build: off
 
 test_script:

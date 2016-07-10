@@ -27,6 +27,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pycryptodomex"
   - "%PYTHON%\\Scripts\\pip install urllib3"
   - "%PYTHON%\\Scripts\\pip install pycodestyle"
+  - "%PYTHON%\\Scripts\\pip install toolz"
   - "%PYTHON%\\Scripts\\pip install pyensae pyrsslocal"
   - "%PYTHON%\\Scripts\\pip install pygal"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"

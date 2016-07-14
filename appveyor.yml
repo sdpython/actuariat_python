@@ -29,7 +29,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pycodestyle"
   - "%PYTHON%\\Scripts\\pip install toolz"
   - "%PYTHON%\\Scripts\\pip install pyensae pyrsslocal"
-  - "%PYTHON%\\Scripts\\pip install pygal"
+  - "%PYTHON%\\Scripts\\pip install pygal seaborn"
   - "%PYTHON%\\Scripts\\pip install pyshp"
   - "%PYTHON%\\Scripts\\pip install pygal_maps_fr"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"

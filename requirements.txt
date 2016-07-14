@@ -2,8 +2,6 @@ ansiconv
 autopep8
 bqplot
 brewer2mpl
-brewer2mpl
-codecov
 codecov
 entrypoints
 ete3
@@ -12,14 +10,12 @@ lightning-python
 mechanize
 metakernel
 pkgtools
-pkgtools
 plotly
 pygal
 pygal_maps_fr
 pylzma
 pylzma
 pyquickhelper
-pyreadline
 pyreadline
 requests-oauthlib
 xlrd

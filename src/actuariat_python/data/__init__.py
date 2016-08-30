@@ -1,5 +1,6 @@
 """
-shortcuts to data
+@file
+@brief shortcuts to data
 """
 
 from .data_exception import DataFormatException

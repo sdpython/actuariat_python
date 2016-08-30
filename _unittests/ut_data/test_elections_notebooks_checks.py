@@ -67,9 +67,11 @@ class TestElectionsNotebookCheck(unittest.TestCase):
             return r
 
         fLOG("*")
-        dict_df["dep1"]["Code du département"] = dict_df["dep1"]["Code du département"].apply(cleandep)
+        dict_df["dep1"]["Code du département"] = dict_df[
+            "dep1"]["Code du département"].apply(cleandep)
         fLOG("*")
-        dict_df["dep2"]["Code du département"] = dict_df["dep2"]["Code du département"].apply(cleandep)
+        dict_df["dep2"]["Code du département"] = dict_df[
+            "dep2"]["Code du département"].apply(cleandep)
         fLOG("-------------", dict_df["dep1"][["Code du département"]].dtypes)
         fLOG(dict_df["dep1"].head()["Code du département"])
         fLOG("-------------", dict_df["dep2"][["Code du département"]].dtypes)
@@ -80,13 +82,17 @@ class TestElectionsNotebookCheck(unittest.TestCase):
         fLOG(len(deps))
         assert len(deps) > 10
         assert len(deps) < 110
-        deps["rHollandeT1"] = deps['François HOLLANDE (PS)T1'] / (deps["VotantsT1"] - deps["Blancs et nulsT1"])
+        deps["rHollandeT1"] = deps[
+            'François HOLLANDE (PS)T1'] / (deps["VotantsT1"] - deps["Blancs et nulsT1"])
         fLOG(len(deps["rHollandeT1"]))
-        deps["rSarkozyT1"] = deps['Nicolas SARKOZY (UMP)T1'] / (deps["VotantsT1"] - deps["Blancs et nulsT1"])
+        deps["rSarkozyT1"] = deps[
+            'Nicolas SARKOZY (UMP)T1'] / (deps["VotantsT1"] - deps["Blancs et nulsT1"])
         fLOG(len(deps["rSarkozyT1"]))
         deps["rNulT1"] = deps["Blancs et nulsT1"] / deps["VotantsT1"]
-        deps["rHollandeT2"] = deps["François HOLLANDE (PS)T2"] / (deps["VotantsT2"] - deps["Blancs et nulsT2"])
-        deps["rSarkozyT2"] = deps['Nicolas SARKOZY (UMP)T2'] / (deps["VotantsT2"] - deps["Blancs et nulsT2"])
+        deps["rHollandeT2"] = deps[
+            "François HOLLANDE (PS)T2"] / (deps["VotantsT2"] - deps["Blancs et nulsT2"])
+        deps["rSarkozyT2"] = deps[
+            'Nicolas SARKOZY (UMP)T2'] / (deps["VotantsT2"] - deps["Blancs et nulsT2"])
         deps["rNulT2"] = deps["Blancs et nulsT2"] / deps["VotantsT2"]
         data = deps[["Code du département", "Libellé du départementT1",
                      "VotantsT1", "rHollandeT1", "rSarkozyT1", "rNulT1",

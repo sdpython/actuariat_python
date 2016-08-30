@@ -161,6 +161,7 @@ if is_local():
     logging_function(OutputPrint=True)
     r = process_standard_options_for_setup(
         sys.argv, __file__, project_var_name,
+        layout=["html"],
         unittest_modules=["pyquickhelper"],
         requirements=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall"],
         additional_notebook_path=["pyquickhelper",

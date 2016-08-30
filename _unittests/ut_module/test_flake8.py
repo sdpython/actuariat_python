@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 """
 @brief      test log(time=0s)
 """
@@ -46,7 +47,7 @@ class TestFlake8(unittest.TestCase):
         thi = os.path.abspath(os.path.dirname(__file__))
         src_ = os.path.normpath(os.path.join(thi, "..", "..", "src"))
         check_pep8(src_, fLOG=fLOG, extended=[("fLOG", _extended_refactoring)],
-                   neg_filter=".*faq_python.py$")
+                   neg_filter="((.*faq_python.py)|(__init__.py))$")
 
     def test_flake8_test(self):
         fLOG(

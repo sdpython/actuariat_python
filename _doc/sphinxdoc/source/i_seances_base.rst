@@ -34,6 +34,7 @@ Gros volumes de données
     notebooks/_gs5_sql_big_data
     notebooks/_gs5_cube
     notebooks/_gs5_approche_fonctionnelle
+    notebooks/_gs_internet
     
 Graphes
 =======

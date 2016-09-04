@@ -163,11 +163,11 @@ if is_local():
         sys.argv, __file__, project_var_name,
         layout=["html"],
         unittest_modules=["pyquickhelper"],
-        requirements=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall"],
+        requirements=["pyquickhelper", "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
         additional_notebook_path=["pyquickhelper",
-                                  "pyensae", "pyrsslocal", "pymyinstall"],
+                                  "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
         additional_local_path=["pyquickhelper",
-                               "pyensae", "pyrsslocal", "pymyinstall"],
+                               "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
         fLOG=logging_function,
         covtoken=("c310b252-ef1b-4454-896c-2d2e01670378", "'_UT_35_std' in outfile"))
     if not r and not ({"bdist_msi", "sdist",
@@ -198,7 +198,7 @@ if not r:
         package_dir=package_dir,
         package_data=package_data,
         install_requires=[
-            "pyquickhelper", "pyensae", "pymyinstall",
+            "pyquickhelper", "pyensae", "pymyinstall", "mlstatpy",
             "scikit-learn", "pyrsslocal", "pandas", "numpy",
             "matplotlib", "ipython", "cvxopt"],
     )

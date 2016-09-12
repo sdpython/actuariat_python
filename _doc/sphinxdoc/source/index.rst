@@ -25,6 +25,7 @@ Contenu
     i_datasets
     i_examens
     i_index
+    getting_started
 
 
 .. _l-getting-started-main:
@@ -44,11 +45,11 @@ Liens, articles
 Getting started
 ---------------
 
-
+La page :ref:`l-getting-started-ac` indique comment installer ce module ainsi que quelques autres
+récalcitrants comme `xgboost <https://xgboost.readthedocs.io/en/latest/>`_ par exemple.
 La page 
 `Getting started (ENSAE) <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/index.html#getting-started>`_
-décrit les instructions pour installer Python et tous les modules
-nécessaires pour exécuter les notebooks.
+est plus exhaustive.
 Une fois l'installation terminée, il est préférable de faire quelques tests
 pour vérifier que tout s'est bien passé. On peut par exemple
 exemple exécuter le notebook :ref:`populationrecuperationdonneesrst`.

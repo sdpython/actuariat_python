@@ -53,10 +53,12 @@ def get_additional_paths():
     import pyquickhelper
     import pymyinstall
     import pyrsslocal
+    import mlstatpy
     addpath = [os.path.dirname(pyquickhelper.__file__),
                os.path.dirname(pyensae.__file__),
                os.path.dirname(pyrsslocal.__file__),
                os.path.dirname(pymyinstall.__file__),
+               os.path.dirname(mlstatpy.__file__),
                os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."),
                ]
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]
@@ -87,11 +89,13 @@ def clean_function_notebook(code):
             "# ...... à remplir",
             'String.Join(",", a.Select(c=>c.ToString()).ToArray())',
             "# elle n'existe pas encore",
+            "# boucle sur les 24 heures de la journée",
             "from ggplot import *",
             # ggplot calls method show and it opens window blocking the offline
             # execution
             ]
     rep = [("# ...", "pass # "),
+           ("%timeit -n1 -r1 ", ""),
            ("%timeit", "#%timeit"),
            ]
     spl = ["# ......",
@@ -108,7 +112,6 @@ def clean_function_notebook(code):
 
     for s in rep:
         code = code.replace(s[0], s[1])
-
     return code
 
 

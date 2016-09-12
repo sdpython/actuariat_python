@@ -8,3 +8,4 @@ Statistiques sur Wikipédia
 
     wikipedia_stats_enonce
     wikipedia_stats_correction
+    wikipedia_stats_correction2

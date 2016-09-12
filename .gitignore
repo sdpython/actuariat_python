@@ -277,3 +277,4 @@ _doc/notebooks/nlp/*.zip
 
 _doc/notebooks/decouverte/exemple.xlsx
 _doc/notebooks/internet/wikipv
+_doc/notebooks/internet/joblib_wiki.py

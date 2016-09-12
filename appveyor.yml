@@ -28,7 +28,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install urllib3"
   - "%PYTHON%\\Scripts\\pip install pycodestyle"
   - "%PYTHON%\\Scripts\\pip install toolz"
-  - "%PYTHON%\\Scripts\\pip install pyensae pyrsslocal"
+  - "%PYTHON%\\Scripts\\pip install pyensae pyrsslocal mlstatpy"
   - "%PYTHON%\\Scripts\\pip install pygal seaborn bokeh"
   - "%PYTHON%\\Scripts\\pip install pyshp"
   - "%PYTHON%\\Scripts\\pip install pygal_maps_fr"

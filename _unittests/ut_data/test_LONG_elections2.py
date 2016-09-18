@@ -1,0 +1,85 @@
+#-*- coding: utf-8 -*-
+"""
+@brief      test log(time=20s)
+"""
+
+import sys
+import os
+import unittest
+import pandas
+
+
+try:
+    import src
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import src
+
+try:
+    import pyquickhelper as skip_
+except ImportError:
+    path = os.path.normpath(
+        os.path.abspath(
+            os.path.join(
+                os.path.split(__file__)[0],
+                "..",
+                "..",
+                "..",
+                "pyquickhelper",
+                "src")))
+    if path not in sys.path:
+        sys.path.append(path)
+    import pyquickhelper as skip_
+
+
+from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import add_missing_development_version, get_temp_folder
+
+
+class TestElections2(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
+        from src.actuariat_python.data import elections_presidentielles as skip__
+
+    def test_elections_2012_bureau_vote(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        from src.actuariat_python.data import elections_legislatives_bureau_vote
+        temp = get_temp_folder(__file__, "temp_elections_bureau_vote")
+        dfs = elections_legislatives_bureau_vote(
+            fLOG=fLOG, folder=temp, source="xd")
+        fLOG(type(dfs))
+        fLOG(list(dfs.keys()))
+        self.assertEqual(len(dfs), 2)
+        assert "T1" in dfs
+        assert "T2" in dfs
+        assert isinstance(dfs["T1"], pandas.DataFrame)
+
+    def test_elections_2012_contours(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        from src.actuariat_python.data import elections_legislatives_circonscription_geo
+        temp = get_temp_folder(__file__, "temp_elections_contour")
+        dfs = elections_legislatives_circonscription_geo(
+            fLOG=fLOG, folder=temp, source="xd")
+        assert isinstance(dfs, pandas.DataFrame)
+        self.assertEqual(dfs.shape, (577, 6))
+
+
+if __name__ == "__main__":
+    unittest.main()

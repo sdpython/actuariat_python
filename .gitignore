@@ -278,3 +278,8 @@ _doc/notebooks/nlp/*.zip
 _doc/notebooks/decouverte/exemple.xlsx
 _doc/notebooks/internet/wikipv
 _doc/notebooks/internet/joblib_wiki.py
+_doc/notebooks/population/toxicode_circonscriptions_legislatives.*
+_doc/notebooks/population/LG12_BV_T1T2.*
+_doc/notebooks/population/toxicode_circonscriptions_legislatives/*
+_doc/notebooks/population/LG12_BV_T1T2/*
+_doc/notebooks/population/__MACOSX/*

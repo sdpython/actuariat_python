@@ -7,6 +7,8 @@ import pandas
 import os
 from urllib.error import HTTPError, URLError
 from .data_exceptions import DataNotAvailableError
+from pyquickhelper.loghelper import noLOG
+from pyensae.datasource import download_data
 
 
 def elections_presidentielles_local_files(load=False):
@@ -91,3 +93,64 @@ def elections_presidentielles(url=None, local=False, agg=None):
             return res
         else:
             raise ValueError("unkown value for agg: '{0}'".format(agg))
+
+
+def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
+    """
+    retrieve data from
+    `Résultat des élections législatives françaises de 2012 au niveau bureau de vote <https://www.data.gouv.fr/fr/datasets/resultat-des-elections-legislatives-francaises-de-2012-au-niveau-bureau-de-vote-nd/>`_
+
+    @param      source  should be None unless you want to use the backup plan ("xd")
+    @param      folder  where to download
+    @return             list of dataframe
+
+    Others sources:
+
+    * `Résultats élections municipales 2014 par bureau de vote <http://www.nosdonnees.fr/dataset/resultats-elections-municipales-2014-par-bureau-de-vote>`_
+    * `Elections 2015 - Découpage des bureaux de Vote <https://www.data.gouv.fr/fr/datasets/elections-2015-decoupage-des-bureaux-de-vote/>`_
+    * `Contours des cantons électoraux départementaux 2015 <https://www.data.gouv.fr/fr/datasets/contours-des-cantons-electoraux-departementaux-2015/>`_
+    * `Découpage électoral de la commune, pour les élections législatives <https://www.data.gouv.fr/fr/datasets/circonscriptions/>`_ (weird bizarre)
+    * `Statistiques démographiques INSEE sur les nouvelles circonscriptions législatives de 2012 <https://www.data.gouv.fr/fr/datasets/statistiques-demographiques-insee-sur-les-nouvelles-circonscriptions-legislatives-de-2012-nd/>`_
+    """
+    if source is None:
+        url = "http://www.nosdonnees.fr/storage/f/2013-03-05T184148/"
+        file = "LG12_BV_T1T2.zip"
+    else:
+        url = source
+        file = "LG12_BV_T1T2.zip"
+    data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
+    res = {}
+    for d in data:
+        df = pandas.read_csv(d, encoding="latin-1", sep=";", low_memory=False)
+        if d.endswith("_T2.txt"):
+            key = "T2"
+        elif d.endswith("_T1.txt"):
+            key = "T1"
+        else:
+            raise ValueError(
+                "unable to guess key for filename: '{0}'".format(d))
+        res[key] = df
+    return res
+
+
+def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noLOG):
+    """
+    retrieve data from
+    `Countours des circonscriptions des législatives <https://www.data.gouv.fr/fr/datasets/countours-des-circonscriptions-des-legislatives-nd/>`_
+
+    @param      source  should be None unless you want to use the backup plan ("xd")
+    @param      folder  where to download
+    @return             list of dataframe
+    """
+    if source is None:
+        raise NotImplementedError("use source='xd'")
+    else:
+        url = source
+        file = "toxicode_circonscriptions_legislatives.zip"
+    data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
+    res = {}
+    for d in data:
+        if d.endswith(".csv"):
+            df = pandas.read_csv(d, sep=",", encoding="utf-8")
+            return df
+    raise ValueError("unable to find any csv file in '{0}'".format(file))

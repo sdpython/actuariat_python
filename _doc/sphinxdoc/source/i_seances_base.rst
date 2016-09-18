@@ -52,6 +52,7 @@ Etre inventif et fabriquer ce qu'on n'a pas
     :maxdepth: 2
 
     notebooks/_gs7_synonyme
+    notebooks/_gs_gerrymandering
 
 Compléments
 ===========

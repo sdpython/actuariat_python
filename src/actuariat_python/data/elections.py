@@ -148,7 +148,6 @@ def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noL
         url = source
         file = "toxicode_circonscriptions_legislatives.zip"
     data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
-    res = {}
     for d in data:
         if d.endswith(".csv"):
             df = pandas.read_csv(d, sep=",", encoding="utf-8")

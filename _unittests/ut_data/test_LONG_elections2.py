@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=20s)
+@brief      test log(time=5s)
 """
 
 import sys
@@ -79,6 +79,19 @@ class TestElections2(unittest.TestCase):
             fLOG=fLOG, folder=temp, source="xd")
         assert isinstance(dfs, pandas.DataFrame)
         self.assertEqual(dfs.shape, (577, 6))
+
+    def test_elections_vote_places_geo(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        from src.actuariat_python.data import elections_vote_places_geo
+        temp = get_temp_folder(__file__, "temp_elections_vote_places_geo")
+        dfs = elections_vote_places_geo(
+            fLOG=fLOG, folder=temp, source="xd")
+        assert isinstance(dfs, pandas.DataFrame)
+        assert len(dfs) > 10000
 
 
 if __name__ == "__main__":

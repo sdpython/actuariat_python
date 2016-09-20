@@ -1,14 +1,20 @@
 #-*- coding: utf-8 -*-
 """
 @file
-@brief Various function to download data about elections
+@brief Various function to download data about **French** elections.
 """
-import pandas
+import re
 import os
+import warnings
+import pandas
+import numpy
+from html.parser import HTMLParser
+from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
 from .data_exceptions import DataNotAvailableError
 from pyquickhelper.loghelper import noLOG
 from pyensae.datasource import download_data
+from pyquickhelper.filehelper import download
 
 
 def elections_presidentielles_local_files(load=False):
@@ -153,3 +159,182 @@ def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noL
             df = pandas.read_csv(d, sep=",", encoding="utf-8")
             return df
     raise ValueError("unable to find any csv file in '{0}'".format(file))
+
+
+def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
+    """
+    retrieve data vote places (bureaux de vote in French)
+    with geocodes
+
+    @param      source  should be None unless you want to use the backup plan ("xd")
+    @param      folder  where to download
+    @return             list of dataframe
+    """
+    if source is None:
+        raise NotImplementedError("use source='xd'")
+    else:
+        url = source
+        file = "elections_vote_places_geo.zip"
+    data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
+    for d in data:
+        if d.endswith(".csv"):
+            df = pandas.read_csv(d, sep=",", encoding="utf-8")
+            return df
+    raise ValueError("unable to find any csv file in '{0}'".format(file))
+
+
+class _HTMLToText(HTMLParser):
+
+    def __init__(self):
+        HTMLParser.__init__(self)
+        self._buf = []
+        self.hide_output = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ('p', 'br') and not self.hide_output:
+            self._buf.append('\n')
+        elif tag in ('script', 'style'):
+            self.hide_output = True
+
+    def handle_startendtag(self, tag, attrs):
+        if tag == 'br':
+            self._buf.append('\n')
+
+    def handle_endtag(self, tag):
+        if tag == 'p':
+            self._buf.append('\n')
+        elif tag in ('script', 'style'):
+            self.hide_output = False
+
+    def handle_data(self, text):
+        if text and not self.hide_output:
+            self._buf.append(re.sub(r'\s+', ' ', text))
+
+    def handle_entityref(self, name):
+        if name in name2codepoint and not self.hide_output:
+            c = name2codepoint[name]
+            self._buf.append(c)
+
+    def handle_charref(self, name):
+        if not self.hide_output:
+            n = int(name[1:], 16) if name.startswith('x') else int(name)
+            self._buf.append(n)
+
+    def get_text(self):
+        return re.sub(r' +', ' ', ''.join(self._buf))
+
+
+def html_to_text(html):
+    """
+    Given a piece of HTML, return the plain text it contains.
+    This handles entities and char refs, but not javascript and stylesheets.
+    """
+    parser = _HTMLToText()
+    parser.feed(html)
+    parser.close()
+    return parser.get_text()
+
+
+_elections_vote_place_address_patterns = [
+    "bureau( de vote)?[- ]*n[^0-9]([0-9]{1,3})[- ]+(.*?)[- ]+([0-9]{5})[- ]+([-a-zéèàùâêîôûïöäëü']{2,40})[. ]"]
+
+
+def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
+    """
+    this function scrapes and extracts addresses for every vote place (bureau de vote in French)
+
+    @param      folder          where to download the scraped pages
+    @param      hide_warnings   hide warnings
+    @param      fLOG            logging function
+    @return                     dictionary
+
+    The function does not retrieve everything due to the irregular format.
+    Sometimes, the city is missing or written above.
+    """
+    global _elections_vote_place_address_patterns
+    files = []
+    for deps in range(1, 96):
+        last = "bureaudevote%02d.htm" % deps
+        url = "http://bureaudevote.fr/" + last
+        f = download(url, path_download=folder, fLOG=fLOG)
+        files.append(f)
+    regex = [re.compile(_) for _ in _elections_vote_place_address_patterns]
+    rows = []
+    exc = []
+    for data in files:
+        lrows = []
+        with open(data, "r", encoding="iso-8859-1") as f:
+            content = f.read().lower()
+        content = html_to_text(content)
+        content0 = content
+        content = content.replace("\n", " ").replace("\t", " ")
+        atous = []
+        for reg in regex:
+            atous.extend(reg.findall(content))
+        if len(atous) < 4 and len(atous) > 0:
+            mes = "Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(data, content0, len(atous), "\n".join(str(_) for _ in atous))
+            exc.append(Exception(mes))
+        if len(atous) > 1:
+            for t in atous:
+                ad = t[-3].split("-")
+                address = ad[-1].strip(" ./<>-")
+                place = "-".join(ad[:-1]).strip(" ./<>-")
+                if "bureau de vote" in place:
+                    if not hide_warning:
+                        warnings.warn("Too long address {0}".format(t))
+                else:
+                    try:
+                        lrows.append(dict(n=int(t[1]), city=t[-1].strip(" .<>/"),
+                                          zip=t[-2], address=address,
+                                          place=place))
+                    except ValueError as e:
+                        raise ValueError("issue with {0}".format(t)) from e
+                    if len(lrows[-1]["city"]) <= 1:
+                        raise ValueError("No City in {0}\nROWS\n{2}\nCONTENT\n{1}".format(t,
+                                                                                          content0, "\n".join(str(_) for _ in lrows)))
+        if lrows:
+            rows.extend(lrows)
+        elif "06.htm" in data:
+            raise Exception("Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(data,
+                                                                                                    content0, len(lrows), "\n".join(str(_) for _ in lrows)))
+    if len(exc) > 2:
+        raise Exception("Exception raised: {0}\n---------\n{1}".format(len(exc),
+                                                                       "\n########################\n".join(str(_) for _ in exc)))
+    return pandas.DataFrame(rows)
+
+
+def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="address",
+            fLOG=None):
+    """
+    geocode addresses
+
+    @param      df          dataframe
+    @param      col_city    city
+    @param      col_place   place
+    @param      col_zip     zip
+    @param      col_address address
+    @param      fLOG        logging function
+    @return                 modified dataframe
+    """
+    from geopy.geocoders import Nominatim
+    geocoder = Nominatim()
+    df = df.copy()
+    df["full_address"] = numpy.nan
+    df["latitude"] = numpy.nan
+    df["longitude"] = numpy.nan
+    df["geo_address"] = numpy.nan
+    for i in range(0, len(df)):
+        if fLOG is not None and i % 100 == 0:
+            fLOG("geocoding place {0}/{1}".format(i, len(df)))
+        place, zip, city, address = df.ix[
+            i, [col_place, col_zip, col_city, col_address]]
+        if not isinstance(zip, str):
+            zip = "%05d" % zip
+        ad = "{0} {1} {2}".format(address or place, zip, city)
+        df.ix[i, "full_address"] = ad
+        geo = geocoder.geocode(ad, True, 30)
+        if geo is not None:
+            df.ix[i, "longitude"] = geo.longitude
+            df.ix[i, "latitude"] = geo.latitude
+            df.ix[i, "geo_address"] = geo.address
+    return df

@@ -8,13 +8,14 @@ import os
 import warnings
 import pandas
 import numpy
+import urllib.error
 from html.parser import HTMLParser
 from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
 from .data_exceptions import DataNotAvailableError
 from pyquickhelper.loghelper import noLOG
 from pyensae.datasource import download_data
-from pyquickhelper.filehelper import download
+from pyensae.datasource.http_retrieve import DownloadDataException
 
 
 def elections_presidentielles_local_files(load=False):
@@ -255,9 +256,19 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
     files = []
     for deps in range(1, 96):
         last = "bureaudevote%02d.htm" % deps
-        url = "http://bureaudevote.fr/" + last
-        f = download(url, path_download=folder, fLOG=fLOG)
+        url = "http://bureaudevote.fr/"
+        try:
+            f = download_data(last, website=url, whereTo=folder, fLOG=fLOG)
+        except (urllib.error.HTTPError, DownloadDataException):
+            # backup plan
+            files = download_data("bureauxdevote.zip",
+                                  website="xd", whereTo=folder, fLOG=fLOG)
+            break
+        if isinstance(f, list):
+            f = f[0]
         files.append(f)
+
+    # extract data
     regex = [re.compile(_) for _ in _elections_vote_place_address_patterns]
     rows = []
     exc = []
@@ -272,7 +283,8 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
         for reg in regex:
             atous.extend(reg.findall(content))
         if len(atous) < 4 and len(atous) > 0:
-            mes = "Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(data, content0, len(atous), "\n".join(str(_) for _ in atous))
+            mes = "Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(
+                data, content0, len(atous), "\n".join(str(_) for _ in atous))
             exc.append(Exception(mes))
         if len(atous) > 1:
             for t in atous:
@@ -304,37 +316,143 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
 
 
 def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="address",
-            fLOG=None):
+            col_latitude="latitude", col_longitude="longitude", col_full="full_address",
+            col_geo="geo_address", save_every=None, every=100, exc=True, fLOG=None,
+            coders=["Nominatim"], **options):
     """
     geocode addresses
 
-    @param      df          dataframe
-    @param      col_city    city
-    @param      col_place   place
-    @param      col_zip     zip
-    @param      col_address address
-    @param      fLOG        logging function
-    @return                 modified dataframe
+    @param      df              dataframe
+    @param      col_city        city
+    @param      col_place       place
+    @param      col_zip         zip
+    @param      col_address     address
+    @param      col_latitude    latitude
+    @param      col_longitude   longitude
+    @param      col_full        full address (send to the geocoder)
+    @param      col_geo         address returned by the geocoder
+    @param      save_every      to make regular dump
+    @param      every           save every *every*
+    @param      exc             raises exception or warning (False)
+    @param      options         options for `read_csv <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html>`_
+                                to do regular dumps
+    @param      coders          list of coders to try
+    @param      fLOG            logging function
+    @return                     modified dataframe
+
+    If *save_every_100* is filled, the function will save the dataframe
+    every 100 geocoded addresses. If the file is already present,
+    it will be loaded the function will continue geocoding where it stopped.
+
+    The function does not work well if it is called from multiple threads or processes.
+    It might slow on purpose.
+
+    Example for *coder*:
+
+    ::
+
+        ["Nominatim", ("bing", key)]
+
+    The function tries the first one and then the second one.
     """
-    from geopy.geocoders import Nominatim
-    geocoder = Nominatim()
-    df = df.copy()
-    df["full_address"] = numpy.nan
-    df["latitude"] = numpy.nan
-    df["longitude"] = numpy.nan
-    df["geo_address"] = numpy.nan
+    from geopy.geocoders import Nominatim, Bing
+
+    def get_coder(d):
+        if isinstance(d, str):
+            if d == "Nominatim":
+                return Nominatim()
+            else:
+                raise ValueError("Unknown geocoder '{0}'".format(d))
+        elif isinstance(d, tuple):
+            name, key = d
+            if name == "bing":
+                return Bing(key)
+            else:
+                raise ValueError("Unknown geocoder '{0}'".format(d))
+
+    if every < 1:
+        raise ValueError("every should be >= 1, not {0}".format(every))
+    from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+    geocoder = [get_coder(_) for _ in coders]
+
+    if save_every is not None and os.path.exists(save_every):
+        if "index" in options:
+            options_read = options.copy()
+            del options_read["index"]
+        else:
+            options_read = options
+        if fLOG:
+            fLOG("load ", save_every)
+        read = pandas.read_csv(save_every, **options_read)
+        cols = list(read.columns)
+        oris = list(df.columns) + [col_full,
+                                   col_latitude, col_longitude, col_geo]
+        if oris != cols:
+            raise ValueError(
+                "Unexpected differences in schemas:\nORIGINAL\n{0}\nSAVE\n{1}".format(oris, cols))
+        df = read
+    else:
+        df = df.copy()
+        df[col_full] = numpy.nan
+        df[col_latitude] = numpy.nan
+        df[col_longitude] = numpy.nan
+        df[col_geo] = numpy.nan
+
+    errors = 0
+    no_result = 0
     for i in range(0, len(df)):
-        if fLOG is not None and i % 100 == 0:
-            fLOG("geocoding place {0}/{1}".format(i, len(df)))
-        place, zip, city, address = df.ix[
-            i, [col_place, col_zip, col_city, col_address]]
-        if not isinstance(zip, str):
-            zip = "%05d" % zip
-        ad = "{0} {1} {2}".format(address or place, zip, city)
-        df.ix[i, "full_address"] = ad
-        geo = geocoder.geocode(ad, True, 30)
-        if geo is not None:
-            df.ix[i, "longitude"] = geo.longitude
-            df.ix[i, "latitude"] = geo.latitude
-            df.ix[i, "geo_address"] = geo.address
+        if i % every == 0:
+            if save_every is not None:
+                if fLOG is not None:
+                    fLOG(
+                        "saving place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
+                df.to_csv(save_every, **options)
+            elif fLOG is not None:
+                fLOG(
+                    "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
+
+        if numpy.isnan(df.ix[i, col_latitude]) or numpy.isnan(df.ix[i, col_longitude]):
+            place, zip, city, address = df.ix[
+                i, [col_place, col_zip, col_city, col_address]]
+            if not isinstance(zip, str):
+                zip = "%05d" % zip
+            ad = "{0} {1} {2}".format(address or place, zip, city)
+            df.ix[i, col_full] = ad
+
+            geo = None
+            for cod in geocoder:
+                try:
+                    geo = cod.geocode(ad, exactly_one=True, timeout=30)
+                    rexc = None
+                    if geo is not None:
+                        break
+                except GeocoderServiceError as ee:
+                    geo = None
+                    rexc = ee
+                except (TimeoutError, GeocoderTimedOut) as e:
+                    geo = None
+                    rexc = e
+
+            if geo is not None:
+                df.ix[i, col_longitude] = geo.longitude
+                df.ix[i, col_latitude] = geo.latitude
+                df.ix[i, col_geo] = geo.address
+            elif rexc:
+                no_result += 1
+                errors += 1
+                if exc:
+                    if save_every is not None:
+                        df.to_csv(save_every, **options)
+                    raise rexc
+                else:
+                    warnings.warn(str(rexc))
+                    continue
+            else:
+                no_result += 1
+
+    if fLOG is not None:
+        fLOG(
+            "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
+    if save_every is not None:
+        df.to_csv(save_every, **options)
     return df

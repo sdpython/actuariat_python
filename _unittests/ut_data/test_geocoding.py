@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=20s)
+@brief      test log(time=16s)
 """
 
 import sys
@@ -40,7 +40,7 @@ except ImportError:
 
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import add_missing_development_version, get_temp_folder
+from pyquickhelper.pycode import add_missing_development_version, get_temp_folder, is_travis_or_appveyor
 
 
 class TestGeocoding(unittest.TestCase):
@@ -60,12 +60,33 @@ class TestGeocoding(unittest.TestCase):
         data = os.path.join(os.path.abspath(
             os.path.dirname(__file__)), "data", "bureau.txt")
         df = pandas.read_csv(data, sep="\t", encoding="utf-8")
-        he = df.head(n=10)
-        res = geocode(he)
-        fLOG(res)
+        he = df.head(n=5)
+        every = os.path.join(temp, "every.csv")
+
+        # we retrieve an encrypted key
+        import keyring
+        bing_key = keyring.get_password("bing", os.environ["COMPUTERNAME"])
+        if not is_travis_or_appveyor():
+            assert bing_key
+        fLOG(bing_key)
+        coders = ["Nominatim"]
+        if bing_key:
+            coders.append(("bing", bing_key))
+        fLOG("geocoding 1", len(he))
+
+        # test
+        res = geocode(he, save_every=every, every=1, index=False,
+                      encoding="utf-8", coders=coders, fLOG=fLOG)
+        assert os.path.exists(every)
+        # fLOG(res)
         out = os.path.join(temp, "geo.csv")
         res.to_csv(out, sep="\t", encoding="utf-8", index=False)
         res.to_excel(out + ".xlsx", index=False)
+        fLOG("geocoding 2", len(res))
+        res = geocode(he, save_every=every, every=1, index=False,
+                      encoding="utf-8", coders=coders, fLOG=fLOG)
+        assert os.path.exists(every)
+        fLOG(res)
 
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@ brewer2mpl
 codecov
 entrypoints
 ete3
+geopy
 lifelines
 lightning-python
 mechanize

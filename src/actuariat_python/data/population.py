@@ -9,7 +9,7 @@ import gzip
 import os
 from pyquickhelper.loghelper import noLOG
 import pyensae
-from .data_exception import DataFormatException
+from .data_exceptions import DataFormatException
 
 
 def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls",

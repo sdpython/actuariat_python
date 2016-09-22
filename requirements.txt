@@ -6,6 +6,7 @@ codecov
 entrypoints
 ete3
 geopy
+keyring
 lifelines
 lightning-python
 mechanize

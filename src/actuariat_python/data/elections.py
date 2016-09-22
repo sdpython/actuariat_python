@@ -7,12 +7,11 @@ import re
 import os
 import warnings
 import pandas
-import numpy
 import urllib.error
 from html.parser import HTMLParser
 from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
-from .data_exceptions import DataNotAvailableError
+from .data_exceptions import DataNotAvailableError, DataFormatException
 from pyquickhelper.loghelper import noLOG
 from pyensae.datasource import download_data
 from pyensae.datasource.http_retrieve import DownloadDataException
@@ -159,7 +158,8 @@ def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noL
         if d.endswith(".csv"):
             df = pandas.read_csv(d, sep=",", encoding="utf-8")
             return df
-    raise ValueError("unable to find any csv file in '{0}'".format(file))
+    raise DataNotAvailableError(
+        "unable to find any csv file in '{0}'".format(file))
 
 
 def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
@@ -175,13 +175,14 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
         raise NotImplementedError("use source='xd'")
     else:
         url = source
-        file = "elections_vote_places_geo.zip"
+        file = "bureauxvotegeo.zip"
     data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
     for d in data:
-        if d.endswith(".csv"):
-            df = pandas.read_csv(d, sep=",", encoding="utf-8")
+        if d.endswith(".txt"):
+            df = pandas.read_csv(d, sep="\t", encoding="utf-8")
             return df
-    raise ValueError("unable to find any csv file in '{0}'".format(file))
+    raise DataNotAvailableError(
+        "unable to find any csv file in '{0}'".format(file))
 
 
 class _HTMLToText(HTMLParser):
@@ -300,159 +301,20 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
                                           zip=t[-2], address=address,
                                           place=place))
                     except ValueError as e:
-                        raise ValueError("issue with {0}".format(t)) from e
+                        raise DataFormatException(
+                            "issue with {0}".format(t)) from e
                     if len(lrows[-1]["city"]) <= 1:
-                        raise ValueError("No City in {0}\nROWS\n{2}\nCONTENT\n{1}".format(t,
-                                                                                          content0, "\n".join(str(_) for _ in lrows)))
+                        mes = "No City in {0}\nROWS\n{2}\nCONTENT\n{1}".format(
+                            t, content0, "\n".join(str(_) for _ in lrows))
+                        raise DataFormatException(mes)
         if lrows:
             rows.extend(lrows)
         elif "06.htm" in data:
-            raise Exception("Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(data,
-                                                                                                    content0, len(lrows), "\n".join(str(_) for _ in lrows)))
+            mes = "Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(
+                data, content0, len(lrows), "\n".join(str(_) for _ in lrows))
+            raise DataFormatException(mes)
     if len(exc) > 2:
-        raise Exception("Exception raised: {0}\n---------\n{1}".format(len(exc),
-                                                                       "\n########################\n".join(str(_) for _ in exc)))
+        mes = "Exception raised: {0}\n---------\n{1}".format(
+            len(exc), "\n########################\n".join(str(_) for _ in exc))
+        raise DataFormatException(mes)
     return pandas.DataFrame(rows)
-
-
-def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="address",
-            col_latitude="latitude", col_longitude="longitude", col_full="full_address",
-            col_geo="geo_address", save_every=None, every=100, exc=True, fLOG=None,
-            coders=["Nominatim"], **options):
-    """
-    geocode addresses
-
-    @param      df              dataframe
-    @param      col_city        city
-    @param      col_place       place
-    @param      col_zip         zip
-    @param      col_address     address
-    @param      col_latitude    latitude
-    @param      col_longitude   longitude
-    @param      col_full        full address (send to the geocoder)
-    @param      col_geo         address returned by the geocoder
-    @param      save_every      to make regular dump
-    @param      every           save every *every*
-    @param      exc             raises exception or warning (False)
-    @param      options         options for `read_csv <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html>`_
-                                to do regular dumps
-    @param      coders          list of coders to try
-    @param      fLOG            logging function
-    @return                     modified dataframe
-
-    If *save_every_100* is filled, the function will save the dataframe
-    every 100 geocoded addresses. If the file is already present,
-    it will be loaded the function will continue geocoding where it stopped.
-
-    The function does not work well if it is called from multiple threads or processes.
-    It might slow on purpose.
-
-    Example for *coder*:
-
-    ::
-
-        ["Nominatim", ("bing", key)]
-
-    The function tries the first one and then the second one.
-    """
-    from geopy.geocoders import Nominatim, Bing
-
-    def get_coder(d):
-        if isinstance(d, str):
-            if d == "Nominatim":
-                return Nominatim()
-            else:
-                raise ValueError("Unknown geocoder '{0}'".format(d))
-        elif isinstance(d, tuple):
-            name, key = d
-            if name == "bing":
-                return Bing(key)
-            else:
-                raise ValueError("Unknown geocoder '{0}'".format(d))
-
-    if every < 1:
-        raise ValueError("every should be >= 1, not {0}".format(every))
-    from geopy.exc import GeocoderTimedOut, GeocoderServiceError
-    geocoder = [get_coder(_) for _ in coders]
-
-    if save_every is not None and os.path.exists(save_every):
-        if "index" in options:
-            options_read = options.copy()
-            del options_read["index"]
-        else:
-            options_read = options
-        if fLOG:
-            fLOG("load ", save_every)
-        read = pandas.read_csv(save_every, **options_read)
-        cols = list(read.columns)
-        oris = list(df.columns) + [col_full,
-                                   col_latitude, col_longitude, col_geo]
-        if oris != cols:
-            raise ValueError(
-                "Unexpected differences in schemas:\nORIGINAL\n{0}\nSAVE\n{1}".format(oris, cols))
-        df = read
-    else:
-        df = df.copy()
-        df[col_full] = numpy.nan
-        df[col_latitude] = numpy.nan
-        df[col_longitude] = numpy.nan
-        df[col_geo] = numpy.nan
-
-    errors = 0
-    no_result = 0
-    for i in range(0, len(df)):
-        if i % every == 0:
-            if save_every is not None:
-                if fLOG is not None:
-                    fLOG(
-                        "saving place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
-                df.to_csv(save_every, **options)
-            elif fLOG is not None:
-                fLOG(
-                    "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
-
-        if numpy.isnan(df.ix[i, col_latitude]) or numpy.isnan(df.ix[i, col_longitude]):
-            place, zip, city, address = df.ix[
-                i, [col_place, col_zip, col_city, col_address]]
-            if not isinstance(zip, str):
-                zip = "%05d" % zip
-            ad = "{0} {1} {2}".format(address or place, zip, city)
-            df.ix[i, col_full] = ad
-
-            geo = None
-            for cod in geocoder:
-                try:
-                    geo = cod.geocode(ad, exactly_one=True, timeout=30)
-                    rexc = None
-                    if geo is not None:
-                        break
-                except GeocoderServiceError as ee:
-                    geo = None
-                    rexc = ee
-                except (TimeoutError, GeocoderTimedOut) as e:
-                    geo = None
-                    rexc = e
-
-            if geo is not None:
-                df.ix[i, col_longitude] = geo.longitude
-                df.ix[i, col_latitude] = geo.latitude
-                df.ix[i, col_geo] = geo.address
-            elif rexc:
-                no_result += 1
-                errors += 1
-                if exc:
-                    if save_every is not None:
-                        df.to_csv(save_every, **options)
-                    raise rexc
-                else:
-                    warnings.warn(str(rexc))
-                    continue
-            else:
-                no_result += 1
-
-    if fLOG is not None:
-        fLOG(
-            "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
-    if save_every is not None:
-        df.to_csv(save_every, **options)
-    return df

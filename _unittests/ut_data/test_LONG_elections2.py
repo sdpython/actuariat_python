@@ -92,6 +92,9 @@ class TestElections2(unittest.TestCase):
             fLOG=fLOG, folder=temp, source="xd")
         assert isinstance(dfs, pandas.DataFrame)
         assert len(dfs) > 10000
+        exp = ['address', 'city', 'n', 'place', 'zip',
+               'full_address', 'latitude', 'longitude', 'geo_address']
+        self.assertEqual(list(dfs.columns), exp)
 
 
 if __name__ == "__main__":

@@ -65,7 +65,8 @@ class TestGeocoding(unittest.TestCase):
 
         # we retrieve an encrypted key
         import keyring
-        bing_key = keyring.get_password("bing", os.environ["COMPUTERNAME"])
+        bing_key = keyring.get_password("bing", os.environ.get(
+            "COMPUTERNAME", os.environ.get("HOSTNAME", "CI")))
         if not is_travis_or_appveyor():
             assert bing_key
         fLOG(bing_key)

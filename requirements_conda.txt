@@ -28,6 +28,7 @@ path.py
 patsy
 pep8
 pillow
+pyqt=4.11.4
 pyzmq
 rasterio
 reportlab 

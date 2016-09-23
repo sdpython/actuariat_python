@@ -63,12 +63,15 @@ class TestGeocoding(unittest.TestCase):
         he = df.head(n=5)
         every = os.path.join(temp, "every.csv")
 
+        if is_travis_or_appveyor():
+            # no tested on travis or appveyor, needs to store a key
+            return
+
         # we retrieve an encrypted key
         import keyring
         bing_key = keyring.get_password("bing", os.environ.get(
             "COMPUTERNAME", os.environ.get("HOSTNAME", "CI")))
-        if not is_travis_or_appveyor():
-            assert bing_key
+        assert bing_key
         fLOG(bing_key)
         coders = ["Nominatim"]
         if bing_key:

@@ -29,7 +29,6 @@ patsy
 pep8
 pillow
 pyzmq
-qtconsole
 rasterio
 reportlab 
 requests

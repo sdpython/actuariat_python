@@ -2,9 +2,9 @@
 
 .. _l-seances-base:
 
-==================
-TD - Data Actuaire
-==================
+===================
+Exercices pratiques
+===================
 
 
 

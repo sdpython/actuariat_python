@@ -20,6 +20,8 @@ Ce jeux regroupes l'ensembles des élections depuis le site
 `Elections présidentielles 1965-2012 <https://www.data.gouv.fr/fr/datasets/elections-presidentielles-1965-2012-1/>`_.
 La fonction :func:`elections_presidentielles <actuariat_python.data.elections.elections_presidentielles>`
 retourne le résultat des élections présidentielles de 2012 par circonscription.
+Le module :mod:`elections <actuariat_python.data.elections>` regroupe plusieurs fonctions
+qui téléchargent des données qu'elles retournent sous forme de dataframe.
     
 
 
@@ -38,6 +40,7 @@ obtenir ces jeux de données.
     :maxdepth: 1
     
     Données sur la population françaises <notebooks/population_recuperation_donnees>
+    Localisation des bureaux de vote <notebooks/election_carte_electorale>
     
 
 

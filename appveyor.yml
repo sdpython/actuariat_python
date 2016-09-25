@@ -26,7 +26,7 @@ install:
   - "%PYTHON%\\Scripts\\pymy_install3 pycrypto"
   - "%PYTHON%\\Scripts\\pip install pycryptodomex keyring"
   - "%PYTHON%\\Scripts\\pip install urllib3"
-  - "%PYTHON%\\Scripts\\pip install pycodestyle"
+  - "%PYTHON%\\Scripts\\pip install pycodestyle jyquickhelper"
   - "%PYTHON%\\Scripts\\pip install toolz"
   - "%PYTHON%\\Scripts\\pip install pyensae pyrsslocal mlstatpy"
   - "%PYTHON%\\Scripts\\pip install pygal seaborn bokeh"

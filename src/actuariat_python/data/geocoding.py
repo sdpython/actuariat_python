@@ -12,7 +12,7 @@ import numpy
 def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="address",
             col_latitude="latitude", col_longitude="longitude", col_full="full_address",
             col_geo="geo_address", save_every=None, every=100, exc=True, fLOG=None,
-            coders=["Nominatim"], **options):
+            coders=["Nominatim"], country=None, **options):
     """
     geocode addresses
 
@@ -31,6 +31,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     @param      options         options for `read_csv <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html>`_
                                 to do regular dumps
     @param      coders          list of coders to try
+    @param      country         append the country before geocoding
     @param      fLOG            logging function
     @return                     modified dataframe
 
@@ -119,7 +120,17 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
             i, [col_place, col_zip, col_city, col_address]]
         if not isinstance(zip, str):
             zip = "%05d" % zip
-        ad = "{0} {1} {2}".format(address or place, zip, city)
+
+        def concat(s1, s2):
+            if isinstance(s1, str) and len(s1) > 0:
+                return s1
+            if isinstance(s2, str) and len(s2) > 0:
+                return s2
+            return ""
+
+        ad = "{0} {1} {2}".format(concat(address, place), zip, city).strip()
+        if country is not None:
+            ad += " " + country
         df.ix[i, col_full] = ad
 
         if numpy.isnan(df.ix[i, col_latitude]) or numpy.isnan(df.ix[i, col_longitude]):

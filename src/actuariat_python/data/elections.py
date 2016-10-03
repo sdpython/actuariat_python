@@ -13,6 +13,7 @@ from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
 from .data_exceptions import DataNotAvailableError, DataFormatException
 from pyquickhelper.loghelper import noLOG
+from pyquickhelper.filehelper import unzip_files
 from pyensae.datasource import download_data
 from pyensae.datasource.http_retrieve import DownloadDataException
 
@@ -169,6 +170,7 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
 
     @param      source  should be None unless you want to use the backup plan ("xd")
     @param      folder  where to download
+    @param      fLOG    logging function
     @return             list of dataframe
     """
     if source is None:
@@ -183,6 +185,23 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
             return df
     raise DataNotAvailableError(
         "unable to find any csv file in '{0}'".format(file))
+
+
+def villes_geo(folder=".", fLOG=noLOG):
+    """
+    retrieve data vote places (bureaux de vote in French)
+    with geocodes
+
+    @param      folder  where to download
+    @param      fLOG    logging function
+    @return             list of dataframe
+    """
+    this = os.path.abspath(os.path.dirname(__file__))
+    data = os.path.join(this, "data_elections", "villesgeo.zip")
+    geo = unzip_files(data, where_to=folder)
+    if isinstance(geo, list):
+        return geo[0]
+    return geo
 
 
 class _HTMLToText(HTMLParser):

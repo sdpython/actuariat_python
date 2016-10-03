@@ -35,7 +35,7 @@ package_dir = {k: "src/" + k.replace(".", "/") for k in packages}
 package_data = {
     project_var_name: ["*.xml"],
     project_var_name + ".automation": ["*.r", "*.ico"],
-    project_var_name + ".data.data_elections": ["*.xls"],
+    project_var_name + ".data.data_elections": ["*.xls", "*.zip"],
 }
 
 ############
@@ -163,11 +163,11 @@ if is_local():
         sys.argv, __file__, project_var_name,
         layout=["html"],
         unittest_modules=["pyquickhelper"],
-        requirements=["pyquickhelper", "pyensae",
+        requirements=["pyquickhelper", "pyensae", "jyquickhelper",
                       "pyrsslocal", "pymyinstall", "mlstatpy"],
-        additional_notebook_path=["pyquickhelper",
+        additional_notebook_path=["pyquickhelper", "jyquickhelper",
                                   "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
-        additional_local_path=["pyquickhelper",
+        additional_local_path=["pyquickhelper", "jyquickhelper",
                                "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
         fLOG=logging_function,
         covtoken=("c310b252-ef1b-4454-896c-2d2e01670378", "'_UT_35_std' in outfile"))

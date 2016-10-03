@@ -187,12 +187,13 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
         "unable to find any csv file in '{0}'".format(file))
 
 
-def villes_geo(folder=".", fLOG=noLOG):
+def villes_geo(folder=".", as_df=False, fLOG=noLOG):
     """
     retrieve data vote places (bureaux de vote in French)
     with geocodes
 
     @param      folder  where to download
+    @param      as_df   return as a dataframe
     @param      fLOG    logging function
     @return             list of dataframe
     """
@@ -200,8 +201,14 @@ def villes_geo(folder=".", fLOG=noLOG):
     data = os.path.join(this, "data_elections", "villesgeo.zip")
     geo = unzip_files(data, where_to=folder)
     if isinstance(geo, list):
-        return geo[0]
-    return geo
+        res = geo[0]
+    else:
+        res = geo
+    if as_df:
+        import pandas
+        return pandas.read_csv(res, encoding="utf-8", sep="\t")
+    else:
+        return res
 
 
 class _HTMLToText(HTMLParser):

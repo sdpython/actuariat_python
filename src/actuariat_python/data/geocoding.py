@@ -90,8 +90,8 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
             fLOG("load ", save_every)
         read = pandas.read_csv(save_every, **options_read)
         cols = list(read.columns)
-        oris = list(df.columns) + [col_full,
-                                   col_latitude, col_longitude, col_geo]
+        add = [_ for _ in [col_full, col_latitude, col_longitude, col_geo] if _ not in df.columns]
+        oris = list(df.columns) + add
         if oris != cols:
             raise ValueError(
                 "Unexpected differences in schemas:\nORIGINAL\n{0}\nSAVE\n{1}".format(oris, cols))

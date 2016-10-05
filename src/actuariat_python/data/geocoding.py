@@ -140,6 +140,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                 if geo is None:
                     raise ValueError(
                         "Do not populate the cache with None values for key '{0}'".format(ad))
+                rexc = None
             else:
                 geo = None
                 for cod in geocoder:

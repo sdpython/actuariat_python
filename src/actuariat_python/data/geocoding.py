@@ -73,6 +73,8 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     from geopy.exc import GeocoderTimedOut, GeocoderServiceError
     geocoder = [get_coder(_) for _ in coders]
     cache = {}
+    if len(geocoder) == 0:
+        raise ValueError("No geocoder, the function cannot retrieve addresses.")
 
     class DummyClass:
 

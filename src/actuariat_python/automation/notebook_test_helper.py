@@ -54,11 +54,13 @@ def get_additional_paths():
     import pymyinstall
     import pyrsslocal
     import mlstatpy
+    import jyquickhelper
     addpath = [os.path.dirname(pyquickhelper.__file__),
                os.path.dirname(pyensae.__file__),
                os.path.dirname(pyrsslocal.__file__),
                os.path.dirname(pymyinstall.__file__),
                os.path.dirname(mlstatpy.__file__),
+               os.path.dirname(jyquickhelper.__file__),
                os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."),
                ]
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]
@@ -91,6 +93,7 @@ def clean_function_notebook(code):
             "# elle n'existe pas encore",
             "# boucle sur les 24 heures de la journée",
             "from ggplot import *",
+            "geocode = True",
             # ggplot calls method show and it opens window blocking the offline
             # execution
             ]

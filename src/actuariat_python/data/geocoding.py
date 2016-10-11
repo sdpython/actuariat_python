@@ -74,7 +74,8 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     geocoder = [get_coder(_) for _ in coders]
     cache = {}
     if len(geocoder) == 0:
-        raise ValueError("No geocoder, the function cannot retrieve addresses.")
+        raise ValueError(
+            "No geocoder, the function cannot retrieve addresses.")
 
     class DummyClass:
 
@@ -92,7 +93,8 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
             fLOG("load ", save_every)
         read = pandas.read_csv(save_every, **options_read)
         cols = list(read.columns)
-        add = [_ for _ in [col_full, col_latitude, col_longitude, col_geo] if _ not in df.columns]
+        add = [_ for _ in [col_full, col_latitude,
+                           col_longitude, col_geo] if _ not in df.columns]
         oris = list(df.columns) + add
         if oris != cols:
             raise ValueError(

@@ -47,7 +47,7 @@ class TestNotebookPopulation(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
+            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
     def test_notebook_population(self):
         fLOG(

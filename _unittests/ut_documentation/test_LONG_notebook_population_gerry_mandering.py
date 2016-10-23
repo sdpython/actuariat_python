@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=10s)
+@brief      test log(time=280s)
 """
 
 import sys
@@ -43,13 +43,13 @@ from pyquickhelper.pycode import get_temp_folder, add_missing_development_versio
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 
 
-class TestNotebookPopulation(unittest.TestCase):
+class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
-    def test_notebook_population(self):
+    def test_notebook_population_gerry_mandering(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -65,8 +65,7 @@ class TestNotebookPopulation(unittest.TestCase):
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
         temp = get_temp_folder(__file__, "temp_population")
         keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" not in _ and
-            "seance6_graphes_ml_enonce" not in _ and "election_carte_electorale_correction" not in _]
+            "population") if "election_carte_electorale_correction" in _]
         assert len(keepnote) > 0
         for k in keepnote:
             fLOG(k)

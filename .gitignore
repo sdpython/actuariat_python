@@ -285,4 +285,7 @@ _doc/notebooks/population/LG12_BV_T1T2/*
 _doc/notebooks/population/__MACOSX/*
 _doc/notebooks/population/*.htm
 _doc/notebooks/population/fond07*.*
+_doc/notebooks/internet/pageviews-*.gz.txt
+_doc/notebooks/internet/pageviews-*.gz
+_doc/notebooks/internet/lemonde.txt
 

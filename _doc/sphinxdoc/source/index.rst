@@ -22,10 +22,32 @@ Contenu
     :maxdepth: 2
 
     i_seances_base
+    
+Jeux de données
+---------------
+
+.. toctree::
+    :maxdepth: 2
+    
     i_datasets
+
+Examens
+-------
+
+.. toctree::
+    :maxdepth: 2
+    
     i_examens
-    i_index
+    
+    
+Démarrer, Index
+---------------
+
+.. toctree::
+    :maxdepth: 2
+    
     getting_started
+    i_index
 
 
 .. _l-getting-started-main:

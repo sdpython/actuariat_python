@@ -289,3 +289,5 @@ _doc/notebooks/internet/pageviews-*.gz.txt
 _doc/notebooks/internet/pageviews-*.gz
 _doc/notebooks/internet/lemonde.txt
 
+_doc/notebooks/population/choropleth.html
+_doc/notebooks/population/canton04.json

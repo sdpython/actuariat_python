@@ -34,6 +34,7 @@ reportlab
 requests
 scikit-image
 seaborn
+shapely
 six
 Sphinx
 statsmodels

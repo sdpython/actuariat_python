@@ -3,10 +3,10 @@ body {
 }
 
 table {
-    border: 2;
-	border-spacing: 2;
+    border: 2px solid grey;
+	border-spacing: 2px;
 }
 
-.highlight-default {
+pre.highlight-default {
 	background-color: #b5b5b5;
 }

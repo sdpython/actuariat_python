@@ -13,6 +13,10 @@ Python pour un Actuaire
 :ref:`blog <ap-main-0>`,
 :ref:`l-issues-todolist`
 
+Ce module et la documentation associée sert de support aux séances de la formation
+`Data Science pour l'Actuariat <http://www.institutdesactuaires.com/gene/main.php?base=943>`_
+dispensée à l'`Institut des Actuaires <http://www.institutdesactuaires.com/gene/main.php>`_.
+
 
 
 Contenu

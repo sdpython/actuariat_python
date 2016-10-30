@@ -2,9 +2,23 @@
 
 .. _l-seances-base:
 
-===================
-Exercices pratiques
-===================
+======================================
+Exercices de programmation avec Python
+======================================
+
+Ces séances reprennent les contenus proposés sur plusieurs années.
+La plupart des outils qui traitent des données, même s'ils 
+paraissent simples d'usage, proposent toujours des portes dérobées
+pour insérer un programme écrit en Python, en R ou autre langage.
+Il est très rare de pouvoir tout faire d'un clic de souris.
+
+
+
+
+.. contents::
+    :local:
+    :maxdepth: 1
+    
 
 
 
@@ -66,10 +80,8 @@ Bibliographie
 **articles, blogs**
 
 
-* `Xray + Dask: Out-of-Core, Labeled Arrays in Python <http://continuum.io/blog/xray-dask>`_ 
-  (now `array <http://xarray.pydata.org/en/stable/>`_)
 * `A thorough guide to SQLite database operations in Python <http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html>`_
-* `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
+* `Python pour un Data Scientist / Economiste <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
 * :ref:`Data workflow <blog-data-workflow>`
 * `Work on the features or the model <http://www.xavierdupre.fr/blog/2015-03-07_nojs.html>`_
 

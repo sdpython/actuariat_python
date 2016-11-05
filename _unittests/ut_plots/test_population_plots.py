@@ -60,5 +60,6 @@ class TestPopulationPlots(unittest.TestCase):
         # avoid matplotlib to crash later
         plt.close('all')
 
+
 if __name__ == "__main__":
     unittest.main()

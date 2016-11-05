@@ -93,5 +93,6 @@ class TestElections(unittest.TestCase):
         self.assertEqual(dfs["dep1"].shape, (107, 17))
         self.assertEqual(dfs["dep2"].shape, (107, 9))
 
+
 if __name__ == "__main__":
     unittest.main()

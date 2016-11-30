@@ -38,24 +38,27 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from src.actuariat_python.data import fecondite_france
+from pyquickhelper.pycode import add_missing_development_version
 
 
 class TestPopulationFecondite(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(["pymyinstall", "pyensae", "pymmails", "pyrsslocal"],
+                                        __file__, hide=True)
 
     def test_population_fecondite(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+        from src.actuariat_python.data import fecondite_france
         df = fecondite_france()
         fLOG(df.shape)
         assert len(df) > 35
-        assert df.shape[1] == 3
-        fLOG(df.columns)
-        fLOG(df.dtypes)
-        fLOG(df.head())
-        fLOG(df.tail())
+        self.assertEqual(df.shape[1], 3)
+        self.assertEqual(df.columns[0], "age")
+        self.assertEqual(df.columns[-1], "2015")
 
 
 if __name__ == "__main__":

@@ -12,8 +12,8 @@ import pyensae
 from .data_exceptions import DataFormatException
 
 
-def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls",
-                           sheetname=0, year=2015):
+def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-1janvier-fe.xls",
+                           sheetname=0, year=2016):
     """
     download the data for the French population from INSEE website
 
@@ -26,28 +26,28 @@ def population_france_2015(url="http://www.insee.fr/fr/ffc/figure/ccc.xls",
     The last row aggregates multiple ages ``1914 ou avant``, they will remain
     aggregated but the label will be changed to 1914. ``100 ou plus`` is replaced by 100.
 
-    By default, the data is coming from `INSEE, Population française 2015 <http://www.insee.fr/fr/themes/tableau.asp?ref_id=ccc>`_.
+    By default, the data is coming from `INSEE, Population française 2016 <https://www.insee.fr/fr/statistiques/1892086?sommaire=1912926>`_.
     """
     df = pandas.read_excel(url, sheetname=sheetname)
     col = df.columns[0]
-    cp = df[df[col] == year]
-    if len(cp) == 0:
+    if len(col) == 0:
         raise DataFormatException(
             "unable to find {0} (year) in table at url: {1}".format(year, url))
-    if len(cp) != 1:
+    if str(year) not in col:
         raise DataFormatException(
-            "too many values {0} in table at url: {1}".format(year, url))
-    ind = cp.index[0]
-    table = df.ix[ind:, :5].copy()
+            "unable to find {0} (year) in first column name: {1}".format(year, col))
+
+    table = pandas.read_excel(url, sheetname=sheetname, skiprows=8)
     table.columns = ["naissance", "age", "hommes", "femmes", "ensemble"]
     table = table[(table.naissance != 'Champ : France y c. Mayotte.') &
                   table.naissance.apply(lambda s: "Source" not in str(s))].copy()
-    table["naissance"] = table.apply(lambda r: r["naissance"] if isinstance(r["naissance"], int) else
+    table["naissance"] = table.apply(lambda r: r["naissance"] if isinstance(r["naissance"], (int, float)) else
                                      r["naissance"].replace(" ou avant", ""), axis=1)
-    table["age"] = table.apply(lambda r: r["age"] if isinstance(r["age"], int) else
+    table["age"] = table.apply(lambda r: r["age"] if isinstance(r["age"], (int, float)) else
                                r["age"].replace(" ou plus", "") if isinstance(
                                    r["age"], str) else r["age"],
                                axis=1)
+    table = table.dropna(axis=0)
     for c in table.columns:
         table[c] = table[c].astype(int)
     return table
@@ -74,20 +74,25 @@ def table_mortalite_france_00_02(homme="http://www.institutdesactuaires.com/docs
     return df.dropna().reset_index(drop=True)
 
 
-def fecondite_france(url="http://www.insee.fr/fr/ffc/figure/bilandemo2.xls"):
+def fecondite_france(url=None):
     """
     download fecondity table for France (Excel format)
 
     @param      url     source (url or file)
     @return             DataFrame
 
-    By default, the data is coming from
-    `INSEE: Fécondité selon l'âge détaillé de la mère <http://www.insee.fr/fr/themes/tableau.asp?reg_id=0&ref_id=bilandemo2>`_.
+    By default, the data is coming from a local file
+    which is a copy of
+    `INSEE: Fécondité selon l'âge détaillé de la mère <https://www.insee.fr/fr/statistiques/2045366?sommaire=2045470&q=fecondite>`_.
+    The original file cannot be read by pandas so we convert it first.
     """
+    if url is None:
+        this = os.path.abspath(os.path.dirname(__file__))
+        url = os.path.join(this, "data_population", "irsocsd2014_G10.xlsx")
     df = pandas.read_excel(url)
     col = df.columns[0]
     df[col] = df.apply(lambda r: r[col] if isinstance(r[col], int) else
-                       r[col].replace(" ou plus", "").replace(" ans", "") if isinstance(
+                       r[col].replace(" ou plus", "").replace(" ans", "").replace(" (p)", "") if isinstance(
         r[col], str) else r[col],
         axis=1)
     df = df[df[col].apply(lambda x: "0" <= x[0] <= "9" if isinstance(
@@ -118,11 +123,8 @@ def fecondite_france(url="http://www.insee.fr/fr/ffc/figure/bilandemo2.xls"):
 
 
 def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/",
-                              name="demo_mlifetable.tsv.gz",
-                              final_name="mortalite.txt",
-                              whereTo=".",
-                              stop_at=None,
-                              fLOG=noLOG):
+                              name="demo_mlifetable.tsv.gz", final_name="mortalite.txt",
+                              whereTo=".", stop_at=None, fLOG=noLOG):
     """
     This function retrieves mortality table from `EuroStat <http://ec.europa.eu/eurostat/fr>`_ through
     `table de mortalité <http://www.data-publica.com/opendata/7098--population-et-conditions-sociales-table-de-mortalite-de-1960-a-2010>`_.

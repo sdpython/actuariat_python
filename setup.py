@@ -36,6 +36,7 @@ package_data = {
     project_var_name: ["*.xml"],
     project_var_name + ".automation": ["*.r", "*.ico"],
     project_var_name + ".data.data_elections": ["*.xls", "*.zip"],
+    project_var_name + ".data.data_population": ["*.xlsx"],
 }
 
 ############

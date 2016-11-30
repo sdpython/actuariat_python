@@ -1,11 +1,12 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=1s)
+@brief      test log(time=60s)
 """
 
 import sys
 import os
 import unittest
+import pandas
 
 
 try:
@@ -37,36 +38,29 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper as skip_
 
+
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, add_missing_development_version
+from pyquickhelper.pycode import add_missing_development_version
 
 
-class TestPopulationPlots(unittest.TestCase):
+class TestExam2016(unittest.TestCase):
 
     def setUp(self):
-        add_missing_development_version(["pymyinstall", "pyensae", "pymmails", "pyrsslocal"],
-                                        __file__, hide=True)
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
 
-    def test_population_france2015_plots(self):
+    def test_person(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        fix_tkinter_issues_virtualenv()
-        from matplotlib import pyplot as plt
-        from src.actuariat_python.data import population_france_2015
-        from src.actuariat_python.plots import plot_population_pyramid
-
-        df = population_france_2015()
-        self.assertEqual(df.shape[1], 5)
-        self.assertEqual(list(df.columns), [
-                         'naissance', 'age', 'hommes', 'femmes', 'ensemble'])
-        ax = plot_population_pyramid(df["hommes"], df["femmes"])
-
-        assert ax is not None
-        # avoid matplotlib to crash later
-        plt.close('all')
+        from src.actuariat_python.exams.ex2016 import enumerate_person
+        f = list(enumerate_person(1))
+        assert isinstance(f[0], dict)
+        df = pandas.DataFrame(enumerate_person(100))
+        self.assertEqual(df.shape, (100, 4))
+        fLOG(df.head())
 
 
 if __name__ == "__main__":

@@ -15,11 +15,7 @@ README
 
 .. image:: https://badge.fury.io/py/actuariat_python.svg
     :target: http://badge.fury.io/py/actuariat_python
-      
-.. image:: http://img.shields.io/pypi/dm/actuariat_python.png
-    :alt: PYPI Package
-    :target: https://pypi.python.org/pypi/actuariat_python  
-    
+          
 .. image:: http://img.shields.io/github/issues/sdpython/actuariat_python.png
     :alt: GitHub Issues
     :target: https://github.com/sdpython/actuariat_python/issues

@@ -50,37 +50,12 @@ Démarrer, Index
 .. toctree::
     :maxdepth: 2
     
+    all_notebooks
     getting_started
     i_index
 
 
-.. _l-getting-started-main:
-.. _l-install:
 
-
-Liens, articles
----------------
-
-* `Initiation à la programmation et l'algorithmie <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_1a.html>`_ (ENSAE)
-* `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_ (ENSAE)
-* `Eléments logiciels pour le traitement des données massives <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_3a.html>`_ (ENSAE)
-* `Machine Learning, Statistiques et Programmation <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/index.html#jupytalk>`_
-* `Présentations en notebooks <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/index.html>`_
-
-
-Getting started
----------------
-
-La page :ref:`l-getting-started-ac` indique comment installer ce module ainsi que quelques autres
-récalcitrants comme `xgboost <https://xgboost.readthedocs.io/en/latest/>`_ par exemple.
-La page 
-`Getting started (ENSAE) <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/index.html#getting-started>`_
-est plus exhaustive.
-Une fois l'installation terminée, il est préférable de faire quelques tests
-pour vérifier que tout s'est bien passé. On peut par exemple
-exemple exécuter le notebook :ref:`populationrecuperationdonneesrst`.
-
-    
 
 
 

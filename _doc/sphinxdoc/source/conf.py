@@ -19,7 +19,7 @@ sys.path.insert(
             "pyquickhelper",
             "src")))
 
-from pyquickhelper.helpgen.default_conf import set_sphinx_variables
+from pyquickhelper.helpgen.default_conf import set_sphinx_variables, get_default_stylesheet
 
 set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré, Vincent Bernardi",
                      2016, "bootstrap", None,
@@ -61,5 +61,5 @@ if html_theme == "bootstrap":
 blog_root = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/"
 blog_background = False
 html_context = {
-    'css_files': ['_static/my-styles.css'],
+    'css_files': get_default_stylesheet() + ['_static/my-styles.css'],
 }

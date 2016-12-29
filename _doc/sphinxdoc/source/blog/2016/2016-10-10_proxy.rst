@@ -1,45 +1,44 @@
 
-
 .. blogpost::
     :title: Télécharger en Python via un proxy
     :keywords: proxy, urllib, request
     :date: 2016-10-10
     :categories: internet
-    
+
     Il n'est pas facile de télécharger des données via un proxy.
     Je retranscris différents essais reçu par mail.
     La fonction
     `urllib.request.urlopen <https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen>`_
     ne fonctionne pas pour ce genre d'usage. Il faut utiliser le module
-    `python-requests <http://docs.python-requests.org/>`_. Ce qui ne marche pas 
+    `python-requests <http://docs.python-requests.org/>`_. Ce qui ne marche pas
     avec un proxy :
 
     ::
-    
+
         import urllib.request
         with urllib.request.urlopen('http://www.python.org/') as f:
             content = f.read(300)
 
     Ce qui marche avec un proxy :
-    
+
     ::
-        
+
         import requests
         s = requests.Session()
         s.proxies = {"http": "http://<login>\\<pwd>:<user>@<proxy>:<port>"}
         result = s.get("http://www.python.org")
-    
-    ``result.content`` retourne le contenu brut au format 
+
+    ``result.content`` retourne le contenu brut au format
     `bytes <https://docs.python.org/3/library/functions.html#bytes>`_.
     ``result.text`` convertit ``result.content`` au format texte.
     Si on veut ne lire qu'une partie de la page web, il faut explicitement
     demander que la fonction retourne un *stream* :
-    
+
     ::
-    
+
         result = s.get("http://www.python.org", stream=True)
         content = result.raw.read(100)
-    
+
     Pour le reste, la documentation n'est pas très explicite quant à la méthode ``get``,
     il faut revenir au code de `get <https://github.com/kennethreitz/requests/blob/master/requests/sessions.py#L480>`_
     qui appelle la méthode `request <https://github.com/kennethreitz/requests/blob/master/requests/sessions.py#L399>`_

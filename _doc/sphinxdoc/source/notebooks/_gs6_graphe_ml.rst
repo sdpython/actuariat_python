@@ -1,5 +1,4 @@
 
-
 Graphe et machine learning
 ==========================
 

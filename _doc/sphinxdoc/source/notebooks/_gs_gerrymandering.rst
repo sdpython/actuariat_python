@@ -1,5 +1,4 @@
 
-
 Gerrymandering ou la refonte des cartes électorales
 ===================================================
 

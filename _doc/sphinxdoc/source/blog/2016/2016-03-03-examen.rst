@@ -1,27 +1,26 @@
 
-
 .. blogpost::
     :title: Exam, doubts and poetry
     :keywords: exam, Eratoshène
     :date: 2016-03-03
     :categories: examen
-    
+
     This is one question we decided to remove from the final exam
     but I still do like it because it challenges people.
     How to make a connection between known algorithms
-    and the following code. To your opinion, the following 
+    and the following code. To your opinion, the following
     code is closed to:
-    
+
     * `Djiksta's algorithm <https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm>`_
     * `Eratosthenes <https://en.wikipedia.org/wiki/Eratosthenes>`_
     * `Binary search algorithm <https://en.wikipedia.org/wiki/Binary_search_algorithm>`_
-    
+
     ::
 
         import math
 
         def meslogs_jusque(N):
-            memolog = { 1:0.0 }                   
+            memolog = { 1:0.0 }
             for i in range(2,N+1):
                 if i in memolog:
                     pass
@@ -35,4 +34,4 @@
                         for j in range(total, N+1, total):
                             memolog[j] += l
                         total *= i
-            return memolog    
+            return memolog

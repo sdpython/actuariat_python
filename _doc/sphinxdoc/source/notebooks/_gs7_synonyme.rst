@@ -1,5 +1,4 @@
 
-
 Synonymes statistiques
 ======================
 

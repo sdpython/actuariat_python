@@ -1,5 +1,4 @@
 
-
 Statistiques sur Wikipédia
 ==========================
 

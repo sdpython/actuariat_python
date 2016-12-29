@@ -1,5 +1,4 @@
 
-
 Approche fonctionnelle
 ======================
 

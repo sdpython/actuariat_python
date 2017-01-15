@@ -2,6 +2,7 @@ ansiconv
 autopep8
 bqplot
 brewer2mpl
+chardet
 codecov
 entrypoints
 geopy

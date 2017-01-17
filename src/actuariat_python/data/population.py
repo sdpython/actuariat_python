@@ -12,10 +12,10 @@ import pyensae
 from .data_exceptions import DataFormatException
 
 
-def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-1janvier-fe.xls",
+def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
                            sheetname=0, year=2016):
     """
-    download the data for the French population from INSEE website
+    Download the data for the French population from INSEE website
 
     @param      url             url
     @param      sheetname       sheet index
@@ -27,17 +27,33 @@ def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/189
     aggregated but the label will be changed to 1914. ``100 ou plus`` is replaced by 100.
 
     By default, the data is coming from `INSEE, Population française 2016 <https://www.insee.fr/fr/statistiques/1892086?sommaire=1912926>`_.
+
+    **2017/01**: pandas does not seem to be able to read the format (old format).
+    You should convert the file in txt with Excel.
     """
-    df = pandas.read_excel(url, sheetname=sheetname)
+    try:
+        df = pandas.read_excel(url, sheetname=sheetname)
+        skiprows = 8
+    except Exception as e:
+        # we try to find a local version
+        this = os.path.dirname(__file__)
+        name = os.path.join(this, "data_population", url.split(
+            "/")[-1].replace(".xls", ".xlsx"))
+        if not os.path.exists(name):
+            raise FileNotFoundError(
+                "Unable to find a replacement for '{0}' as '{1}'".format(url, name)) from e
+        df = pandas.read_excel(name, sheetname=sheetname)
+        url = name
+        skiprows = 0
     col = df.columns[0]
     if len(col) == 0:
         raise DataFormatException(
             "unable to find {0} (year) in table at url: {1}".format(year, url))
-    if str(year) not in col:
+    if skiprows > 0 and str(year) not in col:
         raise DataFormatException(
             "unable to find {0} (year) in first column name: {1}".format(year, col))
 
-    table = pandas.read_excel(url, sheetname=sheetname, skiprows=8)
+    table = pandas.read_excel(url, sheetname=sheetname, skiprows=skiprows)
     table.columns = ["naissance", "age", "hommes", "femmes", "ensemble"]
     table = table[(table.naissance != 'Champ : France y c. Mayotte.') &
                   table.naissance.apply(lambda s: "Source" not in str(s))].copy()

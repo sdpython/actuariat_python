@@ -7,6 +7,7 @@ import sys
 import os
 import unittest
 import warnings
+import shutil
 
 try:
     import src
@@ -70,6 +71,10 @@ class TestNotebookPopulation(unittest.TestCase):
         assert len(keepnote) > 0
         for k in keepnote:
             fLOG(k)
+        fold = os.path.dirname(keepnote[0])
+        files = [os.path.join(fold, "pop-totale-france.txt")]
+        for name in files:
+            shutil.copy(name, temp)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

@@ -293,3 +293,5 @@ _doc/notebooks/internet/lemonde.txt
 
 _doc/notebooks/population/choropleth.html
 _doc/notebooks/population/canton04.json
+_unittests/run_unittests.py.out
+_unittests/ut_documentation/test_notebook_population.py.err

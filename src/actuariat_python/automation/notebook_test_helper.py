@@ -118,10 +118,8 @@ def clean_function_notebook(code):
     return code
 
 
-def execute_notebooks(folder, notebooks, filter,
-                      clean_function=None,
-                      fLOG=noLOG,
-                      deepfLOG=noLOG):
+def execute_notebooks(folder, notebooks, filter, clean_function=None,
+                      fLOG=noLOG, deepfLOG=noLOG, detailed_log=None):
     """
     execute a list of notebooks
 
@@ -131,6 +129,7 @@ def execute_notebooks(folder, notebooks, filter,
     @param      clean_function  cleaning function to apply to the code before running it
     @param      fLOG            logging function
     @param      deepfLOG        logging function used to run the notebook
+    @param      detailed_log    log the output while running the notebook (when the notebook execution fails due to timeout
     @return                     dictionary tuple (statistics, { notebook_file: (isSuccess, outout) })
 
     The signature of function ``filter`` is::
@@ -162,12 +161,10 @@ def execute_notebooks(folder, notebooks, filter,
             outfile = os.path.join(folder, "out_" + os.path.split(note)[-1])
             try:
                 stat, out = run_notebook(note, working_dir=folder, outfilename=outfile,
-                                         additional_path=addpath,
-                                         valid=valid_cell,
+                                         additional_path=addpath, valid=valid_cell,
                                          clean_function=clean_function,
-                                         fLOG=deepfLOG,
-                                         kernel_name=kernel_name
-                                         )
+                                         fLOG=deepfLOG, detailed_log=detailed_log,
+                                         kernel_name=kernel_name)
                 if not os.path.exists(outfile):
                     raise FileNotFoundError(outfile)
                 results[note] = (True, stat, out)

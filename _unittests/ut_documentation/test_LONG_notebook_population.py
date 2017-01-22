@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=1000s)
+@brief      test log(time=1061s)
 """
 
 import sys
@@ -37,7 +37,7 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper as skip_
 
-from pyquickhelper.loghelper import fLOG
+from pyquickhelper.loghelper import fLOG, CustomLog
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 
@@ -62,14 +62,15 @@ class TestLONGNotebookPopulation(unittest.TestCase):
                 "travis, unable to test TestNotebookPopulation.test_notebook_population")
             return
 
-        temp = get_temp_folder(__file__, "temp_population")
+        temp = get_temp_folder(__file__, "temp_population5")
         keepnote = [_ for _ in ls_notebooks(
             "population") if "seance5_approche_fonctionnelle_enonce" in _]
         assert len(keepnote) > 0
+        clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
-                                fLOG=fLOG,
-                                clean_function=clean_function_notebook)
+                                fLOG=fLOG, clean_function=clean_function_notebook,
+                                detailed_log=clog)
         unittest_raise_exception_notebook(res, fLOG)
 
 

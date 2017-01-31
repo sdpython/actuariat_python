@@ -41,5 +41,5 @@ def read_csv_from_excel(filename, sep="\t", encoding="iso-8859-1"):
     """
     try:
         return pandas.read_csv(filename, sep=sep, encoding=encoding, low_memory=False)
-    except:
+    except Exception:
         return pandas.read_csv(filename, sep=sep, encoding=encoding, engine="python")

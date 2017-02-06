@@ -42,13 +42,13 @@ from pyquickhelper.pycode import get_temp_folder, add_missing_development_versio
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 
 
-class TestLONGNotebookPopulation(unittest.TestCase):
+class TestSKIPNotebookPopulationBlaze(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
-    def test_long_notebook_population(self):
+    def test_skip_notebook_population_blaze(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -64,7 +64,7 @@ class TestLONGNotebookPopulation(unittest.TestCase):
 
         temp = get_temp_folder(__file__, "temp_population5")
         keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" in _ and "blaze" not in _]
+            "population") if "seance5_approche_fonctionnelle_enonce" in _ and "blaze" in _]
         assert len(keepnote) > 0
         clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,

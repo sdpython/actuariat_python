@@ -61,7 +61,7 @@ Démarrer, Index
     :target: https://travis-ci.org/sdpython/actuariat_python
     :alt: Build status
 
-.. image:: https://ci.appveyor.com/api/projects/status/plhkoh1rkw70avwq?svg=true
+.. image:: https://ci.appveyor.com/api/projects/status/nelemxw6md6bt95a?svg=true
     :target: https://ci.appveyor.com/project/sdpython/actuariat-python
     :alt: Build Status Windows
 

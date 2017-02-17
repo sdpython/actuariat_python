@@ -8,6 +8,7 @@ import os
 import warnings
 import pandas
 import urllib.error
+import urllib.request
 from html.parser import HTMLParser
 from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
@@ -46,7 +47,7 @@ def elections_presidentielles_local_files(load=False):
 
 def elections_presidentielles(url=None, local=False, agg=None):
     """
-    download the data for the French elections from data.gouv.fr
+    download the data for the French elections from *data.gouv.fr*
 
     @param      url             url (None for default value)
     @param      local           prefer local data instead of remote
@@ -120,7 +121,14 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
     * `Statistiques démographiques INSEE sur les nouvelles circonscriptions législatives de 2012 <https://www.data.gouv.fr/fr/datasets/statistiques-demographiques-insee-sur-les-nouvelles-circonscriptions-legislatives-de-2012-nd/>`_
     """
     if source is None:
-        url = "http://www.nosdonnees.fr/storage/f/2013-03-05T184148/"
+        try:
+            with urllib.request.urlopen("http://www.nosdonnees.fr/") as f:
+                url = "http://www.nosdonnees.fr/storage/f/2013-03-05T184148/"
+                if f is None:
+                    raise Exception(
+                        "Not sure we can continue. Pretty sure we should stop.")
+        except urllib.error.HTTPError as e:
+            url = "xd"
         file = "LG12_BV_T1T2.zip"
     else:
         url = source

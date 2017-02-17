@@ -59,7 +59,7 @@ class TestElectionsBugBureauVote(unittest.TestCase):
         temp = get_temp_folder(
             __file__, "temp_elections_legislatives_bureau_vote")
         ds = elections_legislatives_bureau_vote(folder=temp)
-        ks = list(ds.keys())
+        ks = list(sorted(ds.keys()))
         self.assertEqual(ks, ['T1', 'T2'])
 
 

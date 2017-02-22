@@ -38,16 +38,21 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from src.actuariat_python.data import population_france_2015
+from pyquickhelper.pycode import add_missing_development_version
 
 
 class TestLONGPopulationPopulation(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
     def test_long_population_france2015(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+        from src.actuariat_python.data import population_france_2015
         df = population_france_2015()
         assert df.shape == (101, 5)
 

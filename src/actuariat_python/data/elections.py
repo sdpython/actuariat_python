@@ -10,6 +10,7 @@ import pandas
 import urllib.error
 import urllib.request
 from html.parser import HTMLParser
+from http.client import RemoteDisconnected
 from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
 from .data_exceptions import DataNotAvailableError, DataFormatException
@@ -127,7 +128,7 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
                 if f is None:
                     raise Exception(
                         "Not sure we can continue. Pretty sure we should stop.")
-        except urllib.error.HTTPError as e:
+        except (urllib.error.HTTPError, RemoteDisconnected) as e:
             url = "xd"
         file = "LG12_BV_T1T2.zip"
     else:

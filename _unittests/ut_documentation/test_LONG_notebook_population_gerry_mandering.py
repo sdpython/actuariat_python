@@ -38,7 +38,7 @@ except ImportError:
     import pyquickhelper as skip_
 
 
-from pyquickhelper.loghelper import fLOG
+from pyquickhelper.loghelper import fLOG, CustomLog
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 
@@ -63,7 +63,8 @@ class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
             return
 
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
-        temp = get_temp_folder(__file__, "temp_population")
+        temp = get_temp_folder(__file__, "temp_population_gerry_mandering")
+        clog = CustomLog(temp)
         keepnote = [_ for _ in ls_notebooks(
             "population") if "election_carte_electorale_correction" in _]
         assert len(keepnote) > 0
@@ -71,9 +72,9 @@ class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
             fLOG(k)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
-                                fLOG=fLOG,
+                                fLOG=clog,
                                 clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
+        unittest_raise_exception_notebook(res, clog)
 
 
 if __name__ == "__main__":

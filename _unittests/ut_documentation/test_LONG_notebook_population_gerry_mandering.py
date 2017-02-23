@@ -72,7 +72,7 @@ class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
             fLOG(k)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
-                                fLOG=clog,
+                                fLOG=clog, deepfLOG=clog, detailed_log=clog,
                                 clean_function=clean_function_notebook)
         unittest_raise_exception_notebook(res, clog)
 

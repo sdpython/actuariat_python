@@ -12,7 +12,7 @@ install:
   - pip freeze
   - pip freeze > pip_freeze.txt
 script:
-  - { CMD: "python -X faulthandler -X showrefcount -u setup.py unittests", NAME: "UT" }
+  - { CMD: "python -X faulthandler -X showrefcount -u setup.py unittests", NAME: "UT", TIMEOUT: 2400 }
   - { CMD: "python -X faulthandler -X showrefcount -u setup.py unittests_LONG", NAME: "UT_LONG", TIMEOUT: 5000 }  # gerry mandering
   - { CMD: "python -X faulthandler -X showrefcount -u setup.py unittests_SKIP", NAME: "UT_SKIP", TIMEOUT: 5000 }  # blaze
 after_script:

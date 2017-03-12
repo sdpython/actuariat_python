@@ -3,12 +3,16 @@ body {
 }
 
 table {
-    border: 1px solid #dddddd;
+	border-color: #dddddd;
+	border-collapse: collapse;
+	border: 1px solid;
 	border-spacing: 2x;
 	padding: 4px;
 }
 
 th, td {
+	border-color: #dddddd;
+	border-collapse: collapse;
     border: 1px solid #dddddd;
 	border-spacing: 1px;
 	padding: 2px;

@@ -1,3 +1,4 @@
+category_encoders
 dask
 scikit-learn
 seaborn

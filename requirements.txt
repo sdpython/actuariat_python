@@ -10,7 +10,6 @@ keyring
 jyquickhelper
 lifelines
 lightning-python
-mechanize
 metakernel
 pkgtools
 plotly

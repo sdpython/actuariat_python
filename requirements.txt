@@ -6,6 +6,7 @@ chardet
 codecov
 entrypoints
 geopy
+ggplot
 keyring
 jyquickhelper
 lifelines

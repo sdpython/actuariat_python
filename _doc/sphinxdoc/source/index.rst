@@ -8,8 +8,7 @@ Python pour un Actuaire
 `wheel <http://www.xavierdupre.fr/site2013/index_code.html#actuariat_python>`_,
 `travis <https://travis-ci.org/sdpython/actuariat_python>`_,
 :ref:`l-README`,
-:ref:`blog <ap-main-0>`,
-:ref:`l-issues-todolist`
+:ref:`blog <ap-main-0>`
 
 Ce module et la documentation associée sert de support aux séances de la formation
 `Data Science pour l'Actuariat <http://www.institutdesactuaires.com/gene/main.php?base=943>`_

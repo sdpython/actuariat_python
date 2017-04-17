@@ -9,4 +9,3 @@ FAQ, Exemples
     all_example
     all_example_Azure
     all_FAQ
-    all_notebooks

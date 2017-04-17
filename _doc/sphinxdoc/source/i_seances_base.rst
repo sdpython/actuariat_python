@@ -35,6 +35,10 @@ Découvertes
 Simulation de population
 ========================
 
+Une population est décrite par de nombreux critères, âge, genre, nombre, revenus...
+Et la plupart du temps, on souhaite regarde comment elle évolue à partir de certaines
+hypothèses. Ces exercices proposent quelques exemples sur ce sujet.
+
 .. toctree::
     :maxdepth: 2
 
@@ -42,6 +46,10 @@ Simulation de population
 
 Gros volumes de données
 =======================
+
+Les grandes bases de données sont agaçantes. Elles ne tiennent
+pas en mémoire et tout prend plus de temps. Cette partie présente quelques
+astuces pour être plus efficace.
 
 .. toctree::
     :maxdepth: 2
@@ -59,19 +67,24 @@ Gros volumes de données
 Graphes
 =======
 
+Une partie essentielle et parfois rébarbative lorsqu'il s'agit de
+tracer une carte. Ces notebooks sont une bonne source pour du copier coller.
+
 .. toctree::
     :maxdepth: 2
 
     notebooks/_gs6_graphe
     notebooks/_gs6_graphe_ml
 
-*Lectures
+*Lectures*
 
 * :ref:`blog-2016-06-14-plotting`
 * `10 plotting libraries <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/2016/pydata2016.html>`_
 
 Etre inventif et fabriquer ce qu'on n'a pas
 ===========================================
+
+Comment découper un problème compliqué en problèmes plus simples ?
 
 .. toctree::
     :maxdepth: 2
@@ -82,3 +95,4 @@ Etre inventif et fabriquer ce qu'on n'a pas
 *Lectures*
 
 * `Work on the features or the model <http://www.xavierdupre.fr/blog/2015-03-07_nojs.html>`_
+* `Un BOT à partir d'un assemblage d'IA <http://www.xavierdupre.fr/app/jupytalk/helpsphinx/2017/devoxx2017.html>`_

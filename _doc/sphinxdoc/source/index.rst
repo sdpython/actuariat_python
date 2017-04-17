@@ -22,13 +22,6 @@ Contenu
     :maxdepth: 2
 
     i_seances_base
-
-Jeux de données
----------------
-
-.. toctree::
-    :maxdepth: 2
-
     i_datasets
 
 Examens
@@ -45,8 +38,8 @@ Démarrer, Index
 .. toctree::
     :maxdepth: 2
 
-    all_notebooks
     getting_started
+    all_notebooks
     i_index
 
 +----------------------+---------------------+---------------------+--------------------+------------------------+------------------------------------------------+

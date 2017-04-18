@@ -4,6 +4,7 @@
     :keywords: update, pip, Windows
     :date: 2016-11-15
     :categories: module
+    :lid: blog-installer-module
 
     Comme il n'existe pas de compilateur par défaut sous Windows,
     l'installation ou la mise à jour des modules requiert de

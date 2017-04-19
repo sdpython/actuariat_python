@@ -27,7 +27,7 @@
     On veut reproduire cette pyramide avec `matplotlib <https://matplotlib.org/>`_ :
     
     * On construit un dataframe avec trois colonnes *x*, *y*, *couleur*. 
-    * On utilise matplotlib `matplotlib <https://matplotlib.org/>`_
+    * On utilise `matplotlib <https://matplotlib.org/>`_
       pour tracer la pyramide (voir 
       `tracer des cercles <https://matplotlib.org/examples/shapes_and_collections/artist_reference.html>`_
       ou `scatter_demo <https://matplotlib.org/examples/shapes_and_collections/scatter_demo.html>`_).

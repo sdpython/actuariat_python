@@ -21,8 +21,8 @@ sys.path.insert(
 
 from pyquickhelper.helpgen.default_conf import set_sphinx_variables, get_default_stylesheet
 
-set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré, Vincent Bernardi",
-                     2016, "bootstrap", None,
+set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré",
+                     2017, "bootstrap", None,
                      locals(), add_extensions=None, book=True,
                      extlinks=dict(issue=('https://github.com/sdpython/actuariat_python/issues/%s', 'issue')))
 
@@ -34,7 +34,7 @@ html_sidebars = {}
 
 if html_theme == "bootstrap":
     html_theme_options = {
-        'navbar_title': "",
+        'navbar_title': ".",
         'navbar_site_name': "Site",
         'navbar_links': [
             ("XD", "http://www.xavierdupre.fr", True),

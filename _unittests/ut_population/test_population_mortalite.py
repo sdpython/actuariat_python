@@ -38,10 +38,14 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from src.actuariat_python.data import table_mortalite_france_00_02
+from pyquickhelper.pycode import add_missing_development_version
 
 
 class TestPopulationMortalite(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(["pymyinstall", "pyensae", "pymmails", "pyrsslocal"],
+                                        __file__, hide=True)
 
     def test_mortalite_france(self):
         fLOG(
@@ -49,11 +53,12 @@ class TestPopulationMortalite(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
+        from src.actuariat_python.data import table_mortalite_france_00_02
         df = table_mortalite_france_00_02()
         fLOG(df.shape)
         fLOG(df.columns)
-        assert len(df) > 50
-        assert df.shape[1] == 3
+        self.assertTrue(len(df) > 50)
+        self.assertEqual(df.shape[1], 3)
 
 
 if __name__ == "__main__":

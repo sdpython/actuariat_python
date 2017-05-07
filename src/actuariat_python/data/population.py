@@ -69,8 +69,7 @@ def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/189
     return table
 
 
-def table_mortalite_france_00_02(homme="http://www.institutdesactuaires.com/docs/2015130807_TH0002.xlsx",
-                                 femme="http://www.institutdesactuaires.com/docs/2015130807_TF0002.xlsx"):
+def table_mortalite_france_00_02(homme=None, femme=None):
     """
     Download mortality table for France assuming they
     are available in Excel format.
@@ -80,11 +79,32 @@ def table_mortalite_france_00_02(homme="http://www.institutdesactuaires.com/docs
     @return                 DataFrame
 
     The final DataFrame merges both sheets.
-    By default, the data is coming from
-    `Institut des Actuaires: Reférences de mortalité <http://www.institutdesactuaires.com/gene/main.php?base=314>`_.
+    The data is coming from
+    `Institut des Actuaires: Reférences de mortalité <http://www.institutdesactuaires.com/gene/main.php?base=2127>`_ or
+    `Références techniques <http://www.ressources-actuarielles.net/EXT/ISFA/fp-isfa.nsf/34a14c286dfb0903c1256ffd00502d73/d62719e329025b94c12577c100545bb7?OpenDocument>`_.
     """
-    dfh = pandas.read_excel(homme)
-    dff = pandas.read_excel(femme)
+    this = os.path.join(os.path.abspath(
+        os.path.dirname(__file__)), "data_population")
+    if homme is None:
+        homme = os.path.join(this, "TH00-02_D.xls")
+        sheeth = "Table"
+    else:
+        sheeth = 0
+    if femme is None:
+        femme = os.path.join(this, "TF00-02_D.xls")
+        sheetf = "Table"
+    else:
+        sheetf = 0
+    isexch = os.path.splitext(homme)[-1] in (".xls", ".xlsx")
+    dfh = pandas.read_excel(
+        homme, sheetname=sheeth) if isexch else pandas.read_csv(homme, sep=";")
+    if dfh.shape[1] > 2:
+        dfh = dfh[dfh.columns[:2]]
+    isexcf = os.path.splitext(femme)[-1] in (".xls", ".xlsx")
+    dff = pandas.read_excel(
+        femme, sheetname=sheetf) if isexcf else pandas.read_csv(femme, sep=";")
+    if dff.shape[1] > 2:
+        dff = dff[dff.columns[:2]]
     df = dfh.merge(dff, on="Age")
     df.columns = ["Age", "Homme", "Femme"]
     return df.dropna().reset_index(drop=True)

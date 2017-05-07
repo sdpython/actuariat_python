@@ -6,33 +6,28 @@
     :categories: pandas
 
     Plan suivi pour cette séance :
-    
-    * Retour sur des 
+
+    * Retour sur des
       `constructions classiques <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/all_example_ConstructionsClassiques.html>`_
       en langage python
       (ou `Constructions classiques <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_lang/constructions.html>`_).
     * Comment installer un modue sous Windows ou Linux ? Avec conda ou sans.
       :ref:`Mettre à jour un module sous Windows <blog-installer-module>`
-    * Les bases avec pandas et numpy : :ref:`pandasstartrst`, ou 
+    * Les bases avec pandas et numpy : :ref:`pandasstartrst`, ou
       `DataFrame et Matrice <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/td1a_cenonce_session_10.html>`_
       (`correction <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/td1a_correction_session_10.html>`_).
     * Lecture de message d'erreur, `stackoverflow <https://stackoverflow.com/>`_
     * `Résumé de la syntaxe python <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_resume/python_sheet.html>`_
-    
+
     Un exercice est prévu pour la prochaine séance :
     `tracer une pyramide bigarrée <http://lesenfantscodaient.fr/programmation/dessin_pyramide.html>`_.
-    
+
     .. image:: http://lesenfantscodaient.fr/_images/biodiversite_tri2.png
-    
+
     On veut reproduire cette pyramide avec `matplotlib <https://matplotlib.org/>`_ :
-    
-    * On construit un dataframe avec trois colonnes *x*, *y*, *couleur*. 
+
+    * On construit un dataframe avec trois colonnes *x*, *y*, *couleur*.
     * On utilise `matplotlib <https://matplotlib.org/>`_
-      pour tracer la pyramide (voir 
+      pour tracer la pyramide (voir
       `tracer des cercles <https://matplotlib.org/examples/shapes_and_collections/artist_reference.html>`_
       ou `scatter_demo <https://matplotlib.org/examples/shapes_and_collections/scatter_demo.html>`_).
-      
-    
-    
-    
-    

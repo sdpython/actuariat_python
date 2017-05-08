@@ -55,10 +55,10 @@ class TestPopulationPlots(unittest.TestCase):
 
         fix_tkinter_issues_virtualenv()
         from matplotlib import pyplot as plt
-        from src.actuariat_python.data import population_france_2015
+        from src.actuariat_python.data import population_france_year
         from src.actuariat_python.plots import plot_population_pyramid
 
-        df = population_france_2015()
+        df = population_france_year()
         self.assertEqual(df.shape[1], 5)
         self.assertEqual(list(df.columns), [
                          'naissance', 'age', 'hommes', 'femmes', 'ensemble'])

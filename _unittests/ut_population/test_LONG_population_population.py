@@ -47,18 +47,14 @@ class TestLONGPopulationPopulation(unittest.TestCase):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
-    def test_long_population_france2015(self):
+    def test_long_population_france_year(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        from src.actuariat_python.data import population_france_2015
-        df = population_france_2015()
-        assert df.shape == (101, 5)
-
-        # outfile = os.path.join(temp, "out_france.csv")
-        #temp = get_temp_folder(__file__, "temp_population_france2015")
-        #df.to_csv(outfile, sep="\t", index=False, encoding="utf8")
+        from src.actuariat_python.data import population_france_year
+        df = population_france_year()
+        self.assertEqual(df.shape, (101, 5))
 
 
 if __name__ == "__main__":

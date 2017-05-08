@@ -12,8 +12,8 @@ import pyensae
 from .data_exceptions import DataFormatException
 
 
-def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
-                           sheetname=0, year=2016):
+def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
+                           sheetname=0, year=2017):
     """
     Download the data for the French population from INSEE website
 
@@ -26,7 +26,7 @@ def population_france_2015(url="https://www.insee.fr/fr/statistiques/fichier/189
     The last row aggregates multiple ages ``1914 ou avant``, they will remain
     aggregated but the label will be changed to 1914. ``100 ou plus`` is replaced by 100.
 
-    By default, the data is coming from `INSEE, Population française 2016 <https://www.insee.fr/fr/statistiques/1892086?sommaire=1912926>`_.
+    By default, the data is coming from `INSEE, Bilan Démographique <https://www.insee.fr/fr/statistiques/1892086?sommaire=1912926>`_.
 
     **2017/01**: pandas does not seem to be able to read the format (old format).
     You should convert the file in txt with Excel.
@@ -121,6 +121,7 @@ def fecondite_france(url=None):
     which is a copy of
     `INSEE: Fécondité selon l'âge détaillé de la mère <https://www.insee.fr/fr/statistiques/2045366?sommaire=2045470&q=fecondite>`_.
     The original file cannot be read by pandas so we convert it first.
+    See also `INSEE Bilan Démographique 2016 <https://www.insee.fr/fr/statistiques/1892259?sommaire=1912926>`_.
     """
     if url is None:
         this = os.path.abspath(os.path.dirname(__file__))

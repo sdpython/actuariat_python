@@ -38,11 +38,14 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
-from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 
 
 class TestNotebookDecouvrte(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(["pymyinstall", "pyensae", "pymmails", "pyrsslocal",
+                                         "mlstatpy", "jyquickhelper"], __file__, hide=True)
 
     def test_notebook_decouverte(self):
         fLOG(
@@ -50,6 +53,7 @@ class TestNotebookDecouvrte(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
         temp = get_temp_folder(__file__, "temp_decouverte")
         keepnote = [_ for _ in ls_notebooks("decouverte")]
         assert len(keepnote) > 0

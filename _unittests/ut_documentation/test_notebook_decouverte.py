@@ -44,6 +44,7 @@ from pyquickhelper.pycode import get_temp_folder, add_missing_development_versio
 class TestNotebookDecouvrte(unittest.TestCase):
 
     def setUp(self):
+        "import dependencies"
         add_missing_development_version(["pymyinstall", "pyensae", "pymmails", "pyrsslocal",
                                          "mlstatpy", "jyquickhelper"], __file__, hide=True)
 
@@ -53,7 +54,8 @@ class TestNotebookDecouvrte(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks
+        from src.actuariat_python.automation.notebook_test_helper import clean_function_notebook, unittest_raise_exception_notebook
         temp = get_temp_folder(__file__, "temp_decouverte")
         keepnote = [_ for _ in ls_notebooks("decouverte")]
         assert len(keepnote) > 0

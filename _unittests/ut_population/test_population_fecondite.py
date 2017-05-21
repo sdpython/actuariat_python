@@ -54,7 +54,6 @@ class TestPopulationFecondite(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         from src.actuariat_python.data import fecondite_france
         df = fecondite_france()
-        fLOG(df.shape)
         self.assertTrue(len(df) >= 35)
         self.assertEqual(df.shape[1], 3)
         self.assertEqual(df.columns[0], "age")

@@ -152,7 +152,7 @@ def fecondite_france(url=None):
             "too many values 50 in table at url: " + url)
     ind = cp.index[0]
     ind2 = cpe.index[0]
-    table = df.ix[ind:ind2, :3].copy()
+    table = df.iloc[ind:ind2, :3].copy()
     table.columns = ["age", "2005", "2015"]
     for c in table.columns:
         table[c] = table[c].astype(float)

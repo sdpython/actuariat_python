@@ -120,7 +120,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                 fLOG(
                     "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
 
-        place, zip, city, address = df.ix[
+        place, zip, city, address = df.loc[
             i, [col_place, col_zip, col_city, col_address]]
         if not isinstance(zip, str):
             zip = "%05d" % zip
@@ -135,9 +135,9 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
         ad = "{0} {1} {2}".format(concat(address, place), zip, city).strip()
         if country is not None:
             ad += " " + country
-        df.ix[i, col_full] = ad
+        df.loc[i, col_full] = ad
 
-        if numpy.isnan(df.ix[i, col_latitude]) or numpy.isnan(df.ix[i, col_longitude]):
+        if numpy.isnan(df.loc[i, col_latitude]) or numpy.isnan(df.loc[i, col_longitude]):
 
             if ad in cache:
                 geo = cache[ad]
@@ -161,9 +161,9 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                         rexc = e
 
             if geo is not None:
-                df.ix[i, col_longitude] = geo.longitude
-                df.ix[i, col_latitude] = geo.latitude
-                df.ix[i, col_geo] = geo.address
+                df.loc[i, col_longitude] = geo.longitude
+                df.loc[i, col_latitude] = geo.latitude
+                df.loc[i, col_geo] = geo.address
             elif rexc:
                 no_result += 1
                 errors += 1
@@ -178,9 +178,9 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                 no_result += 1
 
         if ad not in cache:
-            cache[ad] = DummyClass(longitude=df.ix[i, col_longitude],
-                                   latitude=df.ix[i, col_latitude],
-                                   address=df.ix[i, col_geo])
+            cache[ad] = DummyClass(longitude=df.loc[i, col_longitude],
+                                   latitude=df.loc[i, col_latitude],
+                                   address=df.loc[i, col_geo])
 
     if fLOG is not None:
         fLOG(

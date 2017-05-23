@@ -16,6 +16,7 @@
     * `pandas et les itérateurs <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html>`_
     * `sqlite3 <https://docs.python.org/3/library/sqlite3.html>`_
     * `dask <http://dask.pydata.org/en/latest/>`_
+    * `zarr <https://github.com/alimanfoo/zarr>`_
     * `format de données compressés <https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.sparse.csr_matrix.html>`_
 
     Correction de l'exercice proposé dans le blog précédent :

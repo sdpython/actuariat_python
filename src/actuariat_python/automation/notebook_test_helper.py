@@ -100,6 +100,8 @@ def clean_function_notebook(code):
     rep = [("# ...", "pass # "),
            ("%timeit -n1 -r1 ", ""),
            ("%timeit", "#%timeit"),
+           ("show(p)", "#show(p)"),
+           ("show(tabs)", "#show(tabs)"),
            ]
     spl = ["# ......",
            "# elle n'existe pas encore",

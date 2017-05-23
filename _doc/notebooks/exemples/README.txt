@@ -1,0 +1,4 @@
+Exemples
+++++++++
+
+Quelques astuces récurrentes.

@@ -23,12 +23,13 @@ Contenu
     i_seances_base
     i_datasets
 
-Examens
--------
+Examens, exercices
+------------------
 
 .. toctree::
     :maxdepth: 2
 
+    i_exercices
     i_examens
 
 Démarrer, Index

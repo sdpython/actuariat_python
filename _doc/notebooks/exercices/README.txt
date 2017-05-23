@@ -1,0 +1,4 @@
+Exercices
++++++++++
+
+Exerices pour pratiquer.

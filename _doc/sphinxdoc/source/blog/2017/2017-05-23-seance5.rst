@@ -9,9 +9,11 @@
     `data.gouv.fr <https://www.data.gouv.fr/fr/>`_
     sont très volumineux. C'est l'occasion de voir comment se
     débrouiller quand les données ne tiennent pas en mémoire.
-    Nous choisir un des fichiers disponibles sur cette page :
-    `DAMIR <https://www.data.gouv.fr/fr/datasets/open-damir-base-complete-sur-les-depenses-dassurance-maladie-inter-regimes/>`_.
-    Il faudra le télécharger avant la séance. Nous verrons :
+    Pour la prochaine, nous utiliserons un des fichiers disponibles sur cette page :
+    `DAMIR <https://www.data.gouv.fr/fr/datasets/open-damir-base-complete-sur-les-depenses-dassurance-maladie-inter-regimes/>`_,
+    de préférence un des plus récents.
+    Il faudra le télécharger avant la séance. Nous verrons différentes options
+    pour le manipuler.
 
     * `pandas et les itérateurs <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html>`_
     * `sqlite3 <https://docs.python.org/3/library/sqlite3.html>`_

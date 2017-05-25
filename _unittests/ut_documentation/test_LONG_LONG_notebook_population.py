@@ -48,7 +48,7 @@ class TestLONGNotebookPopulation(unittest.TestCase):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
-    def test_long_notebook_population(self):
+    def test_long_long_notebook_population(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -62,9 +62,9 @@ class TestLONGNotebookPopulation(unittest.TestCase):
                 "travis, unable to test TestNotebookPopulation.test_notebook_population")
             return
 
-        temp = get_temp_folder(__file__, "temp_population5")
+        temp = get_temp_folder(__file__, "temp_population_long_long")
         keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" in _ and "blaze" not in _]
+            "population") if "seance6_graphes_correction" in _]
         assert len(keepnote) > 0
         clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,

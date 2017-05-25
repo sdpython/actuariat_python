@@ -68,7 +68,7 @@ class TestNotebookPopulation(unittest.TestCase):
         keepnote = [_ for _ in ls_notebooks(
             "population") if "seance5_approche_fonctionnelle_enonce" not in _ and
             "seance6_graphes_ml_enonce" not in _ and "election_carte_electorale_correction" not in _ and
-            "seance6_graphes_correction" not in _]
+            "seance6_graphes_correction" not in _ and "seance6_graphes_enonce" not in _]
         assert len(keepnote) > 0
         for k in keepnote:
             fLOG(k)

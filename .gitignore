@@ -296,3 +296,5 @@ _doc/notebooks/population/mortalite_compresse.csv
 _doc/notebooks/population/canton04.json
 _unittests/run_unittests.py.out
 _unittests/ut_documentation/test_notebook_population.py.err
+_doc/notebooks/sessions/bigdata/P_DSEXP_2015_12.csv
+_doc/notebooks/sessions/bigdata/Lexique_open-DAMIR.xls

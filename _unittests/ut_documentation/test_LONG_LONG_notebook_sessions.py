@@ -59,13 +59,13 @@ class TestLONGNotebookPopulation(unittest.TestCase):
         if "travis" in sys.executable:
             # matplotlib is still failing
             warnings.warn(
-                "travis, unable to test TestNotebookPopulation.test_notebook_population")
+                "travis, unable to test TestNotebookPopulation.test_notebook_sessions")
             return
 
-        temp = get_temp_folder(__file__, "temp_population_long_long")
+        temp = get_temp_folder(__file__, "temp_sessions_long_long")
         keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance6_graphes_correction" in _ or "seance6_graphes_enonce" in _]
-        assert len(keepnote) > 0
+            "sessions") if "seance6_graphes_correction" in _ or "seance6_graphes_enonce" in _]
+        self.assertTrue(len(keepnote) > 0)
         clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,

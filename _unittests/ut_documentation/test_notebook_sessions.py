@@ -57,19 +57,13 @@ class TestNotebookPopulation(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
 
-        if "travis" in sys.executable:
-            # matplotlib is still failing
-            warnings.warn(
-                "travis, unable to test TestNotebookPopulation.test_notebook_population")
-            return
-
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
-        temp = get_temp_folder(__file__, "temp_population")
+        temp = get_temp_folder(__file__, "temp_sessions")
         keepnote = [_ for _ in ls_notebooks(
-            "population") if "seance5_approche_fonctionnelle_enonce" not in _ and
+            "sessions") if "seance5_approche_fonctionnelle_enonce" not in _ and
             "seance6_graphes_ml_enonce" not in _ and "election_carte_electorale_correction" not in _ and
             "seance6_graphes_correction" not in _ and "seance6_graphes_enonce" not in _]
-        assert len(keepnote) > 0
+        self.assertTrue(len(keepnote) > 0)
         for k in keepnote:
             fLOG(k)
         fold = os.path.dirname(keepnote[0])

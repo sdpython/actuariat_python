@@ -18,7 +18,7 @@ Enoncés
 Correction
 ==========
 
-..toctree::
+.. toctree::
     :maxdepth: 1
 
     solution 2015-2016 <notebooks/solution_2016>

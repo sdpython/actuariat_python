@@ -6,7 +6,6 @@
 import sys
 import os
 import unittest
-import shutil
 
 try:
     import src
@@ -62,10 +61,6 @@ class TestLONGNotebookSession(unittest.TestCase):
         self.assertTrue(len(keepnote) > 0)
         for k in keepnote:
             fLOG(k)
-        fold = os.path.dirname(keepnote[0])
-        files = []
-        for name in files:
-            shutil.copy(name, temp)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

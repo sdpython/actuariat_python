@@ -4,6 +4,7 @@ bqplot
 brewer2mpl
 chardet
 codecov
+cytoolz
 entrypoints
 geopy
 ggplot

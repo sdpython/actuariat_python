@@ -40,7 +40,7 @@ except ImportError:
 
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
-from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
+from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, is_travis_or_appveyor
 
 
 class TestNotebookPopulation(unittest.TestCase):
@@ -62,6 +62,8 @@ class TestNotebookPopulation(unittest.TestCase):
             "sessions") if "seance5_approche_fonctionnelle_enonce" not in _ and
             "seance6_graphes_ml_enonce" not in _ and "election_carte_electorale_correction" not in _ and
             "seance6_graphes_correction" not in _ and "seance6_graphes_enonce" not in _ and "ways" not in _]
+        if is_travis_or_appveyor():
+            keepnote = [_ for _ in keepnote if "election_carte_electorale" not in _]
         self.assertTrue(len(keepnote) > 0)
         for k in keepnote:
             fLOG(k)

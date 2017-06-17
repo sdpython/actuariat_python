@@ -63,7 +63,8 @@ class TestNotebookPopulation(unittest.TestCase):
             "seance6_graphes_ml_enonce" not in _ and "election_carte_electorale_correction" not in _ and
             "seance6_graphes_correction" not in _ and "seance6_graphes_enonce" not in _ and "ways" not in _]
         if is_travis_or_appveyor():
-            keepnote = [_ for _ in keepnote if "election_carte_electorale" not in _]
+            keepnote = [
+                _ for _ in keepnote if "election_carte_electorale" not in _]
         self.assertTrue(len(keepnote) > 0)
         for k in keepnote:
             fLOG(k)

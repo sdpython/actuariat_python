@@ -36,9 +36,9 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper as skip_
 
-
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
+from pyquickhelper.pycode import add_missing_development_version
+from pyquickhelper.pycode import get_temp_folder
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 
 
@@ -46,7 +46,7 @@ class TestLONGNotebookSession(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
+            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__, hide=True)
 
     def test_LONG_notebook_session(self):
         fLOG(
@@ -56,7 +56,7 @@ class TestLONGNotebookSession(unittest.TestCase):
         fix_tkinter_issues_virtualenv()
 
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
-        temp = get_temp_folder(__file__, "temp_sessions")
+        temp = get_temp_folder(__file__, "temp_sessions_big_ways")
         keepnote = [_ for _ in ls_notebooks("sessions") if "ways" in _]
         self.assertTrue(len(keepnote) > 0)
         for k in keepnote:

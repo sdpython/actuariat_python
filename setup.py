@@ -181,7 +181,7 @@ if is_local():
         requirements=["pyquickhelper", "pyensae", "jyquickhelper",
                       "pyrsslocal", "pymyinstall", "mlstatpy"],
         additional_notebook_path=["pyquickhelper", "jyquickhelper",
-                                  "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
+                                  "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy", "ensae_teaching_cs"],
         additional_local_path=["pyquickhelper", "jyquickhelper",
                                "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
         fLOG=logging_function,

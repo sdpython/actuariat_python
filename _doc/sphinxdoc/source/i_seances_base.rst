@@ -23,6 +23,7 @@ Découvertes
 
     notebooks/pandas_start
     notebooks/table_avec_guillemets
+    notebooks/2017_session6
 
 *Lectures*
 

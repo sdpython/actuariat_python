@@ -38,6 +38,7 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
+from pyquickhelper.filehelper import synchronize_folder
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 
 
@@ -58,11 +59,19 @@ class TestNotebookDecouvrte(unittest.TestCase):
         from src.actuariat_python.automation.notebook_test_helper import clean_function_notebook, unittest_raise_exception_notebook
         temp = get_temp_folder(__file__, "temp_decouverte")
         keepnote = [_ for _ in ls_notebooks("decouverte")]
-        assert len(keepnote) > 0
+        self.assertTrue(len(keepnote) > 0)
+
+        # copy data
         folder = os.path.dirname(keepnote[0])
+        data_tem = os.path.join(temp, "data")
+        if not os.path.exists(data_tem):
+            os.mkdir(data_tem)
+        synchronize_folder(folder, data_tem, fLOG=print)
         data = [os.path.join(folder, "UN_Data.csv")]
         for dt in data:
             shutil.copy(dt, temp)
+
+        # run the notebooks
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: True,
                                 fLOG=fLOG,

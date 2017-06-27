@@ -39,17 +39,18 @@ except ImportError:
 
 
 from pyquickhelper.loghelper import fLOG
+from pyquickhelper.filehelper import synchronize_folder
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, is_travis_or_appveyor
 
 
-class TestNotebookPopulation(unittest.TestCase):
+class TestNotebookSession(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
 
-    def test_notebook_population(self):
+    def test_notebook_session(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -68,10 +69,19 @@ class TestNotebookPopulation(unittest.TestCase):
         self.assertTrue(len(keepnote) > 0)
         for k in keepnote:
             fLOG(k)
+
+        # copy data
         fold = os.path.dirname(keepnote[0])
         files = [os.path.join(fold, "pop-totale-france.txt")]
         for name in files:
             shutil.copy(name, temp)
+
+        folder = os.path.join(os.path.dirname(keepnote[0]), "data")
+        data_tem = os.path.join(temp, "data")
+        if not os.path.exists(data_tem):
+            os.mkdir(data_tem)
+        synchronize_folder(folder, data_tem, fLOG=print)
+
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

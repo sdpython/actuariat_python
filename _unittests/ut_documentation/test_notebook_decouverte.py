@@ -38,7 +38,6 @@ except ImportError:
     import pyquickhelper as skip_
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.filehelper import synchronize_folder
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 
 
@@ -63,10 +62,6 @@ class TestNotebookDecouvrte(unittest.TestCase):
 
         # copy data
         folder = os.path.dirname(keepnote[0])
-        data_tem = os.path.join(temp, "data")
-        if not os.path.exists(data_tem):
-            os.mkdir(data_tem)
-        synchronize_folder(folder, data_tem, fLOG=print)
         data = [os.path.join(folder, "UN_Data.csv")]
         for dt in data:
             shutil.copy(dt, temp)

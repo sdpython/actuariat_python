@@ -185,7 +185,7 @@ if is_local():
         additional_local_path=["pyquickhelper", "jyquickhelper",
                                "pyensae", "pyrsslocal", "pymyinstall", "mlstatpy"],
         fLOG=logging_function,
-        covtoken=("c310b252-ef1b-4454-896c-2d2e01670378", "'_UT_35_std' in outfile"))
+        covtoken=("c310b252-ef1b-4454-896c-2d2e01670378", "'_UT_36_std' in outfile"))
     if not r and not ({"bdist_msi", "sdist",
                        "bdist_wheel", "publish", "publish_doc", "register",
                        "upload_docs", "bdist_wininst"} & set(sys.argv)):

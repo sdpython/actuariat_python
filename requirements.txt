@@ -21,5 +21,6 @@ pylzma
 pyquickhelper
 pyreadline
 requests-oauthlib
+TPOT
 xlrd
 xmltodict

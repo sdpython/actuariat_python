@@ -189,7 +189,7 @@ if is_local():
         covtoken=("c310b252-ef1b-4454-896c-2d2e01670378", "'_UT_36_std' in outfile"))
     if not r and not ({"bdist_msi", "sdist",
                        "bdist_wheel", "publish", "publish_doc", "register",
-                       "upload_docs", "bdist_wininst"} & set(sys.argv)):
+                       "upload_docs", "bdist_wininst", "build_ext"} & set(sys.argv)):
         raise Exception("unable to interpret command line: " + str(sys.argv))
 else:
     r = False

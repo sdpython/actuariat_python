@@ -36,7 +36,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pygal seaborn bokeh"
   - "%PYTHON%\\Scripts\\pip install pyshp geopy"
   - "%PYTHON%\\Scripts\\pip install ensae_teaching_cs"
-  - "%PYTHON%\\Scripts\\pip install pygal_maps_fr missingno category_encoders"
+  - "%PYTHON%\\Scripts\\pip install pygal_maps_fr missingno category_encoders treeinterpreter"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
   - "set PATH=%PATH%;C:\\projects\\actuariat-python\\build\\update_modules\\Graphviz\\bin"
 build: off

@@ -22,5 +22,6 @@ pyquickhelper
 pyreadline
 requests-oauthlib
 TPOT
+treeinterpreter
 xlrd
 xmltodict

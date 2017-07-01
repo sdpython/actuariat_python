@@ -8,8 +8,8 @@ cytoolz
 entrypoints
 geopy
 ggplot
-keyring
 jyquickhelper
+keyring
 lifelines
 lightning-python
 metakernel

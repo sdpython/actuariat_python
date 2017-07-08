@@ -178,7 +178,7 @@ if is_local():
     r = process_standard_options_for_setup(
         sys.argv, __file__, project_var_name,
         layout=["html"],
-        unittest_modules=["pyquickhelper"],
+        unittest_modules=["pyquickhelper", "ensae_teaching_cs"],
         requirements=["pyquickhelper", "pyensae", "jyquickhelper",
                       "pyrsslocal", "pymyinstall", "mlstatpy", "ensae_teaching_cs"],
         additional_notebook_path=["pyquickhelper", "jyquickhelper",

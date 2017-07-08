@@ -39,7 +39,6 @@ except ImportError:
 
 
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.filehelper import synchronize_folder
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, is_travis_or_appveyor
 
@@ -75,12 +74,14 @@ class TestNotebookSession(unittest.TestCase):
         files = [os.path.join(fold, "pop-totale-france.txt")]
         for name in files:
             shutil.copy(name, temp)
-
-        folder = os.path.join(os.path.dirname(keepnote[0]), "data")
         data_tem = os.path.join(temp, "data")
         if not os.path.exists(data_tem):
             os.mkdir(data_tem)
-        synchronize_folder(folder, data_tem, fLOG=print)
+        files = [os.path.join(fold, "data", "housing.data"),
+                 os.path.join(fold, "data", "housing.names"),
+                 os.path.join(fold, "data", "multiTimeline.csv"), ]
+        for name in files:
+            shutil.copy(name, data_tem)
 
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,

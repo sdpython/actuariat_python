@@ -22,6 +22,7 @@ pygal_maps_fr
 pylzma
 pyquickhelper
 pyreadline
+qgrid
 requests-oauthlib
 shapely
 TPOT

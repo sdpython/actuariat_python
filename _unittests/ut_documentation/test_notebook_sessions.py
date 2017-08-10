@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 """
-@brief      test log(time=10s)
+@brief      test log(time=233s)
 """
 
 import sys
@@ -47,7 +47,8 @@ class TestNotebookSession(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
+            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper",
+             "ensae_teaching_cs"], __file__)
 
     def test_notebook_session(self):
         fLOG(

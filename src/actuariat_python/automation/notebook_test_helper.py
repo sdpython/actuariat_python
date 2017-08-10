@@ -63,6 +63,11 @@ def get_additional_paths():
                os.path.dirname(jyquickhelper.__file__),
                os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."),
                ]
+    try:
+        import ensae_teaching_cs
+        addpath.append(os.path.dirname(ensae_teaching_cs.__file__))
+    except ImportError as e:
+        pass
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]
     return addpath
 

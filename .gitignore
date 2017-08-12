@@ -313,3 +313,8 @@ _doc/notebooks/sessions/A201612.csv
 _doc/notebooks/sessions/T1.xlsx
 _doc/notebooks/sessions/deps.xlsx
 _doc/notebooks/sessions/T2.xlsx
+_doc/notebooks/sessions/damir*.db3
+_doc/notebooks/sessions/A201612*.csv
+_doc/notebooks/sessions/A201612*.gz
+_doc/notebooks/sessions/bigdata/A201612*.gz
+

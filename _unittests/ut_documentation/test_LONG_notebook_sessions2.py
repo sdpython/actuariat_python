@@ -40,13 +40,15 @@ except ImportError:
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
+from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
 class TestLONGNotebookPopulation2(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal"], __file__)
+            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
+             "jyquickhelper"], __file__, hide=True)
 
     def test_notebook_population(self):
         fLOG(
@@ -55,7 +57,7 @@ class TestLONGNotebookPopulation2(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_sessions2")
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance6_graphes_ml_enonce" in _]
@@ -66,7 +68,8 @@ class TestLONGNotebookPopulation2(unittest.TestCase):
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
+        execute_notebook_list_finalize_ut(
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
 
 if __name__ == "__main__":

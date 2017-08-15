@@ -39,13 +39,15 @@ except ImportError:
 from pyquickhelper.loghelper import fLOG, CustomLog
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
+from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
 class TestSKIPNotebookPopulationBlaze(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__)
+            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
+             "jyquickhelper"], __file__, hide=True)
 
     def test_skip_notebook_population_blaze(self):
         fLOG(
@@ -53,7 +55,7 @@ class TestSKIPNotebookPopulationBlaze(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
 
         temp = get_temp_folder(__file__, "temp_sessions5")
         keepnote = [_ for _ in ls_notebooks(
@@ -64,7 +66,8 @@ class TestSKIPNotebookPopulationBlaze(unittest.TestCase):
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG, clean_function=clean_function_notebook,
                                 detailed_log=clog)
-        unittest_raise_exception_notebook(res, fLOG)
+        execute_notebook_list_finalize_ut(
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
 
 if __name__ == "__main__":

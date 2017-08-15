@@ -41,14 +41,15 @@ except ImportError:
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, is_travis_or_appveyor
+from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
 class TestNotebookSession(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper",
-             "ensae_teaching_cs"], __file__)
+            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
+             "jyquickhelper"], __file__, hide=True)
 
     def test_notebook_session(self):
         fLOG(
@@ -57,7 +58,7 @@ class TestNotebookSession(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_sessions")
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance5_approche_fonctionnelle_enonce" not in _ and
@@ -88,7 +89,8 @@ class TestNotebookSession(unittest.TestCase):
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
+        execute_notebook_list_finalize_ut(
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
 
 if __name__ == "__main__":

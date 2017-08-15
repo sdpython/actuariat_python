@@ -41,13 +41,15 @@ except ImportError:
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
+from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
 class TestLONGNotebookInternet(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy"], __file__)
+            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
+             "jyquickhelper"], __file__, hide=True)
 
     def test_notebook_internet(self):
         fLOG(
@@ -62,7 +64,7 @@ class TestLONGNotebookInternet(unittest.TestCase):
                 "travis, unable to test TestNotebookInternet.test_notebook_internet")
             return
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         from mlstatpy.data.wikipedia import download_pageviews
         assert download_pageviews
         temp = get_temp_folder(__file__, "temp_internet")
@@ -75,7 +77,8 @@ class TestLONGNotebookInternet(unittest.TestCase):
                                 lambda i, n: True,
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
+        execute_notebook_list_finalize_ut(
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
 
 if __name__ == "__main__":

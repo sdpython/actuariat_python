@@ -38,15 +38,16 @@ except ImportError:
 
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import add_missing_development_version
-from pyquickhelper.pycode import get_temp_folder
-from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
+from pyquickhelper.pycode import get_temp_folder, fix_tkinter_issues_virtualenv
+from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
 class TestLONGNotebookSession(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
-            ["pyensae", "pymyinstall", "pyrsslocal", "mlstatpy", "jyquickhelper"], __file__, hide=True)
+            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
+             "jyquickhelper"], __file__, hide=True)
 
     def test_LONG_notebook_session(self):
         fLOG(
@@ -55,7 +56,7 @@ class TestLONGNotebookSession(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_sessions_big_ways")
         keepnote = [_ for _ in ls_notebooks("sessions") if "ways" in _]
         self.assertTrue(len(keepnote) > 0)
@@ -65,7 +66,8 @@ class TestLONGNotebookSession(unittest.TestCase):
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
+        execute_notebook_list_finalize_ut(
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
 
 if __name__ == "__main__":

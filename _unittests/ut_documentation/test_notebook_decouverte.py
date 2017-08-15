@@ -39,14 +39,15 @@ except ImportError:
 
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
+from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
 class TestNotebookDecouvrte(unittest.TestCase):
 
     def setUp(self):
-        "import dependencies"
-        add_missing_development_version(["pymyinstall", "pyensae", "pymmails", "pyrsslocal",
-                                         "mlstatpy", "jyquickhelper"], __file__, hide=True)
+        add_missing_development_version(
+            ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
+             "jyquickhelper"], __file__, hide=True)
 
     def test_notebook_decouverte(self):
         fLOG(
@@ -55,7 +56,7 @@ class TestNotebookDecouvrte(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
 
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks
-        from src.actuariat_python.automation.notebook_test_helper import clean_function_notebook, unittest_raise_exception_notebook
+        from src.actuariat_python.automation.notebook_test_helper import clean_function_notebook
         temp = get_temp_folder(__file__, "temp_decouverte")
         keepnote = [_ for _ in ls_notebooks("decouverte")]
         self.assertTrue(len(keepnote) > 0)
@@ -71,7 +72,8 @@ class TestNotebookDecouvrte(unittest.TestCase):
                                 lambda i, n: True,
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
-        unittest_raise_exception_notebook(res, fLOG)
+        execute_notebook_list_finalize_ut(
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
 
 if __name__ == "__main__":

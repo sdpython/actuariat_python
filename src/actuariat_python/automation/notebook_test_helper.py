@@ -127,7 +127,7 @@ def clean_function_notebook(code):
 def execute_notebooks(folder, notebooks, filter, clean_function=None,
                       fLOG=noLOG, deepfLOG=noLOG, detailed_log=None):
     """
-    execute a list of notebooks
+    Execute a list of notebooks.
 
     @param      folder          folder
     @param      notebooks       list of notebooks
@@ -140,7 +140,8 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
 
     The signature of function ``filter`` is::
 
-        def filter( i, filename) : return True or False
+        def filter(i, filename):
+            return True or False
 
     """
 
@@ -153,10 +154,16 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
             return False
         if 'print(next(it))' in cell:
             return False
+        if "est d'indice 8 et non plus 9" in cell:
+            return False
         return True
 
     kernel_name = None if "travis" in sys.executable else install_python_kernel_for_unittest(
         "actuariat_python")
     addpaths = get_additional_paths()
+    if filter:
+        notebooks = [_ for i, _ in enumerate(notebooks) if filter(i, _)]
+    if len(notebooks) == 0:
+        raise ValueError("Empty list of notebooks.")
     return execute_notebook_list(
         folder, notebooks, fLOG=fLOG, valid=valid_cell, additional_path=addpaths, kernel_name=kernel_name)

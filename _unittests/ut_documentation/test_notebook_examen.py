@@ -63,8 +63,7 @@ class TestNotebookExamen(unittest.TestCase):
         self.assertTrue(len(keepnote) > 0)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
-                                fLOG=fLOG,
-                                clean_function=clean_function_notebook)
+                                fLOG=fLOG, clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(
             res, fLOG=fLOG, dump=src.actuariat_python)
 

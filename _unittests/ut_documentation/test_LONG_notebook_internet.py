@@ -66,11 +66,11 @@ class TestLONGNotebookInternet(unittest.TestCase):
 
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         from mlstatpy.data.wikipedia import download_pageviews
-        assert download_pageviews
+        self.assertTrue(download_pageviews)
         temp = get_temp_folder(__file__, "temp_internet")
         keepnote = [_ for _ in ls_notebooks(
             "internet") if "wikipedia_stats_correction" not in _]
-        assert len(keepnote) > 0
+        self.assertTrue(len(keepnote) > 0)
         for k in keepnote:
             fLOG(k)
         res = execute_notebooks(temp, keepnote,

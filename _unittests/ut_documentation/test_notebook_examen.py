@@ -60,7 +60,7 @@ class TestNotebookExamen(unittest.TestCase):
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_examen")
         keepnote = ls_notebooks("examen")
-        assert len(keepnote) > 0
+        self.assertTrue(len(keepnote) > 0)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

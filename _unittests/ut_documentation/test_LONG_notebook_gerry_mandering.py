@@ -63,8 +63,6 @@ class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "election_carte_electorale_correction" in _]
         self.assertTrue(len(keepnote) > 0)
-        for k in keepnote:
-            fLOG(k)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=clog, deepfLOG=clog, detailed_log=clog,

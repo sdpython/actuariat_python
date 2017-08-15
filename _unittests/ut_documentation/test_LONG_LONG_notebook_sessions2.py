@@ -60,8 +60,6 @@ class TestLONGNotebookSession(unittest.TestCase):
         temp = get_temp_folder(__file__, "temp_sessions_big_ways")
         keepnote = [_ for _ in ls_notebooks("sessions") if "ways" in _]
         self.assertTrue(len(keepnote) > 0)
-        for k in keepnote:
-            fLOG(k)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

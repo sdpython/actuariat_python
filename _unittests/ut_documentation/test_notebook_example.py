@@ -60,7 +60,7 @@ class TestNotebookExample (unittest.TestCase):
         fix_tkinter_issues_virtualenv()
         temp = get_temp_folder(__file__, "temp_exemples")
         keepnote = ls_notebooks("exemples")
-        assert len(keepnote) > 0
+        self.assertTrue(len(keepnote) > 0)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG,

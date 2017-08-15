@@ -60,7 +60,7 @@ class TestSKIPNotebookPopulationBlaze(unittest.TestCase):
         temp = get_temp_folder(__file__, "temp_sessions5")
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance5_approche_fonctionnelle_enonce" in _ and "blaze" in _]
-        assert len(keepnote) > 0
+        self.assertTrue(len(keepnote) > 0)
         clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,
                                 lambda i, n: "deviner" not in n,

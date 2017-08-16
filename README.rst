@@ -26,7 +26,7 @@ README
 .. image:: https://codecov.io/github/sdpython/actuariat_python/coverage.svg?branch=master
     :target: https://codecov.io/github/sdpython/actuariat_python?branch=master
 
-.. image:: http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/nbcov.png
+.. image:: http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/_images/nbcov.png
     :target: http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
 

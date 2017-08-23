@@ -12,6 +12,7 @@ jyquickhelper
 lifelines
 lightgbm
 lightning-python
+mlstatpy
 mutagen
 mpld3
 openpyxl

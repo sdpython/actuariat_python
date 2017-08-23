@@ -21,6 +21,7 @@ pyensae
 pygal
 pygal_maps_fr
 pylzma
+pymyinstall
 pyquickhelper>1.5.2122
 pyshp
 semantic_version

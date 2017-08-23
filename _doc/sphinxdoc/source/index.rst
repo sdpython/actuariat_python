@@ -58,6 +58,9 @@ Démarrer, Index
     :target: https://ci.appveyor.com/project/sdpython/actuariat-python
     :alt: Build Status Windows
 
+.. image:: https://circleci.com/gh/sdpython/actuariat_python/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/sdpython/actuariat_python/tree/master
+
 .. image:: https://badge.fury.io/py/actuariat_python.svg
     :target: http://badge.fury.io/py/actuariat_python
 

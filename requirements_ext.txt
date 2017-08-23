@@ -1,6 +1,0 @@
-ensae_teaching_cs
-mlstatpy
-pyensae
-pymmails
-pymyinstall
-pyrsslocal

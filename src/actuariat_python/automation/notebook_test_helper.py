@@ -4,10 +4,10 @@
 @brief Some automation helpers to test notebooks and check they are still working fine.
 """
 import os
-import sys
 from pyquickhelper.loghelper import noLOG
 from pyquickhelper.ipythonhelper.notebook_helper import install_python_kernel_for_unittest
 from pyquickhelper.ipythonhelper import execute_notebook_list
+from pyquickhelper.pycode import is_travis_or_appveyor
 import pyensae
 
 
@@ -158,7 +158,7 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
             return False
         return True
 
-    kernel_name = None if "travis" in sys.executable else install_python_kernel_for_unittest(
+    kernel_name = None if is_travis_or_appveyor() else install_python_kernel_for_unittest(
         "actuariat_python")
     addpaths = get_additional_paths()
     if filter:

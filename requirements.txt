@@ -23,6 +23,7 @@ pygal_maps_fr
 pylzma
 pymyinstall
 pyquickhelper>1.5.2122
+pyrsslocal
 pyshp
 semantic_version
 shapely

@@ -33,6 +33,7 @@ pyshp
 qgrid
 semantic_version
 shapely
+sphinx-bootstrap-theme
 sphinx-gallery
 sphinxcontrib-images
 sphinxcontrib-imagesvg

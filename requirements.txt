@@ -6,6 +6,7 @@ bqplot
 category_encoders
 coverage
 cytoolz
+ensae_teaching_cs
 geopy
 ggplot
 jyquickhelper

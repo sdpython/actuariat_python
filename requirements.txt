@@ -30,6 +30,7 @@ pymyinstall
 pyquickhelper>1.5.2122
 pyrsslocal
 pyshp
+qgrid
 semantic_version
 shapely
 sphinx-gallery

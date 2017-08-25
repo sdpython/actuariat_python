@@ -5,6 +5,7 @@ dask
 datashape
 ipython
 jupyter
+jupyter_client
 jupyter_core
 matplotlib
 nbformat
@@ -21,7 +22,7 @@ reportlab
 scikit-learn
 scipy
 seaborn
-setuptools>=36.0.0
+setuptools
 shapely
 Sphinx
 sympy

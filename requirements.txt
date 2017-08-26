@@ -5,6 +5,7 @@ babel!=2.0
 blockdiag
 bqplot
 category_encoders
+chardet
 coverage
 cytoolz
 ensae_teaching_cs

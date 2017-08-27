@@ -28,7 +28,7 @@ pygal_maps_fr
 pylzma
 pymmails
 pymyinstall
-pyquickhelper>1.5.2126
+pyquickhelper>=1.5.2156
 pyrsslocal
 pyshp
 qgrid

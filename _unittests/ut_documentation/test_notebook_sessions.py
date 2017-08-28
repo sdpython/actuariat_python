@@ -50,15 +50,12 @@ class TestNotebookSession(unittest.TestCase):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
              "jyquickhelper"], __file__, hide=True)
-
-    def test_notebook_session(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
+        self.fLOG = fLOG
 
+    def a_test_notebook_session(self, name):
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
+        fLOG = self.fLOG
         temp = get_temp_folder(__file__, "temp_sessions")
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance5_approche_fonctionnelle_enonce" not in _ and
@@ -67,7 +64,10 @@ class TestNotebookSession(unittest.TestCase):
         if is_travis_or_appveyor():
             keepnote = [
                 _ for _ in keepnote if "election_carte_electorale" not in _]
-        self.assertTrue(len(keepnote) > 0)
+        if name is not None:
+            keepnote = list(filter(lambda n: name in n, keepnote))
+        if len(keepnote) == 0:
+            return
         for k in keepnote:
             fLOG(k)
 
@@ -91,6 +91,92 @@ class TestNotebookSession(unittest.TestCase):
                                 clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(
             res, fLOG=fLOG, dump=src.actuariat_python)
+
+    def test_notebook_session99(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session("2017_session6.ipynb")
+
+    def test_notebook_session999(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session("election_carte_electorale.ipynb")
+
+    def test_notebook_session3(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session("population_recuperation_donnees.ipynb")
+
+    def test_notebook_session4(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session(
+            "seance4_projection_population_correction.ipynb")
+
+    def test_notebook_session5(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session(
+            "seance5_approche_fonctionnelle_correction.ipynb")
+
+    def test_notebook_session6(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session(
+            "seance5_cube_multidimensionnel_correction.ipynb")
+
+    def test_notebook_session7(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session(
+            "seance5_cube_multidimensionnel_enonce.ipynb")
+
+    def test_notebook_session8(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session(
+            "seance5_sql_multidimensionnelle_correction.ipynb")
+
+    def test_notebook_session9(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session(
+            "seance5_sql_multidimensionnelle_enonce.ipynb")
+
+    def test_notebook_session10(self):
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        self.a_test_notebook_session("seance6_graphes_ml_correction.ipynb")
 
 
 if __name__ == "__main__":

@@ -44,7 +44,7 @@ from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, is_travis_or_app
 from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 
 
-class TestNotebookSession(unittest.TestCase):
+class TestNotebookSession2(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
@@ -92,83 +92,13 @@ class TestNotebookSession(unittest.TestCase):
         execute_notebook_list_finalize_ut(
             res, fLOG=fLOG, dump=src.actuariat_python)
 
-    def test_notebook_session99(self):
+    def test_notebook_session999(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        self.a_test_notebook_session("2017_session6.ipynb")
-
-    def test_notebook_session3(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session("population_recuperation_donnees.ipynb")
-
-    def test_notebook_session4(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session(
-            "seance4_projection_population_correction.ipynb")
-
-    def test_notebook_session5(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session(
-            "seance5_approche_fonctionnelle_correction.ipynb")
-
-    def test_notebook_session6(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session(
-            "seance5_cube_multidimensionnel_correction.ipynb")
-
-    def test_notebook_session7(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session(
-            "seance5_cube_multidimensionnel_enonce.ipynb")
-
-    def test_notebook_session8(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session(
-            "seance5_sql_multidimensionnelle_correction.ipynb")
-
-    def test_notebook_session9(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session(
-            "seance5_sql_multidimensionnelle_enonce.ipynb")
-
-    def test_notebook_session10(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        self.a_test_notebook_session("seance6_graphes_ml_correction.ipynb")
+        self.a_test_notebook_session("election_carte_electorale.ipynb")
 
 
 if __name__ == "__main__":

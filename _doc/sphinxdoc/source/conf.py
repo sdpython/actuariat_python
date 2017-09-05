@@ -23,7 +23,7 @@ from pyquickhelper.helpgen.default_conf import set_sphinx_variables, get_default
 
 set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré",
                      2017, "bootstrap", None,
-                     locals(), add_extensions=None, book=True,
+                     locals(), add_extensions=None, book=True, nblayout='table',
                      extlinks=dict(issue=('https://github.com/sdpython/actuariat_python/issues/%s', 'issue')))
 
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()

@@ -1,0 +1,89 @@
+# Build an example competition
+---
+# The title of the competition
+title: Hackathon Institut des Actuaires
+# A description of the competition
+description: Evaluation d'un dossier d'une personne en difficulté financière
+# Does this competition require participant approval by the organizer
+has_registration: True
+# When is this competition finished. It is valid to not include an end_date, which means the competition remains open perpetually.
+end_date: 2017-09-12
+# You can specify admins here, use their codalab username (CaSe sensitive!) they will automatically be added as participants
+#Don't remove the comments here, codalab is bugged, change the value from the website
+# admin_names: ds-anne,xavierdupre
+# Each competition has a set of html pages for potential participants to read and review and for participants to use to interact with the competition. These are the specifications for those pages.
+html: 
+    # Basic overview (first impression) of the challenge
+    overview: overview.html
+    # What are the metrics being used for this challenge, how is it being scored.
+    evaluation: evaluation.html
+    # Terms of participation, including data licensing, results submission, et al
+    terms: terms_and_conditions.html
+    # Where to find the data, how to download it.
+    data: data.html
+    # An extra page
+    #page_name: extra.html
+# Competitions are broken up into phases. Every competition has at least one phase, some have multiple phases.
+phases:
+    # Phase 1
+    1:
+        # Phase number for ordering
+        phasenumber: 1
+        # Label or name of this phase
+        label: "Challenge"
+        # When this phase starts - this is the first date participants can download the data and submit results
+        start_date: 2017-09-11
+        # Maximum number of submissions per participant
+        max_submissions: 1000
+        # A bundle containing the program used to evaluate results.
+        scoring_program: program.zip
+        # A bundle containing reference data to compare submitted data with for scoring.
+        reference_data: reference.zip
+        # You can select from these colors:
+        # white, orange, yellow, green, blue, purple
+        color: orange
+        # Maximum execution time of the submission (in seconds), default = 300
+        execution_time_limit: 3000
+        # Maximum number of submissions a user can make in a day. default = unlimited
+        max_submissions_per_day: 1000
+        # The datasets used for this phase, all references are URLs to externally stored data
+        datasets: 
+            # The first data set
+            1:
+                # Uniquely :) named
+                name: apprentissage (X,Y) et test (X)
+                # A url to the data
+                url: http://www.xavierdupre.fr/app/ensae_projects/helpsphinx/projects/hackathon_2016.html
+                # A brief description to indicate the contents of the data for users
+                description: fournies par les organisations du hackathon
+# Leaderboard / Scoreboard configuration
+leaderboard:
+    # Collections of scores, ways to slice multi-dimensional scores into "groups"
+    # This leaderboard has one result, the difference (difference of the submitted number from Pi)
+    leaderboards:
+        # The internal key name for the overall results group
+        RESULTS: &RESULTS
+            # Label for this group
+            label: Results
+            # Ordering of the groups, starts at 1
+            rank: 1
+    # Actual scores in the leaderboard
+    columns:
+        # The internal key for this score
+        orientation_ERR:
+            # This is a member of the results group
+            leaderboard: *RESULTS
+            # The column label for this score
+            label: orientation_ERR
+            # Order of the scores
+            rank: 2
+            numeric_format: 4
+        # The internal key for this score
+        orientation_AUC:
+            # This is a member of the results group
+            leaderboard: *RESULTS
+            # The column label for this score
+            label: orientation_AUC
+            # Order of the scores
+            rank: 1
+            numeric_format: 4

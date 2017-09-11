@@ -11,8 +11,8 @@
     *dossier*, *budget*. Un ou plusieurs rendez-vous téléphonique suit pour renseigné les
     tables *agenda* et *crédit*.
     Deux colonnes sont utilisées pour qualifier la nature de la situation (diagnostic)
-    et l'orientation donnée au dossier. Ce sont les deux informations qu'il faut prédire.
-    Pour ce faire, les tables sont été divisés en apprentissage et test
+    et l'orientation donnée au dossier. Il faudra prédire l'orientation et ne pas tenir compte
+    de la nature. Pour ce faire, les tables sont été divisés en apprentissage et test
     selon deux ensembles disjoints dans le temps de dossiers.
     La base de dossier ne contient pas d'historique.
     C'est une vue de la situation au moment où le dossier est orienté.
@@ -30,10 +30,10 @@
 
     La partie *Y* contient deux colonnes :
 
-    * *nature* : un diagnostique, une raison qui explique le surendettement
+    * *orientation* : la suite donnée au dossier par l'association *Crésus*
 
     Il faut prédire cette colonne.
-    **Il ne faut pas utiliser les colonne etat et nature** qui sont renseignées
+    **Il ne faut pas utiliser les colonnes etat et nature** qui sont renseignées
     manuellement après *orientation*.
 
     **Compétition**

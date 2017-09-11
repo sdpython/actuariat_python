@@ -317,7 +317,6 @@ _doc/notebooks/sessions/damir*.db3
 _doc/notebooks/sessions/A201612*.csv
 _doc/notebooks/sessions/A201612*.gz
 _doc/notebooks/sessions/bigdata/A201612*.gz
-
 _doc/notebooks/sessions/tweets_macron_sijetaispresident_201609.txt
 _doc/notebooks/sessions/bureaudevote*.htm
 _doc/notebooks/sessions/base_cartelec_2007_2010.zip
@@ -331,3 +330,7 @@ _doc/notebooks/sessions/villes*.txt
 _doc/notebooks/sessions/toxicode_circonscriptions_legislatives/a lire.txt
 _doc/notebooks/sessions/__MACOSX/toxicode_circonscriptions_legislatives/._a lire.txt
 _doc/notebooks/sessions/toxicode_circonscriptions_legislatives/toxicode_circonscriptions_legislatives.csv
+_doc/sphinxdoc/source/gyexamples/*
+_doc/sphinxdoc/source/automation/images/thumb/*
+_doc/sphinxdoc/source/phdoc_static/style_notebook_snippet.css
+_doc/sphinxdoc/source/automation/*

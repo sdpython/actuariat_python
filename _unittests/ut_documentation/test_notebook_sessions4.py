@@ -90,7 +90,7 @@ class TestNotebookSession4(unittest.TestCase):
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(
-            res, fLOG=fLOG, dump=src.actuariat_python)    
+            res, fLOG=fLOG, dump=src.actuariat_python)
 
     def test_notebook_session5(self):
         fLOG(

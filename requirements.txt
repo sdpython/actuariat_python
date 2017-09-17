@@ -9,6 +9,7 @@ chardet
 coverage
 cytoolz
 ensae_teaching_cs
+folium>=0.5
 geopy
 ggplot
 jyquickhelper

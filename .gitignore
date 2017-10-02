@@ -336,3 +336,6 @@ _doc/sphinxdoc/source/phdoc_static/style_notebook_snippet.css
 _doc/sphinxdoc/source/automation/*
 _doc/competitions/2017_IA_hackathon/competition/data_cresus/tbl_*.txt
 _doc/competitions/2017_IA_hackathon/competition/truth.txt
+_doc/notebooks/sessions/mortalite.txt.remove.txt
+_doc/notebooks/sessions/mortalite.txt
+_doc/notebooks/sessions/mortalite_compresse.csv.gz

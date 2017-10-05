@@ -1,7 +1,9 @@
 #-*- coding: utf-8 -*-
 """
 @file
-@brief Main file
+@brief Module *actuariat_python*.
+It contains material for lectures,
+lessons on programming, machine learning.
 """
 
 import sys

@@ -7,6 +7,7 @@ import sys
 import os
 import unittest
 import pandas
+import warnings
 
 
 try:
@@ -68,7 +69,10 @@ class TestGeocoding(unittest.TestCase):
             return
 
         # we retrieve an encrypted key
-        import keyring
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore', DeprecationWarning)
+            import keyring
+
         bing_key = keyring.get_password("bing", os.environ.get(
             "COMPUTERNAME", os.environ.get("HOSTNAME", "CI")))
         assert bing_key

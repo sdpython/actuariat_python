@@ -23,7 +23,7 @@ openpyxl
 plotly
 pycodestyle>=2.0.0
 pydocstyle
-pyensae
+pyensae>=1.1.687
 pygal
 pygal_maps_fr
 pylzma

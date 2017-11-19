@@ -222,7 +222,7 @@ if not r:
         package_dir=package_dir,
         package_data=package_data,
         install_requires=[
-            "pyquickhelper", "pyensae", "pymyinstall", "mlstatpy",
+            "pyquickhelper>=1.5.2259", "pyensae", "pymyinstall", "mlstatpy",
             "scikit-learn", "pyrsslocal", "pandas", "numpy",
             "matplotlib", "jupyter"],
         # avoids downloading cvxopt (its installation is never easy)

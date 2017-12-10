@@ -45,9 +45,6 @@ test_script:
 after_test:
   - "%PYTHON%\\python -u setup.py bdist_wheel"
 
-after_test:
-  - "%PYTHON%\\python -u setup.py bdist_wheel"
-
 artifacts:
   - path: dist
     name: actuariat_python

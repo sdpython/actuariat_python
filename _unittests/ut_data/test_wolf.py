@@ -37,12 +37,16 @@ except ImportError:
         sys.path.append(path)
     import pyquickhelper as skip_
 
+
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
-from src.actuariat_python.data import wolf_xml, enumerate_wolf_xml_row, enumerate_wolf_synonyms
+from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 
 
 class TestWolf(unittest.TestCase):
+
+    def setUp(self):
+        add_missing_development_version(["pymyinstall", "pyensae", "pyrsslocal", "pyrsslocal"],
+                                        __file__, hide=True)
 
     def test_wolf(self):
         fLOG(
@@ -50,12 +54,16 @@ class TestWolf(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
+        from src.actuariat_python.data import wolf_xml
         temp = get_temp_folder(__file__, "temp_wolf")
         outfile = wolf_xml(fLOG=fLOG, temp_folder=temp)
+        if isinstance(outfile, str):
+            outfile = [outfile]
         for o in outfile:
-            fLOG(o)
-            assert os.path.exists(o)
-        assert os.stat(outfile[1]).st_size < 2000
+            if not os.path.exists(o):
+                raise FileNotFoundError(o)
+        if os.stat(outfile[0]).st_size < 2000:
+            raise Exception("small size")
 
     def test_enumerate_wolf_xml_row(self):
         fLOG(
@@ -64,6 +72,7 @@ class TestWolf(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
 
         if sys.platform.startswith("win"):
+            from src.actuariat_python.data import enumerate_wolf_xml_row
             temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
             data = os.path.join(temp, "..", "data", "sample.wolf.xml")
             rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None)
@@ -77,6 +86,7 @@ class TestWolf(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
 
         if sys.platform.startswith("win"):
+            from src.actuariat_python.data import enumerate_wolf_synonyms
             temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
             data = os.path.join(temp, "..", "data", "sample.wolf.xml")
             rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding=None)
@@ -92,6 +102,7 @@ class TestWolf(unittest.TestCase):
         temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
         data = os.path.join(temp, "..", "data", "wolf-1.0b4.xml")
         if os.path.exists(data):
+            from src.actuariat_python.data import enumerate_wolf_synonyms
             rows = enumerate_wolf_synonyms(data, fLOG=fLOG)
             for i, row in enumerate(rows):
                 fLOG(row)

@@ -3,6 +3,7 @@
 @file
 @brief Various function to download data about population
 """
+import os
 import re
 from pyquickhelper.loghelper import noLOG
 from pymyinstall.installcustom import download_page
@@ -14,7 +15,8 @@ from .data_exceptions import LinkNotFoundError
 def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLOG=noLOG):
     """
     The `WOLF <http://alpage.inria.fr/~sagot/wolf-en.html>`_
-    (Wordnet Libre du Français, Free French Wordnet) is a free semantic lexical resource (wordnet) for French.
+    (Wordnet Libre du Français, Free French Wordnet) is a free semantic
+    lexical resource (wordnet) for French.
 
     This data is licensed under
     `Cecill-C license <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>`_.
@@ -44,7 +46,12 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
     local = download_data(name, url=url, fLOG=fLOG, whereTo=temp_folder)
     if isinstance(local, str):
         local = [local]
-    return local + [dtd]
+    # We check the file was downloaded.
+    expected = os.path.join(temp_folder, "wolf-1.0b4.xml")
+    if not os.path.exists(expected):
+        return download_data("wolf-1.0b4.xml", whereTo=temp_folder, fLOG=fLOG)
+    else:
+        return local + [dtd]
 
 
 def enumerate_wolf_xml_row(filename, fLOG=noLOG, xmlformat=False, encoding="utf-8"):

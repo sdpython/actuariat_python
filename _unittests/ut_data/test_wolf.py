@@ -71,13 +71,12 @@ class TestWolf(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        if sys.platform.startswith("win"):
-            from src.actuariat_python.data import enumerate_wolf_xml_row
-            temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
-            data = os.path.join(temp, "..", "data", "sample.wolf.xml")
-            rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None)
-            for row in rows:
-                fLOG(type(row))
+        from src.actuariat_python.data import enumerate_wolf_xml_row
+        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
+        data = os.path.join(temp, "..", "data", "sample.wolf.xml")
+        rows = enumerate_wolf_xml_row(data, fLOG=fLOG, encoding=None)
+        for row in rows:
+            fLOG(type(row))
 
     def test_enumerate_wolf_synonyms(self):
         fLOG(
@@ -85,13 +84,12 @@ class TestWolf(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        if sys.platform.startswith("win"):
-            from src.actuariat_python.data import enumerate_wolf_synonyms
-            temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
-            data = os.path.join(temp, "..", "data", "sample.wolf.xml")
-            rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding=None)
-            for row in rows:
-                fLOG(row)
+        from src.actuariat_python.data import enumerate_wolf_synonyms
+        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
+        data = os.path.join(temp, "..", "data", "sample.wolf.xml")
+        rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding=None)
+        for row in rows:
+            fLOG(row)
 
     def test_enumerate_wolf_synonyms_big(self):
         fLOG(

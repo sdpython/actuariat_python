@@ -54,7 +54,7 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
         return local + [dtd]
 
 
-def enumerate_wolf_xml_row(filename, fLOG=noLOG, xmlformat=False, encoding="utf-8"):
+def enumerate_wolf_xml_row(filename, fLOG=noLOG, xmlformat=False, encoding="utf-8", errors=None):
     """
     walk through an XML file returned by function
     @see fn wolf_xml
@@ -64,13 +64,14 @@ def enumerate_wolf_xml_row(filename, fLOG=noLOG, xmlformat=False, encoding="utf-
     @param      xmlformat       if True, return the xml, otherwise return the node,
                                 see `XMLHandlerDictNode <http://www.xavierdupre.fr/app/pyrsslocal/helpsphinx//pyrsslocal/xmlhelper/xml_tree_node.html#module-pyrsslocal.xmlhelper.xml_tree_node>`_
     @param      encoding        encoding
+    @param      errors          what to do with errors
     @return                     elements
     """
-    for row in xml_filter_iterator(filename, xmlformat=xmlformat, fLOG=fLOG, encoding=encoding):
+    for row in xml_filter_iterator(filename, xmlformat=xmlformat, fLOG=fLOG, encoding=encoding, errors=errors):
         yield row
 
 
-def enumerate_wolf_synonyms(filename, fLOG=noLOG, encoding="utf-8"):
+def enumerate_wolf_synonyms(filename, fLOG=noLOG, encoding="utf-8", errors=None):
     """
     enumerate list of synonyms
     Language is French.
@@ -78,9 +79,10 @@ def enumerate_wolf_synonyms(filename, fLOG=noLOG, encoding="utf-8"):
     @param      filename        xml file
     @param      fLOG            logging function
     @param      encoding        encoding
+    @param      errors          what to do with errors
     @return                     iterator on list of words
     """
-    for row in enumerate_wolf_xml_row(filename, fLOG=fLOG, encoding=encoding):
+    for row in enumerate_wolf_xml_row(filename, fLOG=fLOG, encoding=encoding, errors=errors):
         syn = [v for k, v in row.iterfields() if k == "SYNSET/SYNONYM/LITERAL/_"]
         if len(syn) > 1:
             yield syn

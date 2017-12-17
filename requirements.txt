@@ -31,7 +31,7 @@ pylzma
 pymmails
 pymyinstall
 pyquickhelper>=1.5.2197
-pyrsslocal
+pyrsslocal>=0.8.250
 pyshp
 qgrid
 semantic_version

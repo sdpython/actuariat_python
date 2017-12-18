@@ -22,6 +22,10 @@ README
     :alt: GitHub Issues
     :target: https://github.com/sdpython/actuariat_python/issues
 
+.. image:: https://badge.waffle.io/sdpython/actuariat_python.png?label=ready&title=Ready
+    :alt: Waffle
+    :target: https://waffle.io/actuariat_python/actuariat_python
+
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :alt: MIT License
     :target: http://opensource.org/licenses/MIT

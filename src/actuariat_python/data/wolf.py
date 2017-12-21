@@ -40,16 +40,16 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
     spl = url.split("/")
     url = "/".join(spl[:-1]) + "/"
     url2 = "/".join(spl[:-2]) + "/31718/"
-    name = spl[-1]
     dtd = download_data("debvisdic-strict.dtd", url=url2,
                         fLOG=fLOG, whereTo=temp_folder)
+    name = spl[-1].strip('.')
     local = download_data(name, url=url, fLOG=fLOG, whereTo=temp_folder)
     if isinstance(local, str):
         local = [local]
     # We check the file was downloaded.
     expected = os.path.join(temp_folder, "wolf-1.0b4.xml")
     if not os.path.exists(expected):
-        return download_data("wolf-1.0b4.xml", whereTo=temp_folder, fLOG=fLOG)
+        return download_data("wolf-1.0b4.xml.zip", whereTo=temp_folder, fLOG=fLOG)
     else:
         return local + [dtd]
 

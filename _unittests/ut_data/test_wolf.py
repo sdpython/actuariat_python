@@ -85,7 +85,7 @@ class TestWolf(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
 
         from src.actuariat_python.data import enumerate_wolf_synonyms
-        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
+        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_synonym")
         data = os.path.join(temp, "..", "data", "sample.wolf.xml")
         rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding=None)
         for row in rows:
@@ -97,7 +97,7 @@ class TestWolf(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row")
+        temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_syn_big")
         data = os.path.join(temp, "..", "data", "wolf-1.0b4.xml")
         if os.path.exists(data):
             from src.actuariat_python.data import enumerate_wolf_synonyms

@@ -49,7 +49,8 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
     # We check the file was downloaded.
     expected = os.path.join(temp_folder, "wolf-1.0b4.xml")
     if not os.path.exists(expected):
-        res = download_data("wolf-1.0b4.xml.zip", whereTo=temp_folder, fLOG=fLOG)
+        res = download_data("wolf-1.0b4.xml.zip",
+                            whereTo=temp_folder, fLOG=fLOG)
         if not os.path.exists(expected):
             raise FileNotFoundError(expected)
         return res

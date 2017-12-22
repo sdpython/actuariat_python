@@ -106,6 +106,8 @@ def clean_function_notebook(code):
            ("%timeit", "#%timeit"),
            ("show(p)", "#show(p)"),
            ("show(tabs)", "#show(tabs)"),
+           ('http://www.gutenberg.org/cache/epub/4647/pg4647.txt',
+            'http://www.xavierdupre.fr/enseignement/complements/pg4647.txt'),
            ]
     spl = ["# ......",
            "# elle n'existe pas encore",
@@ -127,7 +129,7 @@ def clean_function_notebook(code):
 def execute_notebooks(folder, notebooks, filter, clean_function=None,
                       fLOG=noLOG, deepfLOG=noLOG, detailed_log=None):
     """
-    Execute a list of notebooks.
+    Executes a list of notebooks.
 
     @param      folder          folder
     @param      notebooks       list of notebooks

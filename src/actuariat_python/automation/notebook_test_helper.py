@@ -73,7 +73,7 @@ def get_additional_paths():
 
 def clean_function_notebook(code):
     """
-    function which clean cells when unittesting notebooks 1A
+    Default cleaning for notebooks cells when unittesting.
 
     @param      code        cell content
     @return                 modified code
@@ -123,6 +123,7 @@ def clean_function_notebook(code):
 
     for s in rep:
         code = code.replace(s[0], s[1])
+
     return code
 
 
@@ -167,5 +168,8 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
         notebooks = [_ for i, _ in enumerate(notebooks) if filter(i, _)]
     if len(notebooks) == 0:
         raise ValueError("Empty list of notebooks.")
+    if clean_function is None:
+        clean_function = clean_function_notebook
     return execute_notebook_list(
-        folder, notebooks, fLOG=fLOG, valid=valid_cell, additional_path=addpaths, kernel_name=kernel_name)
+        folder, notebooks, fLOG=fLOG, valid=valid_cell, additional_path=addpaths,
+        clean_function=clean_function, kernel_name=kernel_name)

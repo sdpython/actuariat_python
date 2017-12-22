@@ -39,7 +39,7 @@ except ImportError:
 
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.filehelper import synchronize_folder
-from pyquickhelper.pycode import get_temp_folder, add_missing_development_version, is_travis_or_appveyor
+from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut, get_additional_paths
 
 
@@ -72,8 +72,10 @@ class TestNotebook123Coverage(unittest.TestCase):
         import pyrsslocal
         add_path = get_additional_paths(
             [jyquickhelper, pyquickhelper, pyensae, pymyinstall, pyrsslocal, thismodule])
+        from src.actuariat_python.automation.notebook_test_helper import clean_function_notebook
         res = execute_notebook_list(
-            temp, keepnote, additional_path=add_path, valid=valid)
+            temp, keepnote, additional_path=add_path, valid=valid,
+            clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(res, fLOG=fLOG, dump=thismodule)
 
     def test_notebook_pyramide(self):
@@ -82,8 +84,7 @@ class TestNotebook123Coverage(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        self.a_test_notebook_runner(
-            "pyramide", "exercices")
+        self.a_test_notebook_runner("pyramide", "exercices")
 
     def test_notebook_nlp(self):
         fLOG(
@@ -91,12 +92,7 @@ class TestNotebook123Coverage(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        if is_travis_or_appveyor() == "travis":
-            # Issue with a url...
-            return
-
-        self.a_test_notebook_runner(
-            "synonyme", "nlp")
+        self.a_test_notebook_runner("synonyme", "nlp")
 
 
 if __name__ == "__main__":

@@ -21,3 +21,7 @@ th, td {
 pre.highlight-default {
 	background-color: #b5b5b5;
 }
+
+.highlight-ipython3 {
+	background-color: #f8f8c8;
+}

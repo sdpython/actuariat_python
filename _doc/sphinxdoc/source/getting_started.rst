@@ -4,6 +4,9 @@
 Installer actuariat_python
 ==========================
 
+.. contents::
+    :local:
+
 Avec Anaconda sous Windows
 ++++++++++++++++++++++++++
 
@@ -42,8 +45,8 @@ ou si une exception ``Permission denied`` survient :
 
     sudo pip3 install actuariat_python
 
-Installer cvxopt
-++++++++++++++++
+Installer cvxopt, xgboost
++++++++++++++++++++++++++
 
 Ce module est difficile à installer car il utilise des librairies qui ne sont
 pas souvent présentes par défaut.
@@ -59,21 +62,4 @@ ou utiliser :
 
 ::
 
-    pymy_install cvxopt
-
-Installer xgboost
-+++++++++++++++++
-
-Sous Linux, il suffit de faire (en ajoutant ou non ``sudo``) :
-
-::
-
-    pip3 install xgboost
-
-Sous Windows, il faut soit suivre les instructions décrites sur le site de `XGBoost <https://github.com/dmlc/xgboost/blob/master/doc/build.md>`_
-ou dans cet article `Build xgboost on Windows <http://www.xavierdupre.fr/app/pymyinstall/helpsphinx//blog/2016/2016-08-09_xgboost_again.html>`_.
-Vous pouvez aussi écrire :
-
-::
-
-    pymy_install xgboost
+    pymy_install cvxopt, xgboost

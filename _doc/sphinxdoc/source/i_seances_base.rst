@@ -15,6 +15,14 @@ Il est très rare de pouvoir tout faire d'un clic de souris.
     :local:
     :maxdepth: 1
 
+Programmation et algorithmes
+============================
+
+.. toctree::
+    :maxdepth: 2
+
+    notebooks/pyramide_bigarree
+
 Découvertes
 ===========
 

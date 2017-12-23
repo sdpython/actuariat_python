@@ -10,9 +10,16 @@ Python pour un Actuaire
 :ref:`l-README`,
 :ref:`blog <ap-main-0>`
 
-Ce module et la documentation associée sert de support aux séances de la formation
+Ce module sert de support aux séances de la formation
 `Data Science pour l'Actuariat <http://www.institutdesactuaires.com/gene/main.php?base=943>`_
 dispensée à l'`Institut des Actuaires <http://www.institutdesactuaires.com/gene/main.php>`_.
+Ces exercices s'adressent à ceux qui souhaitent apprendre à exploiter les données
+avec des méthodes issues du :epkg:`machine learning`.
+
+    La formation Data Science pour l'Actuariat vise à compléter les
+    formations en actuariat (initiales et continues) par une formation
+    opérationnelle en extraction, gestion et analyse des données
+    massives et hétérogènes.
 
 Contenu
 -------
@@ -23,20 +30,19 @@ Contenu
     i_seances_base
     i_datasets
 
-Examens, exercices
-------------------
+Examens
+-------
 
 .. toctree::
     :maxdepth: 2
 
-    i_exercices
     i_examens
 
 Démarrer, Index
 ---------------
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     getting_started
     all_notebooks

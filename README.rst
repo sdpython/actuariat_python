@@ -46,7 +46,8 @@ README
 Description
 -----------
 
-Python et actuariat.
+Materials for training sessions used at
+l'`Institut des Actuaires <http://www.institutdesactuaires.com/gene/main.php>`_.
 
 Contributions
 -------------

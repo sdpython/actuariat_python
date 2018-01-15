@@ -29,6 +29,7 @@ set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré",
 html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 html_logo = "project_ico_small.png"
 language = "fr"
+html_split_index = True
 
 html_sidebars = {}
 

@@ -42,7 +42,6 @@ sphinxcontrib-images
 sphinxcontrib-imagesvg
 sphinxcontrib-jsdemo
 sphinxjp.themes.basicstrap
-sphinxjp.themes.revealjs
 sphinxjp.themes.sphinxjp
 TPOT
 tqdm

@@ -13,7 +13,7 @@ from .data_exceptions import DataFormatException
 
 
 def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
-                           sheetname=0, year=2017):
+                           sheetname=0, year=2018):
     """
     Download the data for the French population from INSEE website
 
@@ -48,10 +48,10 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
     col = df.columns[0]
     if len(col) == 0:
         raise DataFormatException(
-            "unable to find {0} (year) in table at url: {1}".format(year, url))
+            "unable to find {0} (year) in table at url '{1}'".format(year, url))
     if skiprows > 0 and str(year) not in col:
         raise DataFormatException(
-            "unable to find {0} (year) in first column name: {1}".format(year, col))
+            "unable to find {0} (year) in first column name '{1}' at url '{2}'".format(year, col, url))
 
     table = pandas.read_excel(url, sheetname=sheetname, skiprows=skiprows)
     table.columns = ["naissance", "age", "hommes", "femmes", "ensemble"]

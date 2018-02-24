@@ -13,6 +13,7 @@ lifelines
 lightgbm
 lightning-python
 mlstatpy
+openpyxl
 plotly
 pyensae>=1.1.717
 pygal

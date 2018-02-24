@@ -18,14 +18,13 @@ requirements = None
 KEYWORDS = project_var_name + ', ENSAE, sqllite, database, teachings'
 DESCRIPTION = """Helpers for teaching purposes (includes sqllite helpers)"""
 CLASSIFIERS = [
-    'Programming Language :: Python :: %d' % sys.version_info[0],
+    'Programming Language :: Python :: 3',
     'Intended Audience :: Developers',
     'Topic :: Scientific/Engineering',
     'Topic :: Education',
     'License :: OSI Approved :: MIT License',
     'Development Status :: 5 - Production/Stable'
 ]
-
 
 #######
 # data
@@ -49,42 +48,26 @@ def is_local():
     file = os.path.abspath(__file__).replace("\\", "/").lower()
     if "/temp/" in file and "pip-" in file:
         return False
-    if \
-       "bdist_msi" in sys.argv or \
-       "build27" in sys.argv or \
-       "build_script" in sys.argv or \
-       "build_sphinx" in sys.argv or \
-       "build_ext" in sys.argv or \
-       "bdist_wheel" in sys.argv or \
-       "bdist_wininst" in sys.argv or \
-       "clean_pyd" in sys.argv or \
-       "clean_space" in sys.argv or \
-       "copy27" in sys.argv or \
-       "copy_dist" in sys.argv or \
-       "local_pypi" in sys.argv or \
-       "notebook" in sys.argv or \
-       "publish" in sys.argv or \
-       "publish_doc" in sys.argv or \
-       "register" in sys.argv or \
-       "unittests" in sys.argv or \
-       "unittests_LONG" in sys.argv or \
-       "unittests_SKIP" in sys.argv or \
-       "unittests_GUI" in sys.argv or \
-       "run27" in sys.argv or \
-       "sdist" in sys.argv or \
-       "setupdep" in sys.argv or \
-       "test_local_pypi" in sys.argv or \
-       "upload_docs" in sys.argv or \
-       "setup_hook" in sys.argv or \
-       "copy_sphinx" in sys.argv or \
-       "write_version" in sys.argv:
-        try:
-            import_pyquickhelper()
-        except ImportError:
-            return False
-        return True
+    for cname in {"bdist_msi", "build27", "build_script", "build_sphinx", "build_ext",
+                  "bdist_wheel", "bdist_egg", "bdist_wininst", "clean_pyd", "clean_space",
+                  "copy27", "copy_dist", "local_pypi", "notebook", "publish", "publish_doc",
+                  "register", "unittests", "unittests_LONG", "unittests_SKIP", "unittests_GUI",
+                  "run27", "sdist", "setupdep", "test_local_pypi", "upload_docs", "setup_hook",
+                  "copy_sphinx", "write_version"}:
+        if cname in sys.argv:
+            try:
+                import_pyquickhelper()
+            except ImportError:
+                return False
+            return True
     else:
         return False
+
+    return False
+
+
+def ask_help():
+    return "--help" in sys.argv or "--help-commands" in sys.argv
 
 
 def import_pyquickhelper():
@@ -97,16 +80,15 @@ def import_pyquickhelper():
                     os.path.join(
                         os.path.dirname(__file__),
                         "..",
-                        "pyquickhelper" if sys.version_info[
-                            0] >= 3 else "py27_pyquickhelper_27",
+                        "pyquickhelper",
                         "src"))))
         try:
             import pyquickhelper
         except ImportError as e:
-            message = "module pyquickhelper is needed to build the documentation ({0}), not found in path {1}".format(
+            message = "Module pyquickhelper is needed to build the documentation ({0}), not found in path {1} - current {2}".format(
                 sys.executable,
-                sys.path[
-                    -1])
+                sys.path[-1],
+                os.getcwd())
             raise ImportError(message) from e
     return pyquickhelper
 
@@ -124,14 +106,13 @@ def verbose():
 ##########
 
 
-if is_local() and "--help" not in sys.argv and "--help-commands" not in sys.argv:
+if is_local() and not ask_help():
     def write_version():
         pyquickhelper = import_pyquickhelper()
         from pyquickhelper.pycode import write_version_for_setup
         return write_version_for_setup(__file__)
 
-    if sys.version_info[0] != 2:
-        write_version()
+    write_version()
 
     versiontxt = os.path.join(os.path.dirname(__file__), "version.txt")
     if os.path.exists(versiontxt):
@@ -141,12 +122,13 @@ if is_local() and "--help" not in sys.argv and "--help-commands" not in sys.argv
         if subversion == ".0":
             raise Exception("Subversion is wrong: '{0}'.".format(subversion))
     else:
-        raise FileNotFoundError(versiontxt)
+        raise FileNotFoundError(
+            "Unable to find '{0}' argv={1}".format(versiontxt, sys.argv))
 else:
     # when the module is installed, no commit number is displayed
     subversion = ""
 
-if "upload" in sys.argv and not subversion:
+if "upload" in sys.argv and not subversion and not ask_help():
     # avoid uploading with a wrong subversion number
     try:
         import pyquickhelper
@@ -179,8 +161,8 @@ if "--verbose" in sys.argv:
 if is_local():
     pyquickhelper = import_pyquickhelper()
     logging_function = pyquickhelper.get_fLOG()
-    from pyquickhelper.pycode import process_standard_options_for_setup
     logging_function(OutputPrint=True)
+    from pyquickhelper.pycode import process_standard_options_for_setup
     r = process_standard_options_for_setup(
         sys.argv, __file__, project_var_name,
         layout=["html"],
@@ -200,12 +182,20 @@ if is_local():
 else:
     r = False
 
+if ask_help():
+    pyquickhelper = import_pyquickhelper()
+    from pyquickhelper.pycode import process_standard_options_for_setup_help
+    process_standard_options_for_setup_help(sys.argv)
+
 if not r:
     if len(sys.argv) in (1, 2) and sys.argv[-1] in ("--help-commands",):
         pyquickhelper = import_pyquickhelper()
         from pyquickhelper.pycode import process_standard_options_for_setup_help
         process_standard_options_for_setup_help(sys.argv)
-
+    else:
+        pyquickhelper = import_pyquickhelper()
+    from pyquickhelper.pycode import clean_readme
+    long_description = clean_readme(long_description)
     setup(
         name=project_var_name,
         version='%s%s' % (sversion, subversion),

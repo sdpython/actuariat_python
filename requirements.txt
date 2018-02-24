@@ -22,6 +22,7 @@ pylzma
 pyquickhelper>=1.7.2438
 pyrsslocal>=0.8.250
 pyshp
+qgrid
 shapely
 sphinx-bootstrap-theme
 TPOT

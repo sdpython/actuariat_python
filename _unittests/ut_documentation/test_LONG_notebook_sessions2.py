@@ -58,7 +58,7 @@ class TestLONGNotebookPopulation2(unittest.TestCase):
         fix_tkinter_issues_virtualenv()
 
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
-        temp = get_temp_folder(__file__, "temp_sessions2")
+        temp = get_temp_folder(__file__, "temp_sessions_population")
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance6_graphes_ml_enonce" in _]
         self.assertTrue(len(keepnote) > 0)

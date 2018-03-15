@@ -56,7 +56,7 @@ class TestNotebookSession2(unittest.TestCase):
     def a_test_notebook_session(self, name):
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         fLOG = self.fLOG
-        temp = get_temp_folder(__file__, "temp_sessions")
+        temp = get_temp_folder(__file__, "temp_sessions_" + name.split('.')[0])
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance5_approche_fonctionnelle_enonce" not in _ and
             "seance6_graphes_ml_enonce" not in _ and "election_carte_electorale_correction" not in _ and

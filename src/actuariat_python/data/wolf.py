@@ -12,7 +12,7 @@ from pyrsslocal.xmlhelper import xml_filter_iterator
 from .data_exceptions import LinkNotFoundError
 
 
-def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLOG=noLOG):
+def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", fLOG=noLOG):
     """
     The `WOLF <http://alpage.inria.fr/~sagot/wolf-en.html>`_
     (Wordnet Libre du Français, Free French Wordnet) is a free semantic
@@ -29,11 +29,11 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
     """
     link = url
     page = download_page(link)
-    reg = re.compile("href=\\\"(.*wolf.*?[.]bz2)\\\"")
+    reg = re.compile("href=\\\"(https.*?wolf.*?[.]bz2)\\\"")
     alls = reg.findall(page)
     if len(alls) == 0:
         raise LinkNotFoundError(
-            "unable to find a link on a .exe file on page: " +
+            "unable to find a link on a .bz2 file on page: " +
             page)
 
     url = alls[0]
@@ -43,7 +43,8 @@ def wolf_xml(url="http://alpage.inria.fr/~sagot/wolf.html", temp_folder=".", fLO
     dtd = download_data("debvisdic-strict.dtd", url=[url2, "xd"],
                         fLOG=fLOG, whereTo=temp_folder)
     name = spl[-1].strip('.')
-    local = download_data(name, url=[url, "xd"], fLOG=fLOG, whereTo=temp_folder)
+    local = download_data(
+        name, url=[url, "xd"], fLOG=fLOG, whereTo=temp_folder)
     if isinstance(local, str):
         local = [local]
     # We check the file was downloaded.

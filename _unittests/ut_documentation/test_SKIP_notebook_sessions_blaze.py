@@ -57,7 +57,7 @@ class TestSKIPNotebookPopulationBlaze(unittest.TestCase):
         fix_tkinter_issues_virtualenv()
         from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
 
-        temp = get_temp_folder(__file__, "temp_sessions5")
+        temp = get_temp_folder(__file__, "temp_sessions_population_blaze")
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance5_approche_fonctionnelle_enonce" in _ and "blaze" in _]
         self.assertTrue(len(keepnote) > 0)

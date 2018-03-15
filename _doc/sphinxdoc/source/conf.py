@@ -22,16 +22,13 @@ sys.path.insert(
 from pyquickhelper.helpgen.default_conf import set_sphinx_variables, get_default_stylesheet
 
 set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré",
-                     2018, "bootstrap", None,
+                     2018, "bootstrap", sphinx_bootstrap_theme.get_html_theme_path(),
                      locals(), add_extensions=None, book=True, nblayout='table',
                      extlinks=dict(issue=('https://github.com/sdpython/actuariat_python/issues/%s', 'issue')))
 
-html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 html_logo = "project_ico_small.png"
 language = "fr"
 html_split_index = True
-
-html_sidebars = {}
 
 if html_theme == "bootstrap":
     html_theme_options = {

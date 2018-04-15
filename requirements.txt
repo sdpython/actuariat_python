@@ -15,7 +15,7 @@ lightning-python
 mlstatpy
 openpyxl
 plotly
-pyensae>=1.1.743
+pyensae>=1.2.743
 pygal
 pygal_maps_fr
 pylzma

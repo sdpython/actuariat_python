@@ -1,4 +1,6 @@
 bqplot
+cairocffi
+cairosvg
 category_encoders
 chardet
 coverage

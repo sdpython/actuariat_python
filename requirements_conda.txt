@@ -2,6 +2,7 @@ bcolz
 biopython
 blaze
 bokeh
+cffi
 Cython
 dask
 datashape

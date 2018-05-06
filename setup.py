@@ -202,6 +202,4 @@ if not r:
             "pyquickhelper>=1.5.2259", "pyensae", "pymyinstall", "mlstatpy",
             "scikit-learn", "pyrsslocal", "pandas", "numpy",
             "matplotlib", "jupyter"],
-        # avoids downloading cvxopt (its installation is never easy)
-        # extra_requires=["cvxopt"],
     )

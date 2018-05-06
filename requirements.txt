@@ -3,8 +3,8 @@ cairocffi
 cairosvg
 category_encoders
 chardet
-coverage
 cloudpickle
+coverage
 cytoolz
 ensae_teaching_cs
 folium>=0.5

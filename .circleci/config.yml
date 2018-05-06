@@ -49,21 +49,21 @@ jobs:
                     sudo apt-get install libav-tools
 
       - run:
-          name: install dependencies 1
+          name: install dependencies 1 - requirements_conda
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements_conda.txt
             
       - run:
-          name: install dependencies 2
+          name: install dependencies 2 - requirements
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
             
       - run:
-          name: install dependencies 3
+          name: install dependencies 3 - sphinxcontrib, datashader, pyPDF, natgrid
           command: |
             python3 -m venv venv
             . venv/bin/activate

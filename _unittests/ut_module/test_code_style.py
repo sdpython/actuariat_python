@@ -53,6 +53,7 @@ class TestCodeStyle(ExtTestCase):
                          "Unused variable 'skip_'",
                          "imported as skip_",
                          "Unused import src",
+                         "Unable to import 'keyring'",
                          ])
 
 

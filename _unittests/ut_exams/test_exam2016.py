@@ -7,6 +7,8 @@ import sys
 import os
 import unittest
 import pandas
+from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import get_temp_folder
 
 
 try:
@@ -22,26 +24,6 @@ except ImportError:
         sys.path.append(path)
     import src
 
-try:
-    import pyquickhelper as skip_
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyquickhelper",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyquickhelper as skip_
-
-
-from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder
-
 
 class TestExam2016(unittest.TestCase):
 
@@ -51,31 +33,6 @@ class TestExam2016(unittest.TestCase):
         pass
 
     def test_data_2016(self):
-        fLOG(
-            __file__,
-            self._testMethodName,
-            OutputPrint=__name__ == "__main__")
-
-        from src.actuariat_python.exams.ex2016 import enumerate_person, enumerate_appointments
-        f = list(enumerate_person(n=1))
-        assert isinstance(f[0], dict)
-        df = pandas.DataFrame(enumerate_person(n=1000))
-        self.assertEqual(df.shape, (1000, 4))
-        fLOG(df.head())
-
-        persons = df.to_dict("records")
-        ap = pandas.DataFrame(enumerate_appointments(persons))
-        fLOG(ap.head())
-
-        temp = get_temp_folder(__file__, "temp_data_2016")
-        f1 = os.path.join(temp, "persons.txt")
-        df.to_csv(f1, index=False, sep="\t")
-        f2 = os.path.join(temp, "rendezvous.txt")
-        ap.to_csv(f2, index=False, sep="\t")
-
-        assert os.path.exists(f1)
-        assert os.path.exists(f2)
-
         """
         Questions
 
@@ -108,6 +65,30 @@ class TestExam2016(unittest.TestCase):
         10. Comment comparer ce modèle avec le précédent ?
             Implémentez le calcul qui vous permet de répondre à cette question.
         """
+        fLOG(
+            __file__,
+            self._testMethodName,
+            OutputPrint=__name__ == "__main__")
+
+        from src.actuariat_python.exams.ex2016 import enumerate_person, enumerate_appointments
+        f = list(enumerate_person(n=1))
+        assert isinstance(f[0], dict)
+        df = pandas.DataFrame(enumerate_person(n=1000))
+        self.assertEqual(df.shape, (1000, 4))
+        fLOG(df.head())
+
+        persons = df.to_dict("records")
+        ap = pandas.DataFrame(enumerate_appointments(persons))
+        fLOG(ap.head())
+
+        temp = get_temp_folder(__file__, "temp_data_2016")
+        f1 = os.path.join(temp, "persons.txt")
+        df.to_csv(f1, index=False, sep="\t")
+        f2 = os.path.join(temp, "rendezvous.txt")
+        ap.to_csv(f2, index=False, sep="\t")
+
+        assert os.path.exists(f1)
+        assert os.path.exists(f2)
 
 
 if __name__ == "__main__":

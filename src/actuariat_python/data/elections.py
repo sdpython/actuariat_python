@@ -6,18 +6,18 @@
 import re
 import os
 import warnings
-import pandas
+from html.parser import HTMLParser
+from html.entities import name2codepoint
+from http.client import RemoteDisconnected
 import urllib.error
 import urllib.request
-from html.parser import HTMLParser
-from http.client import RemoteDisconnected
-from html.entities import name2codepoint
 from urllib.error import HTTPError, URLError
-from .data_exceptions import DataNotAvailableError, DataFormatException
+import pandas
 from pyquickhelper.loghelper import noLOG
 from pyquickhelper.filehelper import unzip_files
 from pyensae.datasource import download_data
 from pyensae.datasource.http_retrieve import DownloadDataException
+from .data_exceptions import DataNotAvailableError, DataFormatException
 
 
 def elections_presidentielles_local_files(load=False):
@@ -107,7 +107,8 @@ def elections_presidentielles(url=None, local=False, agg=None):
 def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
     """
     retrieve data from
-    `Résultat des élections législatives françaises de 2012 au niveau bureau de vote <https://www.data.gouv.fr/fr/datasets/resultat-des-elections-legislatives-francaises-de-2012-au-niveau-bureau-de-vote-nd/>`_
+    `Résultat des élections législatives françaises de 2012 au niveau bureau de vote
+    <https://www.data.gouv.fr/fr/datasets/resultat-des-elections-legislatives-francaises-de-2012-au-niveau-bureau-de-vote-nd/>`_.
 
     @param      source  should be None unless you want to use the backup plan ("xd")
     @param      folder  where to download
@@ -115,11 +116,17 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
 
     Others sources:
 
-    * `Résultats élections municipales 2014 par bureau de vote <http://www.nosdonnees.fr/dataset/resultats-elections-municipales-2014-par-bureau-de-vote>`_
-    * `Elections 2015 - Découpage des bureaux de Vote <https://www.data.gouv.fr/fr/datasets/elections-2015-decoupage-des-bureaux-de-vote/>`_
-    * `Contours des cantons électoraux départementaux 2015 <https://www.data.gouv.fr/fr/datasets/contours-des-cantons-electoraux-departementaux-2015/>`_
-    * `Découpage électoral de la commune, pour les élections législatives <https://www.data.gouv.fr/fr/datasets/circonscriptions/>`_ (weird bizarre)
-    * `Statistiques démographiques INSEE sur les nouvelles circonscriptions législatives de 2012 <https://www.data.gouv.fr/fr/datasets/statistiques-demographiques-insee-sur-les-nouvelles-circonscriptions-legislatives-de-2012-nd/>`_
+    * `Résultats élections municipales 2014 par bureau de vote
+      <http://www.nosdonnees.fr/dataset/resultats-elections-municipales-2014-par-bureau-de-vote>`_
+    * `Elections 2015 - Découpage des bureaux de Vote
+      <https://www.data.gouv.fr/fr/datasets/elections-2015-decoupage-des-bureaux-de-vote/>`_
+    * `Contours des cantons électoraux départementaux 2015
+      <https://www.data.gouv.fr/fr/datasets/contours-des-cantons-electoraux-departementaux-2015/>`_
+    * `Découpage électoral de la commune, pour les élections législatives
+      <https://www.data.gouv.fr/fr/datasets/circonscriptions/>`_ (weird bizarre)
+    * `Statistiques démographiques INSEE sur les nouvelles circonscriptions législatives de 2012
+      <https://www.data.gouv.fr/fr/datasets/statistiques-demographiques-insee
+      -sur-les-nouvelles-circonscriptions-legislatives-de-2012-nd/>`_
     """
     if source is None:
         try:
@@ -128,7 +135,7 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
                 if f is None:
                     raise Exception(
                         "Not sure we can continue. Pretty sure we should stop.")
-        except (urllib.error.HTTPError, RemoteDisconnected) as e:
+        except (urllib.error.HTTPError, RemoteDisconnected):
             url = "xd"
         file = "LG12_BV_T1T2.zip"
     else:
@@ -151,8 +158,9 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
 
 def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noLOG):
     """
-    retrieve data from
-    `Countours des circonscriptions des législatives <https://www.data.gouv.fr/fr/datasets/countours-des-circonscriptions-des-legislatives-nd/>`_
+    Retrieves data from
+    `Countours des circonscriptions des législatives <https://www.data.gouv.fr/fr/
+    datasets/countours-des-circonscriptions-des-legislatives-nd/>`_.
 
     @param      source  should be None unless you want to use the backup plan ("xd")
     @param      folder  where to download
@@ -214,7 +222,6 @@ def villes_geo(folder=".", as_df=False, fLOG=noLOG):
     else:
         res = geo
     if as_df:
-        import pandas
         return pandas.read_csv(res, encoding="utf-8", sep="\t")
     else:
         return res
@@ -243,9 +250,9 @@ class _HTMLToText(HTMLParser):
         elif tag in ('script', 'style'):
             self.hide_output = False
 
-    def handle_data(self, text):
-        if text and not self.hide_output:
-            self._buf.append(re.sub(r'\s+', ' ', text))
+    def handle_data(self, data):
+        if data and not self.hide_output:
+            self._buf.append(re.sub(r'\s+', ' ', data))
 
     def handle_entityref(self, name):
         if name in name2codepoint and not self.hide_output:

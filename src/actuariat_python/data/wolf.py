@@ -67,7 +67,9 @@ def enumerate_wolf_xml_row(filename, fLOG=noLOG, xmlformat=False, encoding="utf-
     @param      filename        filename
     @param      fLOG            logging function
     @param      xmlformat       if True, return the xml, otherwise return the node,
-                                see `XMLHandlerDictNode <http://www.xavierdupre.fr/app/pyrsslocal/helpsphinx//pyrsslocal/xmlhelper/xml_tree_node.html#module-pyrsslocal.xmlhelper.xml_tree_node>`_
+                                see `XMLHandlerDictNode <http://www.xavierdupre.fr/app/pyrsslocal/
+                                helpsphinx/pyrsslocal/xmlhelper/xml_tree_node.html#
+                                module-pyrsslocal.xmlhelper.xml_tree_node>`_
     @param      encoding        encoding
     @param      errors          what to do with errors
     @return                     elements

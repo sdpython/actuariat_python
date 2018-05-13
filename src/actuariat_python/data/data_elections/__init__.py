@@ -21,7 +21,8 @@ Example for the second round:
 
 ::
 
-    Code du département	Libellé du département	Code de la circonscription	Inscrits	Votants	Exprimés	Blancs et nuls	François HOLLANDE (PS)	Nicolas SARKOZY (UMP)
+    Code du département	Libellé du département	Code de la circonscription	Inscrits [...]
+    [...] Votants	Exprimés	Blancs et nuls	François HOLLANDE (PS)	Nicolas SARKOZY (UMP)
     01	AIN	1	79024	65819	61677	4142	27511	34166
     01	AIN	2	86845	73070	68995	4075	28617	40378
     01	AIN	3	69858	56868	53723	3145	23444	30279

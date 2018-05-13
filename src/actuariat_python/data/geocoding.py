@@ -12,7 +12,7 @@ import numpy
 def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="address",
             col_latitude="latitude", col_longitude="longitude", col_full="full_address",
             col_geo="geo_address", save_every=None, every=100, exc=True, fLOG=None,
-            coders=["Nominatim"], country=None, **options):
+            coders=("Nominatim",), country=None, **options):
     """
     geocode addresses
 
@@ -67,10 +67,12 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                 return Bing(key)
             else:
                 raise ValueError("Unknown geocoder '{0}'".format(d))
+        else:
+            raise TypeError("Unexpected type '{0}'".format(type(d)))
 
     if every < 1:
         raise ValueError("every should be >= 1, not {0}".format(every))
-    from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+    from geopy.exc import GeocoderServiceError
     geocoder = [get_coder(_) for _ in coders]
     cache = {}
     if len(geocoder) == 0:
@@ -109,7 +111,9 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
 
     errors = 0
     no_result = 0
+    lasti = 0
     for i in range(0, len(df)):
+        lasti = i
         if i % every == 0:
             if save_every is not None:
                 if fLOG is not None:
@@ -120,10 +124,10 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                 fLOG(
                     "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
 
-        place, zip, city, address = df.loc[
+        place, zips, city, address = df.loc[
             i, [col_place, col_zip, col_city, col_address]]
-        if not isinstance(zip, str):
-            zip = "%05d" % zip
+        if not isinstance(zips, str):
+            zips = "%05d" % zips
 
         def concat(s1, s2):
             if isinstance(s1, str) and len(s1) > 0:
@@ -132,7 +136,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                 return s2
             return ""
 
-        ad = "{0} {1} {2}".format(concat(address, place), zip, city).strip()
+        ad = "{0} {1} {2}".format(concat(address, place), zips, city).strip()
         if country is not None:
             ad += " " + country
         df.loc[i, col_full] = ad
@@ -153,10 +157,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                         rexc = None
                         if geo is not None:
                             break
-                    except GeocoderServiceError as ee:
-                        geo = None
-                        rexc = ee
-                    except (TimeoutError, GeocoderTimedOut) as e:
+                    except (TimeoutError, GeocoderServiceError) as e:
                         geo = None
                         rexc = e
 
@@ -184,7 +185,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
 
     if fLOG is not None:
         fLOG(
-            "geocode place {0}/{1} - errors={2} - no-result={3}".format(i, len(df), errors, no_result))
+            "geocode place {0}/{1} - errors={2} - no-result={3}".format(lasti, len(df), errors, no_result))
     if save_every is not None:
         df.to_csv(save_every, **options)
     return df

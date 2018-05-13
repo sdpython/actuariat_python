@@ -3,10 +3,10 @@
 @file
 @brief Various function to download data about population
 """
-import numpy
-import pandas
 import gzip
 import os
+import numpy
+import pandas
 from pyquickhelper.loghelper import noLOG
 import pyensae
 from .data_exceptions import DataFormatException
@@ -81,7 +81,8 @@ def table_mortalite_france_00_02(homme=None, femme=None):
     The final DataFrame merges both sheets.
     The data is coming from
     `Institut des Actuaires: Reférences de mortalité <http://www.institutdesactuaires.com/gene/main.php?base=2127>`_ or
-    `Références techniques <http://www.ressources-actuarielles.net/EXT/ISFA/fp-isfa.nsf/34a14c286dfb0903c1256ffd00502d73/d62719e329025b94c12577c100545bb7?OpenDocument>`_.
+    `Références techniques <http://www.ressources-actuarielles.net/EXT/ISFA/fp-isfa.nsf/
+    34a14c286dfb0903c1256ffd00502d73/d62719e329025b94c12577c100545bb7?OpenDocument>`_.
     """
     this = os.path.join(os.path.abspath(
         os.path.dirname(__file__)), "data_population")
@@ -133,7 +134,7 @@ def fecondite_france(url=None):
         r[col], str) else r[col],
         axis=1)
     df = df[df[col].apply(lambda x: "0" <= x[0] <= "9" if isinstance(
-        x, str) else (isinstance(x, int) or isinstance(x, float)))].copy()
+        x, str) else (isinstance(x, (int, float))))].copy()
     df[col] = df[col].astype(float)
     cp = df[df[col] == 15]
     if len(cp) == 0:
@@ -218,9 +219,9 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
     def format_age(s):
         if s.startswith("Y_"):
             if s.startswith("Y_LT"):
-                s = "YLT" + s[4:]
+                return "YLT" + s[4:]
             elif s.startswith("Y_GE"):
-                s = "YGE" + s[4:]
+                return "YGE" + s[4:]
             else:
                 raise SyntaxError(s)
         else:
@@ -230,9 +231,9 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
     def format_age_num(s):
         if s.startswith("Y_"):
             if s.startswith("Y_LT"):
-                s = float(s.replace("Y_LT", ""))
+                return float(s.replace("Y_LT", ""))
             elif s.startswith("Y_GE"):
-                s = float(s.replace("Y_GE", ""))
+                return float(s.replace("Y_GE", ""))
             else:
                 raise SyntaxError(s)
         else:

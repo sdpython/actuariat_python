@@ -20,7 +20,7 @@ def enumerate_person(hf=0.5, age=(18, 60), n=100):
     @param      n       number of person to generate
     @return             enumerator of dictionaries
     """
-    for i in range(n):
+    for _ in range(n):
         hfi = random.random() <= hf
         agei = random.randint(*age)
         namei = first_names[hfi]

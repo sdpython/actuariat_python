@@ -27,7 +27,7 @@ def plot_population_pyramid(men, women, ax=None,
     """
     if ax is None:
         from matplotlib import pyplot as plt
-        fig, ax = plt.subplots(**options)
+        _, ax = plt.subplots(**options)
 
     somme = men - women
     ValH = ax.barh(numpy.arange(len(men)), men, 1.0, label=labels[

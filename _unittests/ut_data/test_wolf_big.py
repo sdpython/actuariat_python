@@ -6,6 +6,8 @@
 import sys
 import os
 import unittest
+from pyquickhelper.loghelper import fLOG
+from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 
 
 try:
@@ -20,26 +22,6 @@ except ImportError:
     if path not in sys.path:
         sys.path.append(path)
     import src
-
-try:
-    import pyquickhelper as skip_
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..",
-                "..",
-                "pyquickhelper",
-                "src")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import pyquickhelper as skip_
-
-
-from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 
 
 class TestWolfBig(unittest.TestCase):
@@ -60,7 +42,7 @@ class TestWolfBig(unittest.TestCase):
         data = os.path.join(temp, "wolf-1.0b4.xml")
         rows = enumerate_wolf_synonyms(data, fLOG=fLOG, encoding="utf-8")
         nb = 0
-        for row in rows:
+        for _ in rows:
             nb += 1
         self.assertTrue(nb > 0)
 

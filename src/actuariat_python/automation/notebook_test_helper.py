@@ -34,7 +34,7 @@ def ls_notebooks(subfolder):
                 _)) for _ in os.listdir(docnote)]
 
     keepnote = []
-    for i, note in enumerate(notes):
+    for note in notes:
         ext = os.path.splitext(note)[-1]
         if ext != ".ipynb":
             continue
@@ -65,7 +65,7 @@ def get_additional_paths():
     try:
         import ensae_teaching_cs
         addpath.append(os.path.dirname(ensae_teaching_cs.__file__))
-    except ImportError as e:
+    except ImportError:
         pass
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]
     return addpath

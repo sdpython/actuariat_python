@@ -21,7 +21,7 @@ pyensae>=1.2.743
 pygal
 pygal_maps_fr
 pylzma
-pyquickhelper>=1.7.2539
+pyquickhelper>=1.8
 pyrsslocal>=0.8.250
 pyshp
 qgrid

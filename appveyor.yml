@@ -23,8 +23,8 @@ install:
   - "%PYTHON%\\Scripts\\pymy_install3 pycrypto"
   - "%PYTHON%\\Scripts\\pymy_install3 pyproj"
   - "%PYTHON%\\Scripts\\pymy_install3 bcolz"
+  - "%PYTHON%\\Scripts\\pip install -r requirements_conda.txt"
   - "%PYTHON%\\Scripts\\pip install -r requirements.txt"
-  - "%PYTHON%\\Scripts\\pip install pycryptodomex keyring"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
   - "set PATH=%PATH%;C:\\projects\\actuariat-python\\build\\update_modules\\Graphviz\\bin"
 build: off

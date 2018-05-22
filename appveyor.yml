@@ -1,9 +1,6 @@
 environment:
 
   global:
-    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
-    # /E:ON and /V:ON options are not enabled in the batch script intepreter
-    # See: http://stackoverflow.com/a/13751649/163740
     WITH_COMPILER: "cmd /E:ON /V:ON /C .\\appveyor\\run_with_compiler.cmd"
 
   matrix:
@@ -25,8 +22,9 @@ install:
   - "%PYTHON%\\Scripts\\pymy_install3 bcolz"
   - "%PYTHON%\\Scripts\\pip install -r requirements_conda.txt"
   - "%PYTHON%\\Scripts\\pip install -r requirements.txt"
+  - "%PYTHON%\\Scripts\\pip install tools"
   - "%PYTHON%\\Scripts\\pymy_install3 --task=tool --source=zip graphviz"
-  - "set PATH=%PATH%;C:\\projects\\actuariat-python\\build\\update_modules\\Graphviz\\bin"
+  - "dir C:\\projects\\actuariat-python\\build\\update_modules\\Graphviz\\bin"
 build: off
 
 test_script:

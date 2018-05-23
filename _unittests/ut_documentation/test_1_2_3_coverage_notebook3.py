@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-@brief      test log(time=16s)
+@brief      test log(time=60s)
 """
 
 import sys
@@ -26,7 +26,7 @@ except ImportError:
     import src.actuariat_python as thismodule
 
 
-class TestNotebook123Coverage_pyramide(unittest.TestCase):
+class TestNotebook123Coverage_nlp(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(["pymyinstall", "pyensae", "jyquickhelper", "pyrsslocal"],
@@ -61,13 +61,13 @@ class TestNotebook123Coverage_pyramide(unittest.TestCase):
             clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(res, fLOG=fLOG, dump=thismodule)
 
-    def test_notebook_pyramide(self):
+    def test_notebook_nlp(self):
         fLOG(
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        self.a_test_notebook_runner("pyramide", "exercices")
+        self.a_test_notebook_runner("synonyme", "nlp")
 
 
 if __name__ == "__main__":

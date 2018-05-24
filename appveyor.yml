@@ -18,7 +18,7 @@ install:
   - "%PYTHON%\\Scripts\\pymy_install3 --set=pyensae"
   - "%PYTHON%\\Scripts\\pymy_install3 cytoolz xarray dask basemap pylzma Shapely"
   - "%PYTHON%\\Scripts\\pymy_install3 pycrypto"
-  - "%PYTHON%\\Scripts\\pymy_install3 pyproj"
+  - "%PYTHON%\\Scripts\\pymy_install3 pyproj shapely"
   - "%PYTHON%\\Scripts\\pymy_install3 bcolz"
   - "%PYTHON%\\Scripts\\pip install -r requirements_conda.txt"
   - "%PYTHON%\\Scripts\\pip install -r requirements.txt"

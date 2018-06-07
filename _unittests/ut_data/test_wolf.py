@@ -42,6 +42,8 @@ class TestWolf(unittest.TestCase):
         if isinstance(outfile, str):
             outfile = [outfile]
         for o in outfile:
+            if not isinstance(o, str):
+                raise TypeError(o)
             if not os.path.exists(o):
                 raise FileNotFoundError(o)
         if os.stat(outfile[0]).st_size < 2000:

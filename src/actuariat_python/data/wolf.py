@@ -55,6 +55,8 @@ def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", 
         if not os.path.exists(expected):
             raise FileNotFoundError(expected)
         return res
+    elif isinstance(dtd, list):
+        return local + dtd
     else:
         return local + [dtd]
 

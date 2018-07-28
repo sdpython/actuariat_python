@@ -50,28 +50,35 @@ jobs:
                     sudo apt-get install libav-tools
 
       - run:
-          name: install dependencies 1 - requirements_conda
+          name: install dependencies (1) - requirements_conda
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements_conda.txt
             
       - run:
-          name: install dependencies 2 - requirements
+          name: install dependencies (2) - requirements
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
             
       - run:
-          name: install dependencies 2 - cairo
+          name: install dependencies (2b) - requirements2
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements2.txt
+            
+      - run:
+          name: install dependencies (3) - cairo
           command: |
             python3 -m venv venv
             . venv/bin/activate
             pip install cairocffi cairosvg
             
       - run:
-          name: install dependencies 3 - sphinxcontrib, datashader, pyPDF, natgrid
+          name: install dependencies (4) - sphinxcontrib, datashader, pyPDF, natgrid
           command: |
             python3 -m venv venv
             . venv/bin/activate

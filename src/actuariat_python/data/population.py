@@ -8,7 +8,7 @@ import os
 import numpy
 import pandas
 from pyquickhelper.loghelper import noLOG
-import pyensae
+from pyensae.datasource import download_data
 from .data_exceptions import DataFormatException
 
 
@@ -208,7 +208,7 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
 
     temp = final_name + ".remove.txt"
     if not os.path.exists(temp) or os.stat(temp).st_size < 1e7:
-        local = pyensae.download_data(name, url=url, whereTo=whereTo)
+        local = download_data(name, url=url, whereTo=whereTo)
         local = local[0] + ".gz"
         with gzip.open(local, 'rb') as f:
             file_content = f.read()

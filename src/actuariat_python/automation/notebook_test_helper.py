@@ -5,9 +5,7 @@
 """
 import os
 from pyquickhelper.loghelper import noLOG
-from pyquickhelper.ipythonhelper.notebook_helper import install_python_kernel_for_unittest
 from pyquickhelper.ipythonhelper import execute_notebook_list
-from pyquickhelper.pycode import is_travis_or_appveyor
 import pyensae
 
 
@@ -161,8 +159,6 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
             return False
         return True
 
-    kernel_name = None if is_travis_or_appveyor() else install_python_kernel_for_unittest(
-        "actuariat_python")
     addpaths = get_additional_paths()
     if filter:
         notebooks = [_ for i, _ in enumerate(notebooks) if filter(i, _)]
@@ -172,4 +168,4 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
         clean_function = clean_function_notebook
     return execute_notebook_list(
         folder, notebooks, fLOG=fLOG, valid=valid_cell, additional_path=addpaths,
-        clean_function=clean_function, kernel_name=kernel_name)
+        clean_function=clean_function)

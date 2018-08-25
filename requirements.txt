@@ -5,7 +5,7 @@ chardet
 cloudpickle
 coverage
 cytoolz
-ensae_teaching_cs
+ensae_teaching_cs>=0.8.2511
 folium>=0.5
 geopy
 ggplot

@@ -22,7 +22,7 @@ from .data_exceptions import DataNotAvailableError, DataFormatException
 
 def elections_presidentielles_local_files(load=False):
     """
-    return the list of files included in this module about French elections
+    Returns the list of files included in this module about French elections.
 
     @param      load        True: load the data
     @return                 list of local files
@@ -41,14 +41,14 @@ def elections_presidentielles_local_files(load=False):
     if not load:
         return res
     else:
-        df1 = pandas.read_excel(res[0], sheetname=1)
-        df2 = pandas.read_excel(res[1], sheetname=1)
+        df1 = pandas.read_excel(res[0], sheet_name=1)
+        df2 = pandas.read_excel(res[1], sheet_name=1)
         return dict(circ1=df1, circ2=df2)
 
 
 def elections_presidentielles(url=None, local=False, agg=None):
     """
-    download the data for the French elections from *data.gouv.fr*
+    Downloads the data for the French elections from *data.gouv.fr*.
 
     @param      url             url (None for default value)
     @param      local           prefer local data instead of remote
@@ -78,7 +78,7 @@ def elections_presidentielles(url=None, local=False, agg=None):
             else:
                 url0 = url
             try:
-                df = pandas.read_excel(url, sheetname=None)
+                df = pandas.read_excel(url, sheet_name=None)
                 return df
             except (HTTPError, URLError, TimeoutError) as e:
                 if url0 is None:
@@ -106,7 +106,7 @@ def elections_presidentielles(url=None, local=False, agg=None):
 
 def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
     """
-    retrieve data from
+    Retrieves data from
     `Résultat des élections législatives françaises de 2012 au niveau bureau de vote
     <https://www.data.gouv.fr/fr/datasets/resultat-des-elections-legislatives-francaises-de-2012-au-niveau-bureau-de-vote-nd/>`_.
 
@@ -182,8 +182,8 @@ def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noL
 
 def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
     """
-    retrieve data vote places (bureaux de vote in French)
-    with geocodes
+    Retrieves data vote places (bureaux de vote in French)
+    with geocodes.
 
     @param      source  should be None unless you want to use the backup plan ("xd")
     @param      folder  where to download
@@ -206,8 +206,8 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
 
 def villes_geo(folder=".", as_df=False, fLOG=noLOG):
     """
-    retrieve data vote places (bureaux de vote in French)
-    with geocodes
+    Retrieves data vote places (bureaux de vote in French)
+    with geocodes.
 
     @param      folder  where to download
     @param      as_df   return as a dataframe
@@ -285,7 +285,7 @@ _elections_vote_place_address_patterns = [
 
 def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
     """
-    this function scrapes and extracts addresses for every vote place (bureau de vote in French)
+    Scrapes and extracts addresses for every vote place (bureau de vote in French).
 
     @param      folder          where to download the scraped pages
     @param      hide_warnings   hide warnings

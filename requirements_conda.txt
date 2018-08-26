@@ -2,6 +2,7 @@ bcolz
 biopython
 blaze
 bokeh
+cartopy
 cffi
 Cython
 dask

@@ -15,7 +15,7 @@ from .data_exceptions import DataFormatException
 def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
                            sheetname=0, year=2018):
     """
-    Download the data for the French population from INSEE website
+    Downloads the data for the French population from INSEE website
 
     @param      url             url
     @param      sheetname       sheet index
@@ -33,7 +33,7 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
     """
     try:
         df = pandas.read_excel(url, sheetname=sheetname)
-        skiprows = 8
+        skiprows = 5
     except Exception as e:
         # we try to find a local version
         this = os.path.dirname(__file__)

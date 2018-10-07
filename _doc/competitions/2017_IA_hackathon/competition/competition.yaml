@@ -1,13 +1,13 @@
 # Build an example competition
 ---
 # The title of the competition
-title: Hackathon Institut des Actuaires
+title: Hackathon Institut des Actuaires 2018
 # A description of the competition
 description: Evaluation d'un dossier d'une personne en difficulté financière
 # Does this competition require participant approval by the organizer
 has_registration: True
 # When is this competition finished. It is valid to not include an end_date, which means the competition remains open perpetually.
-end_date: 2017-09-12
+end_date: 2018-10-20
 # You can specify admins here, use their codalab username (CaSe sensitive!) they will automatically be added as participants
 #Don't remove the comments here, codalab is bugged, change the value from the website
 # admin_names: ds-anne,xavierdupre
@@ -32,7 +32,7 @@ phases:
         # Label or name of this phase
         label: "Challenge"
         # When this phase starts - this is the first date participants can download the data and submit results
-        start_date: 2017-09-11
+        start_date: 2018-10-07
         # Maximum number of submissions per participant
         max_submissions: 1000
         # A bundle containing the program used to evaluate results.

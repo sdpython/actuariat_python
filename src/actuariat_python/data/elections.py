@@ -168,9 +168,8 @@ def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noL
     """
     if source is None:
         raise NotImplementedError("use source='xd'")
-    else:
-        url = source
-        file = "toxicode_circonscriptions_legislatives.zip"
+    url = source
+    file = "toxicode_circonscriptions_legislatives.zip"
     data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
     for d in data:
         if d.endswith(".csv"):
@@ -192,9 +191,8 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
     """
     if source is None:
         raise NotImplementedError("use source='xd'")
-    else:
-        url = source
-        file = "bureauxvotegeo.zip"
+    url = source
+    file = "bureauxvotegeo.zip"
     data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
     for d in data:
         if d.endswith(".txt"):

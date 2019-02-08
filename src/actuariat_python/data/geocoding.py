@@ -172,9 +172,8 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                     if save_every is not None:
                         df.to_csv(save_every, **options)
                     raise rexc
-                else:
-                    warnings.warn(str(rexc))
-                    continue
+                warnings.warn(str(rexc))
+                continue
             else:
                 no_result += 1
 

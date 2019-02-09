@@ -277,6 +277,11 @@ def html_to_text(html):
     return parser.get_text()
 
 
+def _elections_vote_place_address_patterns_():
+    return [
+        "bureau( de vote)?[- ]*n[^0-9]([0-9]{1,3})[- ]+(.*?)[- ]+([0-9]{5})[- ]+([-a-zéèàùâêîôûïöäëü']{2,40})[. ]"]
+
+
 def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
     """
     Scrapes and extracts addresses for every vote place (bureau de vote in French).
@@ -289,8 +294,7 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
     The function does not retrieve everything due to the irregular format.
     Sometimes, the city is missing or written above.
     """
-    _elections_vote_place_address_patterns = [
-        "bureau( de vote)?[- ]*n[^0-9]([0-9]{1,3})[- ]+(.*?)[- ]+([0-9]{5})[- ]+([-a-zéèàùâêîôûïöäëü']{2,40})[. ]"]
+    _elections_vote_place_address_patterns = _elections_vote_place_address_patterns_()
 
     files = []
     for deps in range(1, 96):

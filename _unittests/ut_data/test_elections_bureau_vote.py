@@ -53,7 +53,7 @@ class TestBureauVote(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        from src.actuariat_python.data.elections import _elections_vote_place_address_patterns
+        from src.actuariat_python.data.elections import _elections_vote_place_address_patterns_
         from src.actuariat_python.data.elections import html_to_text
         datas = [os.path.join(os.path.abspath(os.path.dirname(
             __file__)), "data", "bv0%d.txt") % i for i in range(1, 6)]
@@ -64,7 +64,7 @@ class TestBureauVote(unittest.TestCase):
             content0 = content
             content = content.replace("\n", " ")
             regex = [re.compile(_)
-                     for _ in _elections_vote_place_address_patterns]
+                     for _ in _elections_vote_place_address_patterns_()]
             res = []
             for i, reg in enumerate(regex):
                 fa = reg.findall(content)

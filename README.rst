@@ -1,9 +1,4 @@
 
-.. _l-README:
-
-README
-======
-
 .. image:: https://travis-ci.org/sdpython/actuariat_python.svg?branch=master
     :target: https://travis-ci.org/sdpython/actuariat_python
     :alt: Build status
@@ -37,19 +32,19 @@ README
     :target: http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
 
-**Links:**
+.. _l-README:
+
+actuariat_python
+================
+
+Materials for training sessions used at
+l'`Institut des Actuaires <http://www.institutdesactuaires.com/gene/main.php>`_.
 
 * `GitHub/actuariat_python <https://github.com/sdpython/actuariat_python/>`_
 * `documentation <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html>`_
 * `Blog <http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/blog/main_0000.html#ap-main-0>`_
 
-Description
------------
-
-Materials for training sessions used at
-l'`Institut des Actuaires <http://www.institutdesactuaires.com/gene/main.php>`_.
-
-Contributions
--------------
-
-Started in 2015/02.
+This extension is not actively developed. Most of the content is added to
+`ensae_teaching_cs <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/index.html>`_
+and `papierstat <http://www.xavierdupre.fr/app/papierstat/helpsphinx/index.html>`_.
+Most of the content is in French.

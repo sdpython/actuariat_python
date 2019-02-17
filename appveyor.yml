@@ -17,7 +17,7 @@ install:
   - "%PYTHON%\\Scripts\\pip install pymyinstall"
   - "%PYTHON%\\Scripts\\pymy_install3 --set=pyensae"
   - "%PYTHON%\\python -c \"from pymyinstall.fix import fix_win32ctypes_core_cffi__advapi32_py;fix_win32ctypes_core_cffi__advapi32_py(fLOG=print)\""
-  - "%PYTHON%\\Scripts\\pymy_install3 cytoolz xarray dask cartopy pylzma"
+  - "%PYTHON%\\Scripts\\pymy_install3 cytoolz xarray dask cartopy pylzma toolz"
   - "%PYTHON%\\Scripts\\pymy_install3 pyproj shapely"
   - "%PYTHON%\\Scripts\\pymy_install3 bcolz statsmodels"
   - "%PYTHON%\\Scripts\\pip install -r requirements_conda.txt"

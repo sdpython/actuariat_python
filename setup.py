@@ -162,7 +162,7 @@ if not r:
         package_data=package_data,
         setup_requires=["pyquickhelper"],
         install_requires=[
-            "pyquickhelper>=1.5.2259", "pyensae", "pymyinstall", "mlstatpy",
+            "pyquickhelper>=1.9", "pyensae", "pymyinstall", "mlstatpy",
             "scikit-learn", "pyrsslocal", "pandas", "numpy",
             "matplotlib", "jupyter"],
     )

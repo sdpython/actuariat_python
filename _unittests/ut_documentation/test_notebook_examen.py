@@ -2,28 +2,12 @@
 """
 @brief      test log(time=60s)
 """
-
-import sys
-import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, add_missing_development_version
 from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
+import actuariat_python
 
 
 class TestNotebookExamen(unittest.TestCase):
@@ -39,7 +23,7 @@ class TestNotebookExamen(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
+        from actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_examen")
         keepnote = ls_notebooks("examen")
         self.assertTrue(len(keepnote) > 0)
@@ -47,7 +31,7 @@ class TestNotebookExamen(unittest.TestCase):
                                 lambda i, n: "deviner" not in n,
                                 fLOG=fLOG, clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(
-            res, fLOG=fLOG, dump=src.actuariat_python)
+            res, fLOG=fLOG, dump=actuariat_python)
 
 
 if __name__ == "__main__":

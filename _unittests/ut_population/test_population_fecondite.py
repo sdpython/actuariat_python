@@ -2,26 +2,9 @@
 """
 @brief      test log(time=60s)
 """
-
-import sys
-import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import add_missing_development_version
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
 
 
 class TestPopulationFecondite(unittest.TestCase):
@@ -35,7 +18,7 @@ class TestPopulationFecondite(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        from src.actuariat_python.data import fecondite_france
+        from actuariat_python.data import fecondite_france
         df = fecondite_france()
         self.assertTrue(len(df) >= 35)
         self.assertEqual(df.shape[1], 3)

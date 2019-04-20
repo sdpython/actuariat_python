@@ -2,26 +2,10 @@
 """
 @brief      test log(time=53s)
 """
-
-import sys
 import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
 
 
 class TestWolfBig(unittest.TestCase):
@@ -36,7 +20,7 @@ class TestWolfBig(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.data import wolf_xml, enumerate_wolf_synonyms
+        from actuariat_python.data import wolf_xml, enumerate_wolf_synonyms
         temp = get_temp_folder(__file__, "temp_enumerate_wolf_xml_row_big2")
         wolf_xml(temp_folder=temp)
         data = os.path.join(temp, "wolf-1.0b4.xml")

@@ -2,28 +2,13 @@
 """
 @brief      test log(time=76s)
 """
-
-import sys
 import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.filehelper import synchronize_folder
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut, get_additional_paths
-
-
-try:
-    import src.actuariat_python as thismodule
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src.actuariat_python as thismodule
+import actuariat_python as thismodule
 
 
 class TestNotebook123Coverage2(unittest.TestCase):

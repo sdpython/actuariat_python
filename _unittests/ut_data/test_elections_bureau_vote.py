@@ -2,27 +2,11 @@
 """
 @brief      test log(time=20s)
 """
-
-import sys
 import os
 import unittest
 import re
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import add_missing_development_version, get_temp_folder
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
 
 
 class TestBureauVote(unittest.TestCase):
@@ -37,7 +21,7 @@ class TestBureauVote(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.data import elections_vote_place_address
+        from actuariat_python.data import elections_vote_place_address
         temp = get_temp_folder(__file__, "temp_elections_vote_place_address")
         res = elections_vote_place_address(folder=temp, fLOG=fLOG)
         fLOG(res.shape)
@@ -53,8 +37,8 @@ class TestBureauVote(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
-        from src.actuariat_python.data.elections import _elections_vote_place_address_patterns_
-        from src.actuariat_python.data.elections import html_to_text
+        from actuariat_python.data.elections import _elections_vote_place_address_patterns_
+        from actuariat_python.data.elections import html_to_text
         datas = [os.path.join(os.path.abspath(os.path.dirname(
             __file__)), "data", "bv0%d.txt") % i for i in range(1, 6)]
         for data in datas:

@@ -2,27 +2,12 @@
 """
 @brief      test log(time=280s)
 """
-
-import sys
-import os
 import unittest
 from pyquickhelper.loghelper import fLOG, CustomLog
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv
 from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
+import actuariat_python
 
 
 class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
@@ -39,7 +24,7 @@ class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
+        from actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_gerry_mandering")
         clog = CustomLog(temp)
         keepnote = [_ for _ in ls_notebooks(
@@ -50,7 +35,7 @@ class TestLONGNotebookPopulationGerryMandering(unittest.TestCase):
                                 fLOG=clog, deepfLOG=clog, detailed_log=clog,
                                 clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(
-            res, fLOG=clog, dump=src.actuariat_python)
+            res, fLOG=clog, dump=actuariat_python)
 
 
 if __name__ == "__main__":

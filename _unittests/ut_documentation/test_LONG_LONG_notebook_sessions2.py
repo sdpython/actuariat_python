@@ -2,27 +2,12 @@
 """
 @brief      test log(time=10s)
 """
-
-import sys
-import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import add_missing_development_version
 from pyquickhelper.pycode import get_temp_folder, fix_tkinter_issues_virtualenv
 from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
+import actuariat_python
 
 
 class TestLONGNotebookSession(unittest.TestCase):
@@ -39,7 +24,7 @@ class TestLONGNotebookSession(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
         fix_tkinter_issues_virtualenv()
 
-        from src.actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
+        from actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
         temp = get_temp_folder(__file__, "temp_sessions_big_ways")
         keepnote = [_ for _ in ls_notebooks("sessions") if "ways" in _]
         self.assertTrue(len(keepnote) > 0)
@@ -48,7 +33,7 @@ class TestLONGNotebookSession(unittest.TestCase):
                                 fLOG=fLOG,
                                 clean_function=clean_function_notebook)
         execute_notebook_list_finalize_ut(
-            res, fLOG=fLOG, dump=src.actuariat_python)
+            res, fLOG=fLOG, dump=actuariat_python)
 
 
 if __name__ == "__main__":

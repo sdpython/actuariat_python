@@ -2,27 +2,11 @@
 """
 @brief      test log(time=60s)
 """
-
-import sys
 import os
 import unittest
 import pandas
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import get_temp_folder
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
 
 
 class TestExam2016(unittest.TestCase):
@@ -70,7 +54,7 @@ class TestExam2016(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.exams.ex2016 import enumerate_person, enumerate_appointments
+        from actuariat_python.exams.ex2016 import enumerate_person, enumerate_appointments
         f = list(enumerate_person(n=1))
         assert isinstance(f[0], dict)
         df = pandas.DataFrame(enumerate_person(n=1000))

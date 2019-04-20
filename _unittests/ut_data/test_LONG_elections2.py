@@ -2,27 +2,10 @@
 """
 @brief      test log(time=5s)
 """
-
-import sys
-import os
 import unittest
 import pandas
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import add_missing_development_version, get_temp_folder
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
 
 
 class TestElections2(unittest.TestCase):
@@ -37,7 +20,7 @@ class TestElections2(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.data import elections_legislatives_bureau_vote
+        from actuariat_python.data import elections_legislatives_bureau_vote
         temp = get_temp_folder(__file__, "temp_elections_bureau_vote")
         dfs = elections_legislatives_bureau_vote(
             fLOG=fLOG, folder=temp, source="xd")
@@ -54,7 +37,7 @@ class TestElections2(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.data import elections_legislatives_circonscription_geo
+        from actuariat_python.data import elections_legislatives_circonscription_geo
         temp = get_temp_folder(__file__, "temp_elections_contour")
         dfs = elections_legislatives_circonscription_geo(
             fLOG=fLOG, folder=temp, source="xd")
@@ -67,7 +50,7 @@ class TestElections2(unittest.TestCase):
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
 
-        from src.actuariat_python.data import elections_vote_places_geo
+        from actuariat_python.data import elections_vote_places_geo
         temp = get_temp_folder(__file__, "temp_elections_vote_places_geo")
         dfs = elections_vote_places_geo(
             fLOG=fLOG, folder=temp, source="xd")

@@ -2,28 +2,13 @@
 """
 @brief      test log(time=60s)
 """
-
-import sys
 import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.filehelper import synchronize_folder
 from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
 from pyquickhelper.ipythonhelper import execute_notebook_list, execute_notebook_list_finalize_ut, get_additional_paths
-
-
-try:
-    import src.actuariat_python as thismodule
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src.actuariat_python as thismodule
+import actuariat_python as thismodule
 
 
 class TestNotebook123Coverage_nlp(unittest.TestCase):
@@ -55,7 +40,7 @@ class TestNotebook123Coverage_nlp(unittest.TestCase):
         import pyrsslocal
         add_path = get_additional_paths(
             [jyquickhelper, pyquickhelper, pyensae, pymyinstall, pyrsslocal, thismodule])
-        from src.actuariat_python.automation.notebook_test_helper import clean_function_notebook
+        from actuariat_python.automation.notebook_test_helper import clean_function_notebook
         res = execute_notebook_list(
             temp, keepnote, additional_path=add_path, valid=valid,
             clean_function=clean_function_notebook)

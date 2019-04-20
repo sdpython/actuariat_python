@@ -2,26 +2,9 @@
 """
 @brief      test log(time=1s)
 """
-
-import sys
-import os
 import unittest
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, add_missing_development_version
-
-
-try:
-    import src
-except ImportError:
-    path = os.path.normpath(
-        os.path.abspath(
-            os.path.join(
-                os.path.split(__file__)[0],
-                "..",
-                "..")))
-    if path not in sys.path:
-        sys.path.append(path)
-    import src
 
 
 class TestPopulationPlots(unittest.TestCase):
@@ -38,8 +21,8 @@ class TestPopulationPlots(unittest.TestCase):
 
         fix_tkinter_issues_virtualenv()
         from matplotlib import pyplot as plt
-        from src.actuariat_python.data import population_france_year
-        from src.actuariat_python.plots import plot_population_pyramid
+        from actuariat_python.data import population_france_year
+        from actuariat_python.plots import plot_population_pyramid
 
         df = population_france_year()
         self.assertEqual(df.shape[1], 5)

@@ -13,12 +13,12 @@ from .data_exceptions import DataFormatException
 
 
 def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
-                           sheetname=0, year=2018):
+                           sheet_name=0, year=2018):
     """
     Downloads the data for the French population from INSEE website
 
     @param      url             url
-    @param      sheetname       sheet index
+    @param      sheet_name      sheet index
     @param      year            last year to find
     @return                     DataFrame
 
@@ -32,7 +32,7 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
     You should convert the file in txt with Excel.
     """
     try:
-        df = pandas.read_excel(url, sheetname=sheetname)
+        df = pandas.read_excel(url, sheet_name=sheet_name)
         skiprows = 5
     except Exception as e:
         # we try to find a local version
@@ -42,7 +42,7 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
         if not os.path.exists(name):
             raise FileNotFoundError(
                 "Unable to find a replacement for '{0}' as '{1}'".format(url, name)) from e
-        df = pandas.read_excel(name, sheetname=sheetname)
+        df = pandas.read_excel(name, sheet_name=sheet_name)
         url = name
         skiprows = 0
     col = df.columns[0]
@@ -53,7 +53,7 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
         raise DataFormatException(
             "unable to find {0} (year) in first column name '{1}' at url '{2}'".format(year, col, url))
 
-    table = pandas.read_excel(url, sheetname=sheetname, skiprows=skiprows)
+    table = pandas.read_excel(url, sheet_name=sheet_name, skiprows=skiprows)
     table.columns = ["naissance", "age", "hommes", "femmes", "ensemble"]
     table = table[(table.naissance != 'Champ : France y c. Mayotte.') &
                   table.naissance.apply(lambda s: "Source" not in str(s))].copy()
@@ -98,12 +98,12 @@ def table_mortalite_france_00_02(homme=None, femme=None):
         sheetf = 0
     isexch = os.path.splitext(homme)[-1] in (".xls", ".xlsx")
     dfh = pandas.read_excel(
-        homme, sheetname=sheeth) if isexch else pandas.read_csv(homme, sep=";")
+        homme, sheet_name=sheeth) if isexch else pandas.read_csv(homme, sep=";")
     if dfh.shape[1] > 2:
         dfh = dfh[dfh.columns[:2]]
     isexcf = os.path.splitext(femme)[-1] in (".xls", ".xlsx")
     dff = pandas.read_excel(
-        femme, sheetname=sheetf) if isexcf else pandas.read_csv(femme, sep=";")
+        femme, sheet_name=sheetf) if isexcf else pandas.read_csv(femme, sep=";")
     if dff.shape[1] > 2:
         dff = dff[dff.columns[:2]]
     df = dfh.merge(dff, on="Age")

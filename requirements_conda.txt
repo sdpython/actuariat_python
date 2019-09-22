@@ -5,7 +5,7 @@ bokeh
 cartopy
 cffi
 Cython
-dask
+dask[complete]
 datashape
 jupyter
 matplotlib

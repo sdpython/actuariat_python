@@ -27,7 +27,7 @@ class TestNotebookDecouvrte(unittest.TestCase):
         from actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks
         from actuariat_python.automation.notebook_test_helper import clean_function_notebook
         temp = get_temp_folder(__file__, "temp_decouverte")
-        keepnote = [_ for _ in ls_notebooks("decouverte")]
+        keepnote = list(ls_notebooks("decouverte"))
         self.assertTrue(len(keepnote) > 0)
 
         # copy data

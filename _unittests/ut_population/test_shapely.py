@@ -141,8 +141,8 @@ class TestShapely(unittest.TestCase):
               (3.8948878782825087, 45.04940655184275), (3.8949651324994217,
                                                         45.04955100636216), (3.8949371368611247, 45.04978314731374),
               (3.894994024405238, 45.04982559981246), (3.8950972875378556, 45.04988402612915), (3.895554378034938, 45.05007753180062), ]
-        shapes = [Polygon([(x, y) for x, y in p1]),
-                  Polygon([(x, y) for x, y in p2])]
+        shapes = [Polygon([(x, y) for x, y in p1]),  # pylint: disable=R1721
+                  Polygon([(x, y) for x, y in p2])]  # pylint: disable=R1721
 
         points = unary_union(shapes)
         assert points

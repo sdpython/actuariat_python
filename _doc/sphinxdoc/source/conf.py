@@ -14,7 +14,7 @@ set_sphinx_variables(__file__, "Python pour un Actuaire", "Xavier Dupré",
                          issue=('https://github.com/sdpython/actuariat_python/issues/%s', 'issue')),
                      doc_version=actuariat_python.__version__)
 
-html_logo = "project_ico_small.png"
+html_logo = "phdoc_static/project_ico_small.png"
 language = "fr"
 html_split_index = True
 

@@ -13,7 +13,7 @@ from .data_exceptions import DataFormatException
 
 
 def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/1892086/pop-totale-france.xls",
-                           sheet_name=0, year=2018):
+                           sheet_name=0, year=2020):
     """
     Downloads the data for the French population from INSEE website
 

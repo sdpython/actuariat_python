@@ -24,7 +24,7 @@ pyquickhelper>=1.9
 pyrsslocal>=0.8.250
 pyshp
 qgrid
-shapely
+shapely==1.6.4
 sphinx-bootstrap-theme
 TPOT
 treeinterpreter

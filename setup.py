@@ -147,7 +147,7 @@ if not r:
     long_description = clean_readme(long_description)
     setup(
         name=project_var_name,
-        version='%s%s' % (sversion, subversion),
+        version=sversion,
         author='Xavier Dupré',
         author_email='xavier.dupre@gmail.com',
         license="MIT",

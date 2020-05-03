@@ -22,7 +22,7 @@ class TestElectionsBugBureauVote(unittest.TestCase):
         from actuariat_python.data import elections_legislatives_bureau_vote
         temp = get_temp_folder(
             __file__, "temp_elections_legislatives_bureau_vote")
-        ds = elections_legislatives_bureau_vote(folder=temp)
+        ds = elections_legislatives_bureau_vote(folder=temp, source='xd')
         ks = list(sorted(ds.keys()))
         self.assertEqual(ks, ['T1', 'T2'])
 

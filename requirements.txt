@@ -17,9 +17,11 @@ lightning-python
 mlstatpy
 openpyxl
 plotly
+pycodestyle
 pyensae>=1.2.788
 pygal
 pygal_maps_fr
+pylint
 pylzma
 pyquickhelper>=1.9
 pyrsslocal>=0.8.250

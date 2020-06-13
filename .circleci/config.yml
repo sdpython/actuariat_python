@@ -71,14 +71,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-            
-      - run:
-          name: install dependencies (2b) - requirements2
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements2.txt
-            
+
       - run:
           name: install dependencies (3) - cairo
           command: |

@@ -1,6 +1,7 @@
 bqplot
 cairocffi
 cairosvg
+category_encoders
 chardet
 cloudpickle
 coverage

@@ -86,3 +86,7 @@ Démarrer, Index
 .. image:: nbcov.png
     :target: http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/all_notebooks_coverage.html
     :alt: Notebook Coverage
+
+.. image:: https://img.shields.io/github/repo-size/sdpython/actuariat_python
+    :target: https://github.com/sdpython/actuariat_python/
+    :alt: size

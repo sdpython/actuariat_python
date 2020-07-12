@@ -36,14 +36,13 @@ def elections_presidentielles_local_files(load=False):
            os.path.join(data, "cdsp_presi2012t2_circ.xls")]
     for r in res:
         if not os.path.exists(r):
-            raise FileNotFoundError(r)
+            raise FileNotFoundError(r)  # pragma: no cover
 
     if not load:
         return res
-    else:
-        df1 = pandas.read_excel(res[0], sheet_name=1)
-        df2 = pandas.read_excel(res[1], sheet_name=1)
-        return dict(circ1=df1, circ2=df2)
+    df1 = pandas.read_excel(res[0], sheet_name=1)
+    df2 = pandas.read_excel(res[1], sheet_name=1)
+    return dict(circ1=df1, circ2=df2)
 
 
 def elections_presidentielles(url=None, local=False, agg=None):
@@ -80,17 +79,16 @@ def elections_presidentielles(url=None, local=False, agg=None):
             try:
                 df = pandas.read_excel(url, sheet_name=None)
                 return df
-            except (HTTPError, URLError, TimeoutError) as e:
+            except (HTTPError, URLError, TimeoutError) as e:  # pragma: no cover
                 if url0 is None:
                     return elections_presidentielles_local_files(load=True)
-                else:
-                    raise DataNotAvailableError(
-                        "unable to get data from " + url) from e
+                raise DataNotAvailableError(
+                    "unable to get data from " + url) from e
     else:
         res = elections_presidentielles(url=url, local=local, agg=None)
         if agg == "circ":
             return res
-        elif agg == "dep":
+        if agg == "dep":
             keys = list(res.keys())
             for k in keys:
                 col = res[k].columns
@@ -100,8 +98,8 @@ def elections_presidentielles(url=None, local=False, agg=None):
                 df = df.reset_index(drop=False)
                 res["dep" + k[-1:]] = df
             return res
-        else:
-            raise ValueError("unkown value for agg: '{0}'".format(agg))
+        raise ValueError(  # pragma: no cover
+            "unkown value for agg: '{0}'".format(agg))
 
 
 def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
@@ -129,13 +127,13 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
       -sur-les-nouvelles-circonscriptions-legislatives-de-2012-nd/>`_
     """
     if source is None:
-        try:
+        try:  # pragma: no cover
             with urllib.request.urlopen("http://www.nosdonnees.fr/") as f:
                 url = "http://www.nosdonnees.fr/storage/f/2013-03-05T184148/"
                 if f is None:
                     raise Exception(
                         "Not sure we can continue. Pretty sure we should stop.")
-        except (urllib.error.HTTPError, RemoteDisconnected):
+        except (urllib.error.HTTPError, RemoteDisconnected):  # pragma: no cover
             url = "xd"
         file = "LG12_BV_T1T2.zip"
     else:
@@ -150,8 +148,8 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
         elif d.endswith("_T1.txt"):
             key = "T1"
         else:
-            raise ValueError(
-                "unable to guess key for filename: '{0}'".format(d))
+            raise ValueError(  # pragma: no cover
+                "Unable to guess key for filename: '{0}'".format(d))
         res[key] = df
     return res
 
@@ -167,7 +165,8 @@ def elections_legislatives_circonscription_geo(source="xd", folder=".", fLOG=noL
     @return             list of dataframe
     """
     if source is None:
-        raise NotImplementedError("use source='xd'")
+        raise NotImplementedError(  # pragma: no cover
+            "use source='xd'")
     url = source
     file = "toxicode_circonscriptions_legislatives.zip"
     data = download_data(file, website=url, whereTo=folder, fLOG=fLOG)
@@ -199,7 +198,7 @@ def elections_vote_places_geo(source="xd", folder=".", fLOG=noLOG):
             df = pandas.read_csv(d, sep="\t", encoding="utf-8")
             return df
     raise DataNotAvailableError(
-        "unable to find any csv file in '{0}'".format(file))
+        "Unable to find any csv file in '{0}'".format(file))
 
 
 def villes_geo(folder=".", as_df=False, fLOG=noLOG):
@@ -221,8 +220,7 @@ def villes_geo(folder=".", as_df=False, fLOG=noLOG):
         res = geo
     if as_df:
         return pandas.read_csv(res, encoding="utf-8", sep="\t")
-    else:
-        return res
+    return res
 
 
 class _HTMLToText(HTMLParser):
@@ -302,7 +300,7 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
         url = "http://bureaudevote.fr/"
         try:
             f = download_data(last, website=url, whereTo=folder, fLOG=fLOG)
-        except (urllib.error.HTTPError, DownloadDataException):
+        except (urllib.error.HTTPError, DownloadDataException):  # pragma: no cover
             # backup plan
             files = download_data("bureauxdevote.zip",
                                   website="xd", whereTo=folder, fLOG=fLOG)
@@ -342,21 +340,21 @@ def elections_vote_place_address(folder=".", hide_warning=False, fLOG=noLOG):
                         lrows.append(dict(n=int(t[1]), city=t[-1].strip(" .<>/"),
                                           zip=t[-2], address=address,
                                           place=place))
-                    except ValueError as e:
+                    except ValueError as e:  # pragma: no cover
                         raise DataFormatException(
                             "issue with {0}".format(t)) from e
                     if len(lrows[-1]["city"]) <= 1:
                         mes = "No City in {0}\nROWS\n{2}\nCONTENT\n{1}".format(
-                            t, content0, "\n".join(str(_) for _ in lrows))
-                        raise DataFormatException(mes)
+                            t, content0, "\n".join(str(_) for _ in lrows))  # pragma: no cover
+                        raise DataFormatException(mes)  # pragma: no cover
         if lrows:
             rows.extend(lrows)
         elif "06.htm" in data:
             mes = "Not enough vote places ({2}) in\n{0}\nFOUND\n{3}\nCONTENT\n{1}".format(
-                data, content0, len(lrows), "\n".join(str(_) for _ in lrows))
-            raise DataFormatException(mes)
+                data, content0, len(lrows), "\n".join(str(_) for _ in lrows))  # pragma: no cover
+            raise DataFormatException(mes)  # pragma: no cover
     if len(exc) > 2:
-        mes = "Exception raised: {0}\n---------\n{1}".format(
+        mes = "Exception raised: {0}\n---------\n{1}".format(  # pragma: no cover
             len(exc), "\n########################\n".join(str(_) for _ in exc))
-        raise DataFormatException(mes)
+        raise DataFormatException(mes)  # pragma: no cover
     return pandas.DataFrame(rows)

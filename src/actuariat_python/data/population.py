@@ -34,7 +34,7 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
     try:
         df = pandas.read_excel(url, sheet_name=sheet_name)
         skiprows = 5
-    except Exception as e:
+    except Exception as e:  # pragma: no cover
         # we try to find a local version
         this = os.path.dirname(__file__)
         name = os.path.join(this, "data_population", url.split(
@@ -47,11 +47,12 @@ def population_france_year(url="https://www.insee.fr/fr/statistiques/fichier/189
         skiprows = 0
     col = df.columns[0]
     if len(col) == 0:
-        raise DataFormatException(
-            "unable to find {0} (year) in table at url '{1}'".format(year, url))
+        raise DataFormatException(  # pragma: no cover
+            "Unable to find {0} (year) in table at url '{1}'".format(year, url))
     if skiprows > 0 and str(year) not in col:
-        raise DataFormatException(
-            "unable to find {0} (year) in first column name '{1}' at url '{2}'".format(year, col, url))
+        raise DataFormatException(  # pragma: no cover
+            "Unable to find {0} (year) in first column name '{1}' at url "
+            "'{2}'".format(year, col, url))
 
     table = pandas.read_excel(url, sheet_name=sheet_name, skiprows=skiprows)
     table.columns = ["naissance", "age", "hommes", "femmes", "ensemble"]
@@ -138,19 +139,20 @@ def fecondite_france(url=None):
     df[col] = df[col].astype(float)
     cp = df[df[col] == 15]
     if len(cp) == 0:
-        ages = [str(_) for _ in set(df[col])]
-        raise DataFormatException(
-            "unable to find 15 (age) in table at url: {0}\n{1}".format(url, "\n".join(ages)))
+        ages = [str(_) for _ in set(df[col])]  # pragma: no cover
+        raise DataFormatException(  # pragma: no cover
+            "Unable to find 15 (age) in table at url: {0}\n{1}".format(
+                url, "\n".join(ages)))
     if len(cp) != 1:
-        raise DataFormatException(
+        raise DataFormatException(  # pragma: no cover
             "too many values 15 in table at url: " + url)
     cpe = df[df[col] == 50]
     if len(cpe) == 0:
-        raise DataFormatException(
-            "unable to find 50 (age) in table at url: " + url)
+        raise DataFormatException(  # pragma: no cover
+            "Unable to find 50 (age) in table at url: " + url)
     if len(cpe) != 1:
-        raise DataFormatException(
-            "too many values 50 in table at url: " + url)
+        raise DataFormatException(  # pragma: no cover
+            "Too many values 50 in table at url: " + url)
     ind = cp.index[0]
     ind2 = cpe.index[0]
     table = df.iloc[ind:ind2, :3].copy()
@@ -170,10 +172,11 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
 
     @param      url         data source
     @param      name        data table name
-    @param      final_name  the data is compressed, it needs to be uncompressed into a file,
-                            this parameter defines its name
+    @param      final_name  the data is compressed, it needs to be uncompressed
+                            into a file, this parameter defines its name
     @param      whereTo     data needs to be downloaded, location of this place
-    @param      stop_at     the overall process is quite long, if not None, it only keeps the first rows
+    @param      stop_at     the overall process is quite long, if not None,
+                            it only keeps the first rows
     @param      fLOG        logging function
     @return                 data_frame
 
@@ -192,8 +195,8 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
         ['annee', 'valeur', 'age', 'age_num', 'indicateur', 'genre', 'pays']
 
     Columns *age* and *age_num* look alike. *age_num* is numeric and is equal
-    to *age* except when *age_num* is 85. Everybody above that age fall into the same category.
-    The table contains many indicators:
+    to *age* except when *age_num* is 85. Everybody above that age fall
+    into the same category. The table contains many indicators:
 
     * PROBSURV: Probabilité de survie entre deux âges exacts (px)
     * LIFEXP: Esperance de vie à l'âge exact (ex)
@@ -218,33 +221,28 @@ def table_mortalite_euro_stat(url="http://ec.europa.eu/eurostat/estat-navtree-po
 
     def format_age(s):
         if s.startswith("Y_"):
-            if s.startswith("Y_LT"):
+            if s.startswith("Y_LT"):  # pragma: no cover
                 return "YLT" + s[4:]
-            elif s.startswith("Y_GE"):
+            if s.startswith("Y_GE"):  # pragma: no cover
                 return "YGE" + s[4:]
-            else:
-                raise SyntaxError(s)
-        else:
-            i = int(s.strip("Y"))
-            return "Y%02d" % i
+            raise SyntaxError(s)  # pragma: no cover
+        i = int(s.strip("Y"))
+        return "Y%02d" % i
 
     def format_age_num(s):
         if s.startswith("Y_"):
-            if s.startswith("Y_LT"):
+            if s.startswith("Y_LT"):  # pragma: no cover
                 return float(s.replace("Y_LT", ""))
-            elif s.startswith("Y_GE"):
+            if s.startswith("Y_GE"):  # pragma: no cover
                 return float(s.replace("Y_GE", ""))
-            else:
-                raise SyntaxError(s)
-        else:
-            i = int(s.strip("Y"))
-            return float(i)
+            raise SyntaxError(s)  # pragma: no cover
+        i = int(s.strip("Y"))
+        return float(i)
 
     def format_value(s):
         if s.strip() == ":":
             return numpy.nan
-        else:
-            return float(s.strip(" ebp"))
+        return float(s.strip(" ebp"))
 
     fLOG("step 0, reading")
     dff = pandas.read_csv(temp, sep="\t", encoding="utf8")

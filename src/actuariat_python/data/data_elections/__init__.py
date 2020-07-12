@@ -33,4 +33,4 @@ Example for the second round:
     02	AISNE	3	70334	56747	52699	4048	27977	24722
 
 
-"""
+"""  # pragma: no cover

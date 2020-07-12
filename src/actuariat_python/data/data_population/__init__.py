@@ -11,4 +11,4 @@
   <https://www.ined.fr/fr/tout-savoir-population/chiffres/france/evolution-population/population-totale/>`_
 * ``TF00-02_D.xls``: `spac-actuaires, tables de mortalité <http://www.spac-actuaires.fr/glossaire/Table_de_mortalit%C3%A9>`_
 * ``TH00-02_D.xls``: `spac-actuaires, tables de mortalité <http://www.spac-actuaires.fr/glossaire/Table_de_mortalit%C3%A9>`_
-"""
+"""  # pragma: no cover

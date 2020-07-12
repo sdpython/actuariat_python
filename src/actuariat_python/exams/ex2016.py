@@ -51,8 +51,9 @@ def enumerate_appointments(persons, nb=(1, 4), price=(60., 120.),
             p += -2 if gender else 2
             if when is not None:
                 if when < 0:
-                    raise Exception(
-                        "when must be positive, when={0} - date={1}".format(when, date))
+                    raise ValueError(  # pragma: no cover
+                        "When must be positive, when={0} - date={1}".format(
+                            when, date))
                 p -= 10 / (when + 1)
             if date.weekday() in (6, 7):
                 p += 20

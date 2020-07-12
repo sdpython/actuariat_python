@@ -63,7 +63,7 @@ def get_additional_paths():
     try:
         import ensae_teaching_cs
         addpath.append(os.path.dirname(ensae_teaching_cs.__file__))
-    except ImportError:
+    except ImportError:  # pragma: no cover
         pass
     addpath = [os.path.normpath(os.path.join(_, "..")) for _ in addpath]
     return addpath
@@ -148,13 +148,13 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
 
     def valid_cell(cell):
         if "%system" in cell:
-            return False
+            return False  # pragma: no cover
         if "df.plot(...)" in cell:
-            return False
+            return False  # pragma: no cover
         if 'df["difference"] = ...' in cell:
-            return False
+            return False  # pragma: no cover
         if 'print(next(it))' in cell:
-            return False
+            return False  # pragma: no cover
         if "est d'indice 8 et non plus 9" in cell:
             return False
         return True
@@ -163,9 +163,10 @@ def execute_notebooks(folder, notebooks, filter, clean_function=None,
     if filter:
         notebooks = [_ for i, _ in enumerate(notebooks) if filter(i, _)]
     if len(notebooks) == 0:
-        raise ValueError("Empty list of notebooks.")
+        raise ValueError(  # pragma: no cover
+            "Empty list of notebooks.")
     if clean_function is None:
-        clean_function = clean_function_notebook
+        clean_function = clean_function_notebook  # pragma: no cover
     return execute_notebook_list(
         folder, notebooks, fLOG=fLOG, valid=valid_cell, additional_path=addpaths,
         clean_function=clean_function)

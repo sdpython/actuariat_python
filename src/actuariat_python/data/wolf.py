@@ -18,8 +18,8 @@ def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", 
     (Wordnet Libre du Français, Free French Wordnet) is a free semantic
     lexical resource (wordnet) for French.
 
-    This data is licensed under
-    `Cecill-C license <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>`_.
+    This data is licensed under `Cecill-C license
+    <http://www.cecill.info/licences/Licence_CeCILL-C_V1-en.html>`_.
     Language is French.
 
     @param      url             url
@@ -32,9 +32,8 @@ def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", 
     reg = re.compile("href=\\\"(https.*?wolf.*?[.]bz2)\\\"")
     alls = reg.findall(page)
     if len(alls) == 0:
-        raise LinkNotFoundError(
-            "unable to find a link on a .bz2 file on page: " +
-            page)
+        raise LinkNotFoundError(  # pragma: no cover
+            "unable to find a link on a .bz2 file on page\n{}".format(page))
 
     url = alls[0]
     spl = url.split("/")
@@ -49,7 +48,7 @@ def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", 
         local = [local]
     # We check the file was downloaded.
     expected = os.path.join(temp_folder, "wolf-1.0b4.xml")
-    if not os.path.exists(expected):
+    if not os.path.exists(expected):  # pragma: no cover
         res = download_data("wolf-1.0b4.xml.zip",
                             whereTo=temp_folder, fLOG=fLOG)
         if not os.path.exists(expected):
@@ -57,8 +56,7 @@ def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", 
         return res
     elif isinstance(dtd, list):
         return local + dtd
-    else:
-        return local + [dtd]
+    return local + [dtd]  # pragma: no cover
 
 
 def enumerate_wolf_xml_row(filename, fLOG=noLOG, xmlformat=False, encoding="utf-8", errors=None):
@@ -91,7 +89,8 @@ def enumerate_wolf_synonyms(filename, fLOG=noLOG, encoding="utf-8", errors=None)
     @param      errors          what to do with errors
     @return                     iterator on list of words
     """
-    for row in enumerate_wolf_xml_row(filename, fLOG=fLOG, encoding=encoding, errors=errors):
+    for row in enumerate_wolf_xml_row(
+            filename, fLOG=fLOG, encoding=encoding, errors=errors):
         syn = [v for k, v in row.iterfields() if k == "SYNSET/SYNONYM/LITERAL/_"]
         if len(syn) > 1:
             yield syn

@@ -9,7 +9,7 @@ lessons on programming, machine learning.
 import sys
 import os
 
-__version__ = "0.4.629"
+__version__ = "0.4.637"
 __author__ = "Xavier Dupré"
 __github__ = "https://github.com/sdpython/actuariat_python"
 __url__ = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/index.html"

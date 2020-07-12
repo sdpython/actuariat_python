@@ -28,7 +28,9 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     @param      save_every      to make regular dump
     @param      every           save every *every*
     @param      exc             raises exception or warning (False)
-    @param      options         options for `read_csv <http://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html>`_
+    @param      options         options for `read_csv
+                                <http://pandas.pydata.org/pandas-docs/stable/
+                                generated/pandas.read_csv.html>`_
                                 to do regular dumps
     @param      coders          list of coders to try
     @param      country         append the country before geocoding
@@ -39,9 +41,8 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     every 100 geocoded addresses. If the file is already present,
     it will be loaded the function will continue geocoding where it stopped.
 
-    The function does not work well if it is called from multiple threads or processes.
-    It might slow on purpose.
-
+    The function does not work well if it is called from multiple
+    threads or processes. It might slow on purpose.
     Example for *coder*:
 
     ::
@@ -59,16 +60,16 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
         if isinstance(d, str):
             if d == "Nominatim":
                 return Nominatim()
-            else:
-                raise ValueError("Unknown geocoder '{0}'".format(d))
-        elif isinstance(d, tuple):
+            raise ValueError(  # pragma: no cover
+                "Unknown geocoder '{0}'".format(d))
+        if isinstance(d, tuple):
             name, key = d
             if name == "bing":
                 return Bing(key)
-            else:
-                raise ValueError("Unknown geocoder '{0}'".format(d))
-        else:
-            raise TypeError("Unexpected type '{0}'".format(type(d)))
+            raise ValueError(  # pragma: no cover
+                "Unknown geocoder '{0}'".format(d))
+        raise TypeError(  # pragma: no cover
+            "Unexpected type '{0}'".format(type(d)))
 
     if every < 1:
         raise ValueError("every should be >= 1, not {0}".format(every))
@@ -76,7 +77,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     geocoder = [get_coder(_) for _ in coders]
     cache = {}
     if len(geocoder) == 0:
-        raise ValueError(
+        raise ValueError(  # pragma: no cover
             "No geocoder, the function cannot retrieve addresses.")
 
     class DummyClass:
@@ -99,8 +100,9 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                            col_longitude, col_geo] if _ not in df.columns]
         oris = list(df.columns) + add
         if oris != cols:
-            raise ValueError(
-                "Unexpected differences in schemas:\nORIGINAL\n{0}\nSAVE\n{1}".format(oris, cols))
+            raise ValueError(  # pragma: no cover
+                "Unexpected differences in schemas:\nORIGINAL\n{0}\nSAVE"
+                "\n{1}".format(oris, cols))
         df = read
     else:
         df = df.copy()
@@ -141,13 +143,15 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
             ad += " " + country
         df.loc[i, col_full] = ad
 
-        if numpy.isnan(df.loc[i, col_latitude]) or numpy.isnan(df.loc[i, col_longitude]):
+        if (numpy.isnan(df.loc[i, col_latitude]) or
+                numpy.isnan(df.loc[i, col_longitude])):
 
             if ad in cache:
                 geo = cache[ad]
                 if geo is None:
-                    raise ValueError(
-                        "Do not populate the cache with None values for key '{0}'".format(ad))
+                    raise ValueError(  # pragma: no cover
+                        "Do not populate the cache with None values for key "
+                        "'{0}'".format(ad))
                 rexc = None
             else:
                 geo = None
@@ -182,9 +186,10 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
                                    latitude=df.loc[i, col_latitude],
                                    address=df.loc[i, col_geo])
 
-    if fLOG is not None:
+    if fLOG is not None:  # pragma: no cover
         fLOG(
-            "geocode place {0}/{1} - errors={2} - no-result={3}".format(lasti, len(df), errors, no_result))
+            "geocode place {0}/{1} - errors={2} - no-result={3}"
+            "".format(lasti, len(df), errors, no_result))
     if save_every is not None:
         df.to_csv(save_every, **options)
     return df

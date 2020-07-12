@@ -1,6 +1,5 @@
 bcolz
 biopython
-blaze
 bokeh
 cartopy
 cffi
@@ -23,5 +22,4 @@ scipy
 seaborn
 Sphinx
 sympy
-toolz
 xarray

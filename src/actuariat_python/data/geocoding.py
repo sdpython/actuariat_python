@@ -59,7 +59,7 @@ def geocode(df, col_city="city", col_place="place", col_zip="zip", col_address="
     def get_coder(d):
         if isinstance(d, str):
             if d == "Nominatim":
-                return Nominatim()
+                return Nominatim(user_agent="actuariat_python")
             raise ValueError(  # pragma: no cover
                 "Unknown geocoder '{0}'".format(d))
         if isinstance(d, tuple):

@@ -15,6 +15,7 @@ lifelines
 lightgbm
 lightning-python
 mlstatpy
+nbconvert>=6.0.2
 openpyxl
 plotly
 pycodestyle

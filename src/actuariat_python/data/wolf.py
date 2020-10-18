@@ -7,7 +7,7 @@ import os
 import re
 from pyquickhelper.loghelper import noLOG
 from pymyinstall.installcustom import download_page
-from pyensae import download_data
+from pyensae.datasource import download_data
 from pyrsslocal.xmlhelper import xml_filter_iterator
 from .data_exceptions import LinkNotFoundError
 

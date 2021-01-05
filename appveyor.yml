@@ -2,34 +2,47 @@ image:
   - Visual Studio 2019
 environment:
   matrix:
-    - PYTHON: "C:\\Python38-x64"
-      PYTHON_VERSION: "3.8.x"
+    - PYTHON: "C:\\Python39-x64"
+      PYTHON_VERSION: "3.9.x"
       PYTHON_ARCH: "64"
 init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
   - "%PYTHON%\\python -m pip install --upgrade pip"
-  - "%PYTHON%\\Scripts\\pip install pymyinstall"
-  # - "%PYTHON%\\Scripts\\pymy_install3 --set=pyensae"
-  - "%PYTHON%\\python -c \"from pymyinstall.fix import fix_win32ctypes_core_cffi__advapi32_py;fix_win32ctypes_core_cffi__advapi32_py(fLOG=print)\""
-  - "%PYTHON%\\Scripts\\pip install -r numpy cython xaray dask cytoolz scipy"
-  - "%PYTHON%\\Scripts\\pymy_install3 pylzma"
-  - "%PYTHON%\\Scripts\\pymy_install3 pyproj shapely"
-  - "%PYTHON%\\Scripts\\pymy_install3 cartopy"
-  - "%PYTHON%\\Scripts\\pymy_install3 bcolz statsmodels"
-  - "%PYTHON%\\Scripts\\pip install -r requirements_conda.txt"
+  - pip install wheel
+  # install precompiled versions not available on pypi
+  - "%PYTHON%\\Scripts\\pymy_install3 llvmlite numba cartopy shapely pyproj cpyquickhelper"
+  # onnx
+  #- git clone -b master --single-branch https://github.com/onnx/onnx.git --recursive
+  #- cd onnx
+  #- set ONNX_ML=1
+  #- set ONNX_BUILD_TESTS=1
+  #- set ONNXIFI_DUMMY_BACKEND=1
+  #- python setup.py bdist_wheel
+  #- dir dist
+  #- python setup.py install
+  #- cd ..
+  # other dependencies
   - "%PYTHON%\\Scripts\\pip install -r requirements.txt"
-  - "%PYTHON%\\Scripts\\pip install tools"
   - set PYTHONPATH=src
+
 build: off
 
 test_script:
-  - "%PYTHON%\\python -u setup.py unittests"
+  # The job is cut after an hour. Only a subset of unit test is run.
+  - "%PYTHON%\\python -u setup.py unittests -d 20 -g \".*((LONG)|(SKIP)|(session9)).*\""
 
 after_test:
   - "%PYTHON%\\python -u setup.py bdist_wheel"
 
 artifacts:
   - path: dist
-    name: actuariat_python
+    name: ensae_teaching_cs
+
+cache:
+  # Use the appveyor cache to avoid re-downloading large archives such
+  # the MKL numpy and scipy wheels mirrored on a rackspace cloud
+  # container, speed up the appveyor jobs and reduce bandwidth.
+  # Tips taken from scikit-learn.
+  - '%APPDATA%\pip\Cache'

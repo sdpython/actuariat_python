@@ -1,3 +1,31 @@
+# conda
+bcolz
+biopython
+bokeh
+cartopy
+cffi
+Cython
+dask[complete]
+datashape
+jupyter
+matplotlib
+notebook
+networkx
+numba
+numpy
+pandas
+pillow
+pyproj
+pyzmq
+reportlab
+scikit-learn
+scipy
+seaborn
+Sphinx
+sympy
+xarray
+
+# other
 bqplot
 cairocffi
 cairosvg
@@ -6,7 +34,7 @@ chardet
 cloudpickle
 coverage
 cytoolz
-ensae_teaching_cs>=0.8.2511
+ensae_teaching_cs
 folium>=0.5
 geopy
 ggplot
@@ -24,11 +52,11 @@ pygal
 pygal_maps_fr
 pylint
 pylzma
-pyquickhelper>=1.9
-pyrsslocal>=0.8.250
+pyquickhelper>=1.10
+pyrsslocal
 pyshp
 qgrid
-shapely!=1.7.0
+shapely
 sphinx-bootstrap-theme
 TPOT
 treeinterpreter

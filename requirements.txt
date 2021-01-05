@@ -1,5 +1,4 @@
 # conda
-bcolz
 biopython
 bokeh
 cartopy

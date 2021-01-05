@@ -51,6 +51,7 @@ pygal
 pygal_maps_fr
 pylint
 pylzma
+pymmails
 pyquickhelper>=1.10
 pyrsslocal
 pyshp

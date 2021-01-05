@@ -25,6 +25,7 @@ pycodestyle
 pycryptodomex
 pygame
 pylint
+pymmails
 pymyinstall
 pyquickhelper
 pyshp

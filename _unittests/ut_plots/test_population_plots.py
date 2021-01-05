@@ -3,6 +3,7 @@
 @brief      test log(time=1s)
 """
 import unittest
+import warnings
 from pyquickhelper.loghelper import fLOG
 from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, add_missing_development_version
 
@@ -18,6 +19,12 @@ class TestPopulationPlots(unittest.TestCase):
             __file__,
             self._testMethodName,
             OutputPrint=__name__ == "__main__")
+
+        try:
+            import cairo
+        except ImportError as e:
+            warnings.warn("Unabe to use cartopy %r." % e)
+            return
 
         fix_tkinter_issues_virtualenv()
         from matplotlib import pyplot as plt

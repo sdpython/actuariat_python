@@ -6,8 +6,10 @@ import os
 import unittest
 import shutil
 from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import get_temp_folder, add_missing_development_version
-from pyquickhelper.pycode import fix_tkinter_issues_virtualenv, is_travis_or_appveyor
+from pyquickhelper.pycode import (
+    get_temp_folder, add_missing_development_version,
+    fix_tkinter_issues_virtualenv, is_travis_or_appveyor,
+    skipif_travis)
 from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 import actuariat_python
 
@@ -21,7 +23,8 @@ class TestNotebookSession(unittest.TestCase):
         fix_tkinter_issues_virtualenv()
 
     def a_test_notebook_session(self, name):
-        from actuariat_python.automation.notebook_test_helper import ls_notebooks, execute_notebooks, clean_function_notebook
+        from actuariat_python.automation.notebook_test_helper import (
+            ls_notebooks, execute_notebooks, clean_function_notebook)
         temp = get_temp_folder(__file__, "temp_sessions_" + name.split('.')[0])
         keepnote = [_ for _ in ls_notebooks(
             "sessions") if "seance5_approche_fonctionnelle_enonce" not in _ and
@@ -58,6 +61,7 @@ class TestNotebookSession(unittest.TestCase):
         execute_notebook_list_finalize_ut(
             res, fLOG=fLOG, dump=actuariat_python)
 
+    @skipif_travis("issue with TPOT")
     def test_notebook_session99(self):
         fLOG(
             __file__,

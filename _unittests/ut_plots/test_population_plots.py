@@ -21,7 +21,7 @@ class TestPopulationPlots(unittest.TestCase):
             OutputPrint=__name__ == "__main__")
 
         try:
-            import cairo
+            import cairo  # pylint: disable=W0611
         except ImportError as e:
             warnings.warn("Unabe to use cartopy %r." % e)
             return

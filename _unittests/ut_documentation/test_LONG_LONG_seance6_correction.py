@@ -34,8 +34,8 @@ class TestLONGNotebookPopulationS6Correction(unittest.TestCase):
             return
 
         temp = get_temp_folder(__file__, "temp_sessions_long_long")
-        keepnote = [_ for _ in ls_notebooks(
-            "sessions") if "seance6_graphes_correction"]
+        keepnote = [_ for _ in ls_notebooks("sessions")
+                    if "seance6_graphes_correction" in _]
         self.assertTrue(len(keepnote) > 0)
         clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,

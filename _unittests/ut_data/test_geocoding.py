@@ -4,7 +4,6 @@
 """
 import os
 import unittest
-import warnings
 import pandas
 from pyquickhelper.loghelper import fLOG, get_password
 from pyquickhelper.pycode import (

@@ -12,14 +12,14 @@ from pyquickhelper.ipythonhelper import execute_notebook_list_finalize_ut
 import actuariat_python
 
 
-class TestLONGNotebookPopulation(unittest.TestCase):
+class TestLONGNotebookPopulationS6Enonce(unittest.TestCase):
 
     def setUp(self):
         add_missing_development_version(
             ["pyensae", "pymyinstall", "pymmails", "pyrsslocal", "mlstatpy",
              "jyquickhelper"], __file__, hide=True)
 
-    def test_long_long_notebook_population(self):
+    def test_long_long_notebook_population_s6_enonce(self):
         fLOG(
             __file__,
             self._testMethodName,
@@ -35,7 +35,7 @@ class TestLONGNotebookPopulation(unittest.TestCase):
 
         temp = get_temp_folder(__file__, "temp_sessions_long_long")
         keepnote = [_ for _ in ls_notebooks(
-            "sessions") if "seance6_graphes_correction" in _ or "seance6_graphes_enonce" in _]
+            "sessions") if "seance6_graphes_enonce" in _]
         self.assertTrue(len(keepnote) > 0)
         clog = CustomLog(temp)
         res = execute_notebooks(temp, keepnote,

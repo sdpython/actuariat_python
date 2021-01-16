@@ -6,8 +6,10 @@ import os
 import unittest
 import warnings
 import pandas
-from pyquickhelper.loghelper import fLOG
-from pyquickhelper.pycode import add_missing_development_version, get_temp_folder, is_travis_or_appveyor, ExtTestCase
+from pyquickhelper.loghelper import fLOG, get_password
+from pyquickhelper.pycode import (
+    add_missing_development_version, get_temp_folder, is_travis_or_appveyor,
+    ExtTestCase)
 
 
 class TestGeocoding(ExtTestCase):
@@ -31,11 +33,7 @@ class TestGeocoding(ExtTestCase):
         every = os.path.join(temp, "every.csv")
 
         # we retrieve an encrypted key
-        with warnings.catch_warnings():
-            warnings.simplefilter('ignore', DeprecationWarning)
-            import keyring
-
-        bing_key = keyring.get_password("bing", "actuariat_python,key")
+        bing_key = get_password("bing", "actuariat_python,key")
         self.assertNotEmpty(bing_key)
         fLOG(bing_key)
         coders = ["Nominatim"]

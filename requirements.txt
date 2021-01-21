@@ -46,6 +46,7 @@ nbconvert>=6.0.2
 openpyxl
 plotly
 pycodestyle
+pydata_sphinx_theme
 pyensae>=1.2.788
 pygal
 pygal_maps_fr

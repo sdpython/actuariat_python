@@ -16,10 +16,10 @@ install:
 
 script:
   - { CMD: "$PYINT -u setup.py unittests", NAME: "UT", TIMEOUT: 3600 }
-  - { CMD: "$PYINT -u setup.py unittests -e .*LONG.* -g \".*((LONG_LONG)|(cartopy)).*\"", NAME: "UT_LONG", TIMEOUT: 5000 }  # gerry mandering
-  - { CMD: "$PYINT -u setup.py unittests_SKIP", NAME: "UT_SKIP", TIMEOUT: 5000 }  # blaze
-  - { CMD: "$PYINT -u setup.py unittests -e .*LONG_LONG.*", NAME: "UT_LONG_LONG", TIMEOUT: 5000 }
-  - { CMD: "$PYINT -u setup.py unittests -e .*cartopy.*", NAME: "UT_MAP", TIMEOUT: 5000 }  # gerry mandering in a notebook
+  - { CMD: "$PYINT -u setup.py unittests -e .*LONG.* -g \".*((LONG_LONG)|(cartopy)).*\"", NAME: "UT_LONG", TIMEOUT: 5000, SCHEDULER: "H H(1-2) 12 * *" }
+  - { CMD: "$PYINT -u setup.py unittests_SKIP", NAME: "UT_SKIP", TIMEOUT: 5000, SCHEDULER: "H H(1-2) 27 * *" }
+  - { CMD: "$PYINT -u setup.py unittests -e .*LONG_LONG.*", NAME: "UT_LONG_LONG", TIMEOUT: 5000, SCHEDULER: "H H(1-2) 3 * *" }
+  - { CMD: "$PYINT -u setup.py unittests -e .*cartopy.*", NAME: "UT_MAP", TIMEOUT: 5000, SCHEDULER: "H H(1-2) 4 * *" }  # gerry mandering in a notebook
 
 after_script:
   - $PYINT -u setup.py bdist_wheel

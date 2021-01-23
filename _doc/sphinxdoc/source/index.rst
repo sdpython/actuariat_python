@@ -44,7 +44,6 @@ Démarrer, Index
 .. toctree::
     :maxdepth: 1
 
-    getting_started
     all_notebooks
     gyexamples/index
     blog/blogindex

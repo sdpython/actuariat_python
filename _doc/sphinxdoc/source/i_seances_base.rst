@@ -1,9 +1,9 @@
 
 .. _l-seances-base:
 
-======================================
-Exercices de programmation avec Python
-======================================
+=========
+Exercices
+=========
 
 Ces séances reprennent les contenus proposés sur plusieurs années.
 La plupart des outils qui traitent des données, même s'ils

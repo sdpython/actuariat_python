@@ -18,36 +18,10 @@ html_logo = "phdoc_static/project_ico_small.png"
 language = "fr"
 html_split_index = True
 
-if html_theme == "bootstrap":
-    html_theme_options = {
-        'navbar_title': "BASE",
-        'navbar_site_name': "Site",
-        'navbar_links': [
-            ("XD", "http://www.xavierdupre.fr", True),
-            ("ENSAE",
-             "http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/index.html", True),
-            ("module", "py-modindex"),
-            ("index", "genindex"),
-        ],
-        'navbar_sidebarrel': False,
-        'navbar_pagenav': True,
-        'navbar_pagenav_name': "Page",
-        'globaltoc_depth': 3,
-        'globaltoc_includehidden': "true",
-        'navbar_class': "navbar navbar-inverse",
-        'navbar_fixed_top': "true",
-        'source_link_position': "footer",
-        'bootswatch_theme': "lumen",
-        # united = weird colors, sandstone=green, simplex=red, paper=trop bleu
-        # lumen: OK
-        # to try, yeti, flatly, paper, lumen
-        'bootstrap_version': "3",
-    }
-
 blog_root = "http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/"
 blog_background = False
 html_context = {
-    'css_files': get_default_stylesheet() + ['_static/my-styles.css'],
+    'css_files': get_default_stylesheet(['_static/my-styles.css']),
 }
 
 epkg_dictionary['machine learning'] = 'https://fr.wikipedia.org/wiki/Apprentissage_automatique'

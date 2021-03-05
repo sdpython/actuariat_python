@@ -8,14 +8,14 @@
     Plan suivi pour cette séance :
 
     * Retour sur des
-      `constructions classiques <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/all_example_ConstructionsClassiques.html>`_
+      `constructions classiques <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/all_example_ConstructionsClassiques.html>`_
       en langage python
       (ou `Constructions classiques <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_lang/constructions.html>`_).
     * Comment installer un modue sous Windows ou Linux ? Avec conda ou sans.
       :ref:`Mettre à jour un module sous Windows <blog-installer-module>`
     * Les bases avec pandas et numpy : :ref:`pandasstartrst`, ou
-      `DataFrame et Matrice <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/td1a_cenonce_session_10.html>`_
-      (`correction <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/td1a_correction_session_10.html>`_).
+      `DataFrame et Matrice <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_cenonce_session_10.html>`_
+      (`correction <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td1a_correction_session_10.html>`_).
     * Lecture de message d'erreur, `stackoverflow <https://stackoverflow.com/>`_
     * `Résumé de la syntaxe python <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_resume/python_sheet.html>`_
 

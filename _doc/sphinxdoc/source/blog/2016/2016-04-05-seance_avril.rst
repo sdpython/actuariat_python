@@ -19,7 +19,7 @@
     #. DataFrame
 
         * Le cours :ref:`l-seances-base`
-        * `Python pour un data scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_
+        * `Python pour un data scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/td_2a.html>`_
         * :ref:`solution2016rst`
 
     #. Pause récréative
@@ -28,8 +28,8 @@
 
     #. Algorithme récréatif
 
-        * `L'énigme de Harry Potter <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/specials/hermionne.html>`_
-        * `autres jeux <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/specials/index_expose.html#l-expose-explication>`_
+        * `L'énigme de Harry Potter <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/specials/hermionne.html>`_
+        * `autres jeux <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/specials/index_expose.html#l-expose-explication>`_
         * `Scratch <http://lesenfantscodaient.fr/programmation/index_programmation.html>`_
 
     .. image:: http://ecx.images-amazon.com/images/I/81RPCdhb+TL._SL1500_.jpg

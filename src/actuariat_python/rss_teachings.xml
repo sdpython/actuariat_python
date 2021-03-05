@@ -10,13 +10,13 @@
         <outline text="ensae_teaching_cs" 
             title="ensae_teaching_cs" 
             type="rss"
-            xmlUrl="http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/_downloads/rss.xml" 
-            htmlUrl="http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/blog/main_0000.html" />
+            xmlUrl="http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/blog/main_0000.html" />
         <outline text="actuariat_python" 
             title="actuariat_python" 
             type="rss"
-            xmlUrl="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx3/_downloads/rss.xml" 
-            htmlUrl="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx3/blog/main_0000.html" />
+            xmlUrl="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/_downloads/rss.xml" 
+            htmlUrl="http://www.xavierdupre.fr/app/actuariat_python/helpsphinx/blog/main_0000.html" />
         <outline text="pyquickhelper" 
             title="pyquickhelper" 
             type="rss"

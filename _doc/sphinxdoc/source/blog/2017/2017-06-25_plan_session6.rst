@@ -23,7 +23,7 @@
         * Données : `DowJones <https://archive.ics.uci.edu/ml/datasets/Dow+Jones+Index>`_,
           `Google Trends <https://trends.google.fr/trends/explore?q=live%20tennis>`_
         * Notebooks :
-          `Timeseries et machine learning <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/ml_timeseries_base.html>`_
+          `Timeseries et machine learning <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/ml_timeseries_base.html>`_
     * Text
         * Comparer une `LDA <http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.LatentDirichletAllocation.html>`_ avec
           `word2vec <https://radimrehurek.com/gensim/models/word2vec.html>`_ +
@@ -31,7 +31,7 @@
         * Données :
             * `tweets <https://github.com/sdpython/ensae_teaching_cs/tree/master/src/ensae_teaching_cs/data/data_web>`_
         * Notebooks :
-            * `Texte et machine learning <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/td2a_some_nlp.html>`_
+            * `Texte et machine learning <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2a_some_nlp.html>`_
 
     **Plan**
 
@@ -77,7 +77,7 @@
         * Données cryptées
             * `cyphermed <https://github.com/rbost/ciphermed>`_
     * Revue des différents problèmes de machine learning
-        * `Python pour un datascientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html#>`_
+        * `Python pour un datascientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/td_2a.html#>`_
     * Texte
         * Aperçu de traitement du langage
-          `Texte et machine learning <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/notebooks/td2a_some_nlp.html>`_
+          `Texte et machine learning <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/td2a_some_nlp.html>`_

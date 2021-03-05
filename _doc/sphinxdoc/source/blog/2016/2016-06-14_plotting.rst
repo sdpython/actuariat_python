@@ -34,7 +34,7 @@
 
     **Notebooks**
 
-    * `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/td_2a.html>`_, premier notebook
+    * `Python pour un Data Scientist <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/td_2a.html>`_, premier notebook
 
     **Visualisation**
 

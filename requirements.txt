@@ -54,6 +54,7 @@ pylint
 pylzma
 pymmails
 pyquickhelper>=1.10
+pyquicksetup
 pyrsslocal
 pyshp
 qgrid

@@ -20,7 +20,6 @@ before_script:
 script:
   - { CMD: "$PYINT -u setup.py unittests --covtoken=c310b252-ef1b-4454-896c-2d2e01670378", NAME: "UT", TIMEOUT: 3600 }
   - { CMD: "$PYINT -u setup.py unittests -e .*LONG.* -g \".*((LONG_LONG)|(cartopy)).*\"", NAME: "UT_LONG", TIMEOUT: 9000, SCHEDULER: "H H(1-2) 12 * *" }
-  - { CMD: "$PYINT -u setup.py unittests_SKIP", NAME: "UT_SKIP", TIMEOUT: 5000, SCHEDULER: "H H(1-2) 27 * *" }
   - { CMD: "$PYINT -u setup.py unittests -e .*LONG_LONG.*", NAME: "UT_LONG_LONG", TIMEOUT: 9000, SCHEDULER: "H H(1-2) 3 * *" }
   - { CMD: "$PYINT -u setup.py unittests -e .*cartopy.*", NAME: "UT_MAP", TIMEOUT: 9000, SCHEDULER: "H H(1-2) 4 * *" }  # gerry mandering in a notebook
 

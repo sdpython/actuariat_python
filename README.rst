@@ -1,6 +1,6 @@
 
-.. image:: https://travis-ci.org/sdpython/actuariat_python.svg?branch=master
-    :target: https://travis-ci.org/sdpython/actuariat_python
+.. image:: https://travis-ci.com/sdpython/actuariat_python.svg?branch=master
+    :target: https://travis-ci.com/sdpython/actuariat_python
     :alt: Build status
 
 .. image:: https://ci.appveyor.com/api/projects/status/nelemxw6md6bt95a?svg=true

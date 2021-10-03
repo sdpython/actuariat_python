@@ -8,6 +8,7 @@ import re
 from pyquickhelper.loghelper import noLOG
 from pymyinstall.installcustom import download_page
 from pyensae.datasource import download_data
+from pyensae.datasource.http_retrieve import DownloadDataException
 from pyrsslocal.xmlhelper import xml_filter_iterator
 from .data_exceptions import LinkNotFoundError
 
@@ -39,16 +40,23 @@ def wolf_xml(url="http://pauillac.inria.fr/~sagot/index.html", temp_folder=".", 
     spl = url.split("/")
     url = "/".join(spl[:-1]) + "/"
     url2 = "/".join(spl[:-2]) + "/31718/"
-    dtd = download_data("debvisdic-strict.dtd", url=[url2, "xd"],
-                        fLOG=fLOG, whereTo=temp_folder)
+    try:
+        dtd = download_data("debvisdic-strict.dtd", url=[url2, "xd"],
+                            fLOG=fLOG, whereTo=temp_folder)
+    except DownloadDataException:
+        dtd = None
     name = spl[-1].strip('.')
-    local = download_data(
-        name, url=[url, "xd"], fLOG=fLOG, whereTo=temp_folder)
-    if isinstance(local, str):
+
+    try:
+        local = download_data(
+            name, url=[url, "xd"], fLOG=fLOG, whereTo=temp_folder)
+    except DownloadDataException:
+        local = None
+    if local is not None and isinstance(local, str):
         local = [local]
     # We check the file was downloaded.
     expected = os.path.join(temp_folder, "wolf-1.0b4.xml")
-    if not os.path.exists(expected):  # pragma: no cover
+    if local is None or not os.path.exists(expected):  # pragma: no cover
         res = download_data("wolf-1.0b4.xml.zip",
                             whereTo=temp_folder, fLOG=fLOG)
         if not os.path.exists(expected):

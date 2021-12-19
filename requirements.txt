@@ -8,8 +8,8 @@ dask[complete]
 datashape
 jupyter
 matplotlib
-notebook
 networkx
+notebook
 numba
 numpy
 pandas
@@ -42,7 +42,7 @@ lifelines
 lightgbm
 lightning-python
 mlstatpy
-nbconvert>=6.0.2
+nbconvert!=6.3.0
 openpyxl
 plotly
 pycodestyle

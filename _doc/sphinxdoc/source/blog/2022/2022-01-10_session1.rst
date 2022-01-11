@@ -24,7 +24,7 @@
 
     * :epkg:`numpy`, :epkg:`scipy` : calcul matriciel
     * :epkg:`pandas` : tables de données
-    * :epkg:`matplotlib:` : calcul matriciel
+    * :epkg:`matplotlib` : calcul matriciel
     * :epkg:`jupyter` : notebooks ou `spyder <https://www.spyder-ide.org/>`_
     * :epkg:`scikit-learn` : machine learning
 
@@ -52,7 +52,7 @@
 
     .. runpython::
         :showcode:
-        :toggle:
+        :toggle: out
 
         res = [[1]]
         for i in range(1, 10):
@@ -74,7 +74,7 @@
 
     .. runpython::
         :showcode:
-        :toggle:
+        :toggle: out
 
         import cProfile
 
@@ -108,7 +108,7 @@
 
     .. runpython::
         :showcode:
-        :toggle:
+        :toggle: out
 
         def bizarre(ensemble):
             # premier zero

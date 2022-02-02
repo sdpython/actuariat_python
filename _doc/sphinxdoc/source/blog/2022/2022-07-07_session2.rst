@@ -1,0 +1,42 @@
+
+.. blogpost::
+    :title: Année 2022, séance 2
+    :keywords: python
+    :date: 2022-02-07
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I : programmation et exercice**
+
+    * installer un package
+    * mettre à jour un package
+    * réfléchir au problème suivant
+
+    Un base de données contient une variable catégorielle.
+    Malheureusement, elle est renseignée de façon
+    imparfaite car elle contient des erreurs de syntaxe.
+    Exemple :
+    ``['comptabilité', 'datascience', 'data science',
+    'pilote', 'pilotage', 'auteur', 'autrice', ...]``.
+    Que peut-on faire pour nettoyer cette variable ?
+    
+    Voir aussi `dirty-cat <https://dirty-cat.github.io/stable/>`_.
+
+    **Partie II : classes**
+    
+    * `C'est obligé les classes ? <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/blog/2018/2018-03-31_classesfonctions.html>`_
+    * `Classes <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_classes/index.html>`_
+    * Créer une classe qui code du texte
+
+    **Partie III : scikit-learn**
+    
+    * Un régresseur chez :epkg:`scikit-learn`
+    * Design de :epkg:`scikit-learn`
+    * :epkg:`pickle`
+    * prédicteur, transformer, cluster
+    
+    **Exercice : créer son propre prédicteur**
+    
+    Apprendre une arbre de décision puis caler un modèle
+    linéaire pour toutes les observations associées à chaque feuille.

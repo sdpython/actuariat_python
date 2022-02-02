@@ -1,0 +1,34 @@
+
+.. blogpost::
+    :title: Année 2022, séance 3
+    :keywords: python
+    :date: 2022-02-08
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I : exercice de la veille**
+    
+    Apprendre une arbre de décision puis caler un modèle
+    linéaire pour toutes les observations associées à chaque feuille.    
+
+    **Partie II : réseaux de neurones et transfer learning**
+    
+    * machine learning et deep learning
+    * réseau de neurones profond
+    * utilisation de modèles de deep learning avec scikit-learn
+    
+    **Partie III : preprocessing plus classique**
+    
+    * traitement des catégories
+    * clustering, réduction de dimensions
+    * valeurs manquantes
+    * notion d'hyperparamètres, GridSearch
+    * HalvingGridSearchCV
+
+    **Exercice : **
+    
+    Comment utiliser GridSearch, un modèle customiser
+    pour faire de la sélection de variables ?
+
+    

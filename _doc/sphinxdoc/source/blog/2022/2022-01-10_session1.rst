@@ -2,7 +2,7 @@
 .. blogpost::
     :title: Année 2022, séance 1
     :keywords: python
-    :date: 2022-10-01
+    :date: 2022-01-10
     :categories: plan
 
     Séance découpée en trois parties.

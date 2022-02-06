@@ -33,7 +33,7 @@
     
     * Un régresseur chez :epkg:`scikit-learn`
     * Design de :epkg:`scikit-learn`
-    * :epkg:`pickle`
+    * :mod:`pickle`
     * prédicteur, transformer, cluster
     
     **Exercice : créer son propre prédicteur**

@@ -26,7 +26,7 @@
     * notion d'hyperparamètres, GridSearch
     * HalvingGridSearchCV
 
-    **Exercice : **
+    **Exercice :**
     
     Comment utiliser GridSearch, un modèle customiser
     pour faire de la sélection de variables ?

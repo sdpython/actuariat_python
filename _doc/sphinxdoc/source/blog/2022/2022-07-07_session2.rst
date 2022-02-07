@@ -38,5 +38,5 @@
     
     **Exercice : créer son propre prédicteur**
     
-    Apprendre une arbre de décision puis caler un modèle
-    linéaire pour toutes les observations associées à chaque feuille.
+    Implémentation un transformeur qui transforme les catégories
+    comme suggéré lors de la première partie.

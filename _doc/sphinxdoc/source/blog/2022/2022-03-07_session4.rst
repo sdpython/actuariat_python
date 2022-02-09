@@ -1,0 +1,26 @@
+
+.. blogpost::
+    :title: Année 2022, séance 3
+    :keywords: python
+    :date: 2022-02-08
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I**
+
+    * Exercice : Comment utiliser GridSearch, un modèle customiser
+      pour faire de la sélection de variables ?
+    * traitement de phrase, tfidf
+    * text embedding    
+
+    **Partie II : réseaux de neurones et transfer learning**
+
+    * machine learning et deep learning
+    * réseau de neurones profond
+    * utilisation de modèles de deep learning avec scikit-learn
+
+    **Partie III : webscrapping, séries temporelles**
+
+    * webscrapping, html, javascript
+    * séries temporelles

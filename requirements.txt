@@ -8,7 +8,7 @@ dask[complete]
 datashape
 jupyter
 matplotlib
-nbconvert>=6.0.7,!=6.3.0,!=6.4.0,!=6.4.1,!=6.5.0
+nbconvert>=6.0.7,!=6.3.0,!=6.4.0,!=6.4.1,!=6.4.2,!=6.5.0
 networkx
 notebook
 numba

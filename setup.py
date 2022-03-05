@@ -14,7 +14,7 @@ path = "Lib/site-packages/" + project_var_name
 readme = 'README.rst'
 history = "HISTORY.rst"
 requirements = None
-KEYWORDS = project_var_name + ', ENSAE, sqllite, database, teachings'
+KEYWORDS = [project_var_name, 'teachings', 'Xavier Dupré', 'actuariat']
 DESCRIPTION = """Helpers for teaching purposes (includes sqllite helpers)"""
 CLASSIFIERS = [
     'Programming Language :: Python :: 3',

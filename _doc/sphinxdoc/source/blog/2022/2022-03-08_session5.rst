@@ -29,13 +29,14 @@
     
     Catégorie et texte
 
-    * catégories, `dirty-cat <https://dirty-cat.github.io/stable/>`_
+    * catégories, `dirty-cat <https://dirty-cat.github.io/stable/>`_ (rappel)
     * convertir du texte libre en variable numérique, n-grammes
 
     **Partie III : séries temporelles**
 
     * traitement de phrase, tfidf
-    * text embedding    
+    * text embedding
+    * word2vec, gloves, gensim, spacy
     * séries temporelles
 
     **Projet**

@@ -17,6 +17,10 @@
       pour faire de la sélection de variables ?
     * `géolocalisation <https://www.cnil.fr/fr/definition/geolocalisation>`_
     * `geopandas <https://geopandas.org/en/stable/>`_
+    * tracer une carte,
+      `shapely <https://shapely.readthedocs.io/en/stable/manual.html>`_,
+      `folium <https://python-visualization.github.io/folium/>`_
+    * système de coordonnées
 
     **Partie II : réseaux de neurones et transfer learning**
 
@@ -26,6 +30,15 @@
     * `onnx <https://onnx.ai/>`_,
       `onnxruntime <https://onnxruntime.ai/>`_
     * utilisation de modèles de deep learning avec scikit-learn
+
+    **Partie III : éléments techniques**
+
+    * CPU, GPU
+    * double, float
+    * dense, sparse
+    * json, xml, yml
+    * encoding
+    * graphes, graphes sociaux, communautés
 
     **Exercice**
 

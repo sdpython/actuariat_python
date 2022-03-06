@@ -27,6 +27,7 @@
     **Partie III :**
 
     * ingéniérie logicielle
+    * tests unitaires
     * mise en production
     * `git <https://git-scm.com/>`_,
       `jenkins <https://www.jenkins.io/>`_,

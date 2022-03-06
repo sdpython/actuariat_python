@@ -1,0 +1,85 @@
+
+.. blogpost::
+    :title: Année 2022, séance 5
+    :keywords: python
+    :date: 2022-05-16
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I : analyse de survie**
+
+    * `analyse de survie
+      <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/c_ml/survival_analysis.html>`_
+
+    **Partie II : machine learning éthique**
+
+    * interprétabilité, `LIME <https://arxiv.org/pdf/1602.04938v1.pdf>`_,
+      `Shapeley <https://proceedings.neurips.cc/paper/2017/file/8a20a8621978632d76c43dfd28b67767-Paper.pdf>`_,
+      `Counter Factual
+      <https://christophm.github.io/interpretable-ml-book/counterfactual.html>`_,
+      `Partial Dependence
+      <https://scikit-learn.org/stable/modules/partial_dependence.html>`_
+    * biais en machine learning
+    * `machine learning éthique
+      <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/ml2a/td2a_mlplus_machine_learning_ethique.html>`_
+
+    **Partie III :**
+
+    * ingéniérie logicielle
+    * mise en production
+    * `git <https://git-scm.com/>`_,
+      `jenkins <https://www.jenkins.io/>`_,
+      `Intégration continue
+      <https://fr.wikipedia.org/wiki/Int%C3%A9gration_continue>`_
+      `pull request <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/
+      proposing-changes-to-your-work-with-pull-requests/about-pull-requests>`_,
+      notebook ou programme
+
+    **A propros des biais**
+
+    * `Calibration for the (Computationally-Identifiable) Masses
+      <https://arxiv.org/abs/1711.08513>`_
+    * `Outcome Indistinguishability
+      <https://www-cs.stanford.edu/~mpkim/pubs/OI.pdf>`_
+    * `L'équité de l'apprentissage machine en assurance
+      <https://hal.archives-ouvertes.fr/hal-03561709/document>`_
+    * `Machine Learning éthique
+      <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/ml2a/td2a_mlplus_machine_learning_ethique.html>`_
+    * `Interprétabilité des modèles
+      <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/ml2a/td2a_mlplus_interpretabilite_des_modeles.html>`_
+
+    Extraits :
+
+    * Les biais de type 1 sont liés à des classes qui ne reflèteraient pas la réalité
+      du risque, mais seraient motivés par de purs préjugés (critique qui ne remet
+      pas en question le principe du bien-fondé de la classification). Justifiée en
+      amont par le mythe d'une causalité des signes astrologiques sur les
+      accidents par exemple, une classification zodiacale se révèlerait à l'usage
+      comme « biaisée », au sens trivial où le modèle est faux ;
+    * Les biais de type 2 sont liés à des classes qui reflètent une réalité statistique
+      avérée (une corrélation avec le risque, donc un modèle exact) mais non
+      causale, ce qui rend leur usage suspect d'un parti-pris et d'un choix
+      arbitraire. C'est le cas par exemple du paramètre homme/femme. Là aussi
+      on admet le bien-fondé d'une classification qui s'appuierait uniquement sur
+      des variables causales, mais la corrélation seule ne donne pas lieu à une
+      explication acceptable ;
+    * Les biais de types 3 sont liés à des classes qui reflètent une réalité statistique
+      et causale, mais qui est elle-même le fait de discriminations sociales en
+      amont. Dans ce cas, le modèle est exact mais la classification est
+      intrinsèquement nuisible car elle reproduit et ancre dans la réalité une
+      situation contre laquelle il faut lutter.
+
+    A propos du biais de type 1, il apparaît également lorsqu'une nomenclature
+    n'évolue pas et ne reflète plus les données d'aujourd'hui.
+    L'indice des prix est une statistique dont le sens ne change pas mais dont la
+    pondération change :
+    `Pour comprendre l'indice des prix
+    <https://www.insee.fr/fr/metadonnees/source/fichier/Indice_des_prix.pdf>`_.
+
+    *Machine Learning privé*
+
+    * `Calibrating Noise to Sensitivity in Private Data Analysis
+      <https://iacr.org/archive/tcc2006/38760266/38760266.pdf>`_
+    * `The Algorithmic Foundations of Differential Privacy
+      <https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf>`_

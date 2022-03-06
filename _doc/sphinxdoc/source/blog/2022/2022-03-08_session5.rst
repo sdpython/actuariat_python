@@ -1,0 +1,50 @@
+
+.. blogpost::
+    :title: Année 2022, séance 5
+    :keywords: python
+    :date: 2022-03-08
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I**
+
+    On veut créer une classe d'arbre de décision qui fonctionne
+    comme un arbre de décision mais génère une erreur si la distribution
+    des feuilles prédites s'éloigne de celle observée durant
+    l'apprentissage.
+
+    * webscrapping, html, javascript
+
+    **Partie II : données massives, variables textuelles**
+    
+    Que faire quand les données sont énormes et qu'on n'a pas de cluster ?
+
+    * `pandas <https://pandas.pydata.org/>`_
+    * `sqlite3 <https://docs.python.org/3/library/sqlite3.html>`_
+    * `streaming <https://fr.wikipedia.org/wiki/Streaming>`_
+    * `streaming machine learning
+      <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/ml2a/td2a_talgo_streaming_ml.html>`_
+    * `river <https://github.com/online-ml/river>`_
+    
+    Catégorie et texte
+
+    * catégories, `dirty-cat <https://dirty-cat.github.io/stable/>`_
+    * convertir du texte libre en variable numérique, n-grammes
+
+    **Partie III : séries temporelles**
+
+    * traitement de phrase, tfidf
+    * text embedding    
+    * séries temporelles
+
+    **Projet**
+    
+    * Mois d'avril
+    * Projet
+    * Modalités précisées en fin de mois
+
+    **Exercice**
+
+    Trouver les adresses identiques après la fusion de deux
+    bases de données. Comment utiliser du machine learning ?

@@ -1,26 +1,36 @@
 
 .. blogpost::
-    :title: Année 2022, séance 3
+    :title: Année 2022, séance 4
     :keywords: python
-    :date: 2022-02-08
+    :date: 2022-03-07
     :categories: plan
 
     Séance découpée en trois parties.
 
     **Partie I**
 
-    * Exercice : Comment utiliser GridSearch, un modèle customiser
+    * Exercice : Comment utiliser
+      `GridSearch
+      <https://scikit-learn.org/stable/modules/
+      generated/sklearn.model_selection.GridSearchCV.html>`_,
+      un modèle customisé
       pour faire de la sélection de variables ?
-    * traitement de phrase, tfidf
-    * text embedding    
+    * `géolocalisation <https://www.cnil.fr/fr/definition/geolocalisation>`_
+    * `geopandas <https://geopandas.org/en/stable/>`_
 
     **Partie II : réseaux de neurones et transfer learning**
 
-    * machine learning et deep learning
-    * réseau de neurones profond
+    * machine learning et
+      `deep learning <https://fr.wikipedia.org/wiki/Apprentissage_profond>`_
+    * réseau de neurones profond, `pytorch <https://pytorch.org/>`_
+    * `onnx <https://onnx.ai/>`_,
+      `onnxruntime <https://onnxruntime.ai/>`_
     * utilisation de modèles de deep learning avec scikit-learn
 
-    **Partie III : webscrapping, séries temporelles**
+    **Exercice**
 
-    * webscrapping, html, javascript
-    * séries temporelles
+    On veut créer une classe d'arbre de décision qui fonctionne
+    comme un arbre de décision mais génère une erreur si la distribution
+    des feuilles prédites s'éloigne de celle observée durant
+    l'apprentissage.
+

@@ -26,7 +26,5 @@
 
     **Exercice :**
     
-    Comment utiliser GridSearch, un modèle customiser
+    Comment utiliser GridSearch, un modèle customisé
     pour faire de la sélection de variables ?
-
-    

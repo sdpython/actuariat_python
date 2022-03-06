@@ -8,23 +8,23 @@
     Séance découpée en trois parties.
 
     **Partie I : exercice de la veille**
-    
+
     * Implémentation un transformeur qui transforme les catégories
       comme suggéré lors de la première partie.
     * Description de l'API scikit-learn
 
     **Partie II : réseaux de neurones et transfer learning**
-    
+
     * notion d'hyperparamètres, GridSearch, ColumnTransformer
     * `Courbes ROC
       <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/c_metric/roc.html>`_
-    
+
     **Partie III : preprocessing plus classique**
-    
+
     * traitement des catégories
     * valeurs manquantes
 
     **Exercice :**
-    
+
     Comment utiliser GridSearch, un modèle customisé
     pour faire de la sélection de variables ?

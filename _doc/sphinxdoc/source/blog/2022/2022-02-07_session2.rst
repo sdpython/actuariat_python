@@ -20,23 +20,23 @@
     ``['comptabilité', 'datascience', 'data science',
     'pilote', 'pilotage', 'auteur', 'autrice', ...]``.
     Que peut-on faire pour nettoyer cette variable ?
-    
+
     Voir aussi `dirty-cat <https://dirty-cat.github.io/stable/>`_.
 
     **Partie II : classes**
-    
+
     * `C'est obligé les classes ? <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/blog/2018/2018-03-31_classesfonctions.html>`_
     * `Classes <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_classes/index.html>`_
     * Créer une classe qui code du texte
 
     **Partie III : scikit-learn**
-    
+
     * Un régresseur chez :epkg:`scikit-learn`
     * Design de :epkg:`scikit-learn`
     * :mod:`pickle`
     * prédicteur, transformer, cluster
-    
+
     **Exercice : créer son propre prédicteur**
-    
+
     Implémentation un transformeur qui transforme les catégories
     comme suggéré lors de la première partie.

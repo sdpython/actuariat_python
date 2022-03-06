@@ -17,7 +17,7 @@
     * webscrapping, html, javascript
 
     **Partie II : données massives, variables textuelles**
-    
+
     Que faire quand les données sont énormes et qu'on n'a pas de cluster ?
 
     * `pandas <https://pandas.pydata.org/>`_
@@ -26,7 +26,7 @@
     * `streaming machine learning
       <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/ml2a/td2a_talgo_streaming_ml.html>`_
     * `river <https://github.com/online-ml/river>`_
-    
+
     Catégorie et texte
 
     * catégories, `dirty-cat <https://dirty-cat.github.io/stable/>`_ (rappel)
@@ -40,7 +40,7 @@
     * séries temporelles
 
     **Projet**
-    
+
     * Mois d'avril
     * Projet
     * Modalités précisées en fin de mois

@@ -46,4 +46,3 @@
     comme un arbre de décision mais génère une erreur si la distribution
     des feuilles prédites s'éloigne de celle observée durant
     l'apprentissage.
-

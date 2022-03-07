@@ -22,24 +22,6 @@
       `folium <https://python-visualization.github.io/folium/>`_
     * système de coordonnées
 
-    **Partie II : réseaux de neurones et transfer learning**
-
-    * machine learning et
-      `deep learning <https://fr.wikipedia.org/wiki/Apprentissage_profond>`_
-    * réseau de neurones profond, `pytorch <https://pytorch.org/>`_
-    * `onnx <https://onnx.ai/>`_,
-      `onnxruntime <https://onnxruntime.ai/>`_
-    * utilisation de modèles de deep learning avec scikit-learn
-
-    **Partie III : éléments techniques**
-
-    * CPU, GPU
-    * double, float
-    * dense, sparse
-    * json, xml, yml
-    * encoding
-    * graphes, graphes sociaux, communautés
-
     **Exercice**
 
     On veut créer une classe d'arbre de décision qui fonctionne

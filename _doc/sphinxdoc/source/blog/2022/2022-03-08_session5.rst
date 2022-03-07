@@ -7,16 +7,33 @@
 
     Séance découpée en trois parties.
 
-    **Partie I**
+    **Exercice**
 
     On veut créer une classe d'arbre de décision qui fonctionne
     comme un arbre de décision mais génère une erreur si la distribution
     des feuilles prédites s'éloigne de celle observée durant
     l'apprentissage.
 
-    * webscrapping, html, javascript
 
-    **Partie II : données massives, variables textuelles**
+    **Partie I : réseaux de neurones et transfer learning**
+
+    * machine learning et
+      `deep learning <https://fr.wikipedia.org/wiki/Apprentissage_profond>`_
+    * réseau de neurones profond, `pytorch <https://pytorch.org/>`_
+    * `onnx <https://onnx.ai/>`_,
+      `onnxruntime <https://onnxruntime.ai/>`_
+    * utilisation de modèles de deep learning avec scikit-learn
+
+    Quelques éléments techniques.
+
+    * CPU, GPU
+    * double, float
+    * dense, sparse
+    * json, xml, yml
+    * encoding
+    * graphes, graphes sociaux, communautés
+
+    **Partie II : données massives**
 
     Que faire quand les données sont énormes et qu'on n'a pas de cluster ?
 
@@ -27,12 +44,13 @@
       <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/ml2a/td2a_talgo_streaming_ml.html>`_
     * `river <https://github.com/online-ml/river>`_
 
+    **Partie III : variables textuelles**
+
     Catégorie et texte
 
+    * webscrapping, html, javascript
     * catégories, `dirty-cat <https://dirty-cat.github.io/stable/>`_ (rappel)
     * convertir du texte libre en variable numérique, n-grammes
-
-    **Partie III : séries temporelles**
 
     * traitement de phrase, tfidf
     * text embedding
@@ -41,8 +59,7 @@
 
     **Projet**
 
-    * Mois d'avril
-    * Projet
+    * Mois d'avril (début 28/3, rendu 15/5, note 30/6)
     * Modalités précisées en fin de mois
 
     **Exercice**

@@ -1,6 +1,6 @@
 
 .. blogpost::
-    :title: Année 2022, séance 5
+    :title: Année 2022, séance 6
     :keywords: python
     :date: 2022-05-16
     :categories: plan

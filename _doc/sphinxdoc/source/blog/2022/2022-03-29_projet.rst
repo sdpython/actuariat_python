@@ -1,0 +1,21 @@
+
+.. blogpost::
+    :title: Année 2022, projet
+    :keywords: python
+    :date: 2022-03-29
+    :categories: projet
+
+Projet : caler un modèle prédictif
+
+* Le choix des données est libre. Il faut néanmoins que la base de données
+  soit suffisante, plus de 1000 observations, plus de 20 variables.
+* Le modèle prédictif devra être implémenté sous la forme d'un seul
+  pipeline scikit-learn, depuis les données brutes jusqu'à la prédiction.
+* Il faudra construire le modèle utilisant le moins de variables possibles,
+  via un processus de sélection de variables et expliquer pourquoi avoir
+  choisi ce jeu de variables.
+* Il faudra comparer sur quelques observations les différences entre
+  le modèle utilisant toutes les variables et le modèle
+  utilisant une partie seulement (analyse d'erreur).
+* Le projet pourra être rendu sous la forme d'un notebook ou
+  d'un programme accompagné d'un rapport avec les résultats.

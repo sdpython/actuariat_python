@@ -24,7 +24,7 @@ pybind11
 pycodestyle
 pycryptodomex
 pygame
-pylint
+pylint>=2.14.0
 pymmails
 pymyinstall
 pyquickhelper

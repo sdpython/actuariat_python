@@ -51,7 +51,7 @@ pydata_sphinx_theme
 pyensae>=1.2.788
 pygal
 pygal_maps_fr
-pylint
+pylint>=2.14.0
 pylzma
 pymmails
 pyquickhelper>=1.10

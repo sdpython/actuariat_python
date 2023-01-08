@@ -1,0 +1,171 @@
+
+.. blogpost::
+    :title: Année 2023, séance 1
+    :keywords: python
+    :date: 2023-01-10
+    :categories: plan
+
+    Séance découpée en quatre parties.
+
+    **Partie I : installation et premier pas**
+
+    Installation
+
+    * Choix d'une version : 3.8, 3.9, 3.10, (3.11 est sortie trop récemment)
+    * Solution simple : `Anaconda <https://www.anaconda.com/products/individual>`_
+    * `Python <https://www.python.org/>`_
+
+    Système de Packages
+
+    * `Anaconda repo <https://anaconda.org/anaconda/repo>`_
+    * `PyPI <https://pypi.org/>`_
+
+    Les packages à avoir pour faire de la datascience
+
+    * :epkg:`numpy`, :epkg:`scipy` : calcul matriciel
+    * :epkg:`pandas` : tables de données
+    * :epkg:`matplotlib` : calcul matriciel
+    * :epkg:`jupyter` : notebooks ou `spyder <https://www.spyder-ide.org/>`_
+    * :epkg:`scikit-learn` : machine learning
+    * :epkg:`statsmodels` : série temporelle
+
+    Installer un package
+
+    * avec `conda <https://docs.conda.io/en/latest/>`_
+    * avec `pip <https://pip.pypa.io/en/stable/>`_
+
+    Package pure python ?
+
+    * Les librairies de calculs incluent souvent du code C++.
+      Qu'est-ce que cela implique ?
+
+    Un peu plus sur les notebooks
+
+    * `Notebook Jupyter <https://docs.jupyter.org/en/latest/start/index.html>`_
+
+    `Les premiers pas <http://www.xavierdupre.fr/app/teachpyx/helpsphinx/c_resume/index.html>`_
+
+    * fonction ``print``
+    * variables : int, float, str, tuple, list, set, dict
+    * boucle : for, while
+    * tests : if, else (voir aussi `PEP 636 -- Structural Pattern Matching: Tutorial
+      <https://www.python.org/dev/peps/pep-0636/>`_)
+
+    Que fait le programme suivant ?
+
+    .. runpython::
+        :showcode:
+        :toggle: out
+
+        res = [[1]]
+        for i in range(1, 10):
+            row = [1]
+            for j in range(1, i):
+                n = sum(res[-1][j-1: j+1])
+                row.append(n)
+            row.append(1)
+            res.append(row)
+
+        import pprint
+        pprint.pprint(res)
+
+    Installation d'un package...
+    
+    Essayez avec `GDAL <https://pypi.org/project/GDAL/>`_
+    avec `pip <https://pypi.org/project/GDAL/>`_
+    ou `conda <https://anaconda.org/conda-forge/gdal>`_.
+
+    **Partie II : fonction, notion de coût**
+
+    Les fonctions
+
+    * fonctions : def
+
+    .. runpython::
+        :showcode:
+        :toggle: out
+
+        import cProfile
+
+        nombres = [9, 7, 5, 4, 6, 7, 3, 1, 7, 8]
+
+        def moyenne(ens):
+            return sum(ens) / len(ens)
+
+        def ecarttype(ens):
+            var = [(n - moyenne(ens)) ** 2 for n in ens]
+            return (sum(var) / len(var)) ** 0.5
+
+        print(moyenne(nombres))
+        print(ecarttype(nombres))
+
+        with cProfile.Profile() as pr:
+            for n in range(100000):
+                ecarttype(nombres)
+
+        pr.print_stats()
+
+    * coût d'un algorithme
+    * notation ``with``
+
+    **Exercice :** calculer le nombre de caractères
+    différents entre deux chaînes de caractères :
+
+    * chaînes de même longueur ou,
+    * chaînes de longueur différentes (voir
+      `distance de Levenshtein
+      <https://fr.wikipedia.org/wiki/Distance_de_Levenshtein>`_
+      ou,
+    * chaînes de longueur différentes donnant moins de poids
+      à une confusion entre `mm` et `mn`.
+
+    **Partie III : dictionnaires**
+
+    Tout d'abord une source d'erreurs fréquentes :
+
+    .. runpython::
+        :showcode:
+        :toggle: out
+
+        def bizarre(ensemble):
+            # premier zero
+            ensemble.append(0)
+            for i in range(len(ensemble)):
+                if ensemble[i] == 0:
+                    return i
+
+        res = [1, 4, 5]
+        print("bizarre=", bizarre(res))
+        print("res=", res)
+
+    Dictionnaires
+
+    * on ne peut plus s'en passer
+    * dictionnaires : compter les éléments
+    * `Python, constructions classiques
+      <http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx3/i_examples_classiques.html>`_
+
+    **Exercice :** compter les paires de lettres consécutives dans un texte.
+
+    **Partie IV : dictionnaires**
+
+    * fichiers
+    * expressions régulières
+
+    **Exercice pour la prochaine fois**
+
+    * installer un package
+    * mettre à jour un package
+    * réfléchir au problème suivant
+
+    Un base de données contient une variable catégorielle.
+    Malheureusement, elle est renseignée de façon
+    imparfaite car elle contient des erreurs de syntaxe.
+    Exemple :
+
+    ::
+
+        ['comptabilité', 'datascience', 'data science',
+         'pilote', 'pilotage', 'auteur', 'autrice', ...]
+
+    Que peut-on faire pour nettoyer cette variable ?

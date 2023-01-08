@@ -1,0 +1,28 @@
+
+.. blogpost::
+    :title: Année 2023, plan
+    :keywords: python
+    :date: 2023-01-08
+    :categories: plan
+
+    #. **Premiers pas avec python : quelques rappels du langage,
+       installation d'un package, différences entre windows et linux,
+       expressions régulières, fichiers.
+    #. **Calcul matriciel et graphes :** tour d'horizon de
+       :epkg:`numpy`, :epkg:`pandas`
+    #. **Graphes :** les graphes en python, :epkg:`matplolib`,
+       :epkg:`bokeh`, réalisation d'une carte.
+    #. **Tour d'horizon de scikit-learn :** concepts de transformer
+       et prédicteur, revue des modèles les plus couramment utilisés,
+       présentation de la validation croisée, et grille de recherche,
+       notion de pipe-line en machine learning.
+    #. **Ingénierie logicielle :** tests unitaires, git, pull request,
+       notebook, librairies, réalisation d'un package pour partager son code,
+       écrire une documentation. Cette partie est utile si on travaille
+       à plusieurs sur le même code.
+    #. **Notions de séries temporelles :** prédiction,
+       analyse de survie.
+    #. **Grands jeux de données :** comment travailler lorsque la mémoire
+       ne peut contenir toutes les données à traiter ou que ce traitement est trop long.
+    #. **Quelques mots de deep learning :** encoding, transfer learning
+    #. **Mise en production :** déploiement de modèles de machine learning

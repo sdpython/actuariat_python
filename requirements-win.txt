@@ -32,6 +32,7 @@ pyshp
 python-jenkins
 PyYAML
 scikit-learn
+sphinx<6
 statsmodels
 threadpoolctl
 xlrd

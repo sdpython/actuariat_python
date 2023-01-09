@@ -21,7 +21,8 @@ reportlab
 scikit-learn
 scipy
 seaborn
-Sphinx
+sphinx<6
+sphinx-gallery
 sympy
 xarray
 

@@ -14,7 +14,7 @@
     de graphe. `Orange <http://orange.biolab.si/>`_ est un outil du même type
     implémenté en Python :
 
-    .. image:: http://orange.biolab.si/static/homepage/screenshots/snp-schema-selection-evaluation.png
+    .. image:: https://orangedatamining.com/screenshots/images/calibration-plot.png
         :width: 600
 
     Ces outils sont assez

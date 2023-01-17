@@ -5,7 +5,7 @@
     :date: 2023-01-08
     :categories: plan
 
-    #. **Premiers pas avec python : quelques rappels du langage,
+    #. **Premiers pas avec python :** quelques rappels du langage,
        installation d'un package, différences entre windows et linux,
        expressions régulières, fichiers.
     #. **Calcul matriciel et graphes :** tour d'horizon de

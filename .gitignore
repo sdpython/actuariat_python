@@ -254,7 +254,7 @@ _doc/sphinxdoc/source/blog/rss.xml
 _doc/sphinxdoc/source/phdoc_templates/*toc.html
 _doc/sphinxdoc/source/phdoc_templates/*box.html
 _doc/sphinxdoc/source/blog/feed-icon*.png
-_doc/sphinxdoc/source/phdoc_static/reveal.js/*
+_doc/sphinxdoc/source/_static/reveal.js/*
 _doc/notebooks/.ipynb_checkpoints/*
 _doc/notebooks/*/.ipynb_checkpoints/*
 _doc/notebooks/*/demo_mlifetable*.*
@@ -332,7 +332,7 @@ _doc/notebooks/sessions/__MACOSX/toxicode_circonscriptions_legislatives/._a lire
 _doc/notebooks/sessions/toxicode_circonscriptions_legislatives/toxicode_circonscriptions_legislatives.csv
 _doc/sphinxdoc/source/gyexamples/*
 _doc/sphinxdoc/source/automation/images/thumb/*
-_doc/sphinxdoc/source/phdoc_static/style_notebook_snippet.css
+_doc/sphinxdoc/source/_static/style_notebook_snippet.css
 _doc/sphinxdoc/source/automation/*
 _doc/competitions/2017_IA_hackathon/competition/data_cresus/tbl_*.txt
 _doc/competitions/2017_IA_hackathon/competition/truth.txt

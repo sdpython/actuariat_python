@@ -10,7 +10,7 @@
        expressions régulières, fichiers.
     #. **Calcul matriciel et graphes :** tour d'horizon de
        :epkg:`numpy`, :epkg:`pandas`
-    #. **Graphes :** les graphes en python, :epkg:`matplolib`,
+    #. **Graphes :** les graphes en python, :epkg:`matplotlib`,
        :epkg:`bokeh`, réalisation d'une carte.
     #. **Tour d'horizon de scikit-learn :** concepts de transformer
        et prédicteur, revue des modèles les plus couramment utilisés,

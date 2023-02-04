@@ -70,7 +70,7 @@
         pprint.pprint(res)
 
     Installation d'un package...
-    
+
     Essayez avec `GDAL <https://pypi.org/project/GDAL/>`_
     avec `pip <https://pypi.org/project/GDAL/>`_
     ou `conda <https://anaconda.org/conda-forge/gdal>`_.

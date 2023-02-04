@@ -14,7 +14,6 @@
     des feuilles prédites s'éloigne de celle observée durant
     l'apprentissage.
 
-
     **Partie I : réseaux de neurones et transfer learning**
 
     * machine learning et

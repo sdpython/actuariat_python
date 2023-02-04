@@ -1,0 +1,74 @@
+
+.. blogpost::
+    :title: Année 2023, séance 2
+    :keywords: python
+    :date: 2023-02-06
+    :categories: plan
+
+    Séance découpée en quatre parties.
+
+    **Partie I : exercice**
+
+    Un base de données contient une variable catégorielle.
+    Malheureusement, elle est renseignée de façon
+    imparfaite car elle contient des erreurs de syntaxe.
+    Exemple :
+
+    ::
+
+        ['comptabilité', 'datascience', 'data science',
+         'pilote', 'pilotage', 'auteur', 'autrice', ...]
+
+    Que peut-on faire pour nettoyer cette variable ?
+
+    **Partie II : pandas, graphes, gros fichiers, cartes**
+
+    * :epkg:`pandas` : tables de données
+    * enregister et restaurer des dataframe avec :epkg:`pickle`
+    * lecture d'un gros fichier
+      `Demandes de valeurs foncières
+      <https://www.data.gouv.fr/fr/datasets/5c4ae55a634f4117716d5656/>`_
+    * :epkg:`geopandas`
+
+    *fonction, notion de coût*
+
+    Les fonctions
+
+    * fonctions : def
+
+    .. runpython::
+        :showcode:
+        :toggle: out
+
+        import cProfile
+
+        nombres = [9, 7, 5, 4, 6, 7, 3, 1, 7, 8]
+
+        def moyenne(ens):
+            return sum(ens) / len(ens)
+
+        def ecarttype(ens):
+            var = [(n - moyenne(ens)) ** 2 for n in ens]
+            return (sum(var) / len(var)) ** 0.5
+
+        print(moyenne(nombres))
+        print(ecarttype(nombres))
+
+        with cProfile.Profile() as pr:
+            for n in range(100000):
+                ecarttype(nombres)
+
+        pr.print_stats()
+
+    * coût d'un algorithme
+    * notation ``with``
+
+    **Partie III : premiers pas avec scikit-learn**
+
+    Pourquoi :epkg:`scikit-learn` ?
+
+    * créer son premier modèle
+    * type de problème résolus
+    * famille de modèles
+    * transformer
+    * pipeline

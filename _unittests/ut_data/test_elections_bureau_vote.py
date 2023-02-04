@@ -54,7 +54,7 @@ class TestBureauVote(unittest.TestCase):
                 fa = reg.findall(content)
                 res += [(i, _) for _ in fa]
             if len(res) < 15:
-                raise Exception(content0)
+                raise AssertionError(content0)
             fLOG("data", os.path.split(data)[-1], len(res))
 
 

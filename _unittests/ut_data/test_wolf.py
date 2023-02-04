@@ -31,7 +31,7 @@ class TestWolf(unittest.TestCase):
             if not os.path.exists(o):
                 raise FileNotFoundError(o)
         if os.stat(outfile[0]).st_size < 2000:
-            raise Exception("small size")
+            raise AssertionError("small size")
 
     def test_enumerate_wolf_xml_row(self):
         fLOG(

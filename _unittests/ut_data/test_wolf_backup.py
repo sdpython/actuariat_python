@@ -27,7 +27,7 @@ class TestWolfBackup(unittest.TestCase):
         outfile = [os.path.join(temp, _) for _ in os.listdir(temp)]
         self.assertTrue(len(outfile) != 0)
         if os.stat(outfile[0]).st_size < 1000000:
-            raise Exception("small size")
+            raise AssertionError("small size")
 
 
 if __name__ == "__main__":

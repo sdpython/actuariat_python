@@ -131,7 +131,7 @@ def elections_legislatives_bureau_vote(source=None, folder=".", fLOG=noLOG):
             with urllib.request.urlopen("http://www.nosdonnees.fr/") as f:
                 url = "http://www.nosdonnees.fr/storage/f/2013-03-05T184148/"
                 if f is None:
-                    raise Exception(
+                    raise RuntimeError(
                         "Not sure we can continue. Pretty sure we should stop.")
         except (urllib.error.HTTPError, RemoteDisconnected):  # pragma: no cover
             url = "xd"

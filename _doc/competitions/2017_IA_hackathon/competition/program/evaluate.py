@@ -269,6 +269,6 @@ def main_codalab_wrapper_multi_classification(fct, variables_name, argv, truth_f
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        raise Exception("bad arguments: {0}".format(sys.argv))
+        raise ValueError("bad arguments: {0}".format(sys.argv))
     main_codalab_wrapper_multi_classification(
         AUC_multi_multi, ["orientation"], sys.argv)

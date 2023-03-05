@@ -1,0 +1,29 @@
+
+.. blogpost::
+    :title: Année 2023, séance 4
+    :keywords: python
+    :date: 2023-03-07
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I : exercices**
+
+    * Retour sur les exercices en fin de session,
+      :ref:`seance6marsrst`
+    * Comment travailler avec un grand jeu de données qui ne tient
+      pas en mémoire
+
+    **Partie II : modèle customiser**
+
+    Les données nécessite un prétraitement spécifiques impossible
+    à trouver dans une librairie. Il faut le coder soi-même de sorte
+    qu'il puisse s'insérer dans un pipeline ?
+
+    **Partie II : ingénierie logicielle**
+
+    * enregister, restorer un modèle de machine learning
+    * notion d'ingéniérie logicielle (git, github,
+      pull request, review, intégration continue)
+    * partager son travail, package, documentation
+    * mise en production docker, onnx

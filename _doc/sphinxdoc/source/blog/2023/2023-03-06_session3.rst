@@ -1,0 +1,73 @@
+
+.. blogpost::
+    :title: Année 2023, séance 3
+    :keywords: python
+    :date: 2023-03-06
+    :categories: plan
+
+    Séance découpée en trois parties.
+
+    **Partie I : exercices**
+
+    Retour sur les exercices en fin de session :
+    :ref:`seance6fevrierrst`.
+
+    *fonction, notion de coût*
+
+    * fonctions : def
+
+    .. runpython::
+        :showcode:
+        :toggle: out
+
+        import cProfile
+
+        nombres = [9, 7, 5, 4, 6, 7, 3, 1, 7, 8]
+
+        def moyenne(ens):
+            return sum(ens) / len(ens)
+
+        def ecarttype(ens):
+            var = [(n - moyenne(ens)) ** 2 for n in ens]
+            return (sum(var) / len(var)) ** 0.5
+
+        print(moyenne(nombres))
+        print(ecarttype(nombres))
+
+        with cProfile.Profile() as pr:
+            for n in range(100000):
+                ecarttype(nombres)
+
+        pr.print_stats()
+
+    * coût d'un algorithme
+    * notation ``with``
+
+    **Partie II : scikit-learn**
+
+    Quelques rappels :
+
+    * créer son premier modèle, type de problème résolus,
+      famille de modèles, transformer, pipeline
+    * Régression, classification, clustering, réduction de dimensions
+
+    Autres modèles :
+
+    * Modèles moins classiques : ranking, (voir
+      `Ranking et search engine
+      <http://www.xavierdupre.fr/app/papierstat/helpsphinx/notebooks/search_rank.html>`_),
+      système de recommandations,
+      `factorisation de matrices
+      <https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>`_
+    * valeurs manquantes
+    * Méthodes ensembliste ou à base de gradient
+
+    **Partie III : prétraitement**
+
+    * variables numériques, faut-il normaliser ou non ?
+    * que faire des variables textuelles ?, catégories, texte libre
+    * `dirty-cat <https://dirty-cat.github.io/stable/>`_
+    * deep learning, embeddings, transfer learning
+    * `pytorch <https://pytorch.org/>`_
+
+    **Exercices**

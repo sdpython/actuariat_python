@@ -20,7 +20,7 @@
     à trouver dans une librairie. Il faut le coder soi-même de sorte
     qu'il puisse s'insérer dans un pipeline ?
 
-    **Partie II : ingénierie logicielle**
+    **Partie III : ingénierie logicielle**
 
     * enregister, restorer un modèle de machine learning
     * notion d'ingéniérie logicielle (git, github,

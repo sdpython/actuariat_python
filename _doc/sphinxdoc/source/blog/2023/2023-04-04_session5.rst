@@ -1,0 +1,34 @@
+
+.. blogpost::
+    :title: Année 2023, séance 5
+    :keywords: python
+    :date: 2023-04-04
+    :categories: plan
+
+    **Partie I : quelques rappels sur scikit-learn**
+
+    * API scikit-learn
+    * `NFM <https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>`_
+    * vieillissement des modèles
+    * `analyse de survie
+      <http://www.xavierdupre.fr/app/mlstatpy/helpsphinx/c_ml/survival_analysis.html>`_
+    * séries temporelles
+    * `cartes
+      <http://www.xavierdupre.fr/app/papierstat/helpsphinx/notebooks/enedis_cartes.html>`_
+    * sélection de variables
+    * interprétation
+    * machine learning éthique
+
+    **Partie II : ingénierie logicielle**
+
+    * notion d'ingéniérie logicielle (git, github,
+      pull request, review, intégration continue)
+    * partager son travail, package, documentation
+    * mise en production docker, onnx
+
+    **Partie III : transfer learning**
+
+    * `Zoo de modèles <https://pytorch.org/serve/model_zoo.html>`_
+    * `torch <https://pytorch.org/>`_ ou `tensorflow <https://www.tensorflow.org/?hl=fr>`_
+    * `ChatGPT <https://openai.com/blog/chatgpt>`_
+    *  `GAN <https://en.wikipedia.org/wiki/Generative_adversarial_network>`_

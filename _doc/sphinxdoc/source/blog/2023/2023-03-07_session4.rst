@@ -14,7 +14,7 @@
     * Comment travailler avec un grand jeu de données qui ne tient
       pas en mémoire
 
-    **Partie II : modèle customiser**
+    **Partie II : modèle customisé**
 
     Les données nécessite un prétraitement spécifiques impossible
     à trouver dans une librairie. Il faut le coder soi-même de sorte

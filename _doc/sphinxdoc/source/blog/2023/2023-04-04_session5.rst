@@ -32,3 +32,24 @@
     * `torch <https://pytorch.org/>`_ ou `tensorflow <https://www.tensorflow.org/?hl=fr>`_
     * `ChatGPT <https://openai.com/blog/chatgpt>`_
     *  `GAN <https://en.wikipedia.org/wiki/Generative_adversarial_network>`_
+
+    Carte de connaissances
+
+    +=====================+================================+=====================+==================================+============================+
+    | langage             | variables/test/boucles         | liste/dictionnaires | fonctions                        | itérateurs                 |
+    +=====================+================================+=====================+==================================+============================+
+    | programmation objet | classes                        | constructeur        | opérateurs                       | héritages                  |
+    | IO                  | lecture / écriture de fichiers | json                | pickle                           | stream                     |
+    | interface graphique | boutons                        | souris              | événements                       | réactivité                 |
+    | web                 | html                           | api rest            | synchronisation                  | web scrapping              |
+    | DataFrame           | lecture/écriture               | groupby/merge       | graphes                          | streaming                  |
+    | scikit-learn        | fit/predict                    | pipeline            | modèle customisé                 | séries temporelles         |
+    | machine learning    | réduction de dimension         | clustering          | régressor / classifieur          | ranking / NMF / …          |
+    | deep learning       | réseaux de neurones            | transfert learning  | RNN / modèle de langages         | torch                      |
+    | génie logiciel      | test unitaire                  | git / pull request  | intégration continue             | style (pep8, black, ruff)  |
+    | mise en production  | docker / onnx                  | benchmark           | pipeline de données              | mise à jour                |
+    | algorithmes         | dichotomie                     | tri                 | plus court chemin dans un graphe | TSP                        |
+    | partage             | création d'un package python   | documentation       | design                           | support                    |
+    | performance         | C/C++                          | cmake               | parallélisation                  | GPU                        |
+    | expérience          | 1000 lignes de code            | 5000 lignes de code | 50000 mille lignes de code       | Impossible de compter      |
+    +=====================+================================+=====================+==================================+============================+
